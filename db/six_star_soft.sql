@@ -68,12 +68,12 @@ CREATE TABLE IF NOT EXISTS `tbl_account` (
 --
 
 INSERT INTO `tbl_account` (`Acc_SlNo`, `Acc_Code`, `Acc_Name`, `Acc_Type`, `Acc_Description`, `Status`, `AddBy`, `AddTime`, `UpdateBy`, `UpdateTime`) VALUES
-(1, 'A1001', 'payments', 'Official', 'pay', '', 'Jing You Electronics', '2017-03-09 12:17:58', NULL, NULL),
-(2, 'A1002', 'Other', 'Official', 'Other', '', 'Jing You Electronics', '2017-03-09 12:18:13', NULL, NULL),
-(3, 'A1003', 'Paper Bill', 'Official', 'Paper bill', '', 'Jing You Electronics', '2017-03-09 12:18:29', NULL, NULL),
-(4, 'A1004', 'DBBL ', 'Official', 'DBBL ', '', 'Jing You Electronics', '2017-03-09 12:18:53', NULL, NULL),
-(5, 'A1005', 'UCB', 'Official', 'UCB', '', 'Jing You Electronics', '2017-03-09 12:19:24', NULL, NULL),
-(6, 'A1006', 'Islami Bank', 'Official', 'Islami Bank', '', 'Jing You Electronics', '2017-03-09 12:19:43', NULL, NULL),
+(1, 'A1001', 'payments', 'Official', 'pay', '', 'Six Star Electronics & Furniture', '2017-03-09 12:17:58', NULL, NULL),
+(2, 'A1002', 'Other', 'Official', 'Other', '', 'Six Star Electronics & Furniture', '2017-03-09 12:18:13', NULL, NULL),
+(3, 'A1003', 'Paper Bill', 'Official', 'Paper bill', '', 'Six Star Electronics & Furniture', '2017-03-09 12:18:29', NULL, NULL),
+(4, 'A1004', 'DBBL ', 'Official', 'DBBL ', '', 'Six Star Electronics & Furniture', '2017-03-09 12:18:53', NULL, NULL),
+(5, 'A1005', 'UCB', 'Official', 'UCB', '', 'Six Star Electronics & Furniture', '2017-03-09 12:19:24', NULL, NULL),
+(6, 'A1006', 'Islami Bank', 'Official', 'Islami Bank', '', 'Six Star Electronics & Furniture', '2017-03-09 12:19:43', NULL, NULL),
 (7, 'A1007', 'IOU', 'Official', '', '', 'Six Star Electronics ', '2017-04-27 01:43:22', NULL, NULL);
 
 -- --------------------------------------------------------
@@ -194,10 +194,10 @@ CREATE TABLE IF NOT EXISTS `tbl_cashtransaction` (
 --
 
 INSERT INTO `tbl_cashtransaction` (`Tr_SlNo`, `Tr_Id`, `Tr_date`, `Tr_Type`, `Tr_account_Type`, `Supplier_SlID`, `Customer_SlID`, `Acc_SlID`, `Acc_Code`, `Tr_Description`, `In_Amount`, `Out_Amount`, `Status`, `AddBy`, `AddTime`, `UpdateBy`, `UpdateTime`, `Tr_branchid`) VALUES
-(2, 'T1002', '2017-03-09', 'Cash Receive', 'Official', 0, 0, 2, NULL, 'sdfdsf', '3000', '0', '', 'Jing You Electronics', '2017-03-09 12:20:26', NULL, NULL, 1),
-(3, 'T1003', '2017-03-09', 'Deposit To Bank', 'Official', 0, 0, 4, NULL, 'rewr', '5000', '0', '', 'Jing You Electronics', '2017-03-09 12:20:41', NULL, NULL, 1),
-(4, 'T1004', '2017-03-09', 'Withdraw Form Bank', 'Official', 0, 0, 4, NULL, 'dsfgfg', '0', '2000', '', 'Jing You Electronics', '2017-03-09 12:20:58', NULL, NULL, 1),
-(5, 'T1005', '2017-03-09', 'Cash Payment', 'Official', 0, 0, 3, NULL, 'dsf', '0', '300', '', 'Jing You Electronics', '2017-03-09 12:21:12', NULL, NULL, 1),
+(2, 'T1002', '2017-03-09', 'Cash Receive', 'Official', 0, 0, 2, NULL, 'sdfdsf', '3000', '0', '', 'Six Star Electronics & Furniture', '2017-03-09 12:20:26', NULL, NULL, 1),
+(3, 'T1003', '2017-03-09', 'Deposit To Bank', 'Official', 0, 0, 4, NULL, 'rewr', '5000', '0', '', 'Six Star Electronics & Furniture', '2017-03-09 12:20:41', NULL, NULL, 1),
+(4, 'T1004', '2017-03-09', 'Withdraw Form Bank', 'Official', 0, 0, 4, NULL, 'dsfgfg', '0', '2000', '', 'Six Star Electronics & Furniture', '2017-03-09 12:20:58', NULL, NULL, 1),
+(5, 'T1005', '2017-03-09', 'Cash Payment', 'Official', 0, 0, 3, NULL, 'dsf', '0', '300', '', 'Six Star Electronics & Furniture', '2017-03-09 12:21:12', NULL, NULL, 1),
 (6, 'T1006', '2017-04-30', 'Cash Receive', 'Official', 0, 0, 2, NULL, 'Aminul islam', '500000', '0', '', 'Six Star Electronics ', '2017-04-30 12:16:05', NULL, NULL, 1),
 (7, 'T1007', '2017-05-21', 'Cash Payment', 'Official', 0, 0, 7, NULL, 'Akter', '0', '1000', '', 'Six Star Electronics ', '2017-05-21 11:07:10', 'Six Star Electronics ', '2017-05-21 11:08:29', 1);
 
@@ -305,14 +305,14 @@ INSERT INTO `tbl_customer` (`Customer_SlNo`, `Customer_Code`, `Customer_Name`, `
 (2, 'C1002', 'Balal Khan', 'Local', '', '24234', '', '', 'Kulna', '', '', '', '', 0, 6, '', '', '', '234', 'c', 'Ashiqe ', '2016-04-18 11:07:59', NULL, NULL, 3, ''),
 (3, 'C1003', 'Ashiqe Ahammed', 'Local', '', '01726179589', '', '', 'Dhaka', '', '', '', '', 0, 6, '', '', '', '0', 'c', 'shahbag', '2016-04-20 04:45:08', NULL, NULL, 2, ''),
 (4, 'C1004', 'Mahum Hossain', 'Local', '', '01755711488', '', '', '175 Dhaka Bangladesh', '', '', '', '', 0, 6, '', '', '', '100000', 'c', 'Bell Bangladesh', '2016-04-29 04:50:47', NULL, NULL, 1, ''),
-(10, 'C1006', 'testcs', 'undefined', '1717426371', '456456', 'tesewt34@gmail.com', '4646', 'sdfs', '', '', '', '', 0, 6, 'cbcvbvcb', 'web_theme.docx', '', '40000000', 'c', 'Jing You Electronics', '2017-03-12 09:03:58', 'Jing You Electronics', '2017-03-12 09:03:58', 1, ''),
-(11, 'C1007', 'Hanif', 'undefined', '01977444865', '01977444865', '', '', 'baipail, Dhaka\n', '', '', '', '', 0, 6, '', 'Chrysanthemum.jpg', '', '0', 'c', 'Jing You Electronics', '2017-03-16 11:16:49', NULL, NULL, 1, ''),
-(12, 'C1008', 'Shamoli', 'undefined', '01917583939', '01687642410', '', '', 'Dhaka', '', '', '', '', 0, 6, '', 'Hydrangeas.jpg', '', '0', 'c', 'Jing You Electronics', '2017-03-16 02:58:34', NULL, NULL, 1, ''),
-(13, 'C1008', 'Shamoli', 'undefined', '01917583939', '01687642410', '', '', 'Dhaka', '', '', '', '', 0, 6, '', 'Hydrangeas1.jpg', '', '0', 'c', 'Jing You Electronics', '2017-03-16 02:58:39', NULL, NULL, 1, ''),
-(14, 'C1009', 'Jolil ', 'undefined', '01915735805', '01687642410', '', '', 'Dhaka', '', '', '', '', 0, 6, '', 'Koala.jpg', '', '0', 'c', 'Jing You Electronics', '2017-03-16 06:45:07', NULL, NULL, 1, ''),
-(16, 'C1010', 'জামিল হাসান', 'undefined', '', '012547', '', '', 'বাইপাইল', '', '', '', '', 0, 6, '', '', '', '0', 'c', 'Jing You Electronics', '2017-04-12 01:51:32', NULL, NULL, 1, ''),
-(17, 'C1011', 'আবুল কাশেম', 'undefined', '', '458', '', '', 'হপলুন', '', '', '', '', 0, 6, '', '', '', '0', 'c', 'Jing You Electronics', '2017-04-12 01:52:32', NULL, NULL, 1, ''),
-(18, 'C1012', 'হাবিবুর রহমান', 'undefined', '', '789', '', '', 'ইপিজেড', '', '', '', '', 0, 6, '', '', '', '0', 'c', 'Jing You Electronics', '2017-04-12 01:53:21', NULL, NULL, 1, ''),
+(10, 'C1006', 'testcs', 'undefined', '1717426371', '456456', 'tesewt34@gmail.com', '4646', 'sdfs', '', '', '', '', 0, 6, 'cbcvbvcb', 'web_theme.docx', '', '40000000', 'c', 'Six Star Electronics & Furniture', '2017-03-12 09:03:58', 'Six Star Electronics & Furniture', '2017-03-12 09:03:58', 1, ''),
+(11, 'C1007', 'Hanif', 'undefined', '01977444865', '01977444865', '', '', 'baipail, Dhaka\n', '', '', '', '', 0, 6, '', 'Chrysanthemum.jpg', '', '0', 'c', 'Six Star Electronics & Furniture', '2017-03-16 11:16:49', NULL, NULL, 1, ''),
+(12, 'C1008', 'Shamoli', 'undefined', '01917583939', '01687642410', '', '', 'Dhaka', '', '', '', '', 0, 6, '', 'Hydrangeas.jpg', '', '0', 'c', 'Six Star Electronics & Furniture', '2017-03-16 02:58:34', NULL, NULL, 1, ''),
+(13, 'C1008', 'Shamoli', 'undefined', '01917583939', '01687642410', '', '', 'Dhaka', '', '', '', '', 0, 6, '', 'Hydrangeas1.jpg', '', '0', 'c', 'Six Star Electronics & Furniture', '2017-03-16 02:58:39', NULL, NULL, 1, ''),
+(14, 'C1009', 'Jolil ', 'undefined', '01915735805', '01687642410', '', '', 'Dhaka', '', '', '', '', 0, 6, '', 'Koala.jpg', '', '0', 'c', 'Six Star Electronics & Furniture', '2017-03-16 06:45:07', NULL, NULL, 1, ''),
+(16, 'C1010', 'জামিল হাসান', 'undefined', '', '012547', '', '', 'বাইপাইল', '', '', '', '', 0, 6, '', '', '', '0', 'c', 'Six Star Electronics & Furniture', '2017-04-12 01:51:32', NULL, NULL, 1, ''),
+(17, 'C1011', 'আবুল কাশেম', 'undefined', '', '458', '', '', 'হপলুন', '', '', '', '', 0, 6, '', '', '', '0', 'c', 'Six Star Electronics & Furniture', '2017-04-12 01:52:32', NULL, NULL, 1, ''),
+(18, 'C1012', 'হাবিবুর রহমান', 'undefined', '', '789', '', '', 'ইপিজেড', '', '', '', '', 0, 6, '', '', '', '0', 'c', 'Six Star Electronics & Furniture', '2017-04-12 01:53:21', NULL, NULL, 1, ''),
 (19, 'C1013', 'sdsd', 'undefined', 'ghg', 'hgh', 'hghg@gmail.com', '0', 'dsdsds', 'sfdfdf', 'dfdfdf Edit', 'df1212 Edit', 'fdfdfd Edit', 0, 6, '', '', '', '', 'c', 'Six Star Electronics ', '2017-06-08 01:31:55', 'Six Star Electronics ', '2017-06-08 01:31:55', 1, '');
 
 -- --------------------------------------------------------
@@ -339,29 +339,29 @@ CREATE TABLE IF NOT EXISTS `tbl_customer_payment` (
 --
 
 INSERT INTO `tbl_customer_payment` (`CPayment_id`, `CPayment_date`, `CPayment_invoice`, `CPayment_customerID`, `CPayment_amount`, `CPayment_Paymentby`, `CPayment_notes`, `status`, `CPayment_brunchid`, `CPayment_Addby`) VALUES
-(1, '2017-03-07', 'RC2017-03-071', '1', '6000', '', 'sfd', 3, 1, 'Jing You Electronics'),
-(2, '2017-03-08', 'RC2017-03-082', '3', '24000', '', 'dssda', 1, 1, 'Jing You Electronics'),
-(3, '2017-03-08', 'RC2017-03-083', '2', '20300', '', 'dssfds', 1, 1, 'Jing You Electronics'),
-(4, '2017-03-08', 'WC2017-03-084', '4', '14500', '', '', 2, 1, 'Jing You Electronics'),
-(5, '2017-03-08', 'WC2017-03-085', '4', '17500', '', 'fhgfhf', 2, 1, 'Jing You Electronics'),
-(6, '2017-03-08', 'RC2017-03-086', '1', '10000', '', '', 1, 1, 'Jing You Electronics'),
-(7, '2017-03-09', 'RC2017-03-097', '5', '1800', '', 'sale', 1, 1, 'Jing You Electronics'),
-(8, '2017-03-09', 'RC2017-03-098', '5', '9000', '', 'sasa', 1, 1, 'Jing You Electronics'),
-(9, '2017-03-09', 'WC2017-03-099', '4', '43100', '', 'sdffg', 2, 1, 'Jing You Electronics'),
-(10, '2017-03-09', 'WC2017-03-0910', '2', '2500', '', '', 2, 1, 'Jing You Electronics'),
-(11, '2017-03-09', 'RC2017-03-0911', '1', '1500', '', 'test', 3, 1, 'Jing You Electronics'),
-(12, '2017-03-09', 'RC2017-03-071', '1', '1000', 'By Cash', '0', 3, 1, 'Jing You Electronics'),
-(13, '2017-03-14', 'RC2017-03-1412', '2', '12900', '', '', 1, 1, 'Jing You Electronics'),
-(14, '2017-03-14', 'WC2017-03-1413', '4', '7000', '', '', 2, 1, 'Jing You Electronics'),
-(15, '2017-03-14', 'RC2017-03-071', '1', '10000', 'By Cash', '0', 3, 1, 'Jing You Electronics'),
-(16, '2017-03-15', 'RC2017-03-1514', '10', '115000', '', '', 1, 1, 'Jing You Electronics'),
-(17, '2017-03-15', 'RC2017-03-1515', '1', '200000', '', '', 1, 1, 'Jing You Electronics'),
-(18, '2017-03-15', 'RC2017-03-1516', '2', '46000', '', '', 1, 1, 'Jing You Electronics'),
-(19, '2017-03-16', 'RC2017-03-1617', '14', '1000', '', '', 3, 1, 'Jing You Electronics'),
-(20, '2017-04-08', 'RC2017-04-0818', '3', '20000', '', '', 1, 1, 'Jing You Electronics'),
-(21, '2017-04-12', 'WC2017-04-1219', '11', '2800', '', '', 2, 1, 'Jing You Electronics'),
-(22, '2017-04-12', 'RC2017-04-1220', '11', '12900', '', '', 1, 1, 'Jing You Electronics'),
-(23, '2017-04-12', 'RC2017-04-1221', '11', '16000', '', '', 3, 1, 'Jing You Electronics'),
+(1, '2017-03-07', 'RC2017-03-071', '1', '6000', '', 'sfd', 3, 1, 'Six Star Electronics & Furniture'),
+(2, '2017-03-08', 'RC2017-03-082', '3', '24000', '', 'dssda', 1, 1, 'Six Star Electronics & Furniture'),
+(3, '2017-03-08', 'RC2017-03-083', '2', '20300', '', 'dssfds', 1, 1, 'Six Star Electronics & Furniture'),
+(4, '2017-03-08', 'WC2017-03-084', '4', '14500', '', '', 2, 1, 'Six Star Electronics & Furniture'),
+(5, '2017-03-08', 'WC2017-03-085', '4', '17500', '', 'fhgfhf', 2, 1, 'Six Star Electronics & Furniture'),
+(6, '2017-03-08', 'RC2017-03-086', '1', '10000', '', '', 1, 1, 'Six Star Electronics & Furniture'),
+(7, '2017-03-09', 'RC2017-03-097', '5', '1800', '', 'sale', 1, 1, 'Six Star Electronics & Furniture'),
+(8, '2017-03-09', 'RC2017-03-098', '5', '9000', '', 'sasa', 1, 1, 'Six Star Electronics & Furniture'),
+(9, '2017-03-09', 'WC2017-03-099', '4', '43100', '', 'sdffg', 2, 1, 'Six Star Electronics & Furniture'),
+(10, '2017-03-09', 'WC2017-03-0910', '2', '2500', '', '', 2, 1, 'Six Star Electronics & Furniture'),
+(11, '2017-03-09', 'RC2017-03-0911', '1', '1500', '', 'test', 3, 1, 'Six Star Electronics & Furniture'),
+(12, '2017-03-09', 'RC2017-03-071', '1', '1000', 'By Cash', '0', 3, 1, 'Six Star Electronics & Furniture'),
+(13, '2017-03-14', 'RC2017-03-1412', '2', '12900', '', '', 1, 1, 'Six Star Electronics & Furniture'),
+(14, '2017-03-14', 'WC2017-03-1413', '4', '7000', '', '', 2, 1, 'Six Star Electronics & Furniture'),
+(15, '2017-03-14', 'RC2017-03-071', '1', '10000', 'By Cash', '0', 3, 1, 'Six Star Electronics & Furniture'),
+(16, '2017-03-15', 'RC2017-03-1514', '10', '115000', '', '', 1, 1, 'Six Star Electronics & Furniture'),
+(17, '2017-03-15', 'RC2017-03-1515', '1', '200000', '', '', 1, 1, 'Six Star Electronics & Furniture'),
+(18, '2017-03-15', 'RC2017-03-1516', '2', '46000', '', '', 1, 1, 'Six Star Electronics & Furniture'),
+(19, '2017-03-16', 'RC2017-03-1617', '14', '1000', '', '', 3, 1, 'Six Star Electronics & Furniture'),
+(20, '2017-04-08', 'RC2017-04-0818', '3', '20000', '', '', 1, 1, 'Six Star Electronics & Furniture'),
+(21, '2017-04-12', 'WC2017-04-1219', '11', '2800', '', '', 2, 1, 'Six Star Electronics & Furniture'),
+(22, '2017-04-12', 'RC2017-04-1220', '11', '12900', '', '', 1, 1, 'Six Star Electronics & Furniture'),
+(23, '2017-04-12', 'RC2017-04-1221', '11', '16000', '', '', 3, 1, 'Six Star Electronics & Furniture'),
 (24, '2017-04-24', 'WC2017-04-2422', '12', '8400', '', '', 2, 1, 'Six Star Electronics '),
 (25, '2017-04-24', 'RC2017-04-2423', '1', '3600', '', '', 1, 1, 'Six Star Electronics '),
 (26, '2017-04-26', 'RC2017-04-2624', '1', '1500', '', '\n\n\n\n', 1, 1, 'Six Star Electronics '),
@@ -769,17 +769,17 @@ CREATE TABLE IF NOT EXISTS `tbl_product` (
 --
 
 INSERT INTO `tbl_product` (`Product_SlNo`, `Product_Code`, `Product_Name`, `Product_type`, `Product_BarCode`, `ProductCategory_ID`, `sizeId`, `Product_IsRawMaterial`, `Product_IsFinishedGoods`, `Product_ReOrederLevel`, `Product_Purchase_Rate`, `Product_SellingPrice`, `Product_WholesaleRate`, `Product_InstallmentRate`, `Unit_ID`, `Status`, `AddBy`, `AddTime`, `UpdateBy`, `UpdateTime`, `Product_packageID`, `product_create_pack_id`, `Product_branchid`) VALUES
-(1, 'P1001', 'Color TV', 'Product', '', 1, 2, '', '', 10, 22000, 24000, 22500, 0, 3, '', 'Jing You Electronics', '2017-03-05 11:48:43', '', '', 0, 0, 1),
-(2, 'P1002', 'FAN', 'Product', '', 2, 1, '', '', 5, 4000, 4300, 4200, 0, 3, '', 'Jing You Electronics', '2017-03-05 11:49:17', '', '', 0, 0, 1),
-(3, 'P1003', 'Wooden Khat', 'Product', '', 3, 3, '', '', 5, 14000, 16000, 14500, 0, 3, '', 'Jing You Electronics', '2017-03-05 11:49:51', '', '', 0, 0, 1),
-(4, 'P1004', 'Kitchen rak', 'Product', '', 5, 5, '', '', 10, 1200, 1500, 1400, 0, 3, '', 'Jing You Electronics', '2017-03-09 04:41:39', '', '', 0, 0, 1),
-(5, 'P1005', 'Sound Box', 'Product', '', 6, 5, '', '', 10, 1600, 1800, 1750, 0, 4, '', 'Jing You Electronics', '2017-03-09 04:42:41', '', '', 0, 0, 1),
-(6, 'P1006', '32" Led TV', 'Product', '', 7, 4, '', '', 10, 26000, 28000, 27500, 0, 3, '', 'Jing You Electronics', '2017-03-09 04:43:41', '', '', 0, 0, 1),
-(7, 'P1007', 'Prasser cooker', 'Product', '', 4, 6, '', '', 5, 4000, 4500, 4300, 0, 3, '', 'Jing You Electronics', '2017-03-09 04:45:16', '', '', 0, 0, 1),
-(8, 'P1008', 'cry tv', 'Product', '', 1, 2, '', '', 44, 5000, 5500, 5200, 0, 3, '', 'Jing You Electronics', '2017-03-14 12:12:59', '', '', 0, 0, 1),
-(9, 'P1009', 'Color TV', 'Product', '', 1, 0, '', '', 5, 18000, 23000, 18500, 0, 3, '', 'Jing You Electronics', '2017-03-15 11:09:47', 'Jing You Electronics', '2017-03-15 11:11:17', 0, 0, 1),
-(10, 'P1010', 'Sewing Machine', 'Product', '', 7, 7, '', '', 5, 6500, 7000, 6800, 0, 3, '', 'Jing You Electronics', '2017-04-05 09:07:53', '', '', 0, 0, 1),
-(13, 'P1011', 'LED TV', 'Product', '', 9, 4, '', '', 0, 17500, 22000, 18000, 0, 3, '', 'Jing You Electronics', '2017-04-18 04:53:12', '', '', 0, 0, 1),
+(1, 'P1001', 'Color TV', 'Product', '', 1, 2, '', '', 10, 22000, 24000, 22500, 0, 3, '', 'Six Star Electronics & Furniture', '2017-03-05 11:48:43', '', '', 0, 0, 1),
+(2, 'P1002', 'FAN', 'Product', '', 2, 1, '', '', 5, 4000, 4300, 4200, 0, 3, '', 'Six Star Electronics & Furniture', '2017-03-05 11:49:17', '', '', 0, 0, 1),
+(3, 'P1003', 'Wooden Khat', 'Product', '', 3, 3, '', '', 5, 14000, 16000, 14500, 0, 3, '', 'Six Star Electronics & Furniture', '2017-03-05 11:49:51', '', '', 0, 0, 1),
+(4, 'P1004', 'Kitchen rak', 'Product', '', 5, 5, '', '', 10, 1200, 1500, 1400, 0, 3, '', 'Six Star Electronics & Furniture', '2017-03-09 04:41:39', '', '', 0, 0, 1),
+(5, 'P1005', 'Sound Box', 'Product', '', 6, 5, '', '', 10, 1600, 1800, 1750, 0, 4, '', 'Six Star Electronics & Furniture', '2017-03-09 04:42:41', '', '', 0, 0, 1),
+(6, 'P1006', '32" Led TV', 'Product', '', 7, 4, '', '', 10, 26000, 28000, 27500, 0, 3, '', 'Six Star Electronics & Furniture', '2017-03-09 04:43:41', '', '', 0, 0, 1),
+(7, 'P1007', 'Prasser cooker', 'Product', '', 4, 6, '', '', 5, 4000, 4500, 4300, 0, 3, '', 'Six Star Electronics & Furniture', '2017-03-09 04:45:16', '', '', 0, 0, 1),
+(8, 'P1008', 'cry tv', 'Product', '', 1, 2, '', '', 44, 5000, 5500, 5200, 0, 3, '', 'Six Star Electronics & Furniture', '2017-03-14 12:12:59', '', '', 0, 0, 1),
+(9, 'P1009', 'Color TV', 'Product', '', 1, 0, '', '', 5, 18000, 23000, 18500, 0, 3, '', 'Six Star Electronics & Furniture', '2017-03-15 11:09:47', 'Six Star Electronics & Furniture', '2017-03-15 11:11:17', 0, 0, 1),
+(10, 'P1010', 'Sewing Machine', 'Product', '', 7, 7, '', '', 5, 6500, 7000, 6800, 0, 3, '', 'Six Star Electronics & Furniture', '2017-04-05 09:07:53', '', '', 0, 0, 1),
+(13, 'P1011', 'LED TV', 'Product', '', 9, 4, '', '', 0, 17500, 22000, 18000, 0, 3, '', 'Six Star Electronics & Furniture', '2017-04-18 04:53:12', '', '', 0, 0, 1),
 (15, 'P1012', 'Ciling Fan', 'Product', '', 10, 1, '', '', 15, 1800, 2200, 2000, 0, 3, '', 'Six Star Electronics ', '2017-04-24 11:45:07', '', '', 0, 0, 1),
 (16, 'P1013', 'ABCD', 'Product', '', 5, 1, '', '', 10, 200, 300, 250, 350, 3, '', 'Six Star Electronics ', '2017-05-31 05:12:46', 'Six Star Electronics ', '2017-05-31 05:34:38', 0, 0, 1);
 
@@ -806,15 +806,15 @@ CREATE TABLE IF NOT EXISTS `tbl_productcategory` (
 --
 
 INSERT INTO `tbl_productcategory` (`ProductCategory_SlNo`, `ProductCategory_Name`, `ProductCategory_Description`, `company`, `Status`, `AddBy`, `AddTime`, `UpdateBy`, `UpdateTime`) VALUES
-(1, 'Sony', 'Sony Brand TV', '', '', 'Jing You Electronics', '2017-03-05 11:46:00', '', ''),
-(2, 'KoncA', 'Fan', '', '', 'Jing You Electronics', '2017-03-05 11:46:17', '', ''),
-(3, 'MTF', 'Wood', '', '', 'Jing You Electronics', '2017-03-05 11:46:48', '', ''),
-(4, 'Topper', 'desxr', '', '', 'Jing You Electronics', '2017-03-09 09:37:04', '', ''),
-(5, 'RFL', 'desxr', '', '', 'Jing You Electronics', '2017-03-09 09:37:43', '', ''),
-(6, 'Microlab', 'desxr', '', '', 'Jing You Electronics', '2017-03-09 09:38:09', '', ''),
-(7, 'Butterfly', 'desxr', 'test', '', 'Jing You Electronics', '2017-03-09 09:38:20', 'Jing You Electronics', '2017-04-08 01:04:04'),
-(8, 'EVL 261', 'Toshoba Iron', '', '', 'Jing You Electronics', '2017-03-16 02:56:52', '', ''),
-(9, 'Vision', '', 'RFL', '', 'Jing You Electronics', '2017-04-18 04:45:41', 'Six Star Electronics ', '2017-04-25 12:16:59'),
+(1, 'Sony', 'Sony Brand TV', '', '', 'Six Star Electronics & Furniture', '2017-03-05 11:46:00', '', ''),
+(2, 'KoncA', 'Fan', '', '', 'Six Star Electronics & Furniture', '2017-03-05 11:46:17', '', ''),
+(3, 'MTF', 'Wood', '', '', 'Six Star Electronics & Furniture', '2017-03-05 11:46:48', '', ''),
+(4, 'Topper', 'desxr', '', '', 'Six Star Electronics & Furniture', '2017-03-09 09:37:04', '', ''),
+(5, 'RFL', 'desxr', '', '', 'Six Star Electronics & Furniture', '2017-03-09 09:37:43', '', ''),
+(6, 'Microlab', 'desxr', '', '', 'Six Star Electronics & Furniture', '2017-03-09 09:38:09', '', ''),
+(7, 'Butterfly', 'desxr', 'test', '', 'Six Star Electronics & Furniture', '2017-03-09 09:38:20', 'Six Star Electronics & Furniture', '2017-04-08 01:04:04'),
+(8, 'EVL 261', 'Toshoba Iron', '', '', 'Six Star Electronics & Furniture', '2017-03-16 02:56:52', '', ''),
+(9, 'Vision', '', 'RFL', '', 'Six Star Electronics & Furniture', '2017-04-18 04:45:41', 'Six Star Electronics ', '2017-04-25 12:16:59'),
 (10, 'Air Cool', 'demo', 'RFL', '', 'Six Star Electronics ', '2017-04-24 11:41:18', 'Six Star Electronics ', '2017-04-25 12:15:26');
 
 -- --------------------------------------------------------
@@ -836,13 +836,13 @@ CREATE TABLE IF NOT EXISTS `tbl_produsize` (
 --
 
 INSERT INTO `tbl_produsize` (`Productsize_SlNo`, `Productsize_Name`, `Productsize_Description`, `Status`, `addby`) VALUES
-(1, '56"', 'Fan', '', 'Jing You Electronics'),
-(2, '21"', '21" LED TV', '', 'Jing You Electronics'),
-(3, '6/7"', 'wood', '', 'Jing You Electronics'),
-(4, '32"', 'butter fly', '', 'Jing You Electronics'),
-(5, 'common', 'saad', '', 'Jing You Electronics'),
-(6, '4.5kg', '', '', 'Jing You Electronics'),
-(7, 'Non', '', '', 'Jing You Electronics');
+(1, '56"', 'Fan', '', 'Six Star Electronics & Furniture'),
+(2, '21"', '21" LED TV', '', 'Six Star Electronics & Furniture'),
+(3, '6/7"', 'wood', '', 'Six Star Electronics & Furniture'),
+(4, '32"', 'butter fly', '', 'Six Star Electronics & Furniture'),
+(5, 'common', 'saad', '', 'Six Star Electronics & Furniture'),
+(6, '4.5kg', '', '', 'Six Star Electronics & Furniture'),
+(7, 'Non', '', '', 'Six Star Electronics & Furniture');
 
 -- --------------------------------------------------------
 
@@ -1017,14 +1017,14 @@ CREATE TABLE IF NOT EXISTS `tbl_purchasemaster` (
 --
 
 INSERT INTO `tbl_purchasemaster` (`PurchaseMaster_SlNo`, `Supplier_SlNo`, `Employee_SlNo`, `PurchaseMaster_InvoiceNo`, `PurchaseMaster_OrderDate`, `PurchaseMaster_Description`, `PurchaseMaster_PurchaseType`, `PurchaseMaster_TotalAmount`, `PurchaseMaster_DiscountAmount`, `PurchaseMaster_Tax`, `PurchaseMaster_Freight`, `PurchaseMaster_LabourCost`, `PurchaseMaster_SubTotalAmount`, `PurchaseMaster_PaidAmount`, `PurchaseMaster_DueAmount`, `PurchaseMaster_ReceiveDate`, `PurchaseMaster_Status`, `Status`, `AddBy`, `AddTime`, `UpdateBy`, `UpdateTime`, `PurchaseMaster_GUID`, `PurchaseMaster_BranchID`) VALUES
-(1, 2, 0, '2017-03-60002', '2017-03-06', '', '', '342000', '0', '0', '0', '0', '342000', '342000', '0', '0000-00-00 00:00:00', '', '', 'Jing You Electronics', '2017-03-06 08:56:06', NULL, NULL, '', 1),
-(2, 1, 0, '2017-03-60003', '2017-03-09', 'sfdsdf', '', '500000', '0', '0', '0', '0', '500000', '500000', '0', '0000-00-00 00:00:00', '', '', 'Jing You Electronics', '2017-03-09 04:47:07', NULL, NULL, '', 1),
-(3, 1, 0, '2017-03-60004', '2017-03-15', '', '', '270000', '0', '0', '1200', '0', '271200', '271200', '0', '0000-00-00 00:00:00', '', '', 'Jing You Electronics', '2017-03-15 11:13:45', NULL, NULL, '', 1),
-(4, 2, 0, '2017-03-60005', '2017-03-15', '', '', '15000', '0', '0', '0', '0', '15000', '15000', '0', '0000-00-00 00:00:00', '', '', 'Jing You Electronics', '2017-03-15 11:30:05', NULL, NULL, '', 1),
-(5, 4, 0, '2017-04-60006', '2017-04-12', '', '', '19200', '0', '0', '0', '0', '19200', '19200', '0', '0000-00-00 00:00:00', '', '', 'Jing You Electronics', '2017-04-12 03:06:55', NULL, NULL, '', 1),
-(6, 4, 0, '2017-04-60007', '2017-04-12', '', '', '8000', '0', '0', '0', '0', '8000', '8000', '0', '0000-00-00 00:00:00', '', '', 'Jing You Electronics', '2017-04-12 03:23:10', NULL, NULL, '', 1),
-(7, 4, 0, '2017-04-60007', '2017-04-12', '', '', '8000', '0', '0', '0', '0', '8000', '8000', '0', '0000-00-00 00:00:00', '', '', 'Jing You Electronics', '2017-04-12 03:23:43', NULL, NULL, '', 1),
-(8, 1, 0, '2017-04-60008', '2017-04-12', '', '', '48000', '0', '0', '0', '0', '48000', '48000', '0', '0000-00-00 00:00:00', '', '', 'Jing You Electronics', '2017-04-12 04:00:30', NULL, NULL, '', 1),
+(1, 2, 0, '2017-03-60002', '2017-03-06', '', '', '342000', '0', '0', '0', '0', '342000', '342000', '0', '0000-00-00 00:00:00', '', '', 'Six Star Electronics & Furniture', '2017-03-06 08:56:06', NULL, NULL, '', 1),
+(2, 1, 0, '2017-03-60003', '2017-03-09', 'sfdsdf', '', '500000', '0', '0', '0', '0', '500000', '500000', '0', '0000-00-00 00:00:00', '', '', 'Six Star Electronics & Furniture', '2017-03-09 04:47:07', NULL, NULL, '', 1),
+(3, 1, 0, '2017-03-60004', '2017-03-15', '', '', '270000', '0', '0', '1200', '0', '271200', '271200', '0', '0000-00-00 00:00:00', '', '', 'Six Star Electronics & Furniture', '2017-03-15 11:13:45', NULL, NULL, '', 1),
+(4, 2, 0, '2017-03-60005', '2017-03-15', '', '', '15000', '0', '0', '0', '0', '15000', '15000', '0', '0000-00-00 00:00:00', '', '', 'Six Star Electronics & Furniture', '2017-03-15 11:30:05', NULL, NULL, '', 1),
+(5, 4, 0, '2017-04-60006', '2017-04-12', '', '', '19200', '0', '0', '0', '0', '19200', '19200', '0', '0000-00-00 00:00:00', '', '', 'Six Star Electronics & Furniture', '2017-04-12 03:06:55', NULL, NULL, '', 1),
+(6, 4, 0, '2017-04-60007', '2017-04-12', '', '', '8000', '0', '0', '0', '0', '8000', '8000', '0', '0000-00-00 00:00:00', '', '', 'Six Star Electronics & Furniture', '2017-04-12 03:23:10', NULL, NULL, '', 1),
+(7, 4, 0, '2017-04-60007', '2017-04-12', '', '', '8000', '0', '0', '0', '0', '8000', '8000', '0', '0000-00-00 00:00:00', '', '', 'Six Star Electronics & Furniture', '2017-04-12 03:23:43', NULL, NULL, '', 1),
+(8, 1, 0, '2017-04-60008', '2017-04-12', '', '', '48000', '0', '0', '0', '0', '48000', '48000', '0', '0000-00-00 00:00:00', '', '', 'Six Star Electronics & Furniture', '2017-04-12 04:00:30', NULL, NULL, '', 1),
 (9, 2, 0, '2017-04-60009', '2017-04-24', '', '', '20000', '0', '0', '0', '0', '20000', '20000', '0', '0000-00-00 00:00:00', '', '', 'Six Star Electronics ', '2017-04-24 12:37:08', NULL, NULL, '', 1),
 (10, 1, 0, '2017-04-60010', '2017-04-24', '', '', '260000', '0', '0', '0', '0', '260000', '260000', '0', '0000-00-00 00:00:00', '', '', 'Six Star Electronics ', '2017-04-24 12:41:36', NULL, NULL, '', 1),
 (11, 5, 0, '2017-04-60011', '2017-04-25', '', '', '3600', '0', '0', '0', '0', '3600', '3600', '0', '0000-00-00 00:00:00', '', '', 'Six Star Electronics ', '2017-04-25 03:18:30', NULL, NULL, '', 1),
@@ -1072,9 +1072,9 @@ CREATE TABLE IF NOT EXISTS `tbl_purchasereturn` (
 --
 
 INSERT INTO `tbl_purchasereturn` (`PurchaseReturn_SlNo`, `PurchaseMaster_InvoiceNo`, `Supplier_IDdNo`, `PurchaseReturn_ReturnDate`, `PurchaseReturn_ReturnQuantity`, `PurchaseReturn_ReturnAmount`, `PurchaseReturn_Description`, `Status`, `AddBy`, `AddTime`, `UpdateBy`, `UpdateTime`, `PurchaseReturn_brunchID`) VALUES
-(1, '2017-03-60002', 2, '2017-03-14', '4', '56', '', '', 'Jing You Electronics', '2017-03-14 01:12:05', NULL, NULL, 1),
-(2, '2017-03-60003', 1, '2017-03-11', '1', '0', 'assdf', '', 'Jing You Electronics', '2017-03-11 09:22:50', NULL, NULL, 1),
-(3, '2017-03-60004', 1, '2017-03-16', '6', '110000', '', '', 'Jing You Electronics', '2017-03-16 07:01:17', NULL, NULL, 1),
+(1, '2017-03-60002', 2, '2017-03-14', '4', '56', '', '', 'Six Star Electronics & Furniture', '2017-03-14 01:12:05', NULL, NULL, 1),
+(2, '2017-03-60003', 1, '2017-03-11', '1', '0', 'assdf', '', 'Six Star Electronics & Furniture', '2017-03-11 09:22:50', NULL, NULL, 1),
+(3, '2017-03-60004', 1, '2017-03-16', '6', '110000', '', '', 'Six Star Electronics & Furniture', '2017-03-16 07:01:17', NULL, NULL, 1),
 (4, '2017-04-60010', 1, '2017-03-02', '2', '200', '', '', 'Six Star Electronics ', '2017-04-26 01:45:25', NULL, NULL, 1),
 (5, '2017-04-60017', 1, '2017-04-30', '0', '0', '', '', 'Six Star Electronics ', '2017-04-30 04:18:56', NULL, NULL, 1);
 
@@ -1106,18 +1106,18 @@ CREATE TABLE IF NOT EXISTS `tbl_purchasereturndetails` (
 --
 
 INSERT INTO `tbl_purchasereturndetails` (`PurchaseReturnDetails_SlNo`, `PurchaseReturn_SlNo`, `PurchaseReturnDetails_ReturnDate`, `PurchaseReturnDetailsProduct_SlNo`, `PurchaseReturnDetails_ReceiveQuantity`, `PurchaseReturnDetails_ReturnQuantity`, `PurchaseReturnDetails_ReturnAmount`, `Status`, `AddBy`, `AddTime`, `UpdateBy`, `UpdateTime`, `PurchaseReturnDetails_brachid`, `PurchaseReturnDetails_pacQty`) VALUES
-(1, 1, '2017-03-11', 1, '', '1', '0', '', 'Jing You Electronics', '2017-03-11 09:15:36', NULL, NULL, 1, ''),
-(2, 1, '2017-03-11', 2, '', '0', '0', '', 'Jing You Electronics', '2017-03-11 09:15:36', NULL, NULL, 1, ''),
-(3, 1, '2017-03-11', 3, '', '0', '0', '', 'Jing You Electronics', '2017-03-11 09:15:36', NULL, NULL, 1, ''),
-(4, 2, '2017-03-11', 4, '', '1', '0', '', 'Jing You Electronics', '2017-03-11 09:22:50', NULL, NULL, 1, ''),
-(5, 2, '2017-03-11', 5, '', '0', '0', '', 'Jing You Electronics', '2017-03-11 09:22:50', NULL, NULL, 1, ''),
-(6, 2, '2017-03-11', 6, '', '0', '0', '', 'Jing You Electronics', '2017-03-11 09:22:51', NULL, NULL, 1, ''),
-(7, 2, '2017-03-11', 7, '', '0', '0', '', 'Jing You Electronics', '2017-03-11 09:22:51', NULL, NULL, 1, ''),
-(8, 1, '2017-03-14', 1, '', '3', '56', '', 'Jing You Electronics', '2017-03-14 01:12:05', NULL, NULL, 1, ''),
-(9, 1, '2017-03-14', 2, '', '0', '0', '', 'Jing You Electronics', '2017-03-14 01:12:05', NULL, NULL, 1, ''),
-(10, 1, '2017-03-14', 3, '', '0', '0', '', 'Jing You Electronics', '2017-03-14 01:12:05', NULL, NULL, 1, ''),
-(11, 3, '2017-03-16', 9, '', '5', '0100000', '', 'Jing You Electronics', '2017-03-16 03:05:01', NULL, NULL, 1, ''),
-(12, 3, '2017-03-16', 9, '', '1', '010000', '', 'Jing You Electronics', '2017-03-16 07:01:17', NULL, NULL, 1, ''),
+(1, 1, '2017-03-11', 1, '', '1', '0', '', 'Six Star Electronics & Furniture', '2017-03-11 09:15:36', NULL, NULL, 1, ''),
+(2, 1, '2017-03-11', 2, '', '0', '0', '', 'Six Star Electronics & Furniture', '2017-03-11 09:15:36', NULL, NULL, 1, ''),
+(3, 1, '2017-03-11', 3, '', '0', '0', '', 'Six Star Electronics & Furniture', '2017-03-11 09:15:36', NULL, NULL, 1, ''),
+(4, 2, '2017-03-11', 4, '', '1', '0', '', 'Six Star Electronics & Furniture', '2017-03-11 09:22:50', NULL, NULL, 1, ''),
+(5, 2, '2017-03-11', 5, '', '0', '0', '', 'Six Star Electronics & Furniture', '2017-03-11 09:22:50', NULL, NULL, 1, ''),
+(6, 2, '2017-03-11', 6, '', '0', '0', '', 'Six Star Electronics & Furniture', '2017-03-11 09:22:51', NULL, NULL, 1, ''),
+(7, 2, '2017-03-11', 7, '', '0', '0', '', 'Six Star Electronics & Furniture', '2017-03-11 09:22:51', NULL, NULL, 1, ''),
+(8, 1, '2017-03-14', 1, '', '3', '56', '', 'Six Star Electronics & Furniture', '2017-03-14 01:12:05', NULL, NULL, 1, ''),
+(9, 1, '2017-03-14', 2, '', '0', '0', '', 'Six Star Electronics & Furniture', '2017-03-14 01:12:05', NULL, NULL, 1, ''),
+(10, 1, '2017-03-14', 3, '', '0', '0', '', 'Six Star Electronics & Furniture', '2017-03-14 01:12:05', NULL, NULL, 1, ''),
+(11, 3, '2017-03-16', 9, '', '5', '0100000', '', 'Six Star Electronics & Furniture', '2017-03-16 03:05:01', NULL, NULL, 1, ''),
+(12, 3, '2017-03-16', 9, '', '1', '010000', '', 'Six Star Electronics & Furniture', '2017-03-16 07:01:17', NULL, NULL, 1, ''),
 (13, 4, '2017-03-02', 6, '', '2', '200', '', 'Six Star Electronics ', '2017-04-26 01:45:25', NULL, NULL, 1, ''),
 (14, 5, '2017-04-30', 2, '', '0', '0', '', 'Six Star Electronics ', '2017-04-30 04:18:56', NULL, NULL, 1, '');
 
@@ -1236,14 +1236,14 @@ CREATE TABLE IF NOT EXISTS `tbl_saleinventory` (
 --
 
 INSERT INTO `tbl_saleinventory` (`SaleInventory_SlNo`, `sellProduct_IdNo`, `SaleInventory_TotalQuantity`, `SaleInventory_ReceiveQuantity`, `SaleInventory_ReturnQuantity`, `SaleInventory_DamageQuantity`, `Status`, `AddBy`, `AddTime`, `UpdateBy`, `UpdateTime`, `SaleInventory_packname`, `SaleInventory_qty`, `SaleInventory_returnqty`, `SaleInventory_brunchid`) VALUES
-(1, 1, 7, 0, 0, 0, 0, 'Jing You Electronics', '2017-03-07 06:43:34', 'Six Star Electronics ', '2017-04-27 01:11:16', '', '', '', 1),
-(2, 2, 50, 0, 1, 0, 0, 'Jing You Electronics', '2017-03-08 05:19:01', 'Six Star Electronics ', '2017-06-14 09:20:08', '', '', '', 1),
-(3, 3, 25, 0, 0, 0, 0, 'Jing You Electronics', '2017-03-08 05:19:01', 'Six Star Electronics ', '2017-05-29 10:49:07', '', '', '', 1),
-(4, 5, 10, 0, 0, 0, 0, 'Jing You Electronics', '2017-03-09 04:56:45', 'Six Star Electronics ', '2017-04-29 06:25:47', '', '', '', 1),
-(5, 7, 12, 0, 3, 0, 0, 'Jing You Electronics', '2017-03-09 04:57:29', 'Six Star Electronics ', '2017-05-10 01:16:19', '', '', '', 1),
-(6, 6, 1, 0, 0, 0, 0, 'Jing You Electronics', '2017-03-09 04:58:22', NULL, NULL, '', '', '', 1),
-(7, 4, 15, 0, 3, 0, 0, 'Jing You Electronics', '2017-03-14 11:20:16', 'Six Star Electronics ', '2017-05-07 02:21:46', '', '', '', 1),
-(8, 9, 15, 0, 0, 0, 0, 'Jing You Electronics', '2017-03-15 11:16:41', 'Jing You Electronics', '2017-03-15 11:33:29', '', '', '', 1),
+(1, 1, 7, 0, 0, 0, 0, 'Six Star Electronics & Furniture', '2017-03-07 06:43:34', 'Six Star Electronics ', '2017-04-27 01:11:16', '', '', '', 1),
+(2, 2, 50, 0, 1, 0, 0, 'Six Star Electronics & Furniture', '2017-03-08 05:19:01', 'Six Star Electronics ', '2017-06-14 09:20:08', '', '', '', 1),
+(3, 3, 25, 0, 0, 0, 0, 'Six Star Electronics & Furniture', '2017-03-08 05:19:01', 'Six Star Electronics ', '2017-05-29 10:49:07', '', '', '', 1),
+(4, 5, 10, 0, 0, 0, 0, 'Six Star Electronics & Furniture', '2017-03-09 04:56:45', 'Six Star Electronics ', '2017-04-29 06:25:47', '', '', '', 1),
+(5, 7, 12, 0, 3, 0, 0, 'Six Star Electronics & Furniture', '2017-03-09 04:57:29', 'Six Star Electronics ', '2017-05-10 01:16:19', '', '', '', 1),
+(6, 6, 1, 0, 0, 0, 0, 'Six Star Electronics & Furniture', '2017-03-09 04:58:22', NULL, NULL, '', '', '', 1),
+(7, 4, 15, 0, 3, 0, 0, 'Six Star Electronics & Furniture', '2017-03-14 11:20:16', 'Six Star Electronics ', '2017-05-07 02:21:46', '', '', '', 1),
+(8, 9, 15, 0, 0, 0, 0, 'Six Star Electronics & Furniture', '2017-03-15 11:16:41', 'Six Star Electronics & Furniture', '2017-03-15 11:33:29', '', '', '', 1),
 (9, 8, 2, 0, 0, 0, 0, 'Six Star Electronics ', '2017-04-26 04:49:26', NULL, NULL, '', '', '', 1);
 
 -- --------------------------------------------------------
@@ -1272,8 +1272,8 @@ CREATE TABLE IF NOT EXISTS `tbl_salereturn` (
 --
 
 INSERT INTO `tbl_salereturn` (`SaleReturn_SlNo`, `SaleMaster_InvoiceNo`, `SaleReturn_ReturnDate`, `SaleReturn_ReturnQuantity`, `SaleReturn_ReturnAmount`, `SaleReturn_Description`, `Status`, `AddBy`, `AddTime`, `UpdateBy`, `UpdateTime`, `SaleReturn_brunchId`) VALUES
-(1, 'RC2017-03-083', '2017-03-11', '1', '0', 'fhh', '', 'Jing You Electronics', '2017-03-11 06:25:04', NULL, NULL, 1),
-(2, 'RC2017-03-098', '2017-03-14', '1', '0', '', '', 'Jing You Electronics', '2017-03-14 01:08:06', NULL, NULL, 1),
+(1, 'RC2017-03-083', '2017-03-11', '1', '0', 'fhh', '', 'Six Star Electronics & Furniture', '2017-03-11 06:25:04', NULL, NULL, 1),
+(2, 'RC2017-03-098', '2017-03-14', '1', '0', '', '', 'Six Star Electronics & Furniture', '2017-03-14 01:08:06', NULL, NULL, 1),
 (3, 'WC2017-03-1413', '2017-03-08', '2', '500', '', '', 'Six Star Electronics ', '2017-04-26 01:46:14', NULL, NULL, 1),
 (4, 'WC2017-03-099', '2017-03-08', '2', '300', '', '', 'Six Star Electronics ', '2017-04-27 11:38:28', NULL, NULL, 1),
 (5, 'WC2017-04-3038', '2017-05-23', '1', '1400', '', '', 'Six Star Electronics ', '2017-05-23 04:55:03', NULL, NULL, 1);
@@ -1306,9 +1306,9 @@ CREATE TABLE IF NOT EXISTS `tbl_salereturndetails` (
 --
 
 INSERT INTO `tbl_salereturndetails` (`SaleReturnDetails_SlNo`, `SaleReturn_IdNo`, `SaleReturnDetails_ReturnDate`, `SaleReturnDetailsProduct_SlNo`, `SaleReturnDetails_SaleQuantity`, `SaleReturnDetails_ReturnQuantity`, `SaleReturnDetails_ReturnAmount`, `Status`, `AddBy`, `AddTime`, `UpdateBy`, `UpdateTime`, `SaleReturnDetails_brunchID`, `SaleReturnDetails_Qty`) VALUES
-(1, 1, '2017-03-11', 2, '1', '1', '0', '', 'Jing You Electronics', '2017-03-11 06:25:04', NULL, NULL, 1, ''),
-(2, 1, '2017-03-11', 3, '1', '0', '0', '', 'Jing You Electronics', '2017-03-11 06:25:04', NULL, NULL, 1, ''),
-(3, 2, '2017-03-14', 7, '2', '1', '0', '', 'Jing You Electronics', '2017-03-14 01:08:06', NULL, NULL, 1, ''),
+(1, 1, '2017-03-11', 2, '1', '1', '0', '', 'Six Star Electronics & Furniture', '2017-03-11 06:25:04', NULL, NULL, 1, ''),
+(2, 1, '2017-03-11', 3, '1', '0', '0', '', 'Six Star Electronics & Furniture', '2017-03-11 06:25:04', NULL, NULL, 1, ''),
+(3, 2, '2017-03-14', 7, '2', '1', '0', '', 'Six Star Electronics & Furniture', '2017-03-14 01:08:06', NULL, NULL, 1, ''),
 (4, 3, '2017-03-08', 4, '5', '2', '500', '', 'Six Star Electronics ', '2017-04-26 01:46:14', NULL, NULL, 1, ''),
 (5, 4, '2017-03-08', 5, '4', '0', '0', '', 'Six Star Electronics ', '2017-04-27 11:38:28', NULL, NULL, 1, ''),
 (6, 4, '2017-03-08', 7, '2', '2', '300', '', 'Six Star Electronics ', '2017-04-27 11:38:28', NULL, NULL, 1, ''),
@@ -1353,27 +1353,27 @@ CREATE TABLE IF NOT EXISTS `tbl_salesmaster` (
 --
 
 INSERT INTO `tbl_salesmaster` (`SaleMaster_SlNo`, `SaleMaster_InvoiceNo`, `SalseCustomer_IDNo`, `SalseCustomer_Name`, `SalseCustomer_Contact`, `SalseCustomer_Address`, `SaleMaster_SaleDate`, `SaleMaster_Description`, `SaleMaster_SaleType`, `SaleMaster_TotalSaleAmount`, `SaleMaster_TotalDiscountAmount`, `SaleMaster_RewordDiscount`, `SaleMaster_TaxAmount`, `SaleMaster_Freight`, `SaleMaster_SubTotalAmount`, `SaleMaster_PaidAmount`, `SaleMaster_DueAmount`, `SaleMaster_TotalDue`, `Status`, `AddBy`, `AddTime`, `UpdateBy`, `UpdateTime`, `SaleMaster_branchid`) VALUES
-(1, 'RC2017-03-071', 1, '', '', '', '2017-03-07', 'sfd', '', '24000', '0', 0, '0', '0', '24000', '6000', '18000', '0.00', '3', 'Jing You Electronics', '2017-03-07 06:43:34', NULL, NULL, 1),
-(2, 'RC2017-03-082', 3, '', '', '', '2017-03-08', 'dssda', '', '24000', '0', 0, '0', '0', '24000', '24000', '0', '0.00', '1', 'Jing You Electronics', '2017-03-08 05:18:35', NULL, NULL, 1),
-(3, 'RC2017-03-083', 2, '', '', '', '2017-03-08', 'dssfds', '', '20300', '0', 0, '0', '0', '20300', '20300', '0', '0.00', '1', 'Jing You Electronics', '2017-03-08 05:19:01', NULL, NULL, 1),
-(4, 'WC2017-03-084', 4, '', '', '', '2017-03-08', '', '', '14500', '0', 0, '0', '0', '14500', '14500', '0', '0.00', '2', 'Jing You Electronics', '2017-03-08 05:19:27', NULL, NULL, 1),
-(5, 'WC2017-03-085', 4, '', '', '', '2017-03-08', 'fhgfhf', '', '22500', '0', 0, '0', '0', '22500', '17500', '5000', '0.00', '2', 'Jing You Electronics', '2017-03-08 05:23:13', NULL, NULL, 1),
-(6, 'RC2017-03-086', 1, '', '', '', '2017-03-08', '', '', '16000', '0', 0, '0', '0', '16000', '10000', '6000', '0.00', '1', 'Jing You Electronics', '2017-03-08 12:21:29', NULL, NULL, 1),
-(7, 'RC2017-03-097', 5, '', '', '', '2017-03-09', 'sale', '', '1800', '0', 0, '0', '0', '1800', '1800', '0', '0.00', '1', 'Jing You Electronics', '2017-03-09 04:56:45', NULL, NULL, 1),
-(8, 'RC2017-03-098', 5, '', '', '', '2017-03-09', 'sasa', '', '9000', '0', 0, '0', '0', '9000', '9000', '0', '0.00', '1', 'Jing You Electronics', '2017-03-09 04:57:29', NULL, NULL, 1),
-(9, 'WC2017-03-099', 4, '', '', '', '2017-03-09', 'sdffg', '', '43100', '0', 0, '0', '0', '43100', '43100', '0', '0.00', '2', 'Jing You Electronics', '2017-03-09 04:58:21', NULL, NULL, 1),
-(10, 'WC2017-03-0910', 2, '', '', '', '2017-03-09', '', '', '3500', '0', 0, '0', '0', '3500', '2500', '1000', '0.00', '2', 'Jing You Electronics', '2017-03-09 05:01:26', NULL, NULL, 1),
-(11, 'RC2017-03-0911', 1, '', '', '', '2017-03-09', 'test', '', '4500', '0', 0, '0', '0', '4500', '1500', '3000', '0.00', '3', 'Jing You Electronics', '2017-03-09 05:08:02', NULL, NULL, 1),
-(12, 'RC2017-03-1412', 2, '', '', '', '2017-03-14', '', '', '12900', '0', 0, '0', '0', '12900', '12900', '0', '0.00', '1', 'Jing You Electronics', '2017-03-14 11:07:49', NULL, NULL, 1),
-(13, 'WC2017-03-1413', 4, '', '', '', '2017-03-14', '', '', '7000', '0', 0, '0', '0', '7000', '7000', '0', '0.00', '2', 'Jing You Electronics', '2017-03-14 11:20:15', NULL, NULL, 1),
-(14, 'RC2017-03-1514', 10, '', '', '', '2017-03-15', '', '', '115000', '0', 0, '0', '0', '115000', '115000', '0', '0.00', '1', 'Jing You Electronics', '2017-03-15 11:16:41', NULL, NULL, 1),
-(15, 'RC2017-03-1515', 1, '', '', '', '2017-03-15', '', '', '200000', '0', 0, '0', '0', '200000', '200000', '0', '0.00', '1', 'Jing You Electronics', '2017-03-15 11:18:21', NULL, NULL, 1),
-(16, 'RC2017-03-1516', 2, '', '', '', '2017-03-15', '', '', '46000', '0', 0, '0', '0', '46000', '46000', '0', '0.00', '1', 'Jing You Electronics', '2017-03-15 11:33:29', NULL, NULL, 1),
-(17, 'RC2017-03-1617', 14, '', '', '', '2017-03-16', '', '', '3200', '050', 0, '4', '100', '3378', '1000', '2378', '0.00', '3', 'Jing You Electronics', '2017-03-16 08:49:46', NULL, NULL, 1),
-(18, 'RC2017-04-0818', 3, '', '', '', '2017-04-08', '', '', '16000', '0', 0, '0', '0', '16000', '20000', '-4000', '0.00', '1', 'Jing You Electronics', '2017-04-08 11:29:45', NULL, NULL, 1),
-(19, 'WC2017-04-1219', 11, '', '', '', '2017-04-12', '', '', '2800', '0', 0, '0', '0', '2800', '2800', '0', '0.00', '2', 'Jing You Electronics', '2017-04-12 03:20:29', NULL, NULL, 1),
-(20, 'RC2017-04-1220', 11, '', '', '', '2017-04-12', '', '', '12900', '0', 0, '0', '0', '12900', '12900', '0', '0.00', '1', 'Jing You Electronics', '2017-04-12 04:02:30', NULL, NULL, 1),
-(21, 'RC2017-04-1221', 11, '', '', '', '2017-04-12', '', '', '16000', '0', 0, '0', '0', '16000', '16000', '0', '0.00', '3', 'Jing You Electronics', '2017-04-12 04:22:34', NULL, NULL, 1),
+(1, 'RC2017-03-071', 1, '', '', '', '2017-03-07', 'sfd', '', '24000', '0', 0, '0', '0', '24000', '6000', '18000', '0.00', '3', 'Six Star Electronics & Furniture', '2017-03-07 06:43:34', NULL, NULL, 1),
+(2, 'RC2017-03-082', 3, '', '', '', '2017-03-08', 'dssda', '', '24000', '0', 0, '0', '0', '24000', '24000', '0', '0.00', '1', 'Six Star Electronics & Furniture', '2017-03-08 05:18:35', NULL, NULL, 1),
+(3, 'RC2017-03-083', 2, '', '', '', '2017-03-08', 'dssfds', '', '20300', '0', 0, '0', '0', '20300', '20300', '0', '0.00', '1', 'Six Star Electronics & Furniture', '2017-03-08 05:19:01', NULL, NULL, 1),
+(4, 'WC2017-03-084', 4, '', '', '', '2017-03-08', '', '', '14500', '0', 0, '0', '0', '14500', '14500', '0', '0.00', '2', 'Six Star Electronics & Furniture', '2017-03-08 05:19:27', NULL, NULL, 1),
+(5, 'WC2017-03-085', 4, '', '', '', '2017-03-08', 'fhgfhf', '', '22500', '0', 0, '0', '0', '22500', '17500', '5000', '0.00', '2', 'Six Star Electronics & Furniture', '2017-03-08 05:23:13', NULL, NULL, 1),
+(6, 'RC2017-03-086', 1, '', '', '', '2017-03-08', '', '', '16000', '0', 0, '0', '0', '16000', '10000', '6000', '0.00', '1', 'Six Star Electronics & Furniture', '2017-03-08 12:21:29', NULL, NULL, 1),
+(7, 'RC2017-03-097', 5, '', '', '', '2017-03-09', 'sale', '', '1800', '0', 0, '0', '0', '1800', '1800', '0', '0.00', '1', 'Six Star Electronics & Furniture', '2017-03-09 04:56:45', NULL, NULL, 1),
+(8, 'RC2017-03-098', 5, '', '', '', '2017-03-09', 'sasa', '', '9000', '0', 0, '0', '0', '9000', '9000', '0', '0.00', '1', 'Six Star Electronics & Furniture', '2017-03-09 04:57:29', NULL, NULL, 1),
+(9, 'WC2017-03-099', 4, '', '', '', '2017-03-09', 'sdffg', '', '43100', '0', 0, '0', '0', '43100', '43100', '0', '0.00', '2', 'Six Star Electronics & Furniture', '2017-03-09 04:58:21', NULL, NULL, 1),
+(10, 'WC2017-03-0910', 2, '', '', '', '2017-03-09', '', '', '3500', '0', 0, '0', '0', '3500', '2500', '1000', '0.00', '2', 'Six Star Electronics & Furniture', '2017-03-09 05:01:26', NULL, NULL, 1),
+(11, 'RC2017-03-0911', 1, '', '', '', '2017-03-09', 'test', '', '4500', '0', 0, '0', '0', '4500', '1500', '3000', '0.00', '3', 'Six Star Electronics & Furniture', '2017-03-09 05:08:02', NULL, NULL, 1),
+(12, 'RC2017-03-1412', 2, '', '', '', '2017-03-14', '', '', '12900', '0', 0, '0', '0', '12900', '12900', '0', '0.00', '1', 'Six Star Electronics & Furniture', '2017-03-14 11:07:49', NULL, NULL, 1),
+(13, 'WC2017-03-1413', 4, '', '', '', '2017-03-14', '', '', '7000', '0', 0, '0', '0', '7000', '7000', '0', '0.00', '2', 'Six Star Electronics & Furniture', '2017-03-14 11:20:15', NULL, NULL, 1),
+(14, 'RC2017-03-1514', 10, '', '', '', '2017-03-15', '', '', '115000', '0', 0, '0', '0', '115000', '115000', '0', '0.00', '1', 'Six Star Electronics & Furniture', '2017-03-15 11:16:41', NULL, NULL, 1),
+(15, 'RC2017-03-1515', 1, '', '', '', '2017-03-15', '', '', '200000', '0', 0, '0', '0', '200000', '200000', '0', '0.00', '1', 'Six Star Electronics & Furniture', '2017-03-15 11:18:21', NULL, NULL, 1),
+(16, 'RC2017-03-1516', 2, '', '', '', '2017-03-15', '', '', '46000', '0', 0, '0', '0', '46000', '46000', '0', '0.00', '1', 'Six Star Electronics & Furniture', '2017-03-15 11:33:29', NULL, NULL, 1),
+(17, 'RC2017-03-1617', 14, '', '', '', '2017-03-16', '', '', '3200', '050', 0, '4', '100', '3378', '1000', '2378', '0.00', '3', 'Six Star Electronics & Furniture', '2017-03-16 08:49:46', NULL, NULL, 1),
+(18, 'RC2017-04-0818', 3, '', '', '', '2017-04-08', '', '', '16000', '0', 0, '0', '0', '16000', '20000', '-4000', '0.00', '1', 'Six Star Electronics & Furniture', '2017-04-08 11:29:45', NULL, NULL, 1),
+(19, 'WC2017-04-1219', 11, '', '', '', '2017-04-12', '', '', '2800', '0', 0, '0', '0', '2800', '2800', '0', '0.00', '2', 'Six Star Electronics & Furniture', '2017-04-12 03:20:29', NULL, NULL, 1),
+(20, 'RC2017-04-1220', 11, '', '', '', '2017-04-12', '', '', '12900', '0', 0, '0', '0', '12900', '12900', '0', '0.00', '1', 'Six Star Electronics & Furniture', '2017-04-12 04:02:30', NULL, NULL, 1),
+(21, 'RC2017-04-1221', 11, '', '', '', '2017-04-12', '', '', '16000', '0', 0, '0', '0', '16000', '16000', '0', '0.00', '3', 'Six Star Electronics & Furniture', '2017-04-12 04:22:34', NULL, NULL, 1),
 (22, 'WC2017-04-2422', 12, '', '', '', '2017-04-24', '', '', '8400', '0', 0, '0', '0', '8400', '8400', '0', '0.00', '2', 'Six Star Electronics ', '2017-04-24 12:39:02', NULL, NULL, 1),
 (23, 'RC2017-04-2423', 1, '', '', '', '2017-04-24', '', '', '3600', '0', 0, '0', '0', '3600', '3600', '0', '0.00', '1', 'Six Star Electronics ', '2017-04-24 12:52:47', NULL, NULL, 1),
 (24, 'RC2017-04-2624', 1, '', '', '', '2017-04-26', '\n\n\n\n', '', '1500', '1', 0, '1', '0', '1500', '1500', '0', '0.00', '1', 'Six Star Electronics ', '2017-04-26 09:49:25', NULL, NULL, 1),
@@ -1433,10 +1433,10 @@ CREATE TABLE IF NOT EXISTS `tbl_supplier` (
 
 INSERT INTO `tbl_supplier` (`Supplier_SlNo`, `Supplier_Code`, `Supplier_Name`, `Supplier_Type`, `Supplier_Phone`, `Supplier_Mobile`, `Supplier_Email`, `Supplier_OfficePhone`, `Supplier_Address`, `District_SlNo`, `Country_SlNo`, `Supplier_Web`, `Status`, `AddBy`, `AddTime`, `UpdateBy`, `UpdateTime`, `Supplier_brinchid`) VALUES
 (1, 'S1001', 'Jara Electronic', 'Local', '', '01726173198', '', '', 'Dhaka', 3, 6, '', '', 'Ashiqe ', '2016-04-10 07:08:04', NULL, NULL, 1),
-(2, 'S1002', 'Asha Enterprise', 'undefined', '', '01756498677', '', '', 'Dhakaজগত\nজামিল\nততকক', 3, 6, '', '', 'Ashiqe ', '2016-04-19 02:40:24', 'Jing You Electronics', '2017-03-14 03:06:47', 1),
+(2, 'S1002', 'Asha Enterprise', 'undefined', '', '01756498677', '', '', 'Dhakaজগত\nজামিল\nততকক', 3, 6, '', '', 'Ashiqe ', '2016-04-19 02:40:24', 'Six Star Electronics & Furniture', '2017-03-14 03:06:47', 1),
 (3, 'S1003', 'Amin Fashion', 'Local', '', '01254987954', '', '', 'Dhaka 1000', 3, 6, '', '', 'shahbag', '2016-04-20 04:45:44', NULL, NULL, 2),
-(4, 'S1004', 'রবিউল ইসলাম', 'undefined', '', '21478', '', '', 'ঢাকা', 3, 6, '', '', 'Jing You Electronics', '2017-04-12 03:03:38', NULL, NULL, 1),
-(5, 'S1005', 'ওসমান উল্লাহ', 'undefined', '', '785', '', '', 'আশুলিয়া', 2, 6, '', '', 'Jing You Electronics', '2017-04-12 03:05:01', NULL, NULL, 1),
+(4, 'S1004', 'রবিউল ইসলাম', 'undefined', '', '21478', '', '', 'ঢাকা', 3, 6, '', '', 'Six Star Electronics & Furniture', '2017-04-12 03:03:38', NULL, NULL, 1),
+(5, 'S1005', 'ওসমান উল্লাহ', 'undefined', '', '785', '', '', 'আশুলিয়া', 2, 6, '', '', 'Six Star Electronics & Furniture', '2017-04-12 03:05:01', NULL, NULL, 1),
 (6, 'S1006', 'Polas Eletronics', 'undefined', '', '01713174400', '', ' ', 'Baipail, Ashulia\n', 3, 6, '', '', 'Six Star Electronics ', '2017-04-30 12:36:44', NULL, NULL, 1);
 
 -- --------------------------------------------------------
@@ -1462,14 +1462,14 @@ CREATE TABLE IF NOT EXISTS `tbl_supplier_payment` (
 --
 
 INSERT INTO `tbl_supplier_payment` (`SPayment_id`, `SPayment_date`, `SPayment_invoice`, `SPayment_customerID`, `SPayment_amount`, `SPayment_Paymentby`, `SPayment_notes`, `SPayment_brunchid`, `SPayment_Addby`) VALUES
-(1, '2017-03-06', '2017-03-60002', '2', '342000', '', '', 1, 'Jing You Electronics'),
-(2, '2017-03-09', '2017-03-60003', '1', '500000', '', 'sfdsdf', 1, 'Jing You Electronics'),
-(3, '2017-03-15', '2017-03-60004', '1', '271200', '', '', 1, 'Jing You Electronics'),
-(4, '2017-03-15', '2017-03-60005', '2', '15000', '', '', 1, 'Jing You Electronics'),
-(5, '2017-04-12', '2017-04-60006', '4', '19200', '', '', 1, 'Jing You Electronics'),
-(6, '2017-04-12', '2017-04-60007', '4', '8000', '', '', 1, 'Jing You Electronics'),
-(7, '2017-04-12', '2017-04-60007', '4', '8000', '', '', 1, 'Jing You Electronics'),
-(8, '2017-04-12', '2017-04-60008', '1', '48000', '', '', 1, 'Jing You Electronics'),
+(1, '2017-03-06', '2017-03-60002', '2', '342000', '', '', 1, 'Six Star Electronics & Furniture'),
+(2, '2017-03-09', '2017-03-60003', '1', '500000', '', 'sfdsdf', 1, 'Six Star Electronics & Furniture'),
+(3, '2017-03-15', '2017-03-60004', '1', '271200', '', '', 1, 'Six Star Electronics & Furniture'),
+(4, '2017-03-15', '2017-03-60005', '2', '15000', '', '', 1, 'Six Star Electronics & Furniture'),
+(5, '2017-04-12', '2017-04-60006', '4', '19200', '', '', 1, 'Six Star Electronics & Furniture'),
+(6, '2017-04-12', '2017-04-60007', '4', '8000', '', '', 1, 'Six Star Electronics & Furniture'),
+(7, '2017-04-12', '2017-04-60007', '4', '8000', '', '', 1, 'Six Star Electronics & Furniture'),
+(8, '2017-04-12', '2017-04-60008', '1', '48000', '', '', 1, 'Six Star Electronics & Furniture'),
 (9, '2017-04-24', '2017-04-60009', '2', '20000', '', '', 1, 'Six Star Electronics '),
 (10, '2017-04-24', '2017-04-60010', '1', '260000', '', '', 1, 'Six Star Electronics '),
 (11, '2017-04-25', '2017-04-60011', '5', '3600', '', '', 1, 'Six Star Electronics '),

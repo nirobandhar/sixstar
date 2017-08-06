@@ -154,7 +154,7 @@
 
                 <i></i>
 
-                <span>Jing You Electronics</span>
+                <span>Six Star Electronics & Furniture</span>
 
             </div>
 
