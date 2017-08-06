@@ -97,17 +97,17 @@
                         </div>
                         <div class="full clearfix">
                             <span>Wholesales Rate</span>
-                            <input name="wholesale_rate" type="text" id="wholesale_rate" value="0" class="txt" required/>
+                            <input name="wholesale_rate" type="text" id="wholesale_rate" value="0" class="txt" required/><p style="display: inline-block; margin-left: 5px">%</p>
                             <span id="wholesale_rate_"></span>
                         </div> 
                         <div class="full clearfix">
                             <span>Retail Rate</span>
-                            <input name="sell_rate" type="text" id="sell_rate" value="0" class="txt" required/>
+                            <input name="sell_rate" type="text" id="sell_rate" value="0" class="txt" required/><p style="display: inline-block; margin-left: 5px">%</p>
                             <span id="sell_rate_"></span>
                         </div> 
                         <div class="full clearfix">
                             <span>Installment Rate</span>
-                            <input name="Installment_rate" type="text" id="Installment_rate" value="0" class="txt" required/>
+                            <input name="Installment_rate" type="text" id="Installment_rate" value="0" class="txt" required/><p style="display: inline-block; margin-left: 5px">%</p>
                             <span id="installment_rate_"></span>
                         </div> 
                         <div class="full clearfix">

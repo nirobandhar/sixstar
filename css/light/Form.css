@@ -243,7 +243,7 @@ div.right_form {
 
     div.right_form > div.body input[type=text],div.right_form > div.body input[type=email] {
         padding: 7px !important;
-        width: calc(66% - 10px);
+        width: calc(55% - 10px);
         border: 1px solid #C8D3DF;
         border-radius: 2px;
     }
