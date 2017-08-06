@@ -39,9 +39,9 @@ class Sales extends CI_Controller {
             $sales = array(
                 "SaleMaster_InvoiceNo"                      =>$this->input->post('salesInvoiceno'),
                 "SalseCustomer_IDNo"                        =>$this->input->post('customerID'),
-                "SalseCustomer_Name"           =>$this->input->post('CusName'),
-                "SalseCustomer_Contact"           =>$this->input->post('CusMobile'),
-                "SalseCustomer_Address"           =>$this->input->post('CusAddress'),
+                "SalseCustomer_Name"                        =>$this->input->post('CusName'),
+                "SalseCustomer_Contact"                     =>$this->input->post('CusMobile'),
+                "SalseCustomer_Address"                     =>$this->input->post('CusAddress'),
                 "SaleMaster_SaleDate"                       =>$this->input->post('sales_date'),
                 "SaleMaster_Description"                    =>$this->input->post('SelesNotes'),
                 "SaleMaster_TotalSaleAmount"                =>$this->input->post('subTotal'),

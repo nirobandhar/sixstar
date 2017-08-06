@@ -20,7 +20,7 @@
         <td>Rate</td>
         <td style="width:200px">
             <div class="full clearfix">
-                <input type="text" id="ProRATe" onkeyup="keyupamount2()" class="inputclass" value="<?php echo $Product['Product_SellingPrice'] ?>">
+                <input type="text" id="ProRATe" onkeyup="keyupamount2()" class="inputclass" value="<?php echo $Product['Product_InstallmentRate'] ?>">
                 <input type="hidden" id="ProPurchaseRATe" value="<?php echo $Product['Product_Purchase_Rate'] ?>">
             </div>
         </td>
