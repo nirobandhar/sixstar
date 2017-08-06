@@ -380,7 +380,7 @@
 
     </table>
 
-    <p><strong>Total (in word): </strong><?php 
+    <p><strong>In Word: </strong><?php
 
 
 
@@ -470,7 +470,7 @@
 
     $inword = convertNumberToWord($grandtotal)."Taka Only";
 
-        echo strtoupper($inword);
+        echo ucwords($inword);
 
     ?></p><br>
 

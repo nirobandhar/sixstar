@@ -260,7 +260,7 @@ document.getElementById('printButton').style.visibility="visible";
         </tr>
         <tr>
           <td>
-            <p><strong>Total (in word): </strong><?php 
+            <p><strong>In Word: </strong><?php
 
             function convertNumberToWord($num = false){
                 $num = str_replace(array(',', ' '), '' , trim($num));
@@ -305,7 +305,7 @@ document.getElementById('printButton').style.visibility="visible";
                 return implode(' ', $words);
             }
             $inword = convertNumberToWord($grandtotal)."Taka Only";
-                  echo strtoupper($inword);
+                  echo ucwords($inword);
             ?></p><br>
               <h4>Notes: <?php echo $selse['PurchaseMaster_Description']; ?></h4>
 

@@ -212,7 +212,7 @@
             <td style="border:0px"><?php echo number_format($grandtotal-$paid,2); ?></td>
         </tr>
     </table>
-    <p><strong>Total (in word): </strong><?php 
+    <p><strong>In Word: </strong><?php
 
 function convertNumberToWord($num = false) {
     $num = str_replace(array(',', ' '), '' , trim($num));
@@ -257,7 +257,7 @@ function convertNumberToWord($num = false) {
     return implode(' ', $words);
 }
 $inword = convertNumberToWord($grandtotal)."Taka Only";
-        echo strtoupper($inword);
+        echo ucwords($inword);
  ?></p><br>
     <h4>Notes: <?php echo $selse['PurchaseMaster_Description']; ?></h4>
 
