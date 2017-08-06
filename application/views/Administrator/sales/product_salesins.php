@@ -154,7 +154,7 @@
                             <td align="center">
                                 <input type="text" id="stockpro" readonly style="border:none;font-size:20px;width:78px;text-align:center;color:green"><br>
                                 <input type="text" id="Prounit" readonly style="border:none;font-size:12px;width:20px"><br/><br/>
-                                 <span style="color:red; font-weight:bold;">Purchase Rate</span><br/>
+                                 <span style="color:red; font-weight:bold;">Sales Rate</span><br/>
                                  <input type="text" id="purate" readonly style="border:none;font-size:20px;width:78px;text-align:center;color:green" value="0"><br><strong>Tk.</strong>
                             </td>
                         </tr>
@@ -276,23 +276,23 @@
                         <input type="text" id="SellVat" readonly="" class="inputclass" style="width:86px" value="0">
                     </div></td>
                 </tr>
-                
-                <tr>
+
+                <tr style="display: none">
                     <td>Freight<br>
                     <div class="full clearfix">
                         <input type="text" class="inputclass" id="SellsFreight" onkeyup="Freightonkeyup()" value="0">
                     </div></td>
                 </tr>
-                <tr>
+                <tr style="display: none">
                     <td>Discount<br>
                     <div class="full clearfix">
-                        <input type="text" id="SellsDiscount2" onkeyup="Discountonkeyup()" class="inputclass" style="width:50px" value="0"> % 
+                        <input type="text" id="SellsDiscount2" onkeyup="Discountonkeyup()" class="inputclass" style="width:50px" value="0"> %
                         <input type="text" id="SellsDiscount" readonly="" class="inputclass" style="width:86px" value="0">
 
                     </div></td>
                 </tr>
                 <tr>
-                    <td style="color:green">Reword-Discount<br>
+                    <td style="color:green; display: none;">Reword-Discount<br>
                     <div class="full clearfix">
                         <input type="text" class="inputclass" id="Reword_Discount" onkeyup="Reword_Discount()" value="0">
                     </div></td>

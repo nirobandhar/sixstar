@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="a34ceb76-3c74-41c0-94ff-b393f52b9e63" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/Administrator/sales.php" afterPath="$PROJECT_DIR$/application/controllers/Administrator/sales.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/Administrator/sales/ajax_product.php" afterPath="$PROJECT_DIR$/application/views/Administrator/sales/ajax_product.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/Administrator/sales/product_salesins.php" afterPath="$PROJECT_DIR$/application/views/Administrator/sales/product_salesins.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -39,16 +37,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="product_salesins.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="product_salesins.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/views/Administrator/sales/product_salesins.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="473">
-              <caret line="134" column="43" lean-forward="true" selection-start-line="134" selection-start-column="43" selection-end-line="134" selection-end-column="43" />
+            <state relative-caret-position="524">
+              <caret line="294" column="58" lean-forward="false" selection-start-line="294" selection-start-column="58" selection-end-line="294" selection-end-column="58" />
               <folding>
-                <marker date="1502001030727" expanded="true" signature="473:502" ph="SELECT * FRO... tbl_salesmaster" />
-                <marker date="1502001030727" expanded="true" signature="806:835" ph="SELECT * FRO... tbl_salesmaster" />
-                <marker date="1502001030727" expanded="true" signature="2688:2741" ph="SELECT * FRO... tbl_customer" />
-                <marker date="1502001030727" expanded="true" signature="5608:6036" ph="SELECT tbl_p... tbl_product" />
+                <element signature="n#style#0;n#tr#2;n#table#0;n#fieldset#0;n#div#1;n#div#0;n#span#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#tr#3;n#table#0;n#fieldset#0;n#div#1;n#div#0;n#span#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#0;n#tr#4;n#table#0;n#fieldset#0;n#div#1;n#div#0;n#span#0;n#!!top" expanded="true" />
+                <marker date="1502014947947" expanded="true" signature="473:502" ph="SELECT * FRO... tbl_salesmaster" />
+                <marker date="1502014947947" expanded="true" signature="806:835" ph="SELECT * FRO... tbl_salesmaster" />
+                <marker date="1502014947947" expanded="true" signature="2688:2741" ph="SELECT * FRO... tbl_customer" />
+                <marker date="1502014947947" expanded="true" signature="5608:6036" ph="SELECT tbl_p... tbl_product" />
               </folding>
             </state>
           </provider>
@@ -97,11 +98,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ajax_product.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ajax_product.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/Administrator/sales/ajax_product.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="22" column="143" lean-forward="false" selection-start-line="22" selection-start-column="143" selection-end-line="22" selection-end-column="143" />
+            <state relative-caret-position="323">
+              <caret line="25" column="13" lean-forward="true" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
               <folding>
                 <marker date="1502013205785" expanded="true" signature="1357:1420" ph="SELECT * FRO... tbl_saleinventory" />
                 <marker date="1502013205785" expanded="true" signature="1584:1652" ph="SELECT * FRO... tbl_purchaseinventory" />
@@ -151,6 +152,8 @@
       <find>Quantity</find>
       <find>ProRATe</find>
       <find>Administrator/sales/ajax_product</find>
+      <find>Product</find>
+      <find>%</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -186,9 +189,9 @@
         <option value="$PROJECT_DIR$/application/views/reports/sales_invoice.php" />
         <option value="$PROJECT_DIR$/application/views/sales/sales_invoice_search.php" />
         <option value="$PROJECT_DIR$/application/views/sales/sellAndreport.php" />
-        <option value="$PROJECT_DIR$/application/views/Administrator/sales/product_salesins.php" />
         <option value="$PROJECT_DIR$/application/controllers/Administrator/sales.php" />
         <option value="$PROJECT_DIR$/application/views/Administrator/sales/ajax_product.php" />
+        <option value="$PROJECT_DIR$/application/views/Administrator/sales/product_salesins.php" />
       </list>
     </option>
   </component>
@@ -487,12 +490,12 @@
       <workItem from="1501657435886" duration="1308000" />
       <workItem from="1501662667745" duration="4000" />
       <workItem from="1501743776930" duration="8858000" />
-      <workItem from="1501991394361" duration="12352000" />
+      <workItem from="1501991394361" duration="14094000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23453000" />
+    <option name="totallyTimeSpent" value="25195000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1296" height="1000" extended-state="0" />
@@ -1124,19 +1127,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/Administrator/sales/product_salesins.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="473">
-          <caret line="134" column="43" lean-forward="true" selection-start-line="134" selection-start-column="43" selection-end-line="134" selection-end-column="43" />
-          <folding>
-            <marker date="1502001030727" expanded="true" signature="473:502" ph="SELECT * FRO... tbl_salesmaster" />
-            <marker date="1502001030727" expanded="true" signature="806:835" ph="SELECT * FRO... tbl_salesmaster" />
-            <marker date="1502001030727" expanded="true" signature="2688:2741" ph="SELECT * FRO... tbl_customer" />
-            <marker date="1502001030727" expanded="true" signature="5608:6036" ph="SELECT tbl_p... tbl_product" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/Administrator/sales/ajax_wholesalesProduct.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1145,6 +1135,18 @@
             <marker date="1496094350000" expanded="true" signature="1391:1452" ph="SELECT * FRO... tbl_purchasedetails" />
             <marker date="1496094350000" expanded="true" signature="1597:1660" ph="SELECT * FRO... tbl_saleinventory" />
             <marker date="1496094350000" expanded="true" signature="1783:1851" ph="SELECT * FRO... tbl_purchaseinventory" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/Administrator/sales/ajax_product.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="25" column="13" lean-forward="true" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
+          <folding>
+            <marker date="1502013205785" expanded="true" signature="1357:1420" ph="SELECT * FRO... tbl_saleinventory" />
+            <marker date="1502013205785" expanded="true" signature="1584:1652" ph="SELECT * FRO... tbl_purchaseinventory" />
+            <marker date="1502013205785" expanded="true" signature="1830:1924" ph="SELECT *,SUM... tbl_branchwise_product" />
           </folding>
         </state>
       </provider>
@@ -1190,14 +1192,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/Administrator/sales/ajax_product.php">
+    <entry file="file://$PROJECT_DIR$/application/views/Administrator/sales/product_salesins.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="22" column="143" lean-forward="false" selection-start-line="22" selection-start-column="143" selection-end-line="22" selection-end-column="143" />
+        <state relative-caret-position="524">
+          <caret line="294" column="58" lean-forward="false" selection-start-line="294" selection-start-column="58" selection-end-line="294" selection-end-column="58" />
           <folding>
-            <marker date="1502013205785" expanded="true" signature="1357:1420" ph="SELECT * FRO... tbl_saleinventory" />
-            <marker date="1502013205785" expanded="true" signature="1584:1652" ph="SELECT * FRO... tbl_purchaseinventory" />
-            <marker date="1502013205785" expanded="true" signature="1830:1924" ph="SELECT *,SUM... tbl_branchwise_product" />
+            <element signature="n#style#0;n#tr#2;n#table#0;n#fieldset#0;n#div#1;n#div#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#tr#3;n#table#0;n#fieldset#0;n#div#1;n#div#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#tr#4;n#table#0;n#fieldset#0;n#div#1;n#div#0;n#span#0;n#!!top" expanded="true" />
+            <marker date="1502014947947" expanded="true" signature="473:502" ph="SELECT * FRO... tbl_salesmaster" />
+            <marker date="1502014947947" expanded="true" signature="806:835" ph="SELECT * FRO... tbl_salesmaster" />
+            <marker date="1502014947947" expanded="true" signature="2688:2741" ph="SELECT * FRO... tbl_customer" />
+            <marker date="1502014947947" expanded="true" signature="5608:6036" ph="SELECT tbl_p... tbl_product" />
           </folding>
         </state>
       </provider>
