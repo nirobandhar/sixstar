@@ -286,7 +286,7 @@
 
         <tr>
 
-            <td style="border-top: 1px solid #999;border-left: 0px ;border-right: 0px ;border-bottom: 0px ;"><strong>Totul Due</strong> </td>
+            <td style="border-top: 1px solid #999;border-left: 0px ;border-right: 0px ;border-bottom: 0px ;"><strong>Total Due</strong> </td>
 
             <td style="color:red;border-top: 1px solid #999;border-left: 0px ;border-right: 0px ;border-bottom: 0px ;text-align: right;"><?php if($previousdue+$CurrenDue==0){echo '0.00';}else{ echo number_format(($previousdue+$CurrenDue), 2);} ?></td>
 

@@ -3,7 +3,17 @@
   <component name="ChangeListManager">
     <list default="true" id="a34ceb76-3c74-41c0-94ff-b393f52b9e63" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/Administrator/sales/product_salesins.php" afterPath="$PROJECT_DIR$/application/views/Administrator/sales/product_salesins.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/Administrator/purchase/purchase_invoice_search.php" afterPath="$PROJECT_DIR$/application/views/Administrator/purchase/purchase_invoice_search.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/Administrator/reports/purchase_bill.php" afterPath="$PROJECT_DIR$/application/views/Administrator/reports/purchase_bill.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/Administrator/reports/sales_invoice.php" afterPath="$PROJECT_DIR$/application/views/Administrator/reports/sales_invoice.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/Administrator/sales/sales_invoice_search.php" afterPath="$PROJECT_DIR$/application/views/Administrator/sales/sales_invoice_search.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/Administrator/sales/sellAndreport.php" afterPath="$PROJECT_DIR$/application/views/Administrator/sales/sellAndreport.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/purchase/purchase_invoice_search.php" afterPath="$PROJECT_DIR$/application/views/purchase/purchase_invoice_search.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/purchase/purchase_to_report.php" afterPath="$PROJECT_DIR$/application/views/purchase/purchase_to_report.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/reports/purchase_bill.php" afterPath="$PROJECT_DIR$/application/views/reports/purchase_bill.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/reports/sales_invoice.php" afterPath="$PROJECT_DIR$/application/views/reports/sales_invoice.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/sales/sales_invoice_search.php" afterPath="$PROJECT_DIR$/application/views/sales/sales_invoice_search.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/sales/sellAndreport.php" afterPath="$PROJECT_DIR$/application/views/sales/sellAndreport.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -24,32 +34,95 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="installment.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/controllers/Administrator/installment.php">
+      <file leaf-file-name="sales_invoice.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/Administrator/reports/sales_invoice.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" column="82" lean-forward="false" selection-start-line="18" selection-start-column="46" selection-end-line="18" selection-end-column="82" />
+            <state relative-caret-position="238">
+              <caret line="40" column="36" lean-forward="true" selection-start-line="40" selection-start-column="36" selection-end-line="40" selection-end-column="36" />
               <folding>
-                <marker date="1492689198000" expanded="true" signature="916:1069" ph="SELECT tbl_p... tbl_product" />
-                <marker date="1492689198000" expanded="true" signature="4928:5002" ph="SELECT * FRO... tbl_saleinventory" />
+                <element signature="n#style#0;n#td#0;n#tr#3;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#0;n#tr#6;n#table#0;n#td#0;n#tr#6;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <marker date="1502086015443" expanded="true" signature="1421:1684" ph="SELECT tbl_s... tbl_salesmaster" />
+                <marker date="1502086015443" expanded="true" signature="5023:5112" ph="SELECT * FRO... tbl_installment_date" />
+                <marker date="1502086015443" expanded="true" signature="6464:6652" ph="SELECT tbl_s... tbl_saledetails" />
+                <marker date="1502086015443" expanded="true" signature="7125:7221" ph="SELECT * FRO... tbl_productcategory" />
+                <marker date="1502086015443" expanded="true" signature="7392:7488" ph="SELECT * FRO... tbl_productcategory" />
+                <marker date="1502086015443" expanded="true" signature="7649:7723" ph="SELECT * FRO... tbl_produsize" />
+                <marker date="1502086015443" expanded="false" signature="7917:7935" ph="..." />
+                <marker date="1502086015443" expanded="false" signature="8024:8043" ph="..." />
+                <marker date="1502086015443" expanded="false" signature="8122:8140" ph="..." />
+                <marker date="1502086015443" expanded="true" signature="8254:8479" ph="SELECT tbl_s... tbl_saledetails" />
+                <marker date="1502086015443" expanded="false" signature="9203:9213" ph="..." />
+                <marker date="1502086015443" expanded="false" signature="9244:9254" ph="..." />
+                <marker date="1502086015443" expanded="false" signature="9314:9343" ph="..." />
+                <marker date="1502086015443" expanded="false" signature="9490:9500" ph="..." />
+                <marker date="1502086015443" expanded="false" signature="9561:9600" ph="..." />
+                <marker date="1502086015443" expanded="true" signature="9833:9914" ph="SELECT * FRO... tbl_customer_payment" />
+                <marker date="1502086015443" expanded="true" signature="10123:10198" ph="SELECT * FRO... tbl_salesmaster" />
+                <marker date="1502086015443" expanded="false" signature="11019:11029" ph="..." />
+                <marker date="1502086015443" expanded="false" signature="11072:11082" ph="..." />
+                <marker date="1502086015443" expanded="false" signature="11136:11165" ph="..." />
+                <marker date="1502086015443" expanded="false" signature="11259:11269" ph="..." />
+                <marker date="1502086015443" expanded="false" signature="11328:11367" ph="..." />
+                <marker date="1502086015443" expanded="false" signature="11479:11489" ph="..." />
+                <marker date="1502086015443" expanded="false" signature="11532:11542" ph="..." />
+                <marker date="1502086015443" expanded="false" signature="11600:11629" ph="..." />
+                <marker date="1502086015443" expanded="false" signature="11909:12021" ph="..." />
+                <marker date="1502086015443" expanded="false" signature="12161:12171" ph="..." />
+                <marker date="1502086015443" expanded="false" signature="12214:12224" ph="..." />
+                <marker date="1502086015443" expanded="false" signature="12283:12312" ph="..." />
+                <marker date="1502086015443" expanded="false" signature="12510:12520" ph="..." />
+                <marker date="1502086015443" expanded="false" signature="12551:12561" ph="..." />
+                <marker date="1502086015443" expanded="false" signature="12592:12602" ph="..." />
+                <marker date="1502086015443" expanded="false" signature="12645:12655" ph="..." />
+                <marker date="1502086015443" expanded="false" signature="12721:12750" ph="..." />
+                <marker date="1502086015443" expanded="false" signature="12937:12947" ph="..." />
+                <marker date="1502086015443" expanded="false" signature="12998:13082" ph="..." />
+                <marker date="1502086015443" expanded="false" signature="13196:13206" ph="..." />
+                <marker date="1502086015443" expanded="false" signature="13245:13255" ph="..." />
+                <marker date="1502086015443" expanded="false" signature="13319:13348" ph="..." />
+                <marker date="1502086015443" expanded="false" signature="13569:13579" ph="..." />
+                <marker date="1502086015443" expanded="false" signature="13618:13628" ph="..." />
+                <marker date="1502086015443" expanded="false" signature="13691:13720" ph="..." />
+                <marker date="1502086015443" expanded="false" signature="13891:13901" ph="..." />
+                <marker date="1502086015443" expanded="false" signature="13952:14036" ph="..." />
+                <marker date="1502086015443" expanded="false" signature="14150:14160" ph="..." />
+                <marker date="1502086015443" expanded="false" signature="14199:14209" ph="..." />
+                <marker date="1502086015443" expanded="false" signature="14271:14300" ph="..." />
+                <marker date="1502086015443" expanded="false" signature="16767:16793" ph="..." />
+                <marker date="1502086015443" expanded="false" signature="16929:16955" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="product_salesins.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/views/Administrator/sales/product_salesins.php">
+      <file leaf-file-name="reports.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/controllers/Administrator/reports.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="524">
-              <caret line="294" column="58" lean-forward="false" selection-start-line="294" selection-start-column="58" selection-end-line="294" selection-end-column="58" />
+            <state relative-caret-position="17">
+              <caret line="36" column="62" lean-forward="false" selection-start-line="36" selection-start-column="27" selection-end-line="36" selection-end-column="62" />
               <folding>
-                <element signature="n#style#0;n#tr#2;n#table#0;n#fieldset#0;n#div#1;n#div#0;n#span#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#tr#3;n#table#0;n#fieldset#0;n#div#1;n#div#0;n#span#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#0;n#tr#4;n#table#0;n#fieldset#0;n#div#1;n#div#0;n#span#0;n#!!top" expanded="true" />
-                <marker date="1502014947947" expanded="true" signature="473:502" ph="SELECT * FRO... tbl_salesmaster" />
-                <marker date="1502014947947" expanded="true" signature="806:835" ph="SELECT * FRO... tbl_salesmaster" />
-                <marker date="1502014947947" expanded="true" signature="2688:2741" ph="SELECT * FRO... tbl_customer" />
-                <marker date="1502014947947" expanded="true" signature="5608:6036" ph="SELECT tbl_p... tbl_product" />
+                <marker date="1496923012000" expanded="true" signature="2110:2370" ph="SELECT tbl_p... tbl_purchasemaster" />
+                <marker date="1496923012000" expanded="true" signature="2442:2756" ph="SELECT tbl_p... tbl_purchasemaster" />
+                <marker date="1496923012000" expanded="true" signature="3375:3648" ph="SELECT tbl_s... tbl_salesmaster" />
+                <marker date="1496923012000" expanded="true" signature="3695:4010" ph="SELECT tbl_s... tbl_salesmaster" />
+                <marker date="1496923012000" expanded="true" signature="4138:4509" ph="SELECT tbl_s... tbl_salesmaster" />
+                <marker date="1496923012000" expanded="true" signature="4555:4926" ph="SELECT tbl_s... tbl_salesmaster" />
+                <marker date="1496923012000" expanded="true" signature="6270:6468" ph="SELECT tbl_p... tbl_purchasemaster" />
+                <marker date="1496923012000" expanded="true" signature="6921:7174" ph="SELECT tbl_p... tbl_purchasemaster" />
+                <marker date="1496923012000" expanded="true" signature="8065:8261" ph="SELECT tbl_s... tbl_salesmaster" />
+                <marker date="1496923012000" expanded="true" signature="8674:8927" ph="SELECT tbl_s... tbl_salesmaster" />
+                <marker date="1496923012000" expanded="true" signature="9547:9786" ph="SELECT tbl_s... tbl_salesmaster" />
+                <marker date="1496923012000" expanded="true" signature="10203:10497" ph="SELECT tbl_s... tbl_salesmaster" />
+                <marker date="1496923012000" expanded="true" signature="11085:11348" ph="SELECT tbl_s... tbl_supplier_payment" />
+                <marker date="1496923012000" expanded="true" signature="11420:11745" ph="SELECT tbl_s... tbl_supplier_payment" />
+                <marker date="1496923012000" expanded="true" signature="12346:12603" ph="SELECT tbl_c... tbl_customer_payment" />
+                <marker date="1496923012000" expanded="true" signature="12675:12994" ph="SELECT tbl_c... tbl_customer_payment" />
+                <marker date="1496923012000" expanded="true" signature="13065:13369" ph="SELECT tbl_c... tbl_customer_payment" />
+                <marker date="1496923012000" expanded="true" signature="13432:13798" ph="SELECT tbl_c... tbl_customer_payment" />
+                <marker date="1496923012000" expanded="true" signature="14634:14842" ph="SELECT tbl_c... tbl_cashtransaction" />
+                <marker date="1496923012000" expanded="true" signature="14916:15192" ph="SELECT tbl_c... tbl_cashtransaction" />
+                <marker date="1496923012000" expanded="true" signature="15394:15536" ph="SELECT tbl_c... tbl_cashtransaction" />
               </folding>
             </state>
           </provider>
@@ -58,8 +131,8 @@
       <file leaf-file-name="sales.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/controllers/Administrator/sales.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="279">
-              <caret line="32" column="19" lean-forward="false" selection-start-line="32" selection-start-column="15" selection-end-line="32" selection-end-column="22" />
+            <state relative-caret-position="439">
+              <caret line="406" column="5" lean-forward="true" selection-start-line="406" selection-start-column="5" selection-end-line="406" selection-end-column="5" />
               <folding>
                 <marker date="1502012554482" expanded="true" signature="1270:1423" ph="SELECT tbl_p... tbl_product" />
                 <marker date="1502012554482" expanded="true" signature="6952:7026" ph="SELECT * FRO... tbl_saleinventory" />
@@ -98,29 +171,29 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ajax_product.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/Administrator/sales/ajax_product.php">
+      <file leaf-file-name="sales_invoice.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/Administrator/sales/sales_invoice.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="25" column="13" lean-forward="true" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
+            <state relative-caret-position="119">
+              <caret line="7" column="42" lean-forward="true" selection-start-line="7" selection-start-column="42" selection-end-line="7" selection-end-column="42" />
               <folding>
-                <marker date="1502013205785" expanded="true" signature="1357:1420" ph="SELECT * FRO... tbl_saleinventory" />
-                <marker date="1502013205785" expanded="true" signature="1584:1652" ph="SELECT * FRO... tbl_purchaseinventory" />
-                <marker date="1502013205785" expanded="true" signature="1830:1924" ph="SELECT *,SUM... tbl_branchwise_product" />
+                <marker date="1502087460593" expanded="true" signature="648:712" ph="SELECT * FRO... tbl_salesmaster" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ajax_wholesalesProduct.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/Administrator/sales/ajax_wholesalesProduct.php">
+      <file leaf-file-name="sales_invoice_search.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/views/Administrator/sales/sales_invoice_search.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="119">
+              <caret line="27" column="0" lean-forward="true" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
               <folding>
-                <marker date="1496094350000" expanded="true" signature="1391:1452" ph="SELECT * FRO... tbl_purchasedetails" />
-                <marker date="1496094350000" expanded="true" signature="1597:1660" ph="SELECT * FRO... tbl_saleinventory" />
-                <marker date="1496094350000" expanded="true" signature="1783:1851" ph="SELECT * FRO... tbl_purchaseinventory" />
+                <marker date="1502087575813" expanded="true" signature="424:659" ph="SELECT tbl_s... tbl_salesmaster" />
+                <marker date="1502087575813" expanded="true" signature="4430:4623" ph="SELECT tbl_s... tbl_saledetails" />
+                <marker date="1502087575813" expanded="true" signature="5461:5691" ph="SELECT tbl_s... tbl_saledetails" />
+                <marker date="1502087575813" expanded="true" signature="7024:7105" ph="SELECT * FRO... tbl_customer_payment" />
+                <marker date="1502087575813" expanded="true" signature="7318:7393" ph="SELECT * FRO... tbl_salesmaster" />
               </folding>
             </state>
           </provider>
@@ -145,7 +218,6 @@
       <find>strtoupper($inword)</find>
       <find>Total (in word):</find>
       <find>Sales Rate</find>
-      <find>sales_invoice</find>
       <find>purate</find>
       <find>$grandtotal</find>
       <find>purchaseTOcart</find>
@@ -153,13 +225,20 @@
       <find>ProRATe</find>
       <find>Administrator/sales/ajax_product</find>
       <find>Product</find>
+      <find>Totul</find>
+      <find>tbl_installment_date</find>
+      <find>Installment Date</find>
       <find>%</find>
+      <find>sales_invoice_search</find>
+      <find>Served by</find>
+      <find>sales_invoice</find>
     </findStrings>
     <replaceStrings>
       <replace />
       <replace>Six Star Electronics &amp; Furniture</replace>
       <replace>ucwords($inword)</replace>
       <replace>In Word:</replace>
+      <replace>Total</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -178,11 +257,6 @@
         <option value="$PROJECT_DIR$/application/views/Administrator/products/add_product.php" />
         <option value="$PROJECT_DIR$/application/views/index.php" />
         <option value="$PROJECT_DIR$/db/six_star_soft.sql" />
-        <option value="$PROJECT_DIR$/application/views/Administrator/purchase/purchase_invoice_search.php" />
-        <option value="$PROJECT_DIR$/application/views/Administrator/reports/purchase_bill.php" />
-        <option value="$PROJECT_DIR$/application/views/Administrator/reports/sales_invoice.php" />
-        <option value="$PROJECT_DIR$/application/views/Administrator/sales/sales_invoice_search.php" />
-        <option value="$PROJECT_DIR$/application/views/Administrator/sales/sellAndreport.php" />
         <option value="$PROJECT_DIR$/application/views/purchase/purchase_invoice_search.php" />
         <option value="$PROJECT_DIR$/application/views/purchase/purchase_to_report.php" />
         <option value="$PROJECT_DIR$/application/views/reports/purchase_bill.php" />
@@ -192,6 +266,12 @@
         <option value="$PROJECT_DIR$/application/controllers/Administrator/sales.php" />
         <option value="$PROJECT_DIR$/application/views/Administrator/sales/ajax_product.php" />
         <option value="$PROJECT_DIR$/application/views/Administrator/sales/product_salesins.php" />
+        <option value="$PROJECT_DIR$/application/views/Administrator/purchase/purchase_invoice_search.php" />
+        <option value="$PROJECT_DIR$/application/views/Administrator/reports/purchase_bill.php" />
+        <option value="$PROJECT_DIR$/application/views/Administrator/sales/sellAndreport.php" />
+        <option value="$PROJECT_DIR$/application/views/Administrator/reports/sales_invoice.php" />
+        <option value="$PROJECT_DIR$/application/views/Administrator/sales/sales_invoice.php" />
+        <option value="$PROJECT_DIR$/application/views/Administrator/sales/sales_invoice_search.php" />
       </list>
     </option>
   </component>
@@ -313,6 +393,32 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="sales" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="six_star" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="six_star" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Administrator" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="reports" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -490,12 +596,14 @@
       <workItem from="1501657435886" duration="1308000" />
       <workItem from="1501662667745" duration="4000" />
       <workItem from="1501743776930" duration="8858000" />
-      <workItem from="1501991394361" duration="14094000" />
+      <workItem from="1501991394361" duration="17685000" />
+      <workItem from="1502077333606" duration="437000" />
+      <workItem from="1502079142693" duration="4239000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25195000" />
+    <option name="totallyTimeSpent" value="33462000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1296" height="1000" extended-state="0" />
@@ -505,7 +613,6 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32921347" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -517,6 +624,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32921347" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -531,28 +639,10 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/application/config/config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="44" lean-forward="false" selection-start-line="16" selection-start-column="44" selection-end-line="16" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/purchase/purchase_to_report.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1870">
           <caret line="110" column="36" lean-forward="false" selection-start-line="110" selection-start-column="29" selection-end-line="110" selection-end-column="36" />
-          <folding>
-            <marker date="1501995393456" expanded="true" signature="556:805" ph="SELECT tbl_p... tbl_purchasemaster" />
-            <marker date="1501995393456" expanded="true" signature="3480:3858" ph="SELECT tbl_p... tbl_purchasedetails" />
-            <marker date="1501995393456" expanded="true" signature="4346:4684" ph="SELECT tbl_p... tbl_purchasedetails" />
-            <marker date="1501995393456" expanded="true" signature="4937:5033" ph="SELECT * FRO... tbl_productcategory" />
-            <marker date="1501995393456" expanded="true" signature="5204:5300" ph="SELECT * FRO... tbl_productcategory" />
-            <marker date="1501995393456" expanded="true" signature="5461:5547" ph="SELECT * FRO... tbl_produsize" />
-            <marker date="1501995393456" expanded="true" signature="5953:6203" ph="SELECT tbl_p... tbl_purchasedetails" />
-            <marker date="1501995393456" expanded="true" signature="7421:7501" ph="SELECT * FRO... tbl_supplier_payment" />
-            <marker date="1501995393456" expanded="true" signature="7712:7784" ph="SELECT * FRO... tbl_purchasemaster" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -560,7 +650,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1258">
           <caret line="74" column="1" lean-forward="false" selection-start-line="74" selection-start-column="1" selection-end-line="74" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -568,9 +657,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="9" column="33" lean-forward="false" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="33" />
-          <folding>
-            <marker date="1501657482024" expanded="true" signature="585:769" ph="SELECT tbl_u... tbl_user" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -585,17 +671,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1870">
           <caret line="110" column="36" lean-forward="false" selection-start-line="110" selection-start-column="29" selection-end-line="110" selection-end-column="36" />
-          <folding>
-            <marker date="1501995393456" expanded="true" signature="556:805" ph="SELECT tbl_p... tbl_purchasemaster" />
-            <marker date="1501995393456" expanded="true" signature="3480:3858" ph="SELECT tbl_p... tbl_purchasedetails" />
-            <marker date="1501995393456" expanded="true" signature="4346:4684" ph="SELECT tbl_p... tbl_purchasedetails" />
-            <marker date="1501995393456" expanded="true" signature="4937:5033" ph="SELECT * FRO... tbl_productcategory" />
-            <marker date="1501995393456" expanded="true" signature="5204:5300" ph="SELECT * FRO... tbl_productcategory" />
-            <marker date="1501995393456" expanded="true" signature="5461:5547" ph="SELECT * FRO... tbl_produsize" />
-            <marker date="1501995393456" expanded="true" signature="5953:6203" ph="SELECT tbl_p... tbl_purchasedetails" />
-            <marker date="1501995393456" expanded="true" signature="7421:7501" ph="SELECT * FRO... tbl_supplier_payment" />
-            <marker date="1501995393456" expanded="true" signature="7712:7784" ph="SELECT * FRO... tbl_purchasemaster" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -603,7 +678,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1258">
           <caret line="74" column="1" lean-forward="false" selection-start-line="74" selection-start-column="1" selection-end-line="74" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -625,9 +699,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="11" column="15" lean-forward="false" selection-start-line="11" selection-start-column="15" selection-end-line="11" selection-end-column="15" />
-          <folding>
-            <marker date="1501657482024" expanded="true" signature="585:769" ph="SELECT tbl_u... tbl_user" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -663,7 +734,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1258">
           <caret line="74" column="1" lean-forward="false" selection-start-line="74" selection-start-column="1" selection-end-line="74" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -678,12 +748,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1493178262000" expanded="true" signature="468:497" ph="SELECT * FRO... tbl_salesmaster" />
-            <marker date="1493178262000" expanded="true" signature="801:830" ph="SELECT * FRO... tbl_salesmaster" />
-            <marker date="1493178262000" expanded="true" signature="2683:2736" ph="SELECT * FRO... tbl_customer" />
-            <marker date="1493178262000" expanded="true" signature="5603:6031" ph="SELECT tbl_p... tbl_product" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -698,12 +762,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="799">
           <caret line="47" column="40" lean-forward="false" selection-start-line="47" selection-start-column="40" selection-end-line="47" selection-end-column="40" />
-          <folding>
-            <marker date="1501744101709" expanded="true" signature="468:497" ph="SELECT * FRO... tbl_salesmaster" />
-            <marker date="1501744101709" expanded="true" signature="801:830" ph="SELECT * FRO... tbl_salesmaster" />
-            <marker date="1501744101709" expanded="true" signature="2775:2828" ph="SELECT * FRO... tbl_customer" />
-            <marker date="1501744101709" expanded="true" signature="5728:6156" ph="SELECT tbl_p... tbl_product" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -711,28 +769,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="13481">
           <caret line="793" column="73" lean-forward="false" selection-start-line="793" selection-start-column="46" selection-end-line="793" selection-end-column="73" />
-          <folding>
-            <marker date="1493191818000" expanded="true" signature="1678:1733" ph="SELECT * FRO... tbl_supplier" />
-            <marker date="1493191818000" expanded="true" signature="1963:2116" ph="SELECT tbl_p... tbl_product" />
-            <marker date="1493191818000" expanded="true" signature="5360:5490" ph="SELECT * FRO... tbl_purchaseinventory" />
-            <marker date="1493191818000" expanded="true" signature="6753:6859" ph="select * fro... tbl_branchwise_product" />
-            <marker date="1493191818000" expanded="true" signature="7009:7154" ph="INSERT INTO tbl_branchwise_product... " />
-            <marker date="1493191818000" expanded="true" signature="7392:7524" ph="UPDATE tbl_b... " />
-            <marker date="1493191818000" expanded="true" signature="7915:7986" ph="SELECT * FRO... tbl_purchasemaster" />
-            <marker date="1493191818000" expanded="true" signature="8940:9017" ph="SELECT * FRO... tbl_purchasereturn" />
-            <marker date="1493191818000" expanded="true" signature="11904:12037" ph="select * fro... tbl_branchwise_product" />
-            <marker date="1493191818000" expanded="true" signature="12260:12419" ph="UPDATE tbl_b... " />
-            <marker date="1493191818000" expanded="true" signature="14976:15109" ph="select * fro... tbl_branchwise_product" />
-            <marker date="1493191818000" expanded="true" signature="15332:15491" ph="UPDATE tbl_b... " />
-            <marker date="1493191818000" expanded="true" signature="16125:16281" ph="SELECT * FRO... tbl_purchaseinventory" />
-            <marker date="1493191818000" expanded="true" signature="17311:17377" ph="SELECT * FRO... tbl_purchasemaster" />
-            <marker date="1493191818000" expanded="true" signature="18022:18076" ph="SELECT * FRO... tbl_supplier" />
-            <marker date="1493191818000" expanded="true" signature="18753:19082" ph="SELECT tbl_p... tbl_purchasemaster" />
-            <marker date="1493191818000" expanded="true" signature="19157:19471" ph="SELECT tbl_p... tbl_purchasemaster" />
-            <marker date="1493191818000" expanded="true" signature="19958:20015" ph="SELECT * FRO... tbl_product" />
-            <marker date="1493191818000" expanded="true" signature="21594:21661" ph="SELECT * FRO... tbl_purchaseinventory" />
-            <marker date="1493191818000" expanded="true" signature="22357:22423" ph="SELECT * FRO... tbl_purchasemaster" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -740,9 +776,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="9" column="33" lean-forward="false" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="33" />
-          <folding>
-            <marker date="1501657482024" expanded="true" signature="585:769" ph="SELECT tbl_u... tbl_user" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -750,7 +783,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="635">
           <caret line="243" column="0" lean-forward="false" selection-start-line="243" selection-start-column="0" selection-end-line="243" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -758,15 +790,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="397">
           <caret line="250" column="37" lean-forward="true" selection-start-line="250" selection-start-column="37" selection-end-line="250" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/six_star_soft.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1411">
-          <caret line="83" column="0" lean-forward="true" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -774,7 +797,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="457">
           <caret line="90" column="0" lean-forward="true" selection-start-line="90" selection-start-column="0" selection-end-line="90" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -782,9 +804,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="346">
           <caret line="128" column="20" lean-forward="false" selection-start-line="128" selection-start-column="20" selection-end-line="128" selection-end-column="20" />
-          <folding>
-            <marker date="1501993021271" expanded="true" signature="4925:4983" ph="SELECT * FRO... tbl_menuaccess" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -792,7 +811,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="9" column="33" lean-forward="true" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="33" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -800,17 +818,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="439">
           <caret line="108" column="57" lean-forward="true" selection-start-line="108" selection-start-column="57" selection-end-line="108" selection-end-column="57" />
-          <folding>
-            <element signature="n#style#0;n#p#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#span#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#0;n#div#2;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#span#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#0;n#div#3;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#span#0;n#div#0;n#!!top" expanded="true" />
-            <marker date="1501992139929" expanded="true" signature="1097:1122" ph="SELECT * FRO... tbl_product" />
-            <marker date="1501992139929" expanded="true" signature="1628:1653" ph="SELECT * FRO... tbl_product" />
-            <marker date="1501992139929" expanded="true" signature="2616:2683" ph="SELECT * FRO... tbl_productcategory" />
-            <marker date="1501992139929" expanded="true" signature="4130:4187" ph="SELECT * FRO... tbl_produsize" />
-            <marker date="1501992139929" expanded="true" signature="8276:8321" ph="SELECT * FRO... tbl_unit" />
-            <marker date="1501992139929" expanded="true" signature="11124:11423" ph="SELECT tbl_p... tbl_product" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -818,27 +825,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="16" column="66" lean-forward="false" selection-start-line="16" selection-start-column="46" selection-end-line="16" selection-end-column="66" />
-          <folding>
-            <marker date="1492689190000" expanded="true" signature="954:1010" ph="SELECT Unit_... tbl_unit" />
-            <marker date="1492689190000" expanded="true" signature="2964:3242" ph="SELECT tbl_p... tbl_product" />
-            <marker date="1492689190000" expanded="true" signature="5292:5381" ph="SELECT Produ... tbl_productcategory" />
-            <marker date="1492689190000" expanded="true" signature="6448:6523" ph="SELECT Produ... tbl_produsize" />
-            <marker date="1492689190000" expanded="true" signature="8361:8533" ph="INSERT INTO tbl_transfer... " />
-            <marker date="1492689190000" expanded="true" signature="9411:9508" ph="select * fro... tbl_branchwise_product" />
-            <marker date="1492689190000" expanded="true" signature="9678:9788" ph="INSERT INTO tbl_branchwise_product... " />
-            <marker date="1492689190000" expanded="true" signature="9942:10065" ph="UPDATE tbl_b... " />
-            <marker date="1492689190000" expanded="true" signature="10110:10209" ph="select * fro... tbl_branchwise_product" />
-            <marker date="1492689190000" expanded="true" signature="10397:10521" ph="UPDATE tbl_b... " />
-            <marker date="1492689190000" expanded="true" signature="10565:10628" ph="UPDATE tbl_t... " />
-            <marker date="1492689190000" expanded="true" signature="10923:11294" ph="SELECT tbl_p... tbl_product" />
-            <marker date="1492689190000" expanded="true" signature="11857:11913" ph="SELECT * FRO... tbl_brunch" />
-            <marker date="1492689190000" expanded="true" signature="12917:12968" ph="DELETE FROM " />
-            <marker date="1492689190000" expanded="true" signature="13260:13631" ph="SELECT tbl_p... tbl_product" />
-            <marker date="1492689190000" expanded="true" signature="14194:14250" ph="SELECT * FRO... tbl_brunch" />
-            <marker date="1492689190000" expanded="true" signature="16470:16790" ph="SELECT tbl_p... tbl_purchaseinventory" />
-            <marker date="1492689190000" expanded="true" signature="17200:17312" ph="SELECT * FRO... tbl_saleinventory" />
-            <marker date="1492689190000" expanded="true" signature="17691:17787" ph="SELECT * FRO... tbl_branchwise_product" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -846,93 +832,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="217">
           <caret line="161" column="57" lean-forward="false" selection-start-line="161" selection-start-column="57" selection-end-line="161" selection-end-column="57" />
-          <folding>
-            <marker date="1501757309758" expanded="true" signature="570:819" ph="SELECT tbl_p... tbl_purchasemaster" />
-            <marker date="1501757309758" expanded="true" signature="3494:3872" ph="SELECT tbl_p... tbl_purchasedetails" />
-            <marker date="1501757309758" expanded="true" signature="4360:4698" ph="SELECT tbl_p... tbl_purchasedetails" />
-            <marker date="1501757309758" expanded="true" signature="4951:5047" ph="SELECT * FRO... tbl_productcategory" />
-            <marker date="1501757309758" expanded="true" signature="5218:5314" ph="SELECT * FRO... tbl_productcategory" />
-            <marker date="1501757309758" expanded="true" signature="5475:5561" ph="SELECT * FRO... tbl_produsize" />
-            <marker date="1501757309758" expanded="true" signature="6085:6335" ph="SELECT tbl_p... tbl_purchasedetails" />
-            <marker date="1501757309758" expanded="true" signature="7596:7676" ph="SELECT * FRO... tbl_supplier_payment" />
-            <marker date="1501757309758" expanded="true" signature="7887:7959" ph="SELECT * FRO... tbl_purchasemaster" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/Administrator/purchase/purchase_invoice_search.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="352" column="15" lean-forward="false" selection-start-line="352" selection-start-column="15" selection-end-line="352" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/Administrator/reports/purchase_bill.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="262" column="23" lean-forward="false" selection-start-line="262" selection-start-column="23" selection-end-line="262" selection-end-column="23" />
-          <folding>
-            <marker date="1501995392745" expanded="true" signature="1423:1667" ph="SELECT tbl_p... tbl_purchasemaster" />
-            <marker date="1501995392745" expanded="true" signature="4689:5062" ph="SELECT tbl_p... tbl_purchasedetails" />
-            <marker date="1501995392745" expanded="true" signature="5562:5895" ph="SELECT tbl_p... tbl_purchasedetails" />
-            <marker date="1501995392745" expanded="true" signature="6148:6244" ph="SELECT * FRO... tbl_productcategory" />
-            <marker date="1501995392745" expanded="true" signature="6415:6511" ph="SELECT * FRO... tbl_productcategory" />
-            <marker date="1501995392745" expanded="true" signature="6672:6758" ph="SELECT * FRO... tbl_produsize" />
-            <marker date="1501995392745" expanded="true" signature="7310:7555" ph="SELECT tbl_p... tbl_purchasedetails" />
-            <marker date="1501995392745" expanded="true" signature="8872:8952" ph="SELECT * FRO... tbl_supplier_payment" />
-            <marker date="1501995392745" expanded="true" signature="9163:9235" ph="SELECT * FRO... tbl_purchasemaster" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/Administrator/reports/sales_invoice.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="302" column="23" lean-forward="false" selection-start-line="302" selection-start-column="23" selection-end-line="302" selection-end-column="23" />
-          <folding>
-            <marker date="1501995392988" expanded="true" signature="1421:1684" ph="SELECT tbl_s... tbl_salesmaster" />
-            <marker date="1501995392988" expanded="true" signature="5023:5112" ph="SELECT * FRO... tbl_installment_date" />
-            <marker date="1501995392988" expanded="true" signature="6464:6652" ph="SELECT tbl_s... tbl_saledetails" />
-            <marker date="1501995392988" expanded="true" signature="7125:7221" ph="SELECT * FRO... tbl_productcategory" />
-            <marker date="1501995392988" expanded="true" signature="7392:7488" ph="SELECT * FRO... tbl_productcategory" />
-            <marker date="1501995392988" expanded="true" signature="7649:7723" ph="SELECT * FRO... tbl_produsize" />
-            <marker date="1501995392988" expanded="true" signature="8254:8479" ph="SELECT tbl_s... tbl_saledetails" />
-            <marker date="1501995392988" expanded="true" signature="9833:9914" ph="SELECT * FRO... tbl_customer_payment" />
-            <marker date="1501995392988" expanded="true" signature="10123:10198" ph="SELECT * FRO... tbl_salesmaster" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/Administrator/sales/sales_invoice_search.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="382" column="15" lean-forward="false" selection-start-line="382" selection-start-column="15" selection-end-line="382" selection-end-column="15" />
-          <folding>
-            <marker date="1501995392866" expanded="true" signature="424:659" ph="SELECT tbl_s... tbl_salesmaster" />
-            <marker date="1501995392866" expanded="true" signature="4430:4623" ph="SELECT tbl_s... tbl_saledetails" />
-            <marker date="1501995392866" expanded="true" signature="5461:5691" ph="SELECT tbl_s... tbl_saledetails" />
-            <marker date="1501995392866" expanded="true" signature="7024:7105" ph="SELECT * FRO... tbl_customer_payment" />
-            <marker date="1501995392866" expanded="true" signature="7318:7393" ph="SELECT * FRO... tbl_salesmaster" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/Administrator/sales/sellAndreport.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="359">
-          <caret line="254" column="15" lean-forward="false" selection-start-line="254" selection-start-column="15" selection-end-line="254" selection-end-column="15" />
-          <folding>
-            <marker date="1501995392616" expanded="true" signature="552:819" ph="SELECT tbl_s... tbl_salesmaster" />
-            <marker date="1501995392616" expanded="true" signature="4225:4314" ph="SELECT * FRO... tbl_installment_date" />
-            <marker date="1501995392616" expanded="true" signature="5474:5667" ph="SELECT tbl_s... tbl_saledetails" />
-            <marker date="1501995392616" expanded="true" signature="6140:6236" ph="SELECT * FRO... tbl_productcategory" />
-            <marker date="1501995392616" expanded="true" signature="6407:6503" ph="SELECT * FRO... tbl_productcategory" />
-            <marker date="1501995392616" expanded="true" signature="6664:6738" ph="SELECT * FRO... tbl_produsize" />
-            <marker date="1501995392616" expanded="true" signature="7269:7499" ph="SELECT tbl_s... tbl_saledetails" />
-            <marker date="1501995392616" expanded="true" signature="8806:8887" ph="SELECT * FRO... tbl_customer_payment" />
-            <marker date="1501995392616" expanded="true" signature="9096:9171" ph="SELECT * FRO... tbl_salesmaster" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -944,29 +843,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/Administrator/sales/sales_invoice.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="21" lean-forward="true" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="21" />
-          <folding>
-            <marker date="1496012114000" expanded="true" signature="648:712" ph="SELECT * FRO... tbl_salesmaster" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/products/add_product.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="147" column="53" lean-forward="true" selection-start-line="147" selection-start-column="53" selection-end-line="147" selection-end-column="53" />
-          <folding>
-            <element signature="n#style#0;n#th#0;n#tr#0;n#thead#0;n#table#0;n#div#2;n#span#0;n#div#0;n#!!top" expanded="true" />
-            <marker date="1501762461051" expanded="true" signature="1125:1150" ph="SELECT * FRO... tbl_product" />
-            <marker date="1501762461051" expanded="true" signature="1676:1701" ph="SELECT * FRO... tbl_product" />
-            <marker date="1501762461051" expanded="true" signature="2720:2787" ph="SELECT * FRO... tbl_productcategory" />
-            <marker date="1501762461051" expanded="true" signature="4300:4357" ph="SELECT * FRO... tbl_produsize" />
-            <marker date="1501762461051" expanded="true" signature="8248:8293" ph="SELECT * FRO... tbl_unit" />
-            <marker date="1501762461051" expanded="true" signature="11621:11920" ph="SELECT tbl_p... tbl_product" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -974,27 +854,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="16" column="80" lean-forward="false" selection-start-line="16" selection-start-column="60" selection-end-line="16" selection-end-column="80" />
-          <folding>
-            <marker date="1496917266000" expanded="true" signature="996:1052" ph="SELECT Unit_... tbl_unit" />
-            <marker date="1496917266000" expanded="true" signature="3138:3416" ph="SELECT tbl_p... tbl_product" />
-            <marker date="1496917266000" expanded="true" signature="5634:5723" ph="SELECT Produ... tbl_productcategory" />
-            <marker date="1496917266000" expanded="true" signature="6817:6892" ph="SELECT Produ... tbl_produsize" />
-            <marker date="1496917266000" expanded="true" signature="8857:9029" ph="INSERT INTO tbl_transfer... " />
-            <marker date="1496917266000" expanded="true" signature="9991:10088" ph="select * fro... tbl_branchwise_product" />
-            <marker date="1496917266000" expanded="true" signature="10258:10368" ph="INSERT INTO tbl_branchwise_product... " />
-            <marker date="1496917266000" expanded="true" signature="10522:10645" ph="UPDATE tbl_b... " />
-            <marker date="1496917266000" expanded="true" signature="10690:10789" ph="select * fro... tbl_branchwise_product" />
-            <marker date="1496917266000" expanded="true" signature="10977:11101" ph="UPDATE tbl_b... " />
-            <marker date="1496917266000" expanded="true" signature="11145:11208" ph="UPDATE tbl_t... " />
-            <marker date="1496917266000" expanded="true" signature="11503:11874" ph="SELECT tbl_p... tbl_product" />
-            <marker date="1496917266000" expanded="true" signature="12437:12493" ph="SELECT * FRO... tbl_brunch" />
-            <marker date="1496917266000" expanded="true" signature="13497:13548" ph="DELETE FROM " />
-            <marker date="1496917266000" expanded="true" signature="13840:14211" ph="SELECT tbl_p... tbl_product" />
-            <marker date="1496917266000" expanded="true" signature="14774:14830" ph="SELECT * FRO... tbl_brunch" />
-            <marker date="1496917266000" expanded="true" signature="17106:17426" ph="SELECT tbl_p... tbl_purchaseinventory" />
-            <marker date="1496917266000" expanded="true" signature="17836:17948" ph="SELECT * FRO... tbl_saleinventory" />
-            <marker date="1496917266000" expanded="true" signature="18327:18423" ph="SELECT * FRO... tbl_branchwise_product" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1003,11 +862,11 @@
         <state relative-caret-position="461">
           <caret line="381" column="25" lean-forward="true" selection-start-line="381" selection-start-column="25" selection-end-line="381" selection-end-column="25" />
           <folding>
-            <marker date="1501995393347" expanded="true" signature="410:645" ph="SELECT tbl_s... tbl_salesmaster" />
-            <marker date="1501995393347" expanded="true" signature="3243:3436" ph="SELECT tbl_s... tbl_saledetails" />
-            <marker date="1501995393347" expanded="true" signature="4155:4385" ph="SELECT tbl_s... tbl_saledetails" />
-            <marker date="1501995393347" expanded="true" signature="5681:5762" ph="SELECT * FRO... tbl_customer_payment" />
-            <marker date="1501995393347" expanded="true" signature="5975:6050" ph="SELECT * FRO... tbl_salesmaster" />
+            <marker date="1502015849519" expanded="true" signature="410:645" ph="SELECT tbl_s... tbl_salesmaster" />
+            <marker date="1502015849519" expanded="true" signature="3243:3436" ph="SELECT tbl_s... tbl_saledetails" />
+            <marker date="1502015849519" expanded="true" signature="4155:4385" ph="SELECT tbl_s... tbl_saledetails" />
+            <marker date="1502015849519" expanded="true" signature="5681:5762" ph="SELECT * FRO... tbl_customer_payment" />
+            <marker date="1502015849519" expanded="true" signature="5975:6050" ph="SELECT * FRO... tbl_salesmaster" />
           </folding>
         </state>
       </provider>
@@ -1016,17 +875,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="181">
           <caret line="277" column="23" lean-forward="false" selection-start-line="277" selection-start-column="23" selection-end-line="277" selection-end-column="23" />
-          <folding>
-            <marker date="1501995393116" expanded="true" signature="1727:1990" ph="SELECT tbl_s... tbl_salesmaster" />
-            <marker date="1501995393116" expanded="true" signature="4175:4264" ph="SELECT * FRO... tbl_installment_date" />
-            <marker date="1501995393116" expanded="true" signature="5616:5804" ph="SELECT tbl_s... tbl_saledetails" />
-            <marker date="1501995393116" expanded="true" signature="6277:6373" ph="SELECT * FRO... tbl_productcategory" />
-            <marker date="1501995393116" expanded="true" signature="6544:6640" ph="SELECT * FRO... tbl_productcategory" />
-            <marker date="1501995393116" expanded="true" signature="6801:6875" ph="SELECT * FRO... tbl_produsize" />
-            <marker date="1501995393116" expanded="true" signature="7287:7512" ph="SELECT tbl_s... tbl_saledetails" />
-            <marker date="1501995393116" expanded="true" signature="8829:8910" ph="SELECT * FRO... tbl_customer_payment" />
-            <marker date="1501995393116" expanded="true" signature="9119:9194" ph="SELECT * FRO... tbl_salesmaster" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1034,17 +882,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="181">
           <caret line="265" column="23" lean-forward="false" selection-start-line="265" selection-start-column="23" selection-end-line="265" selection-end-column="23" />
-          <folding>
-            <marker date="1501995393229" expanded="true" signature="1729:1973" ph="SELECT tbl_p... tbl_purchasemaster" />
-            <marker date="1501995393229" expanded="true" signature="4995:5368" ph="SELECT tbl_p... tbl_purchasedetails" />
-            <marker date="1501995393229" expanded="true" signature="5868:6201" ph="SELECT tbl_p... tbl_purchasedetails" />
-            <marker date="1501995393229" expanded="true" signature="6454:6550" ph="SELECT * FRO... tbl_productcategory" />
-            <marker date="1501995393229" expanded="true" signature="6721:6817" ph="SELECT * FRO... tbl_productcategory" />
-            <marker date="1501995393229" expanded="true" signature="6978:7064" ph="SELECT * FRO... tbl_produsize" />
-            <marker date="1501995393229" expanded="true" signature="7470:7715" ph="SELECT tbl_p... tbl_purchasedetails" />
-            <marker date="1501995393229" expanded="true" signature="8995:9075" ph="SELECT * FRO... tbl_supplier_payment" />
-            <marker date="1501995393229" expanded="true" signature="9286:9358" ph="SELECT * FRO... tbl_purchasemaster" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1052,17 +889,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="509">
           <caret line="214" column="15" lean-forward="false" selection-start-line="214" selection-start-column="15" selection-end-line="214" selection-end-column="15" />
-          <folding>
-            <marker date="1501995393456" expanded="true" signature="556:805" ph="SELECT tbl_p... tbl_purchasemaster" />
-            <marker date="1501995393456" expanded="true" signature="3480:3858" ph="SELECT tbl_p... tbl_purchasedetails" />
-            <marker date="1501995393456" expanded="true" signature="4346:4684" ph="SELECT tbl_p... tbl_purchasedetails" />
-            <marker date="1501995393456" expanded="true" signature="4937:5033" ph="SELECT * FRO... tbl_productcategory" />
-            <marker date="1501995393456" expanded="true" signature="5204:5300" ph="SELECT * FRO... tbl_productcategory" />
-            <marker date="1501995393456" expanded="true" signature="5461:5547" ph="SELECT * FRO... tbl_produsize" />
-            <marker date="1501995393456" expanded="true" signature="5953:6203" ph="SELECT tbl_p... tbl_purchasedetails" />
-            <marker date="1501995393456" expanded="true" signature="7421:7501" ph="SELECT * FRO... tbl_supplier_payment" />
-            <marker date="1501995393456" expanded="true" signature="7712:7784" ph="SELECT * FRO... tbl_purchasemaster" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1070,13 +896,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="291">
           <caret line="352" column="15" lean-forward="false" selection-start-line="352" selection-start-column="15" selection-end-line="352" selection-end-column="15" />
-          <folding>
-            <marker date="1501995392402" expanded="true" signature="413:662" ph="SELECT tbl_p... tbl_purchasemaster" />
-            <marker date="1501995392402" expanded="true" signature="3049:3261" ph="SELECT tbl_p... tbl_purchasedetails" />
-            <marker date="1501995392402" expanded="true" signature="3995:4245" ph="SELECT tbl_p... tbl_purchasedetails" />
-            <marker date="1501995392402" expanded="true" signature="5489:5569" ph="SELECT * FRO... tbl_supplier_payment" />
-            <marker date="1501995392402" expanded="true" signature="5785:5857" ph="SELECT * FRO... tbl_purchasemaster" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1084,19 +903,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="248">
           <caret line="246" column="53" lean-forward="true" selection-start-line="246" selection-start-column="53" selection-end-line="246" selection-end-column="53" />
-          <folding>
-            <element signature="n#style#0;n#td#0;n#tr#12;n#table#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#2;n#tr#12;n#table#1;n#div#0;n#!!top" expanded="true" />
-            <marker date="1501995392508" expanded="true" signature="524:791" ph="SELECT tbl_s... tbl_salesmaster" />
-            <marker date="1501995392508" expanded="true" signature="3004:3093" ph="SELECT * FRO... tbl_installment_date" />
-            <marker date="1501995392508" expanded="true" signature="4253:4446" ph="SELECT tbl_s... tbl_saledetails" />
-            <marker date="1501995392508" expanded="true" signature="4919:5015" ph="SELECT * FRO... tbl_productcategory" />
-            <marker date="1501995392508" expanded="true" signature="5186:5282" ph="SELECT * FRO... tbl_productcategory" />
-            <marker date="1501995392508" expanded="true" signature="5443:5517" ph="SELECT * FRO... tbl_produsize" />
-            <marker date="1501995392508" expanded="true" signature="6002:6232" ph="SELECT tbl_s... tbl_saledetails" />
-            <marker date="1501995392508" expanded="true" signature="7502:7583" ph="SELECT * FRO... tbl_customer_payment" />
-            <marker date="1501995392508" expanded="true" signature="7792:7867" ph="SELECT * FRO... tbl_salesmaster" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1104,26 +910,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
           <caret line="32" column="40" lean-forward="false" selection-start-line="32" selection-start-column="28" selection-end-line="32" selection-end-column="40" />
-          <folding>
-            <marker date="1492689196000" expanded="true" signature="536:764" ph="SELECT tbl_p... tbl_product" />
-            <marker date="1492689196000" expanded="true" signature="1670:1995" ph="SELECT tbl_p... tbl_product" />
-            <marker date="1492689196000" expanded="true" signature="6636:6688" ph="SELECT * fro... order_tbl" />
-            <marker date="1492689196000" expanded="true" signature="8032:8075" ph="SELECT * fro... customer" />
-            <marker date="1492689196000" expanded="true" signature="8220:8272" ph="SELECT * fro... order_tbl" />
-            <marker date="1492689196000" expanded="true" signature="10180:10253" ph="SELECT * fro... customer" />
-            <marker date="1492689196000" expanded="true" signature="11436:11509" ph="SELECT * fro... customer" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Administrator/installment.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="82" lean-forward="false" selection-start-line="18" selection-start-column="46" selection-end-line="18" selection-end-column="82" />
-          <folding>
-            <marker date="1492689198000" expanded="true" signature="916:1069" ph="SELECT tbl_p... tbl_product" />
-            <marker date="1492689198000" expanded="true" signature="4928:5002" ph="SELECT * FRO... tbl_saleinventory" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1131,18 +917,61 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/six_star_soft.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="287">
+          <caret line="619" column="13" lean-forward="false" selection-start-line="619" selection-start-column="13" selection-end-line="619" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Administrator/installment.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="201">
+          <caret line="59" column="53" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="120" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/Administrator/reports/purchase_bill.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="181">
+          <caret line="225" column="117" lean-forward="false" selection-start-line="225" selection-start-column="117" selection-end-line="225" selection-end-column="117" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/Administrator/purchase/purchase_invoice_search.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="288" column="117" lean-forward="false" selection-start-line="288" selection-start-column="117" selection-end-line="288" selection-end-column="117" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/Administrator/sales/sellAndreport.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="222" column="40" lean-forward="true" selection-start-line="222" selection-start-column="40" selection-end-line="222" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/Administrator/sales/product_salesins.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="35" lean-forward="false" selection-start-line="12" selection-start-column="35" selection-end-line="12" selection-end-column="35" />
           <folding>
-            <marker date="1496094350000" expanded="true" signature="1391:1452" ph="SELECT * FRO... tbl_purchasedetails" />
-            <marker date="1496094350000" expanded="true" signature="1597:1660" ph="SELECT * FRO... tbl_saleinventory" />
-            <marker date="1496094350000" expanded="true" signature="1783:1851" ph="SELECT * FRO... tbl_purchaseinventory" />
+            <marker date="1502014947947" expanded="true" signature="473:502" ph="SELECT * FRO... tbl_salesmaster" />
+            <marker date="1502014947947" expanded="true" signature="806:835" ph="SELECT * FRO... tbl_salesmaster" />
+            <marker date="1502014947947" expanded="true" signature="2688:2741" ph="SELECT * FRO... tbl_customer" />
+            <marker date="1502014947947" expanded="true" signature="5608:6036" ph="SELECT tbl_p... tbl_product" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/Administrator/sales/ajax_product.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="25" column="13" lean-forward="true" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
+        <state relative-caret-position="17">
+          <caret line="25" column="13" lean-forward="false" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
           <folding>
             <marker date="1502013205785" expanded="true" signature="1357:1420" ph="SELECT * FRO... tbl_saleinventory" />
             <marker date="1502013205785" expanded="true" signature="1584:1652" ph="SELECT * FRO... tbl_purchaseinventory" />
@@ -1151,10 +980,100 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Administrator/reports.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="36" column="62" lean-forward="false" selection-start-line="36" selection-start-column="27" selection-end-line="36" selection-end-column="62" />
+          <folding>
+            <marker date="1496923012000" expanded="true" signature="2110:2370" ph="SELECT tbl_p... tbl_purchasemaster" />
+            <marker date="1496923012000" expanded="true" signature="2442:2756" ph="SELECT tbl_p... tbl_purchasemaster" />
+            <marker date="1496923012000" expanded="true" signature="3375:3648" ph="SELECT tbl_s... tbl_salesmaster" />
+            <marker date="1496923012000" expanded="true" signature="3695:4010" ph="SELECT tbl_s... tbl_salesmaster" />
+            <marker date="1496923012000" expanded="true" signature="4138:4509" ph="SELECT tbl_s... tbl_salesmaster" />
+            <marker date="1496923012000" expanded="true" signature="4555:4926" ph="SELECT tbl_s... tbl_salesmaster" />
+            <marker date="1496923012000" expanded="true" signature="6270:6468" ph="SELECT tbl_p... tbl_purchasemaster" />
+            <marker date="1496923012000" expanded="true" signature="6921:7174" ph="SELECT tbl_p... tbl_purchasemaster" />
+            <marker date="1496923012000" expanded="true" signature="8065:8261" ph="SELECT tbl_s... tbl_salesmaster" />
+            <marker date="1496923012000" expanded="true" signature="8674:8927" ph="SELECT tbl_s... tbl_salesmaster" />
+            <marker date="1496923012000" expanded="true" signature="9547:9786" ph="SELECT tbl_s... tbl_salesmaster" />
+            <marker date="1496923012000" expanded="true" signature="10203:10497" ph="SELECT tbl_s... tbl_salesmaster" />
+            <marker date="1496923012000" expanded="true" signature="11085:11348" ph="SELECT tbl_s... tbl_supplier_payment" />
+            <marker date="1496923012000" expanded="true" signature="11420:11745" ph="SELECT tbl_s... tbl_supplier_payment" />
+            <marker date="1496923012000" expanded="true" signature="12346:12603" ph="SELECT tbl_c... tbl_customer_payment" />
+            <marker date="1496923012000" expanded="true" signature="12675:12994" ph="SELECT tbl_c... tbl_customer_payment" />
+            <marker date="1496923012000" expanded="true" signature="13065:13369" ph="SELECT tbl_c... tbl_customer_payment" />
+            <marker date="1496923012000" expanded="true" signature="13432:13798" ph="SELECT tbl_c... tbl_customer_payment" />
+            <marker date="1496923012000" expanded="true" signature="14634:14842" ph="SELECT tbl_c... tbl_cashtransaction" />
+            <marker date="1496923012000" expanded="true" signature="14916:15192" ph="SELECT tbl_c... tbl_cashtransaction" />
+            <marker date="1496923012000" expanded="true" signature="15394:15536" ph="SELECT tbl_c... tbl_cashtransaction" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/Administrator/reports/sales_invoice.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="40" column="36" lean-forward="true" selection-start-line="40" selection-start-column="36" selection-end-line="40" selection-end-column="36" />
+          <folding>
+            <element signature="n#style#0;n#td#0;n#tr#3;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#tr#6;n#table#0;n#td#0;n#tr#6;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1502086015443" expanded="true" signature="1421:1684" ph="SELECT tbl_s... tbl_salesmaster" />
+            <marker date="1502086015443" expanded="true" signature="5023:5112" ph="SELECT * FRO... tbl_installment_date" />
+            <marker date="1502086015443" expanded="true" signature="6464:6652" ph="SELECT tbl_s... tbl_saledetails" />
+            <marker date="1502086015443" expanded="true" signature="7125:7221" ph="SELECT * FRO... tbl_productcategory" />
+            <marker date="1502086015443" expanded="true" signature="7392:7488" ph="SELECT * FRO... tbl_productcategory" />
+            <marker date="1502086015443" expanded="true" signature="7649:7723" ph="SELECT * FRO... tbl_produsize" />
+            <marker date="1502086015443" expanded="false" signature="7917:7935" ph="..." />
+            <marker date="1502086015443" expanded="false" signature="8024:8043" ph="..." />
+            <marker date="1502086015443" expanded="false" signature="8122:8140" ph="..." />
+            <marker date="1502086015443" expanded="true" signature="8254:8479" ph="SELECT tbl_s... tbl_saledetails" />
+            <marker date="1502086015443" expanded="false" signature="9203:9213" ph="..." />
+            <marker date="1502086015443" expanded="false" signature="9244:9254" ph="..." />
+            <marker date="1502086015443" expanded="false" signature="9314:9343" ph="..." />
+            <marker date="1502086015443" expanded="false" signature="9490:9500" ph="..." />
+            <marker date="1502086015443" expanded="false" signature="9561:9600" ph="..." />
+            <marker date="1502086015443" expanded="true" signature="9833:9914" ph="SELECT * FRO... tbl_customer_payment" />
+            <marker date="1502086015443" expanded="true" signature="10123:10198" ph="SELECT * FRO... tbl_salesmaster" />
+            <marker date="1502086015443" expanded="false" signature="11019:11029" ph="..." />
+            <marker date="1502086015443" expanded="false" signature="11072:11082" ph="..." />
+            <marker date="1502086015443" expanded="false" signature="11136:11165" ph="..." />
+            <marker date="1502086015443" expanded="false" signature="11259:11269" ph="..." />
+            <marker date="1502086015443" expanded="false" signature="11328:11367" ph="..." />
+            <marker date="1502086015443" expanded="false" signature="11479:11489" ph="..." />
+            <marker date="1502086015443" expanded="false" signature="11532:11542" ph="..." />
+            <marker date="1502086015443" expanded="false" signature="11600:11629" ph="..." />
+            <marker date="1502086015443" expanded="false" signature="11909:12021" ph="..." />
+            <marker date="1502086015443" expanded="false" signature="12161:12171" ph="..." />
+            <marker date="1502086015443" expanded="false" signature="12214:12224" ph="..." />
+            <marker date="1502086015443" expanded="false" signature="12283:12312" ph="..." />
+            <marker date="1502086015443" expanded="false" signature="12510:12520" ph="..." />
+            <marker date="1502086015443" expanded="false" signature="12551:12561" ph="..." />
+            <marker date="1502086015443" expanded="false" signature="12592:12602" ph="..." />
+            <marker date="1502086015443" expanded="false" signature="12645:12655" ph="..." />
+            <marker date="1502086015443" expanded="false" signature="12721:12750" ph="..." />
+            <marker date="1502086015443" expanded="false" signature="12937:12947" ph="..." />
+            <marker date="1502086015443" expanded="false" signature="12998:13082" ph="..." />
+            <marker date="1502086015443" expanded="false" signature="13196:13206" ph="..." />
+            <marker date="1502086015443" expanded="false" signature="13245:13255" ph="..." />
+            <marker date="1502086015443" expanded="false" signature="13319:13348" ph="..." />
+            <marker date="1502086015443" expanded="false" signature="13569:13579" ph="..." />
+            <marker date="1502086015443" expanded="false" signature="13618:13628" ph="..." />
+            <marker date="1502086015443" expanded="false" signature="13691:13720" ph="..." />
+            <marker date="1502086015443" expanded="false" signature="13891:13901" ph="..." />
+            <marker date="1502086015443" expanded="false" signature="13952:14036" ph="..." />
+            <marker date="1502086015443" expanded="false" signature="14150:14160" ph="..." />
+            <marker date="1502086015443" expanded="false" signature="14199:14209" ph="..." />
+            <marker date="1502086015443" expanded="false" signature="14271:14300" ph="..." />
+            <marker date="1502086015443" expanded="false" signature="16767:16793" ph="..." />
+            <marker date="1502086015443" expanded="false" signature="16929:16955" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/Administrator/sales.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="32" column="19" lean-forward="false" selection-start-line="32" selection-start-column="15" selection-end-line="32" selection-end-column="22" />
+        <state relative-caret-position="439">
+          <caret line="406" column="5" lean-forward="true" selection-start-line="406" selection-start-column="5" selection-end-line="406" selection-end-column="5" />
           <folding>
             <marker date="1502012554482" expanded="true" signature="1270:1423" ph="SELECT tbl_p... tbl_product" />
             <marker date="1502012554482" expanded="true" signature="6952:7026" ph="SELECT * FRO... tbl_saleinventory" />
@@ -1192,18 +1111,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/Administrator/sales/product_salesins.php">
+    <entry file="file://$PROJECT_DIR$/application/views/Administrator/sales/sales_invoice.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="524">
-          <caret line="294" column="58" lean-forward="false" selection-start-line="294" selection-start-column="58" selection-end-line="294" selection-end-column="58" />
+        <state relative-caret-position="119">
+          <caret line="7" column="42" lean-forward="true" selection-start-line="7" selection-start-column="42" selection-end-line="7" selection-end-column="42" />
           <folding>
-            <element signature="n#style#0;n#tr#2;n#table#0;n#fieldset#0;n#div#1;n#div#0;n#span#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#tr#3;n#table#0;n#fieldset#0;n#div#1;n#div#0;n#span#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#0;n#tr#4;n#table#0;n#fieldset#0;n#div#1;n#div#0;n#span#0;n#!!top" expanded="true" />
-            <marker date="1502014947947" expanded="true" signature="473:502" ph="SELECT * FRO... tbl_salesmaster" />
-            <marker date="1502014947947" expanded="true" signature="806:835" ph="SELECT * FRO... tbl_salesmaster" />
-            <marker date="1502014947947" expanded="true" signature="2688:2741" ph="SELECT * FRO... tbl_customer" />
-            <marker date="1502014947947" expanded="true" signature="5608:6036" ph="SELECT tbl_p... tbl_product" />
+            <marker date="1502087460593" expanded="true" signature="648:712" ph="SELECT * FRO... tbl_salesmaster" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/Administrator/sales/sales_invoice_search.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="27" column="0" lean-forward="true" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+          <folding>
+            <marker date="1502087575813" expanded="true" signature="424:659" ph="SELECT tbl_s... tbl_salesmaster" />
+            <marker date="1502087575813" expanded="true" signature="4430:4623" ph="SELECT tbl_s... tbl_saledetails" />
+            <marker date="1502087575813" expanded="true" signature="5461:5691" ph="SELECT tbl_s... tbl_saledetails" />
+            <marker date="1502087575813" expanded="true" signature="7024:7105" ph="SELECT * FRO... tbl_customer_payment" />
+            <marker date="1502087575813" expanded="true" signature="7318:7393" ph="SELECT * FRO... tbl_salesmaster" />
           </folding>
         </state>
       </provider>
