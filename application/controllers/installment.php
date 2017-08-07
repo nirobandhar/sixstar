@@ -58,17 +58,23 @@ class Installment extends CI_Controller {
             "CPayment_brunchid"                 =>$this->session->userdata("BRANCHid")
         );
         $this->mt->save_data("tbl_customer_payment", $data);
-		$date1 = date('Y-m-d', strtotime('+1 month'));
+		/*$date1 = date('Y-m-d', strtotime('+1 month'));
 		$date2 = date('Y-m-d', strtotime('+2 month'));
-		$date3 = date('Y-m-d', strtotime('+3 month'));
-			 
+		$date3 = date('Y-m-d', strtotime('+3 month'));*/
+
+        $time = strtotime(date('Y-m-09',time()));//strtotime("2010-08-06");
+        $date1 = date('Y-m-d', strtotime('+1 month',$time));
+        $date2 = date('Y-m-d', strtotime('+2 month',$time));
+        $date3 = date('Y-m-d', strtotime('+3 month',$time));
+
 		 $install = array(
             "invoiceid"              =>$this->input->post('salesInvoiceno', TRUE),
             "fistdate"               =>$date1,
             "secondate"              =>$date2,
             "thirdate"               =>$date3
         );
-        $this->mt->save_data("tbl_installment_date", $install);
+
+		 $this->mt->save_data("tbl_installment_date", $install);
         
         if ($cart = $this->cart->contents()){
             foreach ($cart as $item){
