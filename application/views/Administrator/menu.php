@@ -191,7 +191,7 @@
                                         <a href='<?php echo base_url();?>Administrator/sales/monthlysummery'><span>Monthly Summery</span></a>
                                     </li> 
                                     <li>
-                                        <a href='<?php echo base_url();?>Administrator/sales/lossprofit'><span>Loss Profit</span></a>
+                                        <a href='<?php echo base_url();?>Administrator/sales/lossprofit'><span>Profit and Loss Summary</span></a>
                                     </li>                                                                                                           
                                 </ul>                                 
                             </li> 

@@ -3,7 +3,7 @@
 <link href="<?php echo base_url()?>css/prints.css" rel="stylesheet" />
 
 <div class="content_scroll" style="padding:40px 20px 25px 160px">
-<h2>Loss Profit Summery</h2>
+<h2>Profit and Loss Summary</h2>
 <?php 
 
 //Current summyry

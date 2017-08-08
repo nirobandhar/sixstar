@@ -53,6 +53,7 @@ class Customer extends CI_Controller {
 
             $config['image_library'] = 'gd2';
             $config['source_image'] = $images1['full_path']; //get original image
+            $config['maintain_ratio'] = FALSE;
             $config['width'] = 113;
             $config['height'] = 142;
             $this->load->library('image_lib', $config);

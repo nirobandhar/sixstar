@@ -110,7 +110,7 @@
           width: 140px;
         }
         #cssmenu ul ul {
-          width: 140px;
+            width: 165px;
         }
         #cssmenu > ul > li > a {
           /*border-right: 4px solid #1b9bff;*/
