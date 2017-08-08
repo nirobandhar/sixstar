@@ -395,33 +395,31 @@ class Employee extends CI_Controller {
         $data['AddTime']=  date("Y-m-d h:i:s");
 
 
-
-        $this->upload->do_upload('em_photo');
-
-        $images = $this->upload->data();
-
-        $data['Employee_Pic_org'] = $images['file_name'];
+        //Image Resize / Manupulation
+       if ( $this->upload->do_upload('em_photo')){
+           $images = $this->upload->data();
+           $data['Employee_Pic_org'] = $images['file_name'];
 
 
+           $config['image_library'] = 'gd2';
 
-        $config['image_library'] = 'gd2';
+           $config['source_image'] = $this->upload->upload_path.$this->upload->file_name;
 
-        $config['source_image'] = $this->upload->upload_path.$this->upload->file_name;
+           $config['new_image'] = 'uploads/'.'employeePhoto_thum/'.$this->upload->file_name;
 
-        $config['new_image'] = 'uploads/'.'employeePhoto_thum/'.$this->upload->file_name;
+           $config['maintain_ratio'] = FALSE;
 
-        $config['maintain_ratio'] = FALSE;
+           $config['width'] = 115;
 
-        $config['width'] = 165;
+           $config['height'] = 137;
 
-        $config['height'] = 175;
+           $this->load->library('image_lib', $config);
 
-        $this->load->library('image_lib', $config);
+           $this->image_lib->resize();
 
-        $this->image_lib->resize();
+           $data['Employee_Pic_thum'] = $this->upload->file_name;
 
-        $data['Employee_Pic_thum'] = $this->upload->file_name;
-
+       }
 
 
         $this->mt->save_data('tbl_employee', $data);

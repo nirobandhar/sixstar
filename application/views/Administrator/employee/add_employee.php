@@ -343,9 +343,9 @@
 
                                 <span></span>
 
-                                <img id="hideid" src="<?php echo base_url();?>images/No-Image-.jpg" alt="" style="width:140px">
+                                <img id="hideid" src="<?php echo base_url();?>images/No-Image-.jpg" alt="" style="width:100px">
 
-                                <img id="preview" src="#" style="width:140px;height:140px" hidden>
+                                <img id="preview" src="#" style="width:100px;" hidden>
 
                                 
 
@@ -572,7 +572,7 @@
 
           var x = $.ajax({
 
-            url: "<?php echo base_url();?>Administrator/employee/employee_insert/",
+            url: "<?php echo base_url();?>Administrator/employee/employee_insert",
 
             type: "POST",
 

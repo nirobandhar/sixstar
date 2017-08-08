@@ -86,13 +86,13 @@
             url: "<?php echo base_url();?>page/company_profile_Update/",
             type: "POST",
             data: fd,
-            enctype: 'multipart/form-data',
+            cache: false,
             processData: false, 
             contentType: false,
             success:function(data){         
-            $("#Company").html(data);
-            alert("Update Success");
-            //setTimeout( function() {$.fancybox.close(); },1200);
+                $("#Company").html(data);
+                alert("Update Success");
+                //setTimeout( function() {$.fancybox.close(); },1200);
             } 
           });
     }
