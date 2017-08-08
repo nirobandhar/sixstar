@@ -122,7 +122,7 @@
 
            <th>SI No.</th>
 
-           <th>Product Information</th>
+           <th>Product Name</th>
 
            <th>Quantity</th>
 

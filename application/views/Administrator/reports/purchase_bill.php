@@ -112,7 +112,7 @@ document.getElementById('printButton').style.visibility="visible";
                 <tr>
                    <th>SI No.</th>
                    <th>Product Name</th>
-                   <th>Product information</th>
+                   <th>Product Name</th>
                    <th>Model</th>
                    <th>Company</th>
                    <th>Size</th>

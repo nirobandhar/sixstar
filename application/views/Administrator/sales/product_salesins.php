@@ -172,7 +172,7 @@
                     <thead>
                         <tr class="header">
                             <th style="width:2%"></th>
-                            <th style="width:20%">Product Information</th>
+                            <th style="width:20%">Product Name</th>
                             <th style="width:12%">Model</th>
                             <th style="width:10%">size</th>
                             <th style="width:10%">Unit</th>

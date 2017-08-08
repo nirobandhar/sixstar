@@ -151,6 +151,7 @@
                         <div class="full clearfix">
                             <span>Photo</span>
                             <input name="photo" id="photo" type="file" />
+                            <img id="photo_preview" style="margin-top: 5px; width:100px;" src="<?php echo base_url('images/No-Image-.jpg') ?>" alt="img preview">
                         </div> 
                         <div class="full clearfix">
                             <span>Biodata</span>
@@ -166,6 +167,8 @@
                         </div>                                                                                                                                                                                
                     </div>
                 </div>
+
+
             </div>
             </form>
         </div>
@@ -312,4 +315,25 @@
             }
         });
     }
+</script>
+
+<script>
+    //Image preview for landlord
+    function readImgURLlnd(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#photo_preview').attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    $("#photo").change(function(){
+        readImgURLlnd(this);
+        console.log('File selected');
+    });
+    //End image preview
 </script>
