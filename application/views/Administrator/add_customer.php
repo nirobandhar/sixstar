@@ -151,7 +151,7 @@
                         <div class="full clearfix">
                             <span>Photo</span>
                             <input name="photo" id="photo" type="file" />
-                            <img id="photo_preview" style="margin-top: 5px; width:100px;" src="<?php echo base_url('images/No-Image-.jpg') ?>" alt="img preview">
+                            <img id="photo_preview" style="margin-top: 5px; width:113px;" src="<?php echo base_url('images/No-Image-.jpg') ?>" alt="img preview">
                         </div> 
                         <div class="full clearfix">
                             <span>Biodata</span>
@@ -274,7 +274,7 @@
             type: "POST",
             url: urldata,
             data: fd,
-			enctype: 'multipart/form-data',
+            cache:false,
             processData: false, 
             contentType: false,
             success:function(data){

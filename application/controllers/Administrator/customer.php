@@ -23,8 +23,6 @@ class Customer extends CI_Controller {
         $config['upload_path'] = './uploads/Customerbiodata/';
         $config['allowed_types'] = 'gif|jpg|png|jpeg|pdf|doc|docx';
         $config['max_size'] = '10000';
-        $config['image_width']= '4000';
-        $config['image_height']= '4000';
         $this->upload->initialize($config);
          
         $data['Customer_Code']=  $this->input->post('Customer_id', TRUE);
@@ -48,9 +46,21 @@ class Customer extends CI_Controller {
         $data['AddTime']=  date("Y-m-d h:i:s");
 		$data['notes']=  $this->input->post('notes',true);
 
-		$this->upload->do_upload('photo');
-        $images1 = $this->upload->data();
-        $data['customerpic'] = $images1['file_name'];
+		//Image Resize
+		if ($this->upload->do_upload('photo')){
+            $images1 = $this->upload->data();
+            $data['customerpic'] = $images1['file_name'];
+
+            $config['image_library'] = 'gd2';
+            $config['source_image'] = $images1['full_path']; //get original image
+            $config['width'] = 113;
+            $config['height'] = 142;
+            $this->load->library('image_lib', $config);
+            if (!$this->image_lib->resize()) {
+                $this->handle_error($this->image_lib->display_errors());
+            }
+        }
+
 		
         $this->upload->do_upload('biodata');
         $images = $this->upload->data();
@@ -58,6 +68,7 @@ class Customer extends CI_Controller {
         $this->mt->save_data('tbl_customer',$data);
         $this->load->view('Administrator/ajax/customer');
     }
+
     public function customeredit()  {
         $data['title'] = "Edit Customer";
         $id =$this->input->post('edit');
