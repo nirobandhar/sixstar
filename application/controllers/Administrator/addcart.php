@@ -19,6 +19,7 @@ class Addcart extends CI_Controller {
 	function purchaseTOcart(){
 		 $sqlgetmodel = mysql_query("SELECT tbl_product.*, tbl_productcategory.* FROM tbl_product left join tbl_productcategory on tbl_productcategory.ProductCategory_SlNo= tbl_product.ProductCategory_ID Where tbl_product.Product_SlNo='".$this->input->post('id')."'");
          $rowmodel = mysql_fetch_array($sqlgetmodel);
+         $company_name = $rowmodel['company'];
 		 $model = $rowmodel['ProductCategory_Name'];
 		 $insert_data = array(
 			'id' => $this->input->post('id'),
@@ -27,6 +28,7 @@ class Addcart extends CI_Controller {
 			'purchaserate' => $this->input->post('price'),
 			'image' => $this->input->post('image'),
 			'model' =>  $model,
+			'company_name' =>  $company_name,
 			'gqty' => $this->input->post('gqty'),
 			'qty' => $this->input->post('qty')
 		);

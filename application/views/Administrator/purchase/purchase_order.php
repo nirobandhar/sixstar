@@ -152,16 +152,16 @@
                 <div class="row_section clearfix" style="margin-top:20px;padding-bottom:0px;">
                     <table class="zebra" cellspacing="0" cellpadding="0" border="0" id="" style="width:100%;border-collapse:collapse;">
                         <thead>
-                            <tr class="header">
-                                <th style="width:2%"></th>
-                                <th style="width:20%">Model</th>
-                                <th style="width:20%">Product Name</th>
-                                <th style="width:10%">Unit</th>
-                                <th style="width:10%">Rate</th>
-                                <th style="width:10%">Qty</th>
-                                <th style="width:10%">Total Amount</th>
-                                <th style="width:10%"></th>                                                      
-                            </tr>
+                            <th style="width:2%">Sl No.</th>
+                            <th style="width:13%">Product Name</th>
+                            <th style="width:10%">Company</th>
+                            <th style="width:12%">Model</th>
+                            <!--<th style="width:10%">size</th>-->
+                            <th style="width:10%">Qty</th>
+                            <th style="width:10%">Rate</th>
+                            <th style="width:10%">Unit</th>
+                            <th style="width:10%">Total</th>
+                            <th style="width:10%">Action</th>
                         </thead>
                     </table>                    
                 </div> 
@@ -190,20 +190,30 @@
                             ?> 
                                 <tr>
 
-                                    <td style="width:2%"> <input name="proID[]" type="hidden" value="<?php echo $item['id']; ?>"></td>
-                                    <td style="width:20%"><?php echo $item['name']; ?></td>
-                                    <td style="width:20%"><?php echo $item['model']; ?></td>
-                                    <td style="width:10%"><?php echo $item['image']; ?></td>
-                                    <td style="width:10%"><?php echo $item['price']; ?>
+                                    <td style="width:4%"><?php echo $i; ?></td>
+                                    <td style="width:13%"><?php echo $item['name']; ?></td>
+                                    <td style="width:10%"><?php echo $item['company_name']; ?></td>
+                                    <td style="width:12%"><?php echo $item['model']; ?></td>
+                                    <td style="width:10%"><?php echo $item['size']; ?></td>
+
+                                    <td style="width:10%"><?php echo $item['qty']; ?><?php if(!empty($item['packagename'])){ ?><input type="hidden" name="sqty[]" id="sqty<?php echo $i;?>" value="<?php echo $item['qty']; ?>">
+                                            <input type="hidden" name="sNaMe[]" id="sNaMe<?php echo $i;?>" value="<?php echo $item['name']; ?>">
+                                        <?php } ?>
+                                        <input type="hidden" name="allqty[]" id="allqty<?php echo $i;?>" value="<?php echo $item['qty']; ?>">
+                                        <input type="hidden" name="allname[]" id="allname<?php echo $i;?>" value="<?php echo $item['name']; ?>">
                                     </td>
-                                    <td style="width:10%"><?php echo $item['qty']; ?></td>
+
+                                    <td style="width:10%"><?php echo $item['price']; ?></td>
+                                    <td style="width:10%"><?php echo $item['image']; ?></td>
                                     <td style="width:10%"><?php $grand_total = $grand_total + $item['subtotal']; ?> <?php echo number_format($item['subtotal'], 2) ?>
-                                    <input type="hidden" id="PriCe_<?php echo $item['rowid'];?>" value="<?php echo $item['subtotal'];?>"></td>
+                                        <input type="hidden" id="PriCe_<?php echo $item['rowid'];?>" value="<?php echo $item['subtotal']; ?>"></td>
+
                                     <td style="width:10%">
                                         <span style="cursor:pointer" onclick="cartRemove(a='<?php echo $item['rowid'];?>')">
                                         <input type="hidden" id="rowid<?php echo $item['rowid'];?>" value="<?php echo $item['rowid'];?>">
                                         <img src='<?php echo base_url();?>images/cart_cross.jpg' width='20px' height='15px'></span>
                                     </td>
+
                                 </tr>
                                 <?php endforeach; ?>
                             </tbody>    
