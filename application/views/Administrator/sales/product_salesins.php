@@ -171,15 +171,16 @@
                 <table class="zebra" cellspacing="0" cellpadding="0" border="0" id="" style="width:100%;border-collapse:collapse;">
                     <thead>
                         <tr class="header">
-                            <th style="width:2%"></th>
-                            <th style="width:20%">Product Name</th>
+                           <th style="width:2%">Sl No.</th>
+                            <th style="width:13%">Product Name</th>
+                            <th style="width:10%">Company</th>
                             <th style="width:12%">Model</th>
                             <th style="width:10%">size</th>
-                            <th style="width:10%">Unit</th>
-                            <th style="width:10%">Rate</th>
                             <th style="width:10%">Qty</th>
+                            <th style="width:10%">Rate</th>
+                            <th style="width:10%">Unit</th>
                             <th style="width:10%">Total</th>
-                            <th style="width:10%"></th>                                                      
+                            <th style="width:10%">Action</th>
                         </tr>
                     </thead>
                 </table>                    
