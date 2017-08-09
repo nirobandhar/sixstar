@@ -15,7 +15,6 @@
                                     echo form_hidden('cart[' . $item['id'] . '][rowid]', $item['rowid']);
                                     echo form_hidden('cart[' . $item['id'] . '][name]', $item['name']);
 									echo form_hidden('cart[' . $item['id'] . '][model]', $item['model']);
-									echo form_hidden('cart[' . $item['id'] . '][company_name]', $item['company_name']);
 									echo form_hidden('cart[' . $item['id'] . '][size]', $item['size']);
                                     echo form_hidden('cart[' . $item['id'] . '][price]', $item['price']);
                                     echo form_hidden('cart[' . $item['id'] . '][purchaserate]', $item['purchaserate']);
