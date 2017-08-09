@@ -172,15 +172,16 @@
                 <table class="zebra" cellspacing="0" cellpadding="0" border="0" id="" style="width:100%;border-collapse:collapse;">
                     <thead>
                         <tr class="header">
-                            <th style="width:2%"></th>
-                            <th style="width:20%">Product Name</th>
+                            <th style="width:2%">Sl No.</th>
+                            <th style="width:13%">Product Name</th>
+                            <th style="width:10%">Company</th>
                             <th style="width:12%">Model</th>
                             <th style="width:10%">size</th>
-                            <th style="width:10%">Unit</th>
-                            <th style="width:10%">Rate</th>
                             <th style="width:10%">Qty</th>
+                            <th style="width:10%">Rate</th>
+                            <th style="width:10%">Unit</th>
                             <th style="width:10%">Total</th>
-                            <th style="width:10%"></th>                                                      
+                            <th style="width:10%">Action</th>
                         </tr>
                     </thead>
                 </table>                    
@@ -197,19 +198,20 @@
                                 $count = "";
                                 $i = 0;
                                 foreach ($cart as $item):
-                                    $i++;
+                                    ++$i;
                                     $count = $item['qty'];
                                     echo form_hidden('cart[' . $item['id'] . '][id]', $item['id']);
                                     echo form_hidden('cart[' . $item['id'] . '][rowid]', $item['rowid']);
                                     echo form_hidden('cart[' . $item['id'] . '][name]', $item['name']);
 									echo form_hidden('cart[' . $item['id'] . '][model]', $item['model']);
+									echo form_hidden('cart[' . $item['id'] . '][company_name]', $item['company_name']);
 									echo form_hidden('cart[' . $item['id'] . '][size]', $item['size']);
                                     echo form_hidden('cart[' . $item['id'] . '][price]', $item['price']);
                                     echo form_hidden('cart[' . $item['id'] . '][qty]', $item['qty']);
                                     echo form_hidden('cart[' . $item['id'] . '][image]', $item['image']); 
                             ?> 
                                 <tr>
-                                    <td style="width:2%"></td>
+                                    <td style="width:2%"><?php echo $i; ?></td>
                                     <td style="width:20%"><?php echo $item['name']; ?></td>
                                     <td style="width:12%"><?php echo $item['model']; ?></td>
                                     <td style="width:10%"><?php echo $item['size']; ?></td>
