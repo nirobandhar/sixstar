@@ -52,12 +52,14 @@ class Addcart extends CI_Controller {
 		$sqlgetmodel = mysql_query("SELECT tbl_product.*, tbl_productcategory.*,tbl_produsize.* FROM tbl_product left join tbl_productcategory on tbl_productcategory.ProductCategory_SlNo= tbl_product.ProductCategory_ID left join tbl_produsize on tbl_produsize.Productsize_SlNo= tbl_product.sizeId Where tbl_product.Product_SlNo='".$this->input->post('ProID')."'");
          $rowmodel = mysql_fetch_array($sqlgetmodel);
 		 $model = $rowmodel['ProductCategory_Name'];
+		 $company_name = $rowmodel['company'];
 		 $size = $rowmodel['Productsize_Name'];
 		 
 		$insert_data = array(
 			'id' => $this->input->post('ProID'),
 			'name' => $this->input->post('proName'),
 			'model' => $model,
+			'company_name' => $company_name,
 			'size' => $size,
 			'price' => $this->input->post('ProRATe'),
 			'purchaserate' => $this->input->post('ProPurchaseRATe'),
