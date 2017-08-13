@@ -5,22 +5,24 @@
 
         <h4><a style="cursor:pointer" onclick="window.open('<?php echo base_url();?>Administrator/reports/current_stock', 'newwindow', 'width=850, height=800,scrollbars=yes'); return false;"><img src="<?php echo base_url(); ?>images/printer.png" alt=""> Print</a></h4>
         <tr>
-            <td colspan="7" align="center"><h2>Current Stock</h2></td>
+            <td colspan="8" align="center"><h2>Current Stock</h2></td>
         </tr>
         <tr bgcolor="#ccc">
+            <th>Sl No.</th>
             <th>Product Name</th>
             <th>Model</th>
             <th>Size</th>
-            <th>Purchase Price</th>
-            <th>Qty</th>
-            <th>Total Price</th>
             <th>Unit</th>
+            <th>Qty</th>
+            <th>Purchase Price</th>
+            <th>Total Price</th>
         </tr>
         <?php $totalqty = 0;$sellTOTALqty = 0; $subtotal = 0; $gttotalqty = 0; $gttotalpur = 0;
 		//echo "SELECT tbl_purchaseinventory.*,tbl_product.*,tbl_purchasedetails.*,SUM(tbl_purchasedetails.PurchaseDetails_TotalQuantity) as totalqty,SUM(tbl_purchasedetails.PurchaseDetails_Rate) as totalpr FROM tbl_purchaseinventory left join tbl_product on tbl_product.Product_SlNo = tbl_purchaseinventory.purchProduct_IDNo left join tbl_purchasedetails on tbl_purchasedetails.Product_IDNo = tbl_product.Product_SlNo group by tbl_purchasedetails.Product_IDNo";
         $sql = mysql_query("SELECT tbl_purchaseinventory.*,tbl_product.*, tbl_productcategory.*, tbl_produsize.*, tbl_purchasedetails.*,SUM(tbl_purchasedetails.PurchaseDetails_TotalQuantity) as totalqty,SUM(tbl_purchasedetails.PurchaseDetails_Rate) as totalpr FROM tbl_purchaseinventory left join tbl_product on tbl_product.Product_SlNo = tbl_purchaseinventory.purchProduct_IDNo LEFT JOIN tbl_productcategory ON tbl_productcategory.ProductCategory_SlNo = tbl_product.ProductCategory_ID LEFT JOIN tbl_produsize ON tbl_produsize.Productsize_SlNo = tbl_product.sizeId left join tbl_purchasedetails on tbl_purchasedetails.Product_IDNo = tbl_product.Product_SlNo group by tbl_purchasedetails.Product_IDNo");
+        $i=0;
         while($record = mysql_fetch_array($sql)){
-            
+                $i++;
                 $totalprretqty = $record['PurchaseInventory_ReturnQuantity'];
                 $totalprdamqty = $record['PurchaseInventory_DamageQuantity'];
                 
@@ -45,27 +47,25 @@
                     $subtotal = $subtotal+$rate;
                 ?>
                 <tr>
+                    <td><?php echo $i; ?></td>
                     <td><?php echo $record['Product_Name'] ?></td>
                     <td><?php echo $record['ProductCategory_Name'] ?></td>
                     <td><?php echo $record['Productsize_Name'] ?></td>
-                    
+                    <td><?php if($record['PurchaseDetails_Unit']==""){echo "pcs";} else{echo $record['PurchaseDetails_Unit']; }?></td>
+                    <td style="text-align: center;"><?php echo $totalqty;
+                        $gttotalqty = $gttotalqty+$totalqty;
+                        ?></td>
                     <td style="text-align: right;"><?php echo number_format($record['PurchaseDetails_Rate'], 2); 
 					$gttotalpur = $gttotalpur+$record['PurchaseDetails_Rate'];
 					?></td>
-                    <td style="text-align: center;"><?php echo $totalqty;
-                    $gttotalqty = $gttotalqty+$totalqty;
-                     ?></td>
                     <td style="text-align: right;"><?php echo number_format($rate, 2); ?></td>
-                    <td><?php if($record['PurchaseDetails_Unit']==""){echo "pcs";} else{echo $record['PurchaseDetails_Unit']; }?></td>
                 </tr>
         <?php } }  ?>
         <tr>
-            <td colspan="3" style="text-align: right;"><strong>Sub Total:</strong></td>
-            
-            <td style="text-align: right;"><strong><?php echo number_format($gttotalpur, 2); ?> Tk</strong> </td>
+            <td colspan="5" style="text-align: right;"><strong>Sub Total:</strong></td>
             <td style="text-align: center;"><strong><?php echo $gttotalqty; ?></strong></td>
+            <td style="text-align: right;"><strong><?php echo number_format($gttotalpur, 2); ?> Tk</strong> </td>
             <td style="text-align: right;"><strong><?php echo number_format($subtotal, 2); ?> Tk</strong></td>
-            <td></td>
         </tr>
        
     </table>
