@@ -34,6 +34,10 @@
             <td style="text-align: right;"><strong><?php echo number_format($totalin, 2); ?></strong></td>
             <td style="text-align: right;"><strong><?php echo number_format($totalout, 2); ?></strong></td>
         </tr>
+        <tr>
+            <td colspan="5" style="text-align: right;"><strong>Current Status</strong></td>
+            <td colspan="2" style="text-align: right;"><strong><?php echo (number_format($totalout, 2) - number_format($totalin, 2)); ?></strong></td>
+        </tr>
        
     </table>
 

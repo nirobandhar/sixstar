@@ -24,7 +24,6 @@
                                     <td style="width:13%"><?php echo $item['name']; ?></td>
                                     <td style="width:10%"><?php echo $item['company_name']; ?></td>
                                     <td style="width:12%"><?php echo $item['model']; ?></td>
-                                   <!-- <td style="width:10%"><?php /*echo $item['size']; */?></td>-->
 
                                     <td style="width:10%"><?php echo $item['qty']; ?><?php if(!empty($item['packagename'])){ ?><input type="hidden" name="sqty[]" id="sqty<?php echo $i;?>" value="<?php echo $item['qty']; ?>">
                                             <input type="hidden" name="sNaMe[]" id="sNaMe<?php echo $i;?>" value="<?php echo $item['name']; ?>">
