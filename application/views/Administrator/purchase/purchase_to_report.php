@@ -80,7 +80,7 @@
         <?php $i = "";
         $totalamount = "";
         $Ptotalamount = "";
-        $ssql = mysql_query("SELECT tbl_purchasedetails.*,SUM(tbl_purchasedetails.PurchaseDetails_TotalQuantity) as totalqty,SUM(tbl_purchasedetails.PurchaseDetails_Rate) as totalpr, tbl_product.* FROM tbl_purchasedetails left join tbl_product on tbl_product.Product_SlNo = tbl_purchasedetails.Product_IDNo where tbl_purchasedetails.PurchaseMaster_IDNo = '$PurchID' Group By tbl_purchasedetails.Product_IDNo");
+        $ssql = mysql_query("SELECT tbl_purchasedetails.*,SUM(tbl_purchasedetails.PurchaseDetails_TotalQuantity) as totalqty,SUM(tbl_purchasedetails.PurchaseDetails_Rate) as totalpr, tbl_product.*, tbl_produsize.* FROM tbl_purchasedetails left join tbl_product on tbl_product.Product_SlNo = tbl_purchasedetails.Product_IDNo left join tbl_produsize on tbl_product.ProductCategory_ID = tbl_produsize.Productsize_SlNo where tbl_purchasedetails.PurchaseMaster_IDNo = '$PurchID' Group By tbl_purchasedetails.Product_IDNo");
         while($rows = mysql_fetch_array($ssql)){ 
             $PackName = $rows['PackName'];
             if($PackName==""){
@@ -89,6 +89,7 @@
             $amount = $rows['PurchaseDetails_Rate']*$rows['totalqty'] ;
             $totalamount = $totalamount+$amount;
         ?>
+
         <tr>
             <td><?php echo $i; ?></td>
             <td><?php echo $rows['Product_Name']; ?></td>
@@ -110,16 +111,19 @@
             $rowsmodel2 = mysql_fetch_array($ssqlsmodel2);
 		   echo $rowsmodel2['company'];
 			 ?></td>
+
             <td><?php 
-			$ssqlssize = mysql_query("SELECT * FROM tbl_produsize where Productsize_SlNo = '".$rows['ProductCategory_ID']."'");
+			$ssqlssize = mysql_query("SELECT * FROM tbl_produsize where Productsize_SlNo = '".$rows['Productsize_Name']."'");
            $rowsize = mysql_fetch_array($ssqlssize);
 		   echo $rowsize['Productsize_Name'];
 			 ?></td>
+
              <td><?php echo $rows['PurchaseDetails_Unit']; ?></td>
             <td style="text-align: right;"><?php echo number_format($rows['PurchaseDetails_Rate'], 2); ?></td>
             <td style="text-align: center;"><?php echo $rows['totalqty']; ?></td>
             <td style="text-align: right;"><?php echo number_format($amount, 2); ?></td>
         </tr>
+
         <?php } }
             $ssqlx = mysql_query("SELECT tbl_purchasedetails.*, tbl_product.* FROM tbl_purchasedetails left join tbl_product on tbl_product.Product_SlNo = tbl_purchasedetails.Product_IDNo where tbl_purchasedetails.PurchaseMaster_IDNo = '$PurchID' group by tbl_purchasedetails.PackName");
             while($rows= mysql_fetch_array($ssqlx)){ 
