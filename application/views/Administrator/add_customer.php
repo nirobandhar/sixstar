@@ -214,15 +214,15 @@
             return false;
         }
         var address= $("#address").val();
-        if(address==""){
+        /*if(address==""){
             $("#address_").html("Required Filed").css("color","red");
             return false;
-        }
+        }*/
 		var praddress= $("#praddress").val();
-        if(praddress==""){
+        /*if(praddress==""){
             $("#praddress_").html("Required Filed").css("color","red");
             return false;
-        }
+        }*/
         var gur_name = $("#gur_name").val();
         var gur_contact = $("#gur_contact").val();
         var gur_address = $("#gur_address").val();
