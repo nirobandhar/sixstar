@@ -28,7 +28,7 @@ class Login extends CI_Controller {
                 $sdata['Brunch_name'] = $d['Brunch_name'];
                 $this->session->set_userdata($sdata);
                 redirect('Administrator');
-            }else{
+            }/*else{
                 $sdata['userId'] = $d['User_SlNo'];
                 $sdata['BRANCHid'] = $d['userBrunch_id'];
                 $sdata['FullName'] = $d['FullName'];
@@ -38,7 +38,7 @@ class Login extends CI_Controller {
                 $sdata['Brunch_name'] = $d['Brunch_name'];
                 $this->session->set_userdata($sdata);
                 redirect('page');
-            }
+            }*/
             
         }
         else{

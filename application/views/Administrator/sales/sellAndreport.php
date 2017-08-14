@@ -121,13 +121,15 @@
            <th>Quantity</th>
            <th>Amount</th>
         </tr>
-        <?php $i = "";
+        <?php
+        $i = "";
         $totalamount = "";
         $packageName ="";
         $Ptotalamount = "";
-        $ssql = mysql_query("SELECT tbl_saledetails.*, tbl_product.*  FROM tbl_saledetails left join tbl_product on tbl_product.Product_SlNo = tbl_saledetails.Product_IDNo where tbl_saledetails.SaleMaster_IDNo = '$SalesID'");
-        while($rows = mysql_fetch_array($ssql)){ 
-           
+        $PtotalSaleAmount = "";
+        $ssql = mysql_query("SELECT tbl_saledetails.*, tbl_product.*,  tbl_salesmaster.*  FROM tbl_saledetails left join tbl_product on tbl_product.Product_SlNo = tbl_saledetails.Product_IDNo left join tbl_salesmaster on tbl_salesmaster.SaleMaster_SlNo = tbl_saledetails.SaleMaster_IDNo  where tbl_saledetails.SaleMaster_IDNo = '$SalesID'");
+        while($rows = mysql_fetch_array($ssql)){
+            $PtotalSaleAmount = $rows['SaleMaster_TotalSaleAmount'];
             $packageName = $rows['packageName'];
             if($packageName==""){
             $amount = $rows['SaleDetails_Rate']*$rows['SaleDetails_TotalQuantity'] ;
@@ -155,7 +157,7 @@
             <td><?php echo $rows['SaleDetails_unit']; ?></td>
             <td style="text-align: right;"><?php echo number_format($rows['SaleDetails_Rate'], 2); ?></td>
             <td style="text-align: center;"><?php echo $rows['SaleDetails_TotalQuantity'] ?></td>
-            <td style="text-align: right;"><?php echo number_format($amount, 2); ?></td>
+            <td style="text-align: right;"><?php echo number_format($PtotalSaleAmount, 2); ?></td>
         </tr>
         <?php } }
             $ssqls = mysql_query("SELECT tbl_saledetails.*, tbl_product.*  FROM tbl_saledetails left join tbl_product on tbl_product.Product_SlNo = tbl_saledetails.Product_IDNo where tbl_saledetails.SaleMaster_IDNo = '$SalesID' group by tbl_saledetails.packageName");

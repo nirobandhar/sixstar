@@ -68,7 +68,8 @@ class Addcart extends CI_Controller {
 			'packagename' => $this->input->post('packagename'),
 			'packagecode' => $this->input->post('packagecode'),
 			'image' => $this->input->post('unit'),
-			'qty' => $this->input->post('proQTY')
+			'qty' => $this->input->post('proQTY'),
+			'ProductAmont' => $this->input->post('ProductAmont')
 		);
 		$this->cart->insert($insert_data);
 		$this->load->view('Administrator/sales/selseCArtlist');

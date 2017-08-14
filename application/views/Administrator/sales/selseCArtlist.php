@@ -41,8 +41,9 @@
 
                                     <td style="width:10%"><?php echo $item['price']; ?></td>
                                     <td style="width:10%"><?php echo $item['image']; ?></td>
-                                    <td style="width:10%"><?php $grand_total = $grand_total + $item['subtotal']; ?> <?php echo number_format($item['subtotal'], 2) ?>
-                                    <input type="hidden" id="PriCe_<?php echo $item['rowid'];?>" value="<?php echo $item['subtotal']; ?>"></td>
+                                    <td style="width:10%"><?php $grand_total = $grand_total + $item['ProductAmont']; ?> <?php echo number_format($item['ProductAmont'], 2) ?>
+                                    <input type="hidden" id="PriCe_<?php echo $item['rowid'];?>" value="<?php echo $item['ProductAmont']; ?>"></td>
+                                    <input type="hidden" id="ProParcentCartData" value="<?php echo $item['ProductAmont']; ?>"></td>
 
                                     <td style="width:10%">
                                         <span style="cursor:pointer" onclick="cartRemove(a='<?php echo $item['rowid'];?>')">

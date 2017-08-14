@@ -1,234 +1,235 @@
-
-
 <div class="content_scroll" style="padding: 50px 20px 25px 160px;">
-<?php 
-		    $sql2 = mysql_query("SELECT tbl_salesmaster.*, tbl_customer.* FROM tbl_salesmaster left join tbl_customer on tbl_customer.Customer_SlNo = tbl_salesmaster.SalseCustomer_IDNo where tbl_salesmaster.SaleMaster_InvoiceNo = '$invoices'");
-            $selse = mysql_fetch_array($sql2);
-          ?>
-              <table  cellspacing="0" cellpadding="0" width="100%" style="margin-bottom:25px;">
-                <tr>
-                  <td>
-                      <table width="40%">
-                          <tr>
-                              <td><strong>Customer ID </strong></td>
-                              <td>:</td>
-                              <td><?php echo $selse['Customer_Code']; ?></td>
-                          </tr> 
-                          <tr>
-                              <td><strong>Customer Name </strong></td>
-                              <td>:</td>
-                              <td><?php echo $selse['Customer_Name']; ?></td>
-                          </tr> 
-                                    
-                      </table>
-                  </td>
-                  <td>
-                      <table width="40%">
-                          <tr>
-                              <td><strong>Customer Address </strong></td>
-                              <td>:</td>
-                              <td><?php echo $selse['Customer_Address']; ?></td>
-                          </tr>
-                          <tr>
-                              <td><strong>Contact no </strong></td>
-                              <td>:</td>
-                              <td><?php echo $selse['Customer_Phone']; ?></td>
-                          </tr>    
-                      </table>
-                  </td>
-              </tr>
-              </table>
-<table  class="zebra" cellspacing="0" cellpadding="0" border="0" id="" style="text-align:left;width:100%;border-collapse:collapse;">
+    <a style="cursor:pointer" onclick="window.open('<?php echo base_url("Administrator/sales/salesreturnInvoice/".$invoices); ?>', 'newwindow', 'width=850, height=800,scrollbars=yes'); return false;"><img src="<?php echo base_url()?>images/printer.png" alt=""> Print</a>
+    <div style="border: 1px solid #ddd; padding: 15px; margin-top:10px;">
+        <?php
+        $sql2 = mysql_query("SELECT tbl_salesmaster.*, tbl_customer.* FROM tbl_salesmaster left join tbl_customer on tbl_customer.Customer_SlNo = tbl_salesmaster.SalseCustomer_IDNo where tbl_salesmaster.SaleMaster_InvoiceNo = '$invoices'");
+        $selse = mysql_fetch_array($sql2);
+        ?>
+        <table  cellspacing="0" cellpadding="0" width="100%" style="margin-bottom:25px;">
+            <tr>
+                <td>
+                    <table width="40%">
+                        <tr>
+                            <td><strong>Customer ID </strong></td>
+                            <td>:</td>
+                            <td><?php echo $selse['Customer_Code']; ?></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Customer Name </strong></td>
+                            <td>:</td>
+                            <td><?php echo $selse['Customer_Name']; ?></td>
+                        </tr>
 
-	<tr>
+                    </table>
+                </td>
+                <td>
+                    <table width="40%">
+                        <tr>
+                            <td><strong>Customer Address </strong></td>
+                            <td>:</td>
+                            <td><?php echo $selse['Customer_Address']; ?></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Contact no </strong></td>
+                            <td>:</td>
+                            <td><?php echo $selse['Customer_Phone']; ?></td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+        <table  class="zebra" cellspacing="0" cellpadding="0" border="0" id="" style="text-align:left;width:100%;border-collapse:collapse;">
 
-		<th>Product</th>
+            <tr>
 
-		<th>Saes Rate</th>
+                <th>Product</th>
 
-		<th>Total Qty</th>
+                <th>Saes Rate</th>
 
-		<th>Total Amount</th>
+                <th>Total Qty</th>
 
-		<th>Already Retuned Qty</th>
+                <th>Total Amount</th>
 
-		<th>Already Retuned Amount</th>
+                <th>Already Retuned Qty</th>
 
-		<th>Retuned Qty</th>
+                <th>Already Retuned Amount</th>
 
-		<th>Retuned Amount</th>
+                <th>Retuned Qty</th>
 
-	</tr>
+                <th>Retuned Amount</th>
 
+            </tr>
 
 
-	<?php 
 
-	$sqls = mysql_query("SELECT tbl_saledetails.*, tbl_product.*,tbl_salesmaster.*,tbl_salereturn.*, tbl_salereturn.SaleMaster_InvoiceNo as invoice FROM tbl_saledetails left join tbl_product on tbl_product.Product_SlNo=tbl_saledetails.Product_IDNo left join tbl_salesmaster on tbl_salesmaster.SaleMaster_SlNo=tbl_saledetails.SaleMaster_IDNo left join tbl_salereturn on tbl_salereturn.SaleMaster_InvoiceNo = tbl_salesmaster.SaleMaster_InvoiceNo WHERE tbl_salesmaster.SaleMaster_InvoiceNo = '$invoices'");
+            <?php
 
-	while($rox = mysql_fetch_array($sqls)){ 
+            $sqls = mysql_query("SELECT tbl_saledetails.*, tbl_product.*,tbl_salesmaster.*,tbl_salereturn.*, tbl_salereturn.SaleMaster_InvoiceNo as invoice FROM tbl_saledetails left join tbl_product on tbl_product.Product_SlNo=tbl_saledetails.Product_IDNo left join tbl_salesmaster on tbl_salesmaster.SaleMaster_SlNo=tbl_saledetails.SaleMaster_IDNo left join tbl_salereturn on tbl_salereturn.SaleMaster_InvoiceNo = tbl_salesmaster.SaleMaster_InvoiceNo WHERE tbl_salesmaster.SaleMaster_InvoiceNo = '$invoices'");
 
-			$PackName = $rox['packageName'];
+            while($rox = mysql_fetch_array($sqls)){
 
-			if($PackName==""){
+                $PackName = $rox['packageName'];
 
-			$sprid = $rox['Product_SlNo'];
+                if($PackName==""){
 
-			$sprternid = $rox['SaleReturn_SlNo'];
+                    $sprid = $rox['Product_SlNo'];
 
-			$treteun ='';
+                    $sprternid = $rox['SaleReturn_SlNo'];
 
-			$tamount ='';
+                    $treteun ='';
 
-			$sql22 = mysql_query("SELECT * FROM tbl_salereturndetails WHERE SaleReturnDetailsProduct_SlNo = '$sprid' AND SaleReturn_IdNo='$sprternid'");
+                    $tamount ='';
 
-			while($rox22 = mysql_fetch_array($sql22)){
+                    $sql22 = mysql_query("SELECT * FROM tbl_salereturndetails WHERE SaleReturnDetailsProduct_SlNo = '$sprid' AND SaleReturn_IdNo='$sprternid'");
 
-			$treteun = $rox22['SaleReturnDetails_ReturnQuantity']+$treteun;
+                    while($rox22 = mysql_fetch_array($sql22)){
 
-			$tamount = $rox22['SaleReturnDetails_ReturnAmount']+$tamount ;
+                        $treteun = $rox22['SaleReturnDetails_ReturnQuantity']+$treteun;
 
-		}
+                        $tamount = $rox22['SaleReturnDetails_ReturnAmount']+$tamount ;
 
-	?>
+                    }
 
-		<input type="hidden" name="packname[]" value="<?php echo $PackName ?>">
+                    ?>
 
-	 	<input type="hidden" name="productsName[]" value="<?php echo $rox['Product_Name'] ?>">
+                    <input type="hidden" name="packname[]" value="<?php echo $PackName ?>">
 
-	 	<input type="hidden" name="productsCodes[]" value="">
+                    <input type="hidden" name="productsName[]" value="<?php echo $rox['Product_Name'] ?>">
 
-	<tr class='wrapper'>
+                    <input type="hidden" name="productsCodes[]" value="">
 
-		<td><?php echo $rox['Product_Name'];?></td>
+                    <tr class='wrapper'>
 
-		<td><?php echo $rox['SaleDetails_Rate'];?></td>
+                        <td><?php echo $rox['Product_Name'];?></td>
 
-		<td><?php echo $rox['SaleDetails_TotalQuantity'];?></td>
+                        <td><?php echo $rox['SaleDetails_Rate'];?></td>
 
-		<td><?php echo $rox['SaleDetails_Rate']*$rox['SaleDetails_TotalQuantity'];?></td>
+                        <td><?php echo $rox['SaleDetails_TotalQuantity'];?></td>
 
-		<td><input type="text" id="treteun<?php echo $rox['SaleDetails_SlNo'];?>" disabled="" value="<?php echo $treteun ?>"></td>
+                        <td><?php echo $rox['SaleDetails_Rate']*$rox['SaleDetails_TotalQuantity'];?></td>
 
-		<td><input type="text" id="totalamount<?php echo $rox['SaleDetails_SlNo'];?>" disabled="" value="<?php echo $tamount ?>"></td>
+                        <td><input type="text" id="treteun<?php echo $rox['SaleDetails_SlNo'];?>" disabled="" value="<?php echo $treteun ?>"></td>
 
-		<td><input type="text" name="returnqty[]" value="0" id="reqty<?php echo $rox['SaleDetails_SlNo']; ?>" onkeyup="qtycheckReturn(<?php echo $rox['SaleDetails_SlNo']; ?>)"></td>
+                        <td><input type="text" id="totalamount<?php echo $rox['SaleDetails_SlNo'];?>" disabled="" value="<?php echo $tamount ?>"></td>
 
-		<td><input type="text" name="returnamount[]" id="amount<?php echo $rox['SaleDetails_SlNo']; ?>" onkeyup="amountcheckReturn(<?php echo $rox['SaleDetails_SlNo']; ?>)" value="0"></td>
+                        <td><input type="text" name="returnqty[]" value="0" id="reqty<?php echo $rox['SaleDetails_SlNo']; ?>" onkeyup="qtycheckReturn(<?php echo $rox['SaleDetails_SlNo']; ?>)"></td>
 
-		<input type="hidden" name="invoice" value="<?php echo $invoices; ?>">
+                        <td><input type="text" name="returnamount[]" id="amount<?php echo $rox['SaleDetails_SlNo']; ?>" onkeyup="amountcheckReturn(<?php echo $rox['SaleDetails_SlNo']; ?>)" value="0"></td>
 
-		<input type="hidden" name="productID[]" value="<?php echo $rox['Product_SlNo']; ?>">
+                        <input type="hidden" name="invoice" value="<?php echo $invoices; ?>">
 
-		<input type="hidden" name="salseQTY[]" id="qtyy<?php echo $rox['SaleDetails_SlNo']; ?>" value="<?php echo $rox['SaleDetails_TotalQuantity']; ?>">
+                        <input type="hidden" name="productID[]" value="<?php echo $rox['Product_SlNo']; ?>">
 
-		<input type="hidden" id="alredyamount<?php echo $rox['SaleDetails_SlNo']; ?>" value="<?php echo $rox['SaleDetails_Rate']*$rox['SaleDetails_TotalQuantity']; ?>">
+                        <input type="hidden" name="salseQTY[]" id="qtyy<?php echo $rox['SaleDetails_SlNo']; ?>" value="<?php echo $rox['SaleDetails_TotalQuantity']; ?>">
 
-	</tr>
+                        <input type="hidden" id="alredyamount<?php echo $rox['SaleDetails_SlNo']; ?>" value="<?php echo $rox['SaleDetails_Rate']*$rox['SaleDetails_TotalQuantity']; ?>">
 
-	<?php } }
+                    </tr>
 
-	$sqls = mysql_query("SELECT tbl_saledetails.*, tbl_product.*,tbl_salesmaster.*,tbl_salereturn.*, tbl_salereturn.SaleMaster_InvoiceNo as invoice FROM tbl_saledetails left join tbl_product on tbl_product.Product_SlNo=tbl_saledetails.Product_IDNo left join tbl_salesmaster on tbl_salesmaster.SaleMaster_SlNo=tbl_saledetails.SaleMaster_IDNo left join tbl_salereturn on tbl_salereturn.SaleMaster_InvoiceNo = tbl_salesmaster.SaleMaster_InvoiceNo WHERE tbl_salesmaster.SaleMaster_InvoiceNo = '$invoices' group by tbl_saledetails.packageName");
+                <?php } }
 
-	while($rox = mysql_fetch_array($sqls)){ 
+            $sqls = mysql_query("SELECT tbl_saledetails.*, tbl_product.*,tbl_salesmaster.*,tbl_salereturn.*, tbl_salereturn.SaleMaster_InvoiceNo as invoice FROM tbl_saledetails left join tbl_product on tbl_product.Product_SlNo=tbl_saledetails.Product_IDNo left join tbl_salesmaster on tbl_salesmaster.SaleMaster_SlNo=tbl_saledetails.SaleMaster_IDNo left join tbl_salereturn on tbl_salereturn.SaleMaster_InvoiceNo = tbl_salesmaster.SaleMaster_InvoiceNo WHERE tbl_salesmaster.SaleMaster_InvoiceNo = '$invoices' group by tbl_saledetails.packageName");
 
-			$PackName = $rox['packageName'];
+            while($rox = mysql_fetch_array($sqls)){
 
-			if($PackName!=""){
+                $PackName = $rox['packageName'];
 
-			$sprid = $rox['Product_SlNo'];
+                if($PackName!=""){
 
-			$sprternid = $rox['SaleReturn_SlNo'];
+                    $sprid = $rox['Product_SlNo'];
 
-			$treteun ='';
+                    $sprternid = $rox['SaleReturn_SlNo'];
 
-			$tamount ='';
+                    $treteun ='';
 
-			$sql22 = mysql_query("SELECT * FROM tbl_salereturndetails WHERE SaleReturnDetailsProduct_SlNo = '$sprid' AND SaleReturn_IdNo='$sprternid'");
+                    $tamount ='';
 
-			while($rox22 = mysql_fetch_array($sql22)){
+                    $sql22 = mysql_query("SELECT * FROM tbl_salereturndetails WHERE SaleReturnDetailsProduct_SlNo = '$sprid' AND SaleReturn_IdNo='$sprternid'");
 
-			$treteun = $rox22['SaleReturnDetails_Qty']+$treteun;
+                    while($rox22 = mysql_fetch_array($sql22)){
 
-			$tamount = $rox22['SaleReturnDetails_ReturnAmount']+$tamount ;
+                        $treteun = $rox22['SaleReturnDetails_Qty']+$treteun;
 
-		}
+                        $tamount = $rox22['SaleReturnDetails_ReturnAmount']+$tamount ;
 
-		$sqlx = mysql_query("SELECT * FROM tbl_package WHERE package_name ='$PackName'");
+                    }
 
-		$rom = mysql_fetch_array($sqlx);
+                    $sqlx = mysql_query("SELECT * FROM tbl_package WHERE package_name ='$PackName'");
 
-		$sqn = mysql_query("SELECT * FROM tbl_product WHERE Product_Code = '".$rom['package_ProCode']."'");
+                    $rom = mysql_fetch_array($sqlx);
 
-		$ron = mysql_fetch_array($sqn);
+                    $sqn = mysql_query("SELECT * FROM tbl_product WHERE Product_Code = '".$rom['package_ProCode']."'");
 
-	?>
+                    $ron = mysql_fetch_array($sqn);
 
-		<input type="hidden" name="packname[]" value="<?php echo $PackName ?>">
+                    ?>
 
-		<input type="hidden" name="productsName[]" value="<?php echo $rox['packageName'] ?>">
+                    <input type="hidden" name="packname[]" value="<?php echo $PackName ?>">
 
-		<input type="hidden" name="productsCodes[]" value="<?php echo $rom['package_ProCode'] ?>">
+                    <input type="hidden" name="productsName[]" value="<?php echo $rox['packageName'] ?>">
 
-	<tr class='wrapper'>
+                    <input type="hidden" name="productsCodes[]" value="<?php echo $rom['package_ProCode'] ?>">
 
-		<td><?php echo $rox['packageName'];?></td>
+                    <tr class='wrapper'>
 
-		<td><?php echo $rox['SeleDetails_qty'];?></td>
+                        <td><?php echo $rox['packageName'];?></td>
 
-		<td><?php echo $rox['packSellPrice']*$rox['SeleDetails_qty'];?></td>
+                        <td><?php echo $rox['SeleDetails_qty'];?></td>
 
-		<td><input type="text" id="treteun<?php echo $rox['SaleDetails_SlNo'];?>" disabled="" value="<?php echo $treteun ?>"></td>
+                        <td><?php echo $rox['packSellPrice']*$rox['SeleDetails_qty'];?></td>
 
-		<td><input type="text" id="totalamount<?php echo $rox['SaleDetails_SlNo'];?>" disabled="" value="<?php echo $tamount ?>"></td>
+                        <td><input type="text" id="treteun<?php echo $rox['SaleDetails_SlNo'];?>" disabled="" value="<?php echo $treteun ?>"></td>
 
-		<td><input type="text" name="returnqty[]" value="0" id="reqty<?php echo $rox['SaleDetails_SlNo']; ?>" onkeyup="qtycheckReturn(<?php echo $rox['SaleDetails_SlNo']; ?>)"></td>
+                        <td><input type="text" id="totalamount<?php echo $rox['SaleDetails_SlNo'];?>" disabled="" value="<?php echo $tamount ?>"></td>
 
-		<td><input type="text" name="returnamount[]" id="amount<?php echo $rox['SaleDetails_SlNo']; ?>" onkeyup="amountcheckReturn(<?php echo $rox['SaleDetails_SlNo']; ?>)" value="0"></td>
+                        <td><input type="text" name="returnqty[]" value="0" id="reqty<?php echo $rox['SaleDetails_SlNo']; ?>" onkeyup="qtycheckReturn(<?php echo $rox['SaleDetails_SlNo']; ?>)"></td>
 
-		<input type="hidden" name="invoice" value="<?php echo $invoices; ?>">
+                        <td><input type="text" name="returnamount[]" id="amount<?php echo $rox['SaleDetails_SlNo']; ?>" onkeyup="amountcheckReturn(<?php echo $rox['SaleDetails_SlNo']; ?>)" value="0"></td>
 
-		<input type="hidden" name="productID[]" value="<?php echo $rox['Product_SlNo']; ?>">
+                        <input type="hidden" name="invoice" value="<?php echo $invoices; ?>">
 
-		<input type="hidden" name="salseQTY[]" id="qtyy<?php echo $rox['SaleDetails_SlNo']; ?>" value="<?php echo $rox['SeleDetails_qty']; ?>">
+                        <input type="hidden" name="productID[]" value="<?php echo $rox['Product_SlNo']; ?>">
 
-		<input type="hidden" id="alredyamount<?php echo $rox['SaleDetails_SlNo']; ?>" value="<?php echo $rox['packSellPrice']*$rox['SeleDetails_qty']; ?>">
+                        <input type="hidden" name="salseQTY[]" id="qtyy<?php echo $rox['SaleDetails_SlNo']; ?>" value="<?php echo $rox['SeleDetails_qty']; ?>">
 
-	</tr>
+                        <input type="hidden" id="alredyamount<?php echo $rox['SaleDetails_SlNo']; ?>" value="<?php echo $rox['packSellPrice']*$rox['SeleDetails_qty']; ?>">
 
-	<?php } }?>
+                    </tr>
 
-	<tr>
+                <?php } }?>
 
-		<td colspan="8"> 
+            <tr>
 
-			<table style="order: 1px solid #d8d8d8;">
+                <td colspan="8">
 
-				<tr>
+                    <table style="border: 1px solid #d8d8d8;">
 
-					<td> Notes </td>
+                        <tr>
 
-					<td>
+                            <td> Notes </td>
 
-						<textarea name="Notes" id="Notes" style="width:300px;height:30px "></textarea>
+                            <td>
 
-					</td>
+                                <textarea name="Notes" id="Notes" style="width:300px;height:30px "></textarea>
 
-					<td  align="right">
+                            </td>
 
-					<input type="button" class="buttonAshiqe" onclick="SubmitReturn()" value="Save">
+                            <td  align="right">
 
-					</td>
+                                <input type="button" class="buttonAshiqe" onclick="SubmitReturn()" value="Save">
 
-				</tr>
+                            </td>
 
-			</table>
+                        </tr>
 
-		</td>
+                    </table>
 
-	</tr>
+                </td>
 
-</table>
+            </tr>
+
+        </table>
+    </div>
 
 </div>
 

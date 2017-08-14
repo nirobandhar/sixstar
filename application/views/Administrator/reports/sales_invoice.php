@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -358,17 +357,52 @@ $inword = convertNumberToWord($grandtotal)."Taka Only";
   
 </table>
 
+<style>
+    .signature_area{
+        position: fixed!important;
+        bottom: 70px;
+        width: 100%;
+        left: 55px;
+    }
+    .signatureasdf {
+        float: left;
+        padding: 0px;
+        color: black;
+        width: 25%;
+        font-size: 14px;
+        font-family: tahoma;
+    }
+
+</style>
+<div style="clear: both;"></div>
+<div class="signature_area">
+    <div class="signatureasdf">
+        <span style="border-top:1px solid #000;">Purchased By</span>
+    </div>
+
+    <div class="signatureasdf">
+        <span style="border-top:1px solid #000;">Cash Received By</span>
+    </div>
+
+    <div class="signatureasdf">
+        <span style="border-top:1px solid #000;">Checked & Delivery By</span>
+    </div>
+
+    <div class="signatureasdf">
+        <span style="border-top:1px solid #000;">Authorized By</span>
+    </div>
+    <div style="clear: both;"></div>
+</div>
+
+<div style="clear: both;"></div>
 <div class="provied">
   
-  <span style="float:left;font-size:11px;">
+  <span style="font-size:11px;">
 <i>"THANK YOU FOR YOUR BUSINESS"</i><br>
   Software Provied By Link-Up Technology</span>
 </div>
-<div class="signature">
-<span style="border-top:1px solid #000;">
-  Authorize Signature
-</span>
-</div>
+
+
 </body>
 </html>
 

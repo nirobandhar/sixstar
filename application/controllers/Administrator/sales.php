@@ -55,8 +55,8 @@ class Sales extends CI_Controller {
     			'Status'                                    => $this->input->post('status'),
                 "AddBy"                                     =>$this->session->userdata("FullName"),
                 "SaleMaster_branchid"                       =>$this->session->userdata("BRANCHid"),
-                "AddTime"                                   =>date("Y-m-d h:i:s")
-            );  
+                "AddTime"                                   =>date("Y-m-d h:i:s"),
+            );
 
         }else{
             $sales = array(
@@ -75,7 +75,7 @@ class Sales extends CI_Controller {
                 'Status'                                    => $this->input->post('status'),
                 "AddBy"                                     =>$this->session->userdata("FullName"),
                 "SaleMaster_branchid"                       =>$this->session->userdata("BRANCHid"),
-                "AddTime"                                   =>date("Y-m-d h:i:s")
+                "AddTime"                                   =>date("Y-m-d h:i:s"),
             );
 
         } 
@@ -132,12 +132,12 @@ class Sales extends CI_Controller {
                         );
                     $this->mt->save_data("tbl_saleinventory",$addStock);
                     } 
-					$query5 ="select * from tbl_branchwise_product Where pro_codes ='".$proids."' AND branch_ids='".$this->session->userdata("BRANCHid")."'";
-					$result5 = mysql_query($query5)or die(mysql_error());
-					$row5 = mysql_fetch_array( $result5);
-					$totalstock2 = $row5['total_branchqty'];
-					$addstock2 = $totalstock2-$item['qty'];
-					mysql_query("UPDATE tbl_branchwise_product SET total_branchqty='$addstock2' WHERE pro_codes ='".$proids."' AND branch_ids='".$this->session->userdata("BRANCHid")."'") or die(mysql_error());
+					//$query5 ="select * from tbl_branchwise_product Where pro_codes ='".$proids."' AND branch_ids='".$this->session->userdata("BRANCHid")."'";
+					//$result5 = mysql_query($query5)or die(mysql_error());
+					//$row5 = mysql_fetch_array( $result5);
+					//$totalstock2 = $row5['total_branchqty'];
+					//$addstock2 = $totalstock2-$item['qty'];
+					//mysql_query("UPDATE tbl_branchwise_product SET total_branchqty='$addstock2' WHERE pro_codes ='".$proids."' AND branch_ids='".$this->session->userdata("BRANCHid")."'") or die(mysql_error());
             }// end foreach
         }// end if
 
@@ -158,6 +158,12 @@ class Sales extends CI_Controller {
         $data['proID'] = $row['SaleMaster_SlNo'];
         $data['invoices'] = $row['SaleMaster_InvoiceNo'];
         $this->load->view('Administrator/sales/salesReturnList', $data);
+    }
+    function salesreturnInvoice($invoice_id=''){
+        $data['title'] = " Sales Return Invoice";
+        //$data['id'] = $this->session->userdata('SalesID');
+        $data['invoices'] = $invoice_id;
+        $this->load->view('Administrator/sales/salesReturnInvoice', $data);
     }
     function SalesReturnInsert(){
         

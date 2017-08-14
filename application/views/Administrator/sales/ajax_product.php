@@ -1,4 +1,3 @@
-
 <table>
     <tr>
         <td style="width:100px">Name</td>
@@ -26,6 +25,15 @@
         </td>
     </tr>
     <tr>
+        <td>Discount</td>
+        <td style="width:200px">
+            <div class="full clearfix">
+                <input type="text" id="ProParcent" onkeyup="keyupamount3()" class="inputclass">
+                <input type="hidden" id="ProParcent" >
+            </div>
+        </td>
+    </tr>
+    <tr>
         <td>Amount</td>
         <td style="width:200px">
             <div class="full clearfix">
@@ -37,22 +45,22 @@
 
 
 <?php $pid = $Product['Product_SlNo'];  
-$reordlvl= $Product['Product_ReOrederLevel'];
-$sqll = mysql_query("SELECT * FROM tbl_saleinventory WHERE sellProduct_IdNo = '$pid'");
-$rox = mysql_fetch_array($sqll);
-$curentstock = $rox['SaleInventory_TotalQuantity'];
-$tsaleretqty = $rox['SaleInventory_ReturnQuantity'];
-$sqlss = mysql_query("SELECT * FROM tbl_purchaseinventory WHERE purchProduct_IDNo = '$pid'");
-$roxx = mysql_fetch_array($sqlss);
-$returnQty = $roxx['PurchaseInventory_ReturnQuantity'];
-$damageQty = $roxx['PurchaseInventory_DamageQuantity'];
+    $reordlvl= $Product['Product_ReOrederLevel'];
+    $sqll = mysql_query("SELECT * FROM tbl_saleinventory WHERE sellProduct_IdNo = '$pid'");
+    $rox = mysql_fetch_array($sqll);
+    $curentstock = $rox['SaleInventory_TotalQuantity'];
+    $tsaleretqty = $rox['SaleInventory_ReturnQuantity'];
+    $sqlss = mysql_query("SELECT * FROM tbl_purchaseinventory WHERE purchProduct_IDNo = '$pid'");
+    $roxx = mysql_fetch_array($sqlss);
+    $returnQty = $roxx['PurchaseInventory_ReturnQuantity'];
+    $damageQty = $roxx['PurchaseInventory_DamageQuantity'];
 
-$sqltstock = mysql_query("SELECT *,SUM(total_branchqty) as totalqty FROM tbl_branchwise_product WHERE pro_codes = '$pid'");
-$roxstock = mysql_fetch_array($sqltstock);
-$perbranchqty = $roxstock['totalqty'];
+    $sqltstock = mysql_query("SELECT *,SUM(total_branchqty) as totalqty FROM tbl_branchwise_product WHERE pro_codes = '$pid'");
+    $roxstock = mysql_fetch_array($sqltstock);
+    $perbranchqty = $roxstock['totalqty'];
 
-$curentstock = $curentstock+$returnQty+$damageQty;
-$curentstock = ($perbranchqty+$tsaleretqty)-$curentstock;
+    $curentstock = $curentstock+$returnQty+$damageQty;
+    $curentstock = ($perbranchqty+$tsaleretqty)-$curentstock;
 ?>
 <center>
 <?php if(!empty($packagname)){ ?>

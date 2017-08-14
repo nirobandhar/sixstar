@@ -1,4 +1,3 @@
-
 <div class="content_scroll">
 <h2>Sales Invoice</h2>
     <div style="width:100%; float:left;">

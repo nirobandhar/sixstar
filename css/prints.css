@@ -49,11 +49,11 @@
   float: left;
   padding:0px;
   color: black;
-  bottom:0px;
+  bottom:6px;
   left:0%;
   position:fixed!important;
   position:absolute;
-  width:770px;
+  width:220px;
   top:expression((0-(footer.offsetHeight)+
   (document.documentElement.clientHeight?
   document.documentElement.clientHeight:

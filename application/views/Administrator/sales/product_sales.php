@@ -133,6 +133,15 @@
                             </td>
                         </tr>
                         <tr>
+                            <td>Discount</td>
+                            <td style="width:200px">
+                                <div class="full clearfix">
+                                    <input type="text" id="ProParcent" onkeyup="keyupamount3()" class="inputclass">
+                                    <input type="hidden" id="ProParcent" >
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
                             <td>Amount</td>
                             <td style="width:200px">
                                 <div class="full clearfix">
@@ -140,6 +149,7 @@
                                 </div>
                             </td>
                         </tr>
+
                     </table>
 
                     </span>
@@ -151,11 +161,11 @@
                                 <span style="color:red"><strong>Stock Available</strong></span>
                             </td>
                         </tr>
-                        <tr style="height:150px" >
+                        <tr style="height: 200px" >
                             <td align="center">
                                 <input type="text" id="stockpro" readonly style="border:none;font-size:20px;width:78px;text-align:center;color:green"><br>
                                 <input type="text" id="Prounit" readonly style="border:none;font-size:12px;width:20px"><br/><br/>
-                                <span style="color:red; font-weight:bold;">Sales Rate</span><br/>
+                                <span style="color:red; font-weight:bold;">Purchase Rate</span><br/>
                                 <input type="text" id="purate" readonly style="border:none;font-size:20px;width:78px;text-align:center;color:green" value="0"><br><strong>Tk.</strong>
                             </td>
                         </tr>
@@ -336,13 +346,31 @@
         var proQTY = $("#proQTY").val();
         var ProRATe = $("#ProRATe").val();
         var Amount = parseFloat(ProRATe)* parseFloat(proQTY);
+        var ProParcent = $("#ProParcent").val();
+
+        var Amount = Amount-((ProParcent/100)*Amount);
         $("#ProductAmont").val(Amount);
+        console.log(finalAmount);
     }
     function keyupamount2()   {
         var proQTY = $("#proQTY").val();
         var ProRATe = $("#ProRATe").val();
         var Amount = parseFloat(ProRATe)* parseFloat(proQTY);
+        var ProParcent = $("#ProParcent").val();
+
+        var Amount = Amount-((ProParcent/100)*Amount);
         $("#ProductAmont").val(Amount);
+        console.log(finalAmount);
+    }
+    function keyupamount3()   {
+        var proQTY = $("#proQTY").val();
+        var ProRATe = $("#ProRATe").val();
+        var Amount = parseFloat(ProRATe)* parseFloat(proQTY);
+        var ProParcent = $("#ProParcent").val();
+
+        var Amount = Amount-((ProParcent/100)*Amount);
+        $("#ProductAmont").val(Amount);
+        console.log(finalAmount);
     }
     function Customer()   {
         var cid = $("#customerID").val();
@@ -471,6 +499,8 @@
         }
 
         var ProRATe = $('#ProRATe').val();
+        var ProductAmont = $('#ProductAmont').val();
+
         var ProPurchaseRATe = $('#ProPurchaseRATe').val();
 
         var unit = $('#Prounit').val();
@@ -486,7 +516,8 @@
         
         var packagecode = $("#packagecode").val();
 		var proName = encodeURIComponent(proName);
-        var inputdata = 'packagecode='+packagecode+'&packagename='+packagename+'&ProID='+ProID+'&proName='+proName+'&proQTY='+proQTY+'&ProRATe='+ProRATe+'&unit='+unit+'&ProPurchaseRATe='+ProPurchaseRATe;
+
+        var inputdata = 'ProductAmont='+ProductAmont+'&packagecode='+packagecode+'&packagename='+packagename+'&ProID='+ProID+'&proName='+proName+'&proQTY='+proQTY+'&ProRATe='+ProRATe+'&unit='+unit+'&ProPurchaseRATe='+ProPurchaseRATe;
         var urldata = "<?php echo base_url();?>Administrator/addcart/SalesTOcart";
         //alert(inputdata);
         $.ajax({
@@ -502,8 +533,13 @@
                 $('#proQTY').val('');
                 $('#stockpro').val('0');
                 $('#ProductAmont').val('');
+                $('#ProParcent').val('');
                 //
-                var TotalPrice = parseFloat(ProRATe)*parseFloat(proQTY);
+                //var TotalPrice = parseFloat(ProRATe)*parseFloat(proQTY);
+
+                var TotalPrice = Math.round(ProductAmont);
+
+
                 var subToTal = $("#subTotalDisabled").val();
                 var TotalAmount = parseFloat(TotalPrice)+parseFloat(subToTal);
                 var grTotal = $("#subTotalDisabled").val(TotalAmount);
@@ -755,8 +791,12 @@
         var customerdue = $("#customerdue").val();
         var craditlimits = $("#craditlimits").val();
         var totaldue = parseFloat(SellsDue)+parseFloat(customerdue);
-		
-        var inputdata = 'packagename='+packagename+'&salesInvoiceno='+salesInvoiceno+'&sales_date='+sales_date+'&customerID='+customerID+'&CusName='+CusName+'&CusMobile='+CusMobile+'&CusAddress='+CusAddress+'&SelesNotes='+SelesNotes+'&subTotal='+subTotal+'&vatPersent='+vatPersent+'&SellsFreight='+SellsFreight+'&SellsDiscount='+SellsDiscount+'&SellTotals='+SellTotals+'&SellsPaid='+SellsPaid+'&SellsDue='+SellsDue+'&Reword_Discount='+Reword_Discount+'&status='+1;
+
+		var ProParcent = $("#ProParcent").val();
+        var ProParcentCartData = '';
+		ProParcentCartData = Math.round($("#ProParcentCartData").val());
+
+        var inputdata = 'packagename='+packagename+'&ProParcentCartData='+ProParcentCartData+packagename+'&ProParcent='+ProParcent+'&salesInvoiceno='+salesInvoiceno+'&sales_date='+sales_date+'&customerID='+customerID+'&CusName='+CusName+'&CusMobile='+CusMobile+'&CusAddress='+CusAddress+'&SelesNotes='+SelesNotes+'&subTotal='+subTotal+'&vatPersent='+vatPersent+'&SellsFreight='+SellsFreight+'&SellsDiscount='+SellsDiscount+'&SellTotals='+SellTotals+'&SellsPaid='+SellsPaid+'&SellsDue='+SellsDue+'&Reword_Discount='+Reword_Discount+'&status='+1;
         var urldata = "<?php echo base_url();?>Administrator/sales/sales_order/";
 
         $.ajax({

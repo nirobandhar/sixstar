@@ -1,4 +1,3 @@
-
 <div class="content_scroll">
 <h2>Sales Return</h2>
     <div style="width:100%; float:left;">
@@ -31,10 +30,6 @@
             </table>
         </div>
     </div>
-
-
-
-
 </div>
 <div id="SalesReturnList"></div>
 <script type="text/javascript">
