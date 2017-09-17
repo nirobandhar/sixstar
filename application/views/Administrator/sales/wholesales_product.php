@@ -26,7 +26,7 @@
                     <td>Date</td>
                     <td>
                     <div class="full clearfix" >
-                        <input name="sales_date"readonly="" id="sales_date" type="text" value="<?php echo date("Y-m-d") ?>" class="inputclass" style="width:200px"/>
+                        <input name="sales_date" readonly="" id="sales_date" type="text" value="<?php echo date("Y-m-d") ?>" class="inputclass" style="width:200px"/>
                     </div></td>
                 </tr>
             </table>
