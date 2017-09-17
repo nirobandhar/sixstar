@@ -8,7 +8,7 @@ class Login extends CI_Controller {
     }
     public function index()  {
         $data['title'] = "Login";
-        $this->load->view('login', $data);
+        $this->load->view('Administrator/login', $data);
     }
     function procedure(){
         $user = mysql_real_escape_string($this->input->post('txtUserName'));

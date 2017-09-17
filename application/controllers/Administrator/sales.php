@@ -33,7 +33,7 @@ class Sales extends CI_Controller {
         $data['Product'] = $this->mt->edit_by_id($query);
         $this->load->view('Administrator/sales/ajax_product', $data);
     }
-    public function sales_order(){
+    public function sales_order(){ //in
         $customerID = $this->input->post('customerID');
         if($customerID == '0'){
             $sales = array(
@@ -102,11 +102,15 @@ class Sales extends CI_Controller {
                         'SaleDetails_TotalQuantity'     => $item['qty'],
 						'Status'                        => $this->input->post('status'),
                         'SaleDetails_Rate'              => $item['price'],
+                        'discount_price'                => $item['ProductAmont'],
+                        'SaleDetails_Discount'          => $item['SaleDetails_Discount'],
                         'SaleDetails_unit'              => $item['image'],
                         'Purchase_Rate'                 => $item['purchaserate'],
 						'saledetailbrids'               => $this->session->userdata("BRANCHid")
                     );
+
                     $this->billing_model->insert_sales_detail($order_detail);
+
                     // Stock add
                     $sql = mysql_query("SELECT * FROM tbl_saleinventory WHERE sellProduct_IdNo = '".$item['id']."'");
                     $rox = mysql_fetch_array($sql);

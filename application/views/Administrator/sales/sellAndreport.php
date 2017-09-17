@@ -118,6 +118,7 @@
            <th>Size</th>
            <th>Unit</th>
             <th>Rate</th>
+            <th>Discount</th>
            <th>Quantity</th>
            <th>Amount</th>
         </tr>
@@ -129,11 +130,11 @@
         $PtotalSaleAmount = "";
         $ssql = mysql_query("SELECT tbl_saledetails.*, tbl_product.*,  tbl_salesmaster.*  FROM tbl_saledetails left join tbl_product on tbl_product.Product_SlNo = tbl_saledetails.Product_IDNo left join tbl_salesmaster on tbl_salesmaster.SaleMaster_SlNo = tbl_saledetails.SaleMaster_IDNo  where tbl_saledetails.SaleMaster_IDNo = '$SalesID'");
         while($rows = mysql_fetch_array($ssql)){
-            $PtotalSaleAmount = $rows['SaleMaster_TotalSaleAmount'];
+            $PtotalSaleAmount = $rows['SaleMaster_TotalSaleAmount']; /*After Discount Total amount*/
             $packageName = $rows['packageName'];
             if($packageName==""){
             $amount = $rows['SaleDetails_Rate']*$rows['SaleDetails_TotalQuantity'] ;
-            $totalamount = $totalamount+$amount;
+            //$totalamount = $totalamount+$amount;
             $i++;
         ?>
         <tr>
@@ -156,8 +157,9 @@
 			 ?></td>
             <td><?php echo $rows['SaleDetails_unit']; ?></td>
             <td style="text-align: right;"><?php echo number_format($rows['SaleDetails_Rate'], 2); ?></td>
+            <td style="text-align: right;"><?php echo $rows['SaleDetails_Discount']; ?>%</td><!--Discount-->
             <td style="text-align: center;"><?php echo $rows['SaleDetails_TotalQuantity'] ?></td>
-            <td style="text-align: right;"><?php echo number_format($PtotalSaleAmount, 2); ?></td>
+            <td style="text-align: right;"><?php echo number_format($rows['discount_price'], 2); ?></td> <!--Amount Field-->
         </tr>
         <?php } }
             $ssqls = mysql_query("SELECT tbl_saledetails.*, tbl_product.*  FROM tbl_saledetails left join tbl_product on tbl_product.Product_SlNo = tbl_saledetails.Product_IDNo where tbl_saledetails.SaleMaster_IDNo = '$SalesID' group by tbl_saledetails.packageName");
@@ -175,9 +177,9 @@
             </tr>
         <?php } }?>
         <tr>
-            <td colspan="7" style="border:0px"></td>
+            <td colspan="8" style="border:0px"></td>
             <td style="border:0px"><strong>Sub Total :</strong> </td>
-            <td style="border:0px;text-align: right;"><?php $totalamount =$totalamount+$Ptotalamount; echo number_format($totalamount,2); ?></td>
+            <td style="border:0px;text-align: right;"><?php $totalamount = $selse["SaleMaster_TotalSaleAmount"]; echo number_format($totalamount,2); ?></td>
         </tr>
         <tr>
             <td  style="border:0px"><strong>Previous Due</strong></td>
@@ -202,21 +204,21 @@
                 ?>
                 <!-- Previous Due Customer End -->
             </td>
-            <td  style="border:0px" colspan="5"></td>
+            <td  style="border:0px" colspan="6"></td>
             <td style="border:0px"><strong>Vat :</strong> </td>
             <td style="border:0px;text-align: right;"><?php echo number_format($vat, 2); ?></td>
         </tr>
         <tr>
             <td style="border:0px"><strong>Current Due</strong></td>
             <td style="border:0px;color:red;text-align: right;"><?php if($CurrenDue==''){echo '0.00';}else{echo number_format($CurrenDue, 2);} ?></td>
-            <td style="border:0px" colspan="5"></td>
+            <td style="border:0px" colspan="6"></td>
             <td style="border:0px"><strong>Frieght :</strong> </td>
             <td style="border:0px;text-align: right;"><?php $Frieght = $selse['SaleMaster_Freight']; echo number_format($Frieght,2) ?></td>
         </tr>
         <tr>
             <td style="border-top: 1px solid #999;border-left: 0px ;border-right: 0px ;border-bottom: 0px ;"><strong>Total Due</strong> </td>
             <td style="color:red;border-top: 1px solid #999;border-left: 0px ;border-right: 0px ;border-bottom: 0px ;text-align: right;"><?php if($previousdue+$CurrenDue==''){echo '0.00';}else{echo number_format(($previousdue+$CurrenDue), 2);} ?></td>
-            <td style="border:0px" colspan="5"></td>
+            <td style="border:0px" colspan="6"></td>
             <td style="border:0px"><strong>Discount :</strong> </td>
             <td style="border:0px;text-align: right;"><?php $discount = $selse['SaleMaster_TotalDiscountAmount'];  $discount = ($totalamount*$discount)/100;
 			echo number_format($discount,2) ?></td>
@@ -224,32 +226,32 @@
         <tr>
             <td style="border:0px"></td>
             <td style="border:0px"></td>
-            <td style="border:0px" colspan="5"></td>
+            <td style="border:0px" colspan="6"></td>
             <td style="border:0px"><strong>Reword-Discount :</strong> </td>
             <td style="border:0px;text-align: right;"><?php $RewordDiscount = $selse['SaleMaster_RewordDiscount'];echo number_format($RewordDiscount,2) ?></td>
         </tr>
          <tr>
-            <td colspan="7" style="border:0px"></td>
+            <td colspan="8" style="border:0px"></td>
             <td colspan="2" style="border-top: 2px solid #999;border-left: 0px ;border-right: 0px ;border-bottom: 0px ;"></td>
            
         </tr>
         <tr>
-            <td colspan="7" style="border:0px"></td>
+            <td colspan="8" style="border:0px"></td>
             <td style="border:0px"><strong>Total :</strong> </td>
             <td style="border:0px;text-align: right;"><strong><?php $grandtotal = $totalamount-$discount+ $Frieght+$vat-$RewordDiscount; echo number_format($grandtotal,2)?></strong></td>
         </tr>
         <tr>
-            <td colspan="7" style="border:0px"></td>
+            <td colspan="8" style="border:0px"></td>
             <td style="border:0px"><strong>Paid :</strong> </td>
             <td style="border:0px;text-align: right;"><?php $paid = $selse['SaleMaster_PaidAmount']; echo number_format($paid,2);?></td>
         </tr>
         <tr>
-            <td colspan="7" style="border:0px"></td>
-            <td colspan="2" style="border-top: 2px solid #999;border-left: 0px ;border-right: 0px ;border-bottom: 0px ;"></td>
+            <td colspan="8" style="border:0px"></td>
+            <td colspan="3" style="border-top: 2px solid #999;border-left: 0px ;border-right: 0px ;border-bottom: 0px ;"></td>
            
         </tr>
         <tr>
-            <td colspan="7" style="border:0px"></td>
+            <td colspan="8" style="border:0px"></td>
             <td style="border:0px"><strong>Due :</strong> </td>
             <td style="border:0px;text-align: right;"><?php echo number_format($grandtotal-$paid,2); ?></td>
         </tr>

@@ -37,6 +37,7 @@ class Billing_model extends CI_Model {
 	}
 	public function insert_sales_detail($data) {
 		$this->db->insert('tbl_saledetails', $data);
+        return $this->db->insert_id();
 	}
 	// ==========================Sales Return==========================================
 	public function SalesReturn($table, $data) {

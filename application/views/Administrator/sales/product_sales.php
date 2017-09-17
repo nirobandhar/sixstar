@@ -350,7 +350,6 @@
 
         var Amount = Amount-((ProParcent/100)*Amount);
         $("#ProductAmont").val(Amount);
-        console.log(finalAmount);
     }
     function keyupamount2()   {
         var proQTY = $("#proQTY").val();
@@ -360,7 +359,6 @@
 
         var Amount = Amount-((ProParcent/100)*Amount);
         $("#ProductAmont").val(Amount);
-        console.log(finalAmount);
     }
     function keyupamount3()   {
         var proQTY = $("#proQTY").val();
@@ -369,8 +367,7 @@
         var ProParcent = $("#ProParcent").val();
 
         var Amount = Amount-((ProParcent/100)*Amount);
-        $("#ProductAmont").val(Amount);
-        console.log(finalAmount);
+        $("#ProductAmont").val(Math.round(Amount));
     }
     function Customer()   {
         var cid = $("#customerID").val();
@@ -434,27 +431,24 @@
         var namelength =  allname.length;
         //alert(namelength);
 
-        
-       
-       
-            for(f=1; f <= namelength; f++){
-                var allname = "#allname"+f;
-                var AllName = $(allname).val();
-                var allqty = "#allqty"+f;
-                var AllQty = $(allqty).val();
-                for(j=1; j <= itemlength; j++){
-                    var itemname = "#itemname"+j;
-                    var itemName = $(itemname).val();
-                    if(itemName != AllName){
-                        var StQTs = $('#stockpro').val();
-                        var totalQtY = parseFloat(AllQty) + parseFloat(proQTY);
-                        if(totalQtY > StQTs){
-                            alert("Stock Not Available");
-                            return false;
-                        }   
+        for(f=1; f <= namelength; f++){
+            var allname = "#allname"+f;
+            var AllName = $(allname).val();
+            var allqty = "#allqty"+f;
+            var AllQty = $(allqty).val();
+            for(j=1; j <= itemlength; j++){
+                var itemname = "#itemname"+j;
+                var itemName = $(itemname).val();
+                if(itemName != AllName){
+                    var StQTs = $('#stockpro').val();
+                    var totalQtY = parseFloat(AllQty) + parseFloat(proQTY);
+                    if(totalQtY > StQTs){
+                        alert("Stock Not Available");
+                        return false;
                     }
                 }
             }
+        }
         
 
         for(i =1; i <= getlenth; i++){
@@ -499,10 +493,8 @@
         }
 
         var ProRATe = $('#ProRATe').val();
-        var ProductAmont = $('#ProductAmont').val();
-
+        var ProductAmont =  Math.round($('#ProductAmont').val());
         var ProPurchaseRATe = $('#ProPurchaseRATe').val();
-
         var unit = $('#Prounit').val();
         var stockpro = $('#stockpro').val();
         var qty = $('#ckqty').val();
@@ -514,10 +506,11 @@
             return false;
         }
         
+        var SaleDetails_Discount = $("#ProParcent").val();
         var packagecode = $("#packagecode").val();
 		var proName = encodeURIComponent(proName);
 
-        var inputdata = 'ProductAmont='+ProductAmont+'&packagecode='+packagecode+'&packagename='+packagename+'&ProID='+ProID+'&proName='+proName+'&proQTY='+proQTY+'&ProRATe='+ProRATe+'&unit='+unit+'&ProPurchaseRATe='+ProPurchaseRATe;
+        var inputdata = 'ProductAmont='+ProductAmont+'&SaleDetails_Discount='+SaleDetails_Discount+'&packagecode='+packagecode+'&packagename='+packagename+'&ProID='+ProID+'&proName='+proName+'&proQTY='+proQTY+'&ProRATe='+ProRATe+'&unit='+unit+'&ProPurchaseRATe='+ProPurchaseRATe;
         var urldata = "<?php echo base_url();?>Administrator/addcart/SalesTOcart";
         //alert(inputdata);
         $.ajax({
@@ -793,10 +786,10 @@
         var totaldue = parseFloat(SellsDue)+parseFloat(customerdue);
 
 		var ProParcent = $("#ProParcent").val();
-        var ProParcentCartData = '';
+        var ProParcentCartData = 0;
 		ProParcentCartData = Math.round($("#ProParcentCartData").val());
 
-        var inputdata = 'packagename='+packagename+'&ProParcentCartData='+ProParcentCartData+packagename+'&ProParcent='+ProParcent+'&salesInvoiceno='+salesInvoiceno+'&sales_date='+sales_date+'&customerID='+customerID+'&CusName='+CusName+'&CusMobile='+CusMobile+'&CusAddress='+CusAddress+'&SelesNotes='+SelesNotes+'&subTotal='+subTotal+'&vatPersent='+vatPersent+'&SellsFreight='+SellsFreight+'&SellsDiscount='+SellsDiscount+'&SellTotals='+SellTotals+'&SellsPaid='+SellsPaid+'&SellsDue='+SellsDue+'&Reword_Discount='+Reword_Discount+'&status='+1;
+        var inputdata = 'packagename='+packagename+'&ProParcentCartData='+ProParcentCartData+'&ProParcent='+ProParcent+'&salesInvoiceno='+salesInvoiceno+'&sales_date='+sales_date+'&customerID='+customerID+'&CusName='+CusName+'&CusMobile='+CusMobile+'&CusAddress='+CusAddress+'&SelesNotes='+SelesNotes+'&subTotal='+subTotal+'&vatPersent='+vatPersent+'&SellsFreight='+SellsFreight+'&SellsDiscount='+SellsDiscount+'&SellTotals='+SellTotals+'&SellsPaid='+SellsPaid+'&SellsDue='+SellsDue+'&Reword_Discount='+Reword_Discount+'&status='+1;
         var urldata = "<?php echo base_url();?>Administrator/sales/sales_order/";
 
         $.ajax({

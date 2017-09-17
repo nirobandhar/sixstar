@@ -41,9 +41,9 @@
 
                                     <td style="width:10%"><?php echo $item['price']; ?></td>
                                     <td style="width:10%"><?php echo $item['image']; ?></td>
-                                    <td style="width:10%"><?php $grand_total = $grand_total + $item['ProductAmont']; ?> <?php echo number_format($item['ProductAmont'], 2) ?>
-                                    <input type="hidden" id="PriCe_<?php echo $item['rowid'];?>" value="<?php echo $item['ProductAmont']; ?>"></td>
-                                    <input type="hidden" id="ProParcentCartData" value="<?php echo $item['ProductAmont']; ?>"></td>
+                                    <td style="width:10%"><?php $grand_total = $grand_total + $item['ProductAmont']; ?> <?php echo round($item['ProductAmont']);//number_format($item['ProductAmont'], 2); ?>
+                                    <input type="hidden" id="PriCe_<?php echo $item['rowid'];?>" value="<?php echo round($item['ProductAmont']); ?>"></td>
+                                    <input type="hidden" id="ProParcentCartData" value="<?php echo round($item['ProductAmont']); ?>"></td>
 
                                     <td style="width:10%">
                                         <span style="cursor:pointer" onclick="cartRemove(a='<?php echo $item['rowid'];?>')">
@@ -72,7 +72,7 @@
                         <h2>
                             <span>Total</span>
                             <div style="float:right">
-                                <span style="color:red"><?php if(isset($grand_total)) {echo $grand_total;}else{echo 0;} ?></span>
+                                <span style="color:red"><?php if(isset($grand_total)) {echo round($grand_total);}else{echo 0;} ?></span>
                                 <span>tk</span>
                             </div>
                         </h2>
