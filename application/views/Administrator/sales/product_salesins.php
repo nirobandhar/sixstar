@@ -132,6 +132,14 @@
                             </td>
                         </tr>
                         <tr>
+                            <td>Discount</td>
+                            <td style="width:200px">
+                                <div class="full clearfix">
+                                    <input type="text" id="ProParcent" onkeyup="keyupamount3()" class="inputclass">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
                             <td>Amount</td>
                             <td style="width:200px">
                                 <div class="full clearfix">
@@ -330,26 +338,20 @@
     </div>
 </div> 
 </span>
-
 <script type="text/javascript">
     function keyUPAmount()   {
         var proQTY = $("#proQTY").val();
         var ProRATe = $("#ProRATe").val();
         var Amount = parseFloat(ProRATe)* parseFloat(proQTY);
-        var ProParcent = $("#ProParcent").val();
-
-        var Amount = Amount-((ProParcent/100)*Amount);
         $("#ProductAmont").val(Amount);
     }
     function keyupamount2()   {
         var proQTY = $("#proQTY").val();
         var ProRATe = $("#ProRATe").val();
         var Amount = parseFloat(ProRATe)* parseFloat(proQTY);
-        var ProParcent = $("#ProParcent").val();
-
-        var Amount = Amount-((ProParcent/100)*Amount);
         $("#ProductAmont").val(Amount);
     }
+
     function keyupamount3()   {
         var proQTY = $("#proQTY").val();
         var ProRATe = $("#ProRATe").val();
@@ -384,17 +386,17 @@
                 $("#ProductsResult").html(data);
                 var STock = $("#STock").val();
                 var unitPro = $("#unitPro").val();
-                var reorder = $("#reordlvl").val();
-                var unitprice = $("#unitPur").val();
-                if(STock<reorder){
-                    $("#stockpro").css('color', "red");
-                }
-                else{
-                    $("#stockpro").css('color', "green");
-                }
+				var reorder = $("#reordlvl").val();
+				var unitprice = $("#unitPur").val();
+				if(STock<reorder){
+					$("#stockpro").css('color', "red");
+					}
+					else{
+						$("#stockpro").css('color', "green");
+						}
                 $("#stockpro").val(STock);
                 $("#Prounit").val(unitPro);
-                $("#purate").val(unitprice);
+				$("#purate").val(unitprice);
                 $('input[name=proQTY]').focus();
             }
         });
@@ -516,13 +518,8 @@
                 $('#proQTY').val('');
                 $('#stockpro').val('0');
                 $('#ProductAmont').val('');
-                $('#ProParcent').val('');
                 //
-                //var TotalPrice = parseFloat(ProRATe)*parseFloat(proQTY);
-
-                var TotalPrice = Math.round(ProductAmont);
-
-
+                var TotalPrice = parseFloat(ProRATe)*parseFloat(proQTY);
                 var subToTal = $("#subTotalDisabled").val();
                 var TotalAmount = parseFloat(TotalPrice)+parseFloat(subToTal);
                 var grTotal = $("#subTotalDisabled").val(TotalAmount);
@@ -537,18 +534,13 @@
                 //Reword_Discount
                 var SellVat = $("#SellVat").val();
                 var SellsFreight = $("#SellsFreight").val();
-
                 var SellsDiscountpercent = $("#SellsDiscount2").val();
-                var distotal = parseFloat(subTotal) * parseFloat(SellsDiscountpercent);
-                var grdistotal = parseFloat(distotal) / 100;
-                $("#SellsDiscount").val(grdistotal);
-                var SellsDiscount = $("#SellsDiscount").val();
-
-
-
+				var distotal = parseFloat(subTotal) * parseFloat(SellsDiscountpercent);
+				var grdistotal = parseFloat(distotal) / 100;
+				$("#SellsDiscount").val(grdistotal);
+				var SellsDiscount = $("#SellsDiscount").val();
                 var Reword_Discount = $("#Reword_Discount").val();
                 var totalAmOuNT = parseFloat(TotalAmount)+ parseFloat(SellVat)+ parseFloat(SellsFreight)-parseFloat(SellsDiscount)+parseFloat(Reword_Discount);
-
                 $('#SellTotals').val(totalAmOuNT);
                 $('#SellTotaldisabled').val(totalAmOuNT);
                 $('#SellsPaid').val(totalAmOuNT);
@@ -592,13 +584,11 @@
         //Reword_Discount
         var SellVat = $("#SellVat").val();
         var SellsFreight = $("#SellsFreight").val();
-
-        var SellsDiscountpercent = $("#SellsDiscount2").val();
-        var distotal = parseFloat(subTotal) * parseFloat(SellsDiscountpercent);
-        var grdistotal = parseFloat(distotal) / 100;
-        $("#SellsDiscount").val(grdistotal);
-        var SellsDiscount = $("#SellsDiscount").val();
-
+       var SellsDiscountpercent = $("#SellsDiscount2").val();
+		var distotal = parseFloat(subTotal) * parseFloat(SellsDiscountpercent);
+		var grdistotal = parseFloat(distotal) / 100;
+		$("#SellsDiscount").val(grdistotal);
+		var SellsDiscount = $("#SellsDiscount").val();
         var Reword_Discount = $("#Reword_Discount").val();
         var totalAmOuNT = parseFloat(subTotal)-parseFloat(Reword_Discount)+ parseFloat(SellVat)+ parseFloat(SellsFreight)-parseFloat(SellsDiscount);
         $('#SellTotals').val(totalAmOuNT);
@@ -660,10 +650,10 @@
         var SellVat = $("#SellVat").val();
         var SellsFreight = $("#SellsFreight").val();
         var SellsDiscountpercent = $("#SellsDiscount2").val();
-        var distotal = parseFloat(subtotal) * parseFloat(SellsDiscountpercent);
+		var distotal = parseFloat(subtotal) * parseFloat(SellsDiscountpercent);
         var grdistotal = parseFloat(distotal) / 100;
-        $("#SellsDiscount").val(grdistotal);
-        var SellsDiscount = $("#SellsDiscount").val();
+         $("#SellsDiscount").val(grdistotal);
+		 var SellsDiscount = $("#SellsDiscount").val();
 
         var Reword_Discount = $("#Reword_Discount").val();
         var totalAmOuNT = parseFloat(subtotal)-parseFloat(Reword_Discount)+ parseFloat(SellVat)+ parseFloat(SellsFreight)-parseFloat(SellsDiscount);
@@ -717,9 +707,6 @@
             alert("Select Customer");
             return false;
         }
-        var CusName = $("#CusName").val();
-        var CusMobile = $("#CusMobile").val();
-        var CusAddress = $("#CusAddress").val();
         var SelesNotes = $("#SelesNotes").val();
 
         var subTotal = $("#subTotal").val();
@@ -775,13 +762,8 @@
         var craditlimits = $("#craditlimits").val();
         var totaldue = parseFloat(SellsDue)+parseFloat(customerdue);
 
-        var ProParcent = $("#ProParcent").val();
-        var ProParcentCartData = 0;
-        ProParcentCartData = Math.round($("#ProParcentCartData").val());
-
-        var inputdata = 'packagename='+packagename+'&ProParcentCartData='+ProParcentCartData+'&ProParcent='+ProParcent+'&salesInvoiceno='+salesInvoiceno+'&sales_date='+sales_date+'&customerID='+customerID+'&CusName='+CusName+'&CusMobile='+CusMobile+'&CusAddress='+CusAddress+'&SelesNotes='+SelesNotes+'&subTotal='+subTotal+'&vatPersent='+vatPersent+'&SellsFreight='+SellsFreight+'&SellsDiscount='+SellsDiscount+'&SellTotals='+SellTotals+'&SellsPaid='+SellsPaid+'&SellsDue='+SellsDue+'&Reword_Discount='+Reword_Discount+'&status='+1;
-        var urldata = "<?php echo base_url();?>Administrator/sales/sales_order/";
-
+        var inputdata = 'packagename='+packagename+'&salesInvoiceno='+salesInvoiceno+'&sales_date='+sales_date+'&customerID='+customerID+'&SelesNotes='+SelesNotes+'&subTotal='+subTotal+'&vatPersent='+vatPersent+'&SellsFreight='+SellsFreight+'&SellsDiscount='+SellsDiscount+'&SellTotals='+SellTotals+'&SellsPaid='+SellsPaid+'&SellsDue='+SellsDue+'&Reword_Discount='+Reword_Discount+'&status='+3;
+        var urldata = "<?php echo base_url();?>Administrator/installment/sales_order";
         $.ajax({
             type: "POST",
             url: urldata,
