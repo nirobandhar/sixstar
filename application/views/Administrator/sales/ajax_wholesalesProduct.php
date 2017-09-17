@@ -35,11 +35,8 @@
     </tr>
 
     <tr>
-
         <td>Rate</td>
-
         <td style="width:200px">
-
             <div class="full clearfix">
 
                 <input type="text" id="ProRATe" onkeyup="keyupamount2()" class="inputclass" value="<?php echo $Product['Product_WholesaleRate'] ?>">
@@ -47,9 +44,16 @@
                 <input type="hidden" id="ProPurchaseRATe" value="<?php echo $Product['Product_Purchase_Rate'] ?>">
 
             </div>
-
         </td>
+    </tr>
 
+    <tr>
+        <td>Discount</td>
+        <td style="width:200px">
+            <div class="full clearfix">
+                <input type="text" id="ProParcent" onkeyup="keyupamount3()" class="inputclass">
+            </div>
+        </td>
     </tr>
 
     <tr>

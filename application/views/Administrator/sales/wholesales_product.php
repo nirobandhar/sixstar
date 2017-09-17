@@ -131,6 +131,14 @@
                             </td>
                         </tr>
                         <tr>
+                            <td>Discount</td>
+                            <td style="width:200px">
+                                <div class="full clearfix">
+                                    <input type="text" id="ProParcent" onkeyup="keyupamount3()" class="inputclass">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
                             <td>Amount</td>
                             <td style="width:200px">
                                 <div class="full clearfix">
@@ -343,18 +351,33 @@
         var proQTY = $("#proQTY").val();
         var ProRATe = $("#ProRATe").val();
         var Amount = parseFloat(ProRATe)* parseFloat(proQTY);
+        var ProParcent = $("#ProParcent").val();
+
+        var Amount = Amount-((ProParcent/100)*Amount);
         $("#ProductAmont").val(Amount);
     }
     function keyupamount2()   {
         var proQTY = $("#proQTY").val();
         var ProRATe = $("#ProRATe").val();
         var Amount = parseFloat(ProRATe)* parseFloat(proQTY);
+        var ProParcent = $("#ProParcent").val();
+
+        var Amount = Amount-((ProParcent/100)*Amount);
         $("#ProductAmont").val(Amount);
+    }
+    function keyupamount3()   {
+        var proQTY = $("#proQTY").val();
+        var ProRATe = $("#ProRATe").val();
+        var Amount = parseFloat(ProRATe)* parseFloat(proQTY);
+        var ProParcent = $("#ProParcent").val();
+
+        var Amount = Amount-((ProParcent/100)*Amount);
+        $("#ProductAmont").val(Math.round(Amount));
     }
     function Customer()   {
         var cid = $("#customerID").val();
         var inputdata = 'cid='+cid;
-        var urldata = "<?php echo base_url(); ?>Administrator/sales/selectCustomer";
+        var urldata = "<?php echo base_url();?>Administrator/sales/selectCustomer";
         $.ajax({
             type: "POST",
             url: urldata,
@@ -367,7 +390,7 @@
     function Products()   {
         var ProID = $("#ProID").val();
         var inputdata = 'ProID='+ProID;
-        var urldata = "<?php echo base_url(); ?>Administrator/wholesales/SelectProducts";
+        var urldata = "<?php echo base_url();?>Administrator/sales/SelectProducts";
         $.ajax({
             type: "POST",
             url: urldata,
@@ -376,21 +399,21 @@
                 $("#ProductsResult").html(data);
                 var STock = $("#STock").val();
                 var unitPro = $("#unitPro").val();
-				var reorder = $("#reordlvl").val();
-				var unitprice = $("#unitPur").val();
-				if(STock<reorder){
-					$("#stockpro").css('color', "red");
-					}
-				else{
-					$("#stockpro").css('color', "green");
-					}
+                var reorder = $("#reordlvl").val();
+                var unitprice = $("#unitPur").val();
+                if(STock<reorder){
+                    $("#stockpro").css('color', "red");
+                }
+                else{
+                    $("#stockpro").css('color', "green");
+                }
                 $("#stockpro").val(STock);
                 $("#Prounit").val(unitPro);
-				$("#purate").val(unitprice);
+                $("#purate").val(unitprice);
                 $('input[name=proQTY]').focus();
             }
         });
-        
+
     }
 </script>
 <script type="text/javascript">
@@ -413,28 +436,25 @@
         var namelength =  allname.length;
         //alert(namelength);
 
-        
-       
-       
-            for(f=1; f <= namelength; f++){
-                var allname = "#allname"+f;
-                var AllName = $(allname).val();
-                var allqty = "#allqty"+f;
-                var AllQty = $(allqty).val();
-                for(j=1; j <= itemlength; j++){
-                    var itemname = "#itemname"+j;
-                    var itemName = $(itemname).val();
-                    if(itemName != AllName){
-                        var StQTs = $('#stockpro').val();
-                        var totalQtY = parseFloat(AllQty) + parseFloat(proQTY);
-                        if(totalQtY > StQTs){
-                            alert("Stock Not Available");
-                            return false;
-                        }   
+        for(f=1; f <= namelength; f++){
+            var allname = "#allname"+f;
+            var AllName = $(allname).val();
+            var allqty = "#allqty"+f;
+            var AllQty = $(allqty).val();
+            for(j=1; j <= itemlength; j++){
+                var itemname = "#itemname"+j;
+                var itemName = $(itemname).val();
+                if(itemName != AllName){
+                    var StQTs = $('#stockpro').val();
+                    var totalQtY = parseFloat(AllQty) + parseFloat(proQTY);
+                    if(totalQtY > StQTs){
+                        alert("Stock Not Available");
+                        return false;
                     }
                 }
             }
-        
+        }
+
 
         for(i =1; i <= getlenth; i++){
             var getid = "#sqty"+i;
@@ -442,7 +462,7 @@
             var getName = $(sNaMe).val();
             var getdat = $(getid).val();
             var StQTY = $('#stockpro').val();
-            
+
             //=============================
             if(getName == packaNaMe){
                 var totalqty = parseFloat(StQTY) - parseFloat(getdat);
@@ -452,24 +472,24 @@
                 }else{
                     //var totalqty = parseFloat(StQTY) - parseFloat(proQTY);
                     //alert(totalqty) ;//
-                }  
+                }
             }
             /*for(f=1; f <= namelength; f++){
-                var allname = "#allname"+f;
-                var AllName = $(allname).val();
-                var allqty = "#allqty"+f;
-                var AllQty = $(allqty).val();
-                for(j=1; j <= itemlength; j++){
-                    var itemname = "#itemname"+j;
-                    var itemName = $(itemname).val();
-                    if(itemName != AllName){
-                        var totalQtY = parseFloat(AllQty) + parseFloat(proQTY);
-                        alert(totalQtY);    
-                    }
-                }
-            }*/
+             var allname = "#allname"+f;
+             var AllName = $(allname).val();
+             var allqty = "#allqty"+f;
+             var AllQty = $(allqty).val();
+             for(j=1; j <= itemlength; j++){
+             var itemname = "#itemname"+j;
+             var itemName = $(itemname).val();
+             if(itemName != AllName){
+             var totalQtY = parseFloat(AllQty) + parseFloat(proQTY);
+             alert(totalQtY);
+             }
+             }
+             }*/
         }
-                
+
         if(proQTY == 0){
             $('#proQTY').css("border-color","red");
             return false;
@@ -478,30 +498,32 @@
         }
 
         var ProRATe = $('#ProRATe').val();
+        var ProductAmont =  Math.round($('#ProductAmont').val());
         var ProPurchaseRATe = $('#ProPurchaseRATe').val();
-
         var unit = $('#Prounit').val();
         var stockpro = $('#stockpro').val();
         var qty = $('#ckqty').val();
         var packagename = $("#packagename").val();
         var checkname = $("#checkname").val();
-        
+
         if(parseFloat(proQTY) > parseFloat(stockpro)){
             alert("Stock Not Available");
             return false;
         }
-        
+
+        var SaleDetails_Discount = $("#ProParcent").val();
         var packagecode = $("#packagecode").val();
-		var proName = encodeURIComponent(proName);
-        var inputdata = 'packagecode='+packagecode+'&packagename='+packagename+'&ProID='+ProID+'&proName='+proName+'&proQTY='+proQTY+'&ProRATe='+ProRATe+'&unit='+unit+'&ProPurchaseRATe='+ProPurchaseRATe;
-        var urldata = "<?php echo base_url(); ?>addcart/SalesTOcart";
+        var proName = encodeURIComponent(proName);
+
+        var inputdata = 'ProductAmont='+ProductAmont+'&SaleDetails_Discount='+SaleDetails_Discount+'&packagecode='+packagecode+'&packagename='+packagename+'&ProID='+ProID+'&proName='+proName+'&proQTY='+proQTY+'&ProRATe='+ProRATe+'&unit='+unit+'&ProPurchaseRATe='+ProPurchaseRATe;
+        var urldata = "<?php echo base_url();?>Administrator/addcart/SalesTOcart";
         //alert(inputdata);
         $.ajax({
             type: "POST",
             url: urldata,
             data: inputdata,
             success:function(data){
-                $("#Salescartlist").html(data); 
+                $("#Salescartlist").html(data);
                 $('#ProID').val('');
                 $('#proName').val('');
                 $('#ProRATe').val('');
@@ -509,8 +531,13 @@
                 $('#proQTY').val('');
                 $('#stockpro').val('0');
                 $('#ProductAmont').val('');
+                $('#ProParcent').val('');
                 //
-                var TotalPrice = parseFloat(ProRATe)*parseFloat(proQTY);
+                //var TotalPrice = parseFloat(ProRATe)*parseFloat(proQTY);
+
+                var TotalPrice = Math.round(ProductAmont);
+
+
                 var subToTal = $("#subTotalDisabled").val();
                 var TotalAmount = parseFloat(TotalPrice)+parseFloat(subToTal);
                 var grTotal = $("#subTotalDisabled").val(TotalAmount);
@@ -522,15 +549,21 @@
                 var grtotal = parseFloat(vattotal) / 100;
                 $('#SellVat').val(grtotal);
                 $('#SellVat2').val(grtotal);
-                //
+                //Reword_Discount
                 var SellVat = $("#SellVat").val();
                 var SellsFreight = $("#SellsFreight").val();
+
                 var SellsDiscountpercent = $("#SellsDiscount2").val();
-				var distotal = parseFloat(subTotal) * parseFloat(SellsDiscountpercent);
-				var grdistotal = parseFloat(distotal) / 100;
-				$("#SellsDiscount").val(grdistotal);
-				var SellsDiscount = $("#SellsDiscount").val();
-                var totalAmOuNT = parseFloat(TotalAmount)+ parseFloat(SellVat)+ parseFloat(SellsFreight)+parseFloat(SellsDiscount);
+                var distotal = parseFloat(subTotal) * parseFloat(SellsDiscountpercent);
+                var grdistotal = parseFloat(distotal) / 100;
+                $("#SellsDiscount").val(grdistotal);
+                var SellsDiscount = $("#SellsDiscount").val();
+
+
+
+                var Reword_Discount = $("#Reword_Discount").val();
+                var totalAmOuNT = parseFloat(TotalAmount)+ parseFloat(SellVat)+ parseFloat(SellsFreight)-parseFloat(SellsDiscount)+parseFloat(Reword_Discount);
+
                 $('#SellTotals').val(totalAmOuNT);
                 $('#SellTotaldisabled').val(totalAmOuNT);
                 $('#SellsPaid').val(totalAmOuNT);
@@ -543,15 +576,15 @@
                 $('#SellsDue2').val(totalDUE);
             }
         });
-        
-       
+
+
     }
     function cartRemove(aid)   {
         var rowid = $("#rowid"+aid).val();
         var RemoveID = $("#PriCe_"+aid).val();
 
         var inputdata = 'rowid='+rowid;
-        var urldata = "<?php echo base_url(); ?>Administrator/addcart/ajax_salsecart_remove/";
+        var urldata = "<?php echo base_url();?>Administrator/addcart/ajax_salsecart_remove/";
         $.ajax({
             type: "POST",
             url: urldata,
@@ -561,7 +594,7 @@
             }
         });
         var subToTal = $("#subTotal").val();
-        var rastAmount = parseFloat(subToTal)-parseFloat(RemoveID); 
+        var rastAmount = parseFloat(subToTal)-parseFloat(RemoveID);
         $("#subTotalDisabled").val(rastAmount);
         $("#subTotal").val(rastAmount);
         //
@@ -571,15 +604,18 @@
         var grtotal = parseFloat(vattotal) / 100;
         $('#SellVat').val(grtotal);
         $('#SellVat2').val(grtotal);
-        //
+        //Reword_Discount
         var SellVat = $("#SellVat").val();
         var SellsFreight = $("#SellsFreight").val();
+
         var SellsDiscountpercent = $("#SellsDiscount2").val();
-		var distotal = parseFloat(subTotal) * parseFloat(SellsDiscountpercent);
-		var grdistotal = parseFloat(distotal) / 100;
-		$("#SellsDiscount").val(grdistotal);
-		var SellsDiscount = $("#SellsDiscount").val();
-        var totalAmOuNT = parseFloat(subTotal)+ parseFloat(SellVat)+ parseFloat(SellsFreight)-parseFloat(SellsDiscount);
+        var distotal = parseFloat(subTotal) * parseFloat(SellsDiscountpercent);
+        var grdistotal = parseFloat(distotal) / 100;
+        $("#SellsDiscount").val(grdistotal);
+        var SellsDiscount = $("#SellsDiscount").val();
+
+        var Reword_Discount = $("#Reword_Discount").val();
+        var totalAmOuNT = parseFloat(subTotal)-parseFloat(Reword_Discount)+ parseFloat(SellVat)+ parseFloat(SellsFreight)-parseFloat(SellsDiscount);
         $('#SellTotals').val(totalAmOuNT);
         $('#SellTotaldisabled').val(totalAmOuNT);
         $('#SellsPaid').val(totalAmOuNT);
@@ -602,11 +638,12 @@
         var SellVat = $("#SellVat").val();
         var SellsFreight = $("#SellsFreight").val();
         var SellsDiscount = $("#SellsDiscount").val();
-        var totalAmOuNT = parseFloat(subtotal)+ parseFloat(SellVat)+ parseFloat(SellsFreight)-parseFloat(SellsDiscount);
+        var Reword_Discount = $("#Reword_Discount").val();
+        var totalAmOuNT = parseFloat(subtotal)-parseFloat(Reword_Discount)+ parseFloat(SellVat)+ parseFloat(SellsFreight)-parseFloat(SellsDiscount);
         $('#SellTotals').val(totalAmOuNT);
         $('#SellTotaldisabled').val(totalAmOuNT);
         $('#SellsPaid').val(totalAmOuNT);
-        //due
+        //Reword_Discount
         var total = $("#SellTotaldisabled").val();
         var SellsPaid = $("#SellsPaid").val();
         var SellsDue = $("#SellsDue").val();
@@ -619,11 +656,12 @@
         var SellVat = $("#SellVat").val();
         var SellsFreight = $("#SellsFreight").val();
         var SellsDiscount = $("#SellsDiscount").val();
-        var totalAmOuNT = parseFloat(subtotal)+ parseFloat(SellVat)+ parseFloat(SellsFreight)-parseFloat(SellsDiscount);
+        var Reword_Discount = $("#Reword_Discount").val();
+        var totalAmOuNT = parseFloat(subtotal)-parseFloat(Reword_Discount)+ parseFloat(SellVat)+ parseFloat(SellsFreight)-parseFloat(SellsDiscount);
         $('#SellTotals').val(totalAmOuNT);
         $('#SellTotaldisabled').val(totalAmOuNT);
         $('#SellsPaid').val(totalAmOuNT);
-        //due
+        //Reword_Discount
         var total = $("#SellTotaldisabled").val();
         var SellsPaid = $("#SellsPaid").val();
         var SellsDue = $("#SellsDue").val();
@@ -636,17 +674,18 @@
         var subtotal = $("#subTotal").val();
         var SellVat = $("#SellVat").val();
         var SellsFreight = $("#SellsFreight").val();
-		var SellsDiscountpercent = $("#SellsDiscount2").val();
-		var distotal = parseFloat(subtotal) * parseFloat(SellsDiscountpercent);
+        var SellsDiscountpercent = $("#SellsDiscount2").val();
+        var distotal = parseFloat(subtotal) * parseFloat(SellsDiscountpercent);
         var grdistotal = parseFloat(distotal) / 100;
-         $("#SellsDiscount").val(grdistotal);
-		 var SellsDiscount = $("#SellsDiscount").val();
-		
-        var totalAmOuNT = parseFloat(subtotal)+ parseFloat(SellVat)+ parseFloat(SellsFreight)-parseFloat(SellsDiscount);
+        $("#SellsDiscount").val(grdistotal);
+        var SellsDiscount = $("#SellsDiscount").val();
+
+        var Reword_Discount = $("#Reword_Discount").val();
+        var totalAmOuNT = parseFloat(subtotal)-parseFloat(Reword_Discount)+ parseFloat(SellVat)+ parseFloat(SellsFreight)-parseFloat(SellsDiscount);
         $('#SellTotals').val(totalAmOuNT);
         $('#SellTotaldisabled').val(totalAmOuNT);
         $('#SellsPaid').val(totalAmOuNT);
-        //due
+        //Reword_Discount
         var total = $("#SellTotaldisabled").val();
         var SellsPaid = $("#SellsPaid").val();
         var SellsDue = $("#SellsDue").val();
@@ -672,7 +711,6 @@
         $('#SellsDue').val(totalDUE);
         $('#SellsDue2').val(totalDUE);
     }
-
     function PaidAmount(){
         var total = $("#SellTotaldisabled").val();
         var SellsPaid = $("#SellsPaid").val();
@@ -680,7 +718,7 @@
         var totalDUE = parseFloat(total)- parseFloat(SellsPaid);
         $('#SellsDue').val(totalDUE);
         $('#SellsDue2').val(totalDUE);
-       
+
     }
 </script>
 <script type="text/javascript">
@@ -694,6 +732,9 @@
             alert("Select Customer");
             return false;
         }
+        var CusName = $("#CusName").val();
+        var CusMobile = $("#CusMobile").val();
+        var CusAddress = $("#CusAddress").val();
         var SelesNotes = $("#SelesNotes").val();
 
         var subTotal = $("#subTotal").val();
@@ -717,6 +758,7 @@
         }else{
             $("#SellsFreight").css("border-color","gray");
         }
+
         var SellsDiscount = $("#SellsDiscount2").val();
         if(SellsDiscount==""){
             $("#SellsDiscount2").css("border-color","red");
@@ -724,7 +766,15 @@
         }else{
             $("#SellsDiscount2").css("border-color","gray");
         }
+
         var Reword_Discount = $("#Reword_Discount").val();
+        if(Reword_Discount==""){
+            $("#Reword_Discount").css("border-color","red");
+            return false;
+        }else{
+            $("#Reword_Discount").css("border-color","gray");
+        }
+        //Reword_Discount
         var SellTotals = $("#SellTotals").val();
         var SellsPaid = $("#SellsPaid").val();
         var regex = /^[0-9]+$/;
@@ -739,42 +789,31 @@
         var customerdue = $("#customerdue").val();
         var craditlimits = $("#craditlimits").val();
         var totaldue = parseFloat(SellsDue)+parseFloat(customerdue);
-        /*if(craditlimits < totaldue){
-            alert('Cradit Limit');
-            return false;
-        }*/
-        var inputdata = 'packagename='+packagename+'&salesInvoiceno='+salesInvoiceno+'&sales_date='+sales_date+'&customerID='+customerID+'&SelesNotes='+SelesNotes+'&subTotal='+subTotal+'&vatPersent='+vatPersent+'&SellsFreight='+SellsFreight+'&SellsDiscount='+SellsDiscount+'&Reword_Discount='+Reword_Discount+'&SellTotals='+SellTotals+'&SellsPaid='+SellsPaid+'&SellsDue='+SellsDue+'&status='+2;
-        var urldata = "<?php echo base_url(); ?>Administrator/wholesales/sales_order/";
+
+        var ProParcent = $("#ProParcent").val();
+        var ProParcentCartData = 0;
+        ProParcentCartData = Math.round($("#ProParcentCartData").val());
+
+        var inputdata = 'packagename='+packagename+'&ProParcentCartData='+ProParcentCartData+'&ProParcent='+ProParcent+'&salesInvoiceno='+salesInvoiceno+'&sales_date='+sales_date+'&customerID='+customerID+'&CusName='+CusName+'&CusMobile='+CusMobile+'&CusAddress='+CusAddress+'&SelesNotes='+SelesNotes+'&subTotal='+subTotal+'&vatPersent='+vatPersent+'&SellsFreight='+SellsFreight+'&SellsDiscount='+SellsDiscount+'&SellTotals='+SellTotals+'&SellsPaid='+SellsPaid+'&SellsDue='+SellsDue+'&Reword_Discount='+Reword_Discount+'&status='+1;
+        var urldata = "<?php echo base_url();?>Administrator/sales/sales_order/";
+
         $.ajax({
             type: "POST",
             url: urldata,
             data: inputdata,
             success:function(data){
-                
+
                 var err = data;
                 if(err){
                     if(confirm('Show Report')){
-                        window.location.href='<?php echo base_url(); ?>Administrator/sales/sellAndPrint';
+                        window.location.href='<?php echo base_url();?>Administrator/sales/sellAndPrint';
                     }else{
                         $("#SalescartRefresh").html(data);
                         alert('Sell Success');
                         return false;
                     }
                 }
-                    
-            }
-        });
-    }
-    function CraditLimit(){
-        var custID = $("#customerID").val();
-        var inputdata = 'custID='+custID;
-        var urldata = "<?php echo base_url(); ?>Administrator/sales/craditlimit/";
-        $.ajax({
-            type: "POST",
-            url: urldata,
-            data: inputdata,
-            success:function(data){
-                $("#ShowCraditLimitAndDue").html(data);
+
             }
         });
     }

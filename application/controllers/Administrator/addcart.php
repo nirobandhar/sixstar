@@ -51,7 +51,6 @@ class Addcart extends CI_Controller {
 		$this->load->view('Administrator/purchase/cartproduct');
 	}
 	function SalesTOcart(){
-	    //die(var_dump($this->input->post('ProductAmont')));
 		 $sqlgetmodel = mysql_query("SELECT tbl_product.*, tbl_productcategory.*,tbl_produsize.* FROM tbl_product left join tbl_productcategory on tbl_productcategory.ProductCategory_SlNo= tbl_product.ProductCategory_ID left join tbl_produsize on tbl_produsize.Productsize_SlNo= tbl_product.sizeId Where tbl_product.Product_SlNo='".$this->input->post('ProID')."'");
          $rowmodel = mysql_fetch_array($sqlgetmodel);
 		 $model = $rowmodel['ProductCategory_Name'];
