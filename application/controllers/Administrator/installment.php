@@ -80,10 +80,13 @@ class Installment extends CI_Controller {
                         'SaleMaster_IDNo'               => $sales_id,
                         'Product_IDNo'                  => $item['id'],
                         'SaleDetails_TotalQuantity'     => $item['qty'],
-						'Status'                        => $this->input->post('status'),
+                        'Status'                        => $this->input->post('status'),
                         'SaleDetails_Rate'              => $item['price'],
+                        'discount_price'                => $item['ProductAmont'],
+                        'SaleDetails_Discount'          => $item['SaleDetails_Discount'],
                         'SaleDetails_unit'              => $item['image'],
-                        'Purchase_Rate'                 => $item['purchaserate']
+                        'Purchase_Rate'                 => $item['purchaserate'],
+                        'saledetailbrids'               => $this->session->userdata("BRANCHid")
                     );
                     $this->billing_model->insert_sales_detail($order_detail);
                     // Stock add
