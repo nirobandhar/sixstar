@@ -177,15 +177,17 @@ class Sales extends CI_Controller {
         $productID = $this->input->post('productID');
         $salseQTY = $this->input->post('salseQTY');
         $invoices = $this->input->post('invoice');
-        $totalQty = "";
-        $RAmount = "";
+        $totalQty = 0;
+        $RAmount = 0;
         $totalarray =  sizeof($returnqty);
+
         for($j=0;$j<$totalarray; $j++){
             $rqtys = $this->input->post('returnqty');
             $totalQty = $rqtys[$j]+$totalQty;
             $ramounts = $this->input->post('returnamount');
             $RAmount =$ramounts[$j]+$RAmount;
         }
+
         $sqlll = mysql_query("SELECT * FROM tbl_salereturn where SaleMaster_InvoiceNo = '$invoices'");
         $ros = mysql_fetch_array($sqlll);
         $iid = $ros['SaleReturn_SlNo'];
@@ -401,6 +403,8 @@ class Sales extends CI_Controller {
         $this->load->view('Administrator/sales/blankpage');
 
     }
+    //End SalesReturnInsert
+
     public function sales_invoice()  {
         $data['title'] = "Sales Invoice";
         $data['content'] = $this->load->view('Administrator/sales/sales_invoice', $data, TRUE);

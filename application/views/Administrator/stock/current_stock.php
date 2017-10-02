@@ -17,7 +17,7 @@
             <th>Purchase Price</th>
             <th>Total Price</th>
         </tr>
-        <?php $totalqty = 0;$sellTOTALqty = 0; $subtotal = 0; $gttotalqty = 0; $gttotalpur = 0;
+        <?php $totalqty = 0; $sellTOTALqty = 0; $subtotal = 0; $gttotalqty = 0; $gttotalpur = 0;
 		//echo "SELECT tbl_purchaseinventory.*,tbl_product.*,tbl_purchasedetails.*,SUM(tbl_purchasedetails.PurchaseDetails_TotalQuantity) as totalqty,SUM(tbl_purchasedetails.PurchaseDetails_Rate) as totalpr FROM tbl_purchaseinventory left join tbl_product on tbl_product.Product_SlNo = tbl_purchaseinventory.purchProduct_IDNo left join tbl_purchasedetails on tbl_purchasedetails.Product_IDNo = tbl_product.Product_SlNo group by tbl_purchasedetails.Product_IDNo";
         $sql = mysql_query("SELECT tbl_purchaseinventory.*,tbl_product.*, tbl_productcategory.*, tbl_produsize.*, tbl_purchasedetails.*,SUM(tbl_purchasedetails.PurchaseDetails_TotalQuantity) as totalqty,SUM(tbl_purchasedetails.PurchaseDetails_Rate) as totalpr FROM tbl_purchaseinventory left join tbl_product on tbl_product.Product_SlNo = tbl_purchaseinventory.purchProduct_IDNo LEFT JOIN tbl_productcategory ON tbl_productcategory.ProductCategory_SlNo = tbl_product.ProductCategory_ID LEFT JOIN tbl_produsize ON tbl_produsize.Productsize_SlNo = tbl_product.sizeId left join tbl_purchasedetails on tbl_purchasedetails.Product_IDNo = tbl_product.Product_SlNo group by tbl_purchasedetails.Product_IDNo");
         $i=0;
@@ -36,12 +36,16 @@
                
                 $sellTOTALqty = $sellTOTALqty-$or['SaleInventory_DamageQuantity'];
                 $totalsaretqty = $or['SaleInventory_ReturnQuantity'];
+               // die(var_dump($totalsaretqty));
 				//echo "SELECT *, SUM(total_branchqty) as branqty FROM tbl_branchwise_product WHERE pro_codes = '$PID' AND branch_ids='".$branchwise."'";
-				$sqltstock = mysql_query("SELECT *, SUM(total_branchqty) as branqty FROM tbl_branchwise_product WHERE pro_codes = '$PID'");
+				//$sqltstock = mysql_query("SELECT *, SUM(total_branchqty) as branqty FROM tbl_branchwise_product WHERE pro_codes = '$PID'");
+				$sqltstock = mysql_query("SELECT *, SUM(PurchaseDetails_TotalQuantity) as branqty FROM tbl_purchasedetails WHERE Product_IDNo = '$PID'");
 				$roxstock = mysql_fetch_array($sqltstock);
 				 $perbranchqty = $roxstock['branqty'];
-				
+                //die(var_dump($PID));
 				 $totalqty = ($perbranchqty+$totalsaretqty)-($totalprlostqty+$sellTOTALqty);
+                //die(var_dump($totalsaretqty));
+
                 if($totalqty !="0"){
                     $rate = $totalqty*$record['PurchaseDetails_Rate'];
                     $subtotal = $subtotal+$rate;
@@ -52,12 +56,17 @@
                     <td><?php echo $record['ProductCategory_Name'] ?></td>
                     <td><?php echo $record['Productsize_Name'] ?></td>
                     <td><?php if($record['PurchaseDetails_Unit']==""){echo "pcs";} else{echo $record['PurchaseDetails_Unit']; }?></td>
+
+                    <!--Total Stock-->
                     <td style="text-align: center;"><?php echo $totalqty;
                         $gttotalqty = $gttotalqty+$totalqty;
-                        ?></td>
+                        ?>
+                    </td>
+
                     <td style="text-align: right;"><?php echo number_format($record['PurchaseDetails_Rate'], 2); 
 					$gttotalpur = $gttotalpur+$record['PurchaseDetails_Rate'];
-					?></td>
+					?>
+                    </td>
                     <td style="text-align: right;"><?php echo number_format($rate, 2); ?></td>
                 </tr>
         <?php } }  ?>
