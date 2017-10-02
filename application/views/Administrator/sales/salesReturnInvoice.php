@@ -40,7 +40,7 @@
         <td colspan="2"><br></td>
     </tr>
     <tr>
-        <td colspan="2" style="background:#ddd;" align="center"><h2 >Sales Invoice</h2></td>
+        <td colspan="2" style="background:#ddd;" align="center"><h2 >Sales Return Invoice</h2></td>
     </tr>
     <tr>
         <td>
@@ -113,10 +113,6 @@
 
                         <th>Already Retuned Amount</th>
 
-                        <th>Retuned Qty</th>
-
-                        <th>Retuned Amount</th>
-
                     </tr>
 
 
@@ -161,19 +157,19 @@
 
                                 <td><?php echo $rox['SaleDetails_Rate']*$rox['SaleDetails_TotalQuantity'];?></td>
 
-                                <td><?php echo $rox['SaleDetails_SlNo'];?></td>
+                                <td><?php echo $rox['SaleReturn_ReturnQuantity'];?></td>
 
-                                <td><?php echo $rox['SaleDetails_SlNo'];?></td>
+                                <td><?php echo $rox['SaleReturn_ReturnAmount'];?></td>
 
-                                <td><?php echo $rox['SaleDetails_SlNo']; ?>/td>
+                                <!--<td><php /*//echo $rox['SaleDetails_SlNo']; */?></td>
 
-                                <td><?php echo $rox['SaleDetails_SlNo']; ?></td>
+                                <td><php /*echo $rox['SaleDetails_SlNo']; */?></td>-->
 
-                                <!--<td><?php /*echo $invoices; */?></td>
-                                <td><?php /*echo $rox['Product_SlNo']; */?></td>
-                                <td><?php /*echo $rox['SaleDetails_SlNo']; */?></td>
-                                <td><?php /*echo $rox['SaleDetails_TotalQuantity']; */?></td>
-                                <td><?php /*echo $rox['SaleDetails_SlNo']; */?></td>-->
+                                <!--<td><php /*echo $invoices; */?></td>
+                                <td><php /*echo $rox['Product_SlNo']; */?></td>
+                                <td><php /*echo $rox['SaleDetails_SlNo']; */?></td>
+                                <td><php /*echo $rox['SaleDetails_TotalQuantity']; */?></td>
+                                <td><php /*echo $rox['SaleDetails_SlNo']; */?></td>-->
 
                             </tr>
 
@@ -187,7 +183,7 @@
                     $selse_return = mysql_fetch_array($sql2f);
                 ?>
 
-               <p> <?php echo "<strong>Notes:</strong>".$selse_return['SaleReturn_Description']; ?></p>
+               <p style="margin-top:15px;"> <?php echo "<strong>Notes:</strong>".$selse_return['SaleReturn_Description']; ?></p>
             </div>
 
             <!-- Page Body end -->
@@ -198,16 +194,50 @@
 
 </table>
 
+
+<style>
+    .signature_area{
+        position: fixed!important;
+        bottom: 70px;
+        width: 100%;
+        left: 55px;
+    }
+    .signatureasdf {
+        float: left;
+        padding: 0px;
+        color: black;
+        width: 25%;
+        font-size: 14px;
+        font-family: tahoma;
+    }
+
+</style>
+<div style="clear: both;"></div>
+<div class="signature_area">
+    <div class="signatureasdf">
+        <span style="border-top:1px solid #000;">Purchased By</span>
+    </div>
+
+    <div class="signatureasdf">
+        <span style="border-top:1px solid #000;">Cash Received By</span>
+    </div>
+
+    <div class="signatureasdf">
+        <span style="border-top:1px solid #000;">Checked & Delivery By</span>
+    </div>
+
+    <div class="signatureasdf">
+        <span style="border-top:1px solid #000;">Authorized By</span>
+    </div>
+    <div style="clear: both;"></div>
+</div>
+
+<div style="clear: both;"></div>
 <div class="provied">
 
-  <span style="float:left;font-size:11px;">
+  <span style="font-size:11px;">
 <i>"THANK YOU FOR YOUR BUSINESS"</i><br>
   Software Provied By Link-Up Technology</span>
-</div>
-<div class="signature">
-<span style="border-top:1px solid #000;">
-  Authorize Signature
-</span>
 </div>
 </body>
 </html>
