@@ -183,7 +183,7 @@
                     $selse_return = mysql_fetch_array($sql2f);
                 ?>
 
-               <p style="margin-top:15px;"> <?php echo "<strong>Notes:</strong>".$selse_return['SaleReturn_Description']; ?></p>
+               <p style="margin-top:15px;"> <?php echo "<strong>Notes: </strong>".$selse_return['SaleReturn_Description']; ?></p>
             </div>
 
             <!-- Page Body end -->
@@ -206,7 +206,7 @@
         float: left;
         padding: 0px;
         color: black;
-        width: 25%;
+        width: 33%;
         font-size: 14px;
         font-family: tahoma;
     }
@@ -215,15 +215,11 @@
 <div style="clear: both;"></div>
 <div class="signature_area">
     <div class="signatureasdf">
-        <span style="border-top:1px solid #000;">Purchased By</span>
+        <span style="border-top:1px solid #000;">Returned By</span>
     </div>
 
     <div class="signatureasdf">
-        <span style="border-top:1px solid #000;">Cash Received By</span>
-    </div>
-
-    <div class="signatureasdf">
-        <span style="border-top:1px solid #000;">Checked & Delivery By</span>
+        <span style="border-top:1px solid #000;">Checked & Received By</span>
     </div>
 
     <div class="signatureasdf">

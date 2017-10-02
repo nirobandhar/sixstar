@@ -116,7 +116,7 @@
 
                         <td><input type="text" name="returnamount[]" id="amount<?php echo $rox['SaleDetails_SlNo']; ?>" onkeyup="amountcheckReturn(<?php echo $rox['SaleDetails_SlNo']; ?>)" value="0"></td>
 
-                        <input type="hidden" name="invoice" value="<?php echo $invoices; ?>">
+                        <input type="hidden" name="invoice" id="returnInvoiceeee" value="<?php echo $invoices; ?>">
 
                         <input type="hidden" name="productID[]" value="<?php echo $rox['Product_SlNo']; ?>">
 
@@ -244,6 +244,7 @@ function SubmitReturn(){
 	var inputdata = $('input[name="packname[]"],input[name="productsName[]"],input[name="productsCodes[]"],input[name="returnamount[]"],input[name="returnqty[]"],input[name="productID[]"],input[name="salseQTY[]"],textarea[name="Notes"],input[name="return_date"],input[name="invoice"]').serialize();
 
 	var urldata = "<?php echo base_url();?>Administrator/sales/SalesReturnInsert";
+    var returnInvoiceeee = $("#returnInvoiceeee").val();
 
 	$.ajax({
 
@@ -256,8 +257,9 @@ function SubmitReturn(){
 	  success:function(data){
 
 	  	alert("Retuned Success");
-
-	  	$("#SalesReturnList").html(data);
+	  	window.open("salesreturnInvoice/" + returnInvoiceeee, 'newwindow', 'width=850, height=800,scrollbars=yes');
+       //window.location = "<php echo base_url('Administrator/sales/salesreturnInvoice/');?>/" + returnInvoiceeee;
+       $("#SalesReturnList").html(data);
 
 	  }
 
