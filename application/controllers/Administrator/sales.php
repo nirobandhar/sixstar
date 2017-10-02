@@ -411,13 +411,11 @@ class Sales extends CI_Controller {
         $this->load->view('Administrator/index', $data);
     }
     public function sales_invoice_search()  {
-        $id = $this->input->post('SaleMasteriD');
-        $sql = mysql_query("SELECT * FROM tbl_salesmaster WHERE SaleMaster_SlNo = '$id'");
-        $row = mysql_fetch_array($sql);
-        $datas['SalesID'] = $row['SaleMaster_SlNo'];
-        $datas['invoices'] = $row['SaleMaster_InvoiceNo'];
-        $this->session->set_userdata($datas);
-        $this->load->view('Administrator/sales/sales_invoice_search', $datas);
+        $data['title'] = "Sales Invoice";
+        $SalesIDdd = $this->input->post('SaleMasteriD');
+        $data['SalesIDdd'] = $SalesIDdd;
+        $this->session->set_userdata($data);
+        $this->load->view('Administrator/sales/sales_invoice_search', $data);
     }
     function sales_record()  {
         $data['title'] = "Sales Record";

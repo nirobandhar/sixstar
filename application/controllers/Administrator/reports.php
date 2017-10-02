@@ -36,6 +36,11 @@ class Reports extends CI_Controller {
         $data['id'] = $this->session->userdata('SalesID');
         $this->load->view('Administrator/reports/sales_invoice', $data);
     }
+    public function sales_invoice_search($id='')  {
+        $data['title'] = "Sales Invoice";
+        $data['id'] = $id;
+        $this->load->view('Administrator/reports/sales_invoice_search', $data);
+    }
     public function Purchase_invoice()  {
         $data['title'] = "Purchase Bill";
         $data['id'] = $this->session->userdata('PurchID');
