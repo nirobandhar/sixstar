@@ -74,6 +74,6 @@ function doPrint() {
 	$("#left").hide();
 	$("#printhide").hide();
     window.print();    
-	setTimeout("location.href='<?php echo base_url()?>products'",3000);
+	//setTimeout("location.href='<php echo base_url()?>products'",3000);
 }
 </script>

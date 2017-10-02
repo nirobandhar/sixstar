@@ -30,7 +30,7 @@
           -moz-border-left-colors: none;
           -moz-border-right-colors: none;
           -moz-border-top-colors: none;
-          border-color: transparent -moz-use-text-color;
+          border-color: transparent;
           border-image: none;
           border-style: solid none;
           border-width: 1px 0;
@@ -110,7 +110,7 @@
           width: 140px;
         }
         #cssmenu ul ul {
-            width: 165px;
+            width: 200px;
         }
         #cssmenu > ul > li > a {
           /*border-right: 4px solid #1b9bff;*/

@@ -64,7 +64,7 @@ abstract class Zend_Barcode_Object_ObjectAbstract
      * Height of the bar
      * @var integer
      */
-    protected $_barHeight = 50;
+    protected $_barHeight = 30;
 
     /**
      * Width of a thin bar

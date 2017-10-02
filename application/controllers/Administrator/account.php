@@ -363,7 +363,7 @@ class Account extends CI_Controller {
     public function daily_summery(){
         $data['title'] = "Daily Summery";
         $data['content'] = $this->load->view('Administrator/account/daily_summery', $data, TRUE);
-        $this->load->view('index', $data);
+        $this->load->view('Administrator/index', $data);
     }
 
     public function summery_search(){

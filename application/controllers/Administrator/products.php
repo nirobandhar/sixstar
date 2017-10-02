@@ -360,12 +360,12 @@ class Products extends CI_Controller {
     public function generatebarcode(){
         $data['title'] = "Generate Barcode";
         $data["content"] = $this->load->view('Administrator/products/barcode', $data, TRUE);
-        $this->load->view('index', $data);
+        $this->load->view('Administrator/index', $data);
         }
     public function barcode(){
         $data['title'] = "Generate Barcode";
         $data["content"] = $this->load->view('Administrator/products/getbarcode', $data, TRUE);
-         $this->load->view('index', $data);
+         $this->load->view('Administrator/index', $data);
         }
     function bikin_barcode($kode){
         $this->load->library('zend');

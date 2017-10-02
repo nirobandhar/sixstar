@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Sep 18, 2017 at 06:13 AM
+-- Generation Time: Sep 28, 2017 at 09:49 AM
 -- Server version: 5.5.16
 -- PHP Version: 5.3.8
 
@@ -41,7 +41,7 @@ CREATE TABLE IF NOT EXISTS `ci_sessions` (
 --
 
 INSERT INTO `ci_sessions` (`session_id`, `ip_address`, `user_agent`, `last_activity`, `user_data`) VALUES
-('7ac6b641cd510081054f4a40b3941344', '::1', 'Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36', 1505707082, 'a:11:{s:9:"user_data";s:0:"";s:6:"userId";s:1:"2";s:8:"BRANCHid";s:1:"1";s:8:"FullName";s:21:"Six Star Electronics ";s:9:"User_Name";s:5:"admin";s:11:"accountType";s:1:"a";s:10:"userBrunch";s:1:"1";s:11:"Brunch_name";s:21:"Six Star Electronics ";s:14:"lastidforprint";i:142;s:7:"SalesID";s:3:"142";s:8:"invoices";s:14:"RC2017-09-1816";}');
+('9d9d787a3e013022030b6ac0f571e941', '::1', 'Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36', 1506584831, 'a:8:{s:9:"user_data";s:0:"";s:6:"userId";s:1:"2";s:8:"BRANCHid";s:1:"1";s:8:"FullName";s:21:"Six Star Electronics ";s:9:"User_Name";s:5:"admin";s:11:"accountType";s:1:"a";s:10:"userBrunch";s:1:"1";s:11:"Brunch_name";s:21:"Six Star Electronics ";}');
 
 -- --------------------------------------------------------
 
