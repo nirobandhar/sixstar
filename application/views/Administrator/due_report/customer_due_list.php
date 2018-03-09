@@ -58,7 +58,9 @@
 
                 $paid = $paid+$row['CPayment_amount'];
 
-            }$purchase="";
+            }
+
+            $purchase="";
 
             $sqls = mysql_query("SELECT * FROM tbl_salesmaster WHERE SalseCustomer_IDNo = '".$Custid."'");
 

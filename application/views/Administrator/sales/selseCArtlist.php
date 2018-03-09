@@ -40,10 +40,11 @@
                                     </td>
 
                                     <td style="width:10%"><?php echo $item['price']; ?></td>
-                                    <td style="width:10%"><?php echo $item['image']; ?></td>
+                                    <td style="width:10%"><?php echo $item['SaleDetails_Discount']; ?>%</td>
                                     <td style="width:10%"><?php $grand_total = $grand_total + $item['ProductAmont']; ?> <?php echo round($item['ProductAmont']);//number_format($item['ProductAmont'], 2); ?>
-                                    <input type="hidden" id="PriCe_<?php echo $item['rowid'];?>" value="<?php echo round($item['ProductAmont']); ?>"></td>
-                                    <input type="hidden" id="ProParcentCartData" value="<?php echo round($item['ProductAmont']); ?>"></td>
+                                        <input type="hidden" id="PriCe_<?php echo $item['rowid'];?>" value="<?php echo round($item['ProductAmont']); ?>">
+                                    </td>
+                                    <input type="hidden" id="ProParcentCartData" value="<?php echo round($item['ProductAmont']); ?>">
 
                                     <td style="width:10%">
                                         <span style="cursor:pointer" onclick="cartRemove(a='<?php echo $item['rowid'];?>')">

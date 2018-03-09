@@ -203,7 +203,7 @@
                             <th style="width:10%">size</th>
                             <th style="width:10%">Qty</th>
                             <th style="width:10%">Rate</th>
-                            <th style="width:10%">Unit</th>
+                            <th style="width:10%">Discount</th>
                             <th style="width:10%">Total</th>
                             <th style="width:10%">Action</th>
                         </tr>
@@ -453,6 +453,7 @@
 	}
 
     function ADDTOCART(){
+        
         var ProID = $('#ProID').val();
         if(ProID==0){
             //$('#ProID').css("border-color","red");
@@ -501,6 +502,7 @@
             //=============================
             if(getName == packaNaMe){
                 var totalqty = parseFloat(StQTY) - parseFloat(getdat);
+
                 if(parseFloat(totalqty) < parseFloat(proQTY)){
                     alert("Stock Not Available");
                     return false;
@@ -542,8 +544,9 @@
         var checkname = $("#checkname").val();
 
         if(parseFloat(proQTY) > parseFloat(stockpro)){
+
             alert("Stock Not Available");
-            return false;
+            //return false;
         }
 
         var SaleDetails_Discount = $("#ProParcent").val();
@@ -757,12 +760,12 @@
     }
 </script>
 <script type="text/javascript">
-    function SalseToCart(){
+    function SalseToCart() {
         var packagename = $("#packagename").val();
         var salesInvoiceno = $("#salesInvoiceno").val();
         var sales_date = $("#sales_date").val();
         var customerID = $("#customerID").val();
-        if(customerID==""){
+        if (customerID == "") {
             //$("#customerID").css("border-color","red");
             alert("Select Customer");
             return false;
@@ -773,60 +776,62 @@
         var SelesNotes = $("#SelesNotes").val();
 
         var subTotal = $("#subTotal").val();
-        if(subTotal=="0"){
-            $("#subTotal").css("border-color","red");
+        if (subTotal == "0") {
+            $("#subTotal").css("border-color", "red");
             return false;
-        }else{
-            $("#subTotal").css("border-color","gray");
+        } else {
+            $("#subTotal").css("border-color", "gray");
         }
         var vatPersent = $("#vatPersent").val();
-        if(vatPersent==""){
-            $("#vatPersent").css("border-color","red");
+        if (vatPersent == "") {
+            $("#vatPersent").css("border-color", "red");
             return false;
-        }else{
-            $("#vatPersent").css("border-color","gray");
+        } else {
+            $("#vatPersent").css("border-color", "gray");
         }
         var SellsFreight = $("#SellsFreight").val();
-        if(SellsFreight==""){
-            $("#SellsFreight").css("border-color","red");
+        if (SellsFreight == "") {
+            $("#SellsFreight").css("border-color", "red");
             return false;
-        }else{
-            $("#SellsFreight").css("border-color","gray");
+        } else {
+            $("#SellsFreight").css("border-color", "gray");
         }
 
         var SellsDiscount = $("#SellsDiscount").val();
-        if(SellsDiscount==""){
-            $("#SellsDiscount").css("border-color","red");
+        if (SellsDiscount == "") {
+            $("#SellsDiscount").css("border-color", "red");
             return false;
-        }else{
-            $("#SellsDiscount").css("border-color","gray");
+        } else {
+            $("#SellsDiscount").css("border-color", "gray");
         }
 
         var Reword_Discount = $("#Reword_Discount").val();
-        if(Reword_Discount==""){
-            $("#Reword_Discount").css("border-color","red");
+        if (Reword_Discount == "") {
+            $("#Reword_Discount").css("border-color", "red");
             return false;
-        }else{
-            $("#Reword_Discount").css("border-color","gray");
+        } else {
+            $("#Reword_Discount").css("border-color", "gray");
         }
         //Reword_Discount
         var SellTotals = $("#SellTotals").val();
         var SellsPaid = $("#SellsPaid").val();
         var regex = /^[0-9]+$/;
-        if(!regex.test(SellsPaid)){
-            $("#SellsPaid").css('border-color','red');
+        if (!regex.test(SellsPaid)) {
+            $("#SellsPaid").css('border-color', 'red');
             return false;
-        }else{
-            $("#SellsPaid").css('border-color','gray');
+        } else {
+            $("#SellsPaid").css('border-color', 'gray');
         }
-        var SellsDue = $("#SellsDue").val();
+        var CreditLimit = parseInt($("#CreditLimit").val());
+        var SellsDue = parseInt($("#SellsDue").val());
+        var crPreviousDue = parseInt($("#crPreviousDue").val());
+        var totalPreDue = SellsDue + crPreviousDue;
+        //debugger
+        if (totalPreDue >= CreditLimit){
 
-        var customerdue = $("#customerdue").val();
-        var craditlimits = $("#craditlimits").val();
-        var totaldue = parseFloat(SellsDue)+parseFloat(customerdue);
-        /*if totaldue>craditlimits
-            alert("Cradit Limit Crossed");
-        return false*/
+            alert("Cradit Limit Crossed "+(totalPreDue-CreditLimit));
+            return false;
+        }
 
 		var ProParcent = $("#ProParcent").val();
         var ProParcentCartData = 0;
