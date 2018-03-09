@@ -453,7 +453,7 @@
 	}
 
     function ADDTOCART(){
-        
+
         var ProID = $('#ProID').val();
         if(ProID==0){
             //$('#ProID').css("border-color","red");
@@ -822,6 +822,7 @@
         } else {
             $("#SellsPaid").css('border-color', 'gray');
         }
+
         var CreditLimit = parseInt($("#CreditLimit").val());
         var SellsDue = parseInt($("#SellsDue").val());
         var crPreviousDue = parseInt($("#crPreviousDue").val());

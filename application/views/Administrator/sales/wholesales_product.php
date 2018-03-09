@@ -195,7 +195,7 @@
                             <th style="width:10%">size</th>
                             <th style="width:10%">Qty</th>
                             <th style="width:10%">Rate</th>
-                            <th style="width:10%">Unit</th>
+                            <th style="width:10%">Discount</th>
                             <th style="width:10%">Total</th>
                             <th style="width:10%">Action</th>
                         </tr>
@@ -539,7 +539,7 @@ function whs() {
 
         if(parseFloat(proQTY) > parseFloat(stockpro)){
             alert("Stock Not Available");
-            return false;
+            //return false;
         }
 
         var SaleDetails_Discount = $("#ProParcent").val();
@@ -814,8 +814,7 @@ function whs() {
         }else{
             $("#SellsPaid").css('border-color','gray');
         }
-        var SellsDue = $("#SellsDue").val();
-
+        
         var customerdue = $("#customerdue").val();
         var craditlimits = $("#craditlimits").val();
         var totaldue = parseFloat(SellsDue)+parseFloat(customerdue);
@@ -823,6 +822,17 @@ function whs() {
         var ProParcent = $("#ProParcent").val();
         var ProParcentCartData = 0;
         ProParcentCartData = Math.round($("#ProParcentCartData").val());
+
+        var CreditLimit = parseInt($("#CreditLimit").val());
+        var SellsDue = parseInt($("#SellsDue").val());
+        var crPreviousDue = parseInt($("#crPreviousDue").val());
+        var totalPreDue = SellsDue + crPreviousDue;
+        //debugger
+        if (totalPreDue >= CreditLimit){
+
+            alert("Cradit Limit Crossed "+(totalPreDue-CreditLimit));
+            return false;
+        }
 
         var inputdata = 'packagename='+packagename+'&ProParcentCartData='+ProParcentCartData+'&ProParcent='+ProParcent+'&salesInvoiceno='+salesInvoiceno+'&sales_date='+sales_date+'&customerID='+customerID+'&CusName='+CusName+'&CusMobile='+CusMobile+'&CusAddress='+CusAddress+'&SelesNotes='+SelesNotes+'&subTotal='+subTotal+'&vatPersent='+vatPersent+'&SellsFreight='+SellsFreight+'&SellsDiscount='+SellsDiscount+'&SellTotals='+SellTotals+'&SellsPaid='+SellsPaid+'&SellsDue='+SellsDue+'&Reword_Discount='+Reword_Discount+'&status='+2;
         var urldata = "<?php echo base_url();?>Administrator/wholesales/sales_order/";

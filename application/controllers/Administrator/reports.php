@@ -100,10 +100,12 @@ class Reports extends CI_Controller {
 
         $this->load->view('Administrator/reports/sales_record_print', $datas);
     }
+
     function sales_record_print($invoce)  {
         $datas["id"] = $invoce;
         $this->load->view('Administrator/reports/sales_invoice', $datas);
     }
+
     function challan_record_print($invoce)  {
         $datas["id"] = $invoce;
         $this->load->view('Administrator/reports/sales_challan', $datas);
