@@ -7,15 +7,22 @@
 </head>
 <style type="text/css" media="print">
 .hide{display:none}
+    th {
+    cursor: pointer;
+    }
 
+@media print {
+    thead {display: table-header-group;}
+}
 </style>
 <script type="text/javascript">
 function printpage() {
 document.getElementById('printButton').style.visibility="hidden";
 window.print();
-document.getElementById('printButton').style.visibility="visible";  
+document.getElementById('printButton').style.visibility="visible";
 }
 </script>
+    <h1>
 <body style="background:none;">
 <input name="print" type="button" value="Print" id="printButton" onClick="printpage()">
 
@@ -45,22 +52,44 @@ document.getElementById('printButton').style.visibility="visible";
         </tr>
         <tr>
             <td>
+          </h1>
             <!-- Page Body -->
-          
+
               <table class="border" cellspacing="0" cellpadding="0" width="100%">
+                  <thead>
                   <tr bgcolor="#ccc">
                       <th>Sl No.</th>
-                      <th>Product Name</th>
-                      <th>Model</th>
+                      <th>
+                          <a href="?orderBy=Product_Code">Product Code<a/>
+                      </th>
+                      <th>
+                          <a href="?orderBy=company">Company<a/>
+                      </th>
+                      <th>
+                          <a href="?orderBy=Product_Name">Product Name<a/>
+                      </th>
+                      <th>
+                          <a href="?orderBy=ProductCategory_Name">Model<a/>
+                      </th>
                       <th>Size</th>
                       <th>Unit</th>
                       <th>Qty</th>
-                      <th>Purchase Price</th>
-                      <th>Total Price</th>
+                      <th width="110px">Purchase Price</th>
+                      <th width="110px">Total Price</th>
                   </tr>
-                  <?php $totalqty = 0;$sellTOTALqty = 0; $subtotal = 0; $gttotalqty = 0; $gttotalpur = 0;
+                  </thead>
+                  <?php
+                  $orderBy = array('Product_Code','company', 'Product_Name', 'ProductCategory_Name');
+                  $order = 'company';
+                  if (isset($_GET['orderBy']) && in_array($_GET['orderBy'], $orderBy)) {
+                      $order = $_GET['orderBy'];
+                  }
+
+
+
+                          $totalqty = 0;$sellTOTALqty = 0; $subtotal = 0; $gttotalqty = 0; $gttotalpur = 0;
                   //echo "SELECT tbl_purchaseinventory.*,tbl_product.*,tbl_purchasedetails.*,SUM(tbl_purchasedetails.PurchaseDetails_TotalQuantity) as totalqty,SUM(tbl_purchasedetails.PurchaseDetails_Rate) as totalpr FROM tbl_purchaseinventory left join tbl_product on tbl_product.Product_SlNo = tbl_purchaseinventory.purchProduct_IDNo left join tbl_purchasedetails on tbl_purchasedetails.Product_IDNo = tbl_product.Product_SlNo group by tbl_purchasedetails.Product_IDNo";
-                  $sql = mysql_query("SELECT tbl_purchaseinventory.*,tbl_product.*, tbl_productcategory.*, tbl_produsize.*, tbl_purchasedetails.*,SUM(tbl_purchasedetails.PurchaseDetails_TotalQuantity) as totalqty,SUM(tbl_purchasedetails.PurchaseDetails_Rate) as totalpr FROM tbl_purchaseinventory left join tbl_product on tbl_product.Product_SlNo = tbl_purchaseinventory.purchProduct_IDNo LEFT JOIN tbl_productcategory ON tbl_productcategory.ProductCategory_SlNo = tbl_product.ProductCategory_ID LEFT JOIN tbl_produsize ON tbl_produsize.Productsize_SlNo = tbl_product.sizeId left join tbl_purchasedetails on tbl_purchasedetails.Product_IDNo = tbl_product.Product_SlNo group by tbl_purchasedetails.Product_IDNo");
+                  $sql = mysql_query("SELECT tbl_purchaseinventory.*,tbl_product.*, tbl_productcategory.*, tbl_produsize.*, tbl_purchasedetails.*,SUM(tbl_purchasedetails.PurchaseDetails_TotalQuantity) as totalqty,SUM(tbl_purchasedetails.PurchaseDetails_Rate) as totalpr FROM tbl_purchaseinventory left join tbl_product on tbl_product.Product_SlNo = tbl_purchaseinventory.purchProduct_IDNo LEFT JOIN tbl_productcategory ON tbl_productcategory.ProductCategory_SlNo = tbl_product.ProductCategory_ID LEFT JOIN tbl_produsize ON tbl_produsize.Productsize_SlNo = tbl_product.sizeId left join tbl_purchasedetails on tbl_purchasedetails.Product_IDNo = tbl_product.Product_SlNo group by tbl_purchasedetails.Product_IDNo order by ".$order."");
                   $i=0;
                   while($record = mysql_fetch_array($sql)){
                       $i++;
@@ -87,8 +116,11 @@ document.getElementById('printButton').style.visibility="visible";
                           $rate = $totalqty*$record['PurchaseDetails_Rate'];
                           $subtotal = $subtotal+$rate;
                           ?>
+                          <tbody>
                           <tr>
                               <td><?php echo $i; ?></td>
+                              <td><?php echo $record['Product_Code'] ?></td>
+                              <td><?php echo $record['company'] ?></td>
                               <td><?php echo $record['Product_Name'] ?></td>
                               <td><?php echo $record['ProductCategory_Name'] ?></td>
                               <td><?php echo $record['Productsize_Name'] ?></td>
@@ -101,9 +133,10 @@ document.getElementById('printButton').style.visibility="visible";
                                   ?></td>
                               <td style="text-align: right;"><?php echo number_format($rate, 2); ?></td>
                           </tr>
+                          </tbody>
                       <?php } }  ?>
                   <tr>
-                      <td colspan="5" style="text-align: right;"><strong>Sub Total:</strong></td>
+                      <td colspan="7" style="text-align: right;"><strong>Sub Total:</strong></td>
                       <td style="text-align: center;"><strong><?php echo $gttotalqty; ?></strong></td>
                       <td style="text-align: right;"><strong><?php echo number_format($gttotalpur, 2); ?> Tk</strong> </td>
                       <td style="text-align: right;"><strong><?php echo number_format($subtotal, 2); ?> Tk</strong></td>
@@ -115,18 +148,45 @@ document.getElementById('printButton').style.visibility="visible";
   </tr>
   
 </table>
+<style>
+    .signature_area{
+        top: 50cm;
+        position: relative;
+        bottom: 0px;
+        width: 100%;
+        left: 55px;
+    }
+    .signatureasdf {
+        float: left;
+        padding: 0px;
+        color: black;
+        width: 25%;
+        font-size: 14px;
+        font-family: tahoma;
+    }
 
-<div class="provied">
-  
-  <span style="float:left;font-size:11px;">
-<i>"THANK YOU FOR YOUR BUSINESS"</i><br>
-  Software Provied By Link-Up Technology</span>
+</style>
+<div style="clear: both;"></div>
+<div class="signature_area">
+    <div class="signatureasdf">
+        <span style="border-top:1px solid #000;">Purchased By</span>
+    </div>
+
+    <div class="signatureasdf">
+        <span style="border-top:1px solid #000;">Cash Received By</span>
+    </div>
+
+    <div class="signatureasdf">
+        <span style="border-top:1px solid #000;">Checked & Delivery By</span>
+    </div>
+
+    <div class="signatureasdf">
+        <span style="border-top:1px solid #000;">Authorized By</span>
+    </div>
+    <div style="clear: both;"></div>
 </div>
-<div class="signature">
-<span style="border-top:1px solid #000;">
-  Authorize Signature
-</span>
-</div>
+
+
 </body>
 </html>
 

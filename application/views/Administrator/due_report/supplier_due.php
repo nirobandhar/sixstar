@@ -28,11 +28,11 @@
 
                    <!--  <td><strong>Date</strong></td>
 
-                   <td id="ashiqeCalender"><input name="Purchase_date" type="text" id="Purchase_startdate" value="<?php echo date("Y-m-d") ?>" class="inputclass" style="width:200px"/></td>
+                   <td id="ashiqeCalender"><input name="Purchase_date" type="text" id="Purchase_startdate" value="<?php /*echo date("Y-m-d") */?>" class="inputclass" style="width:200px"/></td>
 
                    <td> To </td>
 
-                   <td id="ashiqeCalender"><input name="Purchase_date" type="text" id="Purchase_enddate" value="<?php echo date("Y-m-d") ?>" class="inputclass" style="width:200px"/></td> -->
+                   <td id="ashiqeCalender"><input name="Purchase_date" type="text" id="Purchase_enddate" value="<?php /*echo date("Y-m-d") */?>" class="inputclass" style="width:200px"/></td> -->
 
                     <td><input type="button" class="buttonAshiqe" onclick="searchforRecord()" value="Search Report"></td>
 

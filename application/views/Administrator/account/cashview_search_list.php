@@ -159,6 +159,15 @@
 
         </tr>
 
+
+        <tr>
+
+            <td colspan="3" align="right"><strong>Closing Balance</strong></td>
+
+            <td style="text-align: right;"><strong><?php echo number_format(($sell+$in+$totalreturnP)-($purchase+$out+$totalreturn), 2); ?></strong></td>
+
+        </tr>
+
         
 
     </table>

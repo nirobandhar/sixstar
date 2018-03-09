@@ -2,7 +2,6 @@
 <div class="content_scroll" style="padding:40px 20px 25px 160px">
 <h2>Customer Due Payment List</h2>
     <table class="border" cellspacing="0" cellpadding="0" width="70%">
-
         <h4><a style="cursor:pointer" onclick="window.open('<?php echo base_url();?>Administrator/reports/customer_payment_print', 'newwindow', 'width=850, height=800,scrollbars=yes'); return false;"><img src="<?php echo base_url(); ?>images/printer.png" alt=""> Print</a></h4>
         <tr bgcolor="#89B03E" style="background:#89B03E;">
             <th>Date</th>

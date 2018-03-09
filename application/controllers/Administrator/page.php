@@ -12,6 +12,49 @@ class Page extends CI_Controller {
         $this->load->model('model_table', "mt", TRUE);
         date_default_timezone_set('Asia/Dhaka');
     }
+//Customer Details facncybox Start
+
+    public function fancybox_add_customer()    {
+        $this->load->view('Administrator/ajax/fanceybox_add_customer');
+    }
+    public function service()    {
+        $this->load->view('Administrator/reports/sarif_bill');
+    }
+    public function customer_insertFanceybox()  {
+        $mail = $this->input->post('cus_name');
+        $query = $this->db->query("SELECT Customer_Name from tbl_customer where Customer_Name = '$mail'");
+
+        if($query->num_rows() > 0){
+            $data['exists'] = "This Name is Already Exists";
+            $this->load->view('Administrator/ajax/customer',$data);
+        }
+        else{
+            $data = array(
+                "Customer_Code"          =>$this->input->post('customer_id', TRUE),
+                "Customer_Name"          =>$this->input->post('cus_name', TRUE),
+                "Customer_Address"       =>$this->input->post('address', TRUE),
+                "Customer_Mobile"        =>$this->input->post('mobile', TRUE),
+                "disttrict"              =>$this->input->post('district', TRUE),
+                "Country_SlNo"           =>$this->input->post('country', TRUE),
+                "AddBy"                  =>$this->session->userdata("FullName"),
+                "AddTime"                =>date("Y-m-d h:i:s")
+            );
+            $this->mt->save_data('tbl_customer',$data);
+            $this->load->view('Administrator/ajax/transaction/customer');
+        }
+    }
+//Customer Details facncybox end
+
+
+
+
+
+
+    public function addcust()  {
+        $data['title'] = "Add Customer";
+        $data['content'] = $this->load->view('Administrator\retail_customer', $data, TRUE);
+        $this->load->view('Administrator\sales\product_sales.php', $data);
+    }
     public function index()  {
         $data['title'] = "Dashboard";
         $data['content'] = $this->load->view('Administrator/dashboard', $data, TRUE);

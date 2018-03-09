@@ -23,7 +23,7 @@ class Installment extends CI_Controller {
         $ProID = $this->input->post('ProID');
         $query = "SELECT tbl_product.*,tbl_unit.* FROM tbl_product left join tbl_unit on tbl_unit.Unit_SlNo = tbl_product.Unit_ID where tbl_product.Product_SlNo = '$ProID'";
         $data['Product'] = $this->mt->edit_by_id($query);
-        $this->load->view('Administrator/sales/ajax_product', $data);
+        $this->load->view('Administrator/sales/ajax_insProduct', $data);
     }
     //Designation
    

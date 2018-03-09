@@ -75,7 +75,6 @@
                             <div class="left">
                             <div id="Search_Results">
                                 <select name="country" id="country" style="width:163px;" required>
-                                    <option value=""></option>
                                     <?php $sql = mysql_query("SELECT * FROM tbl_country order by CountryName asc ");
                                     while($row = mysql_fetch_array($sql)){ ?>
                                     <option value="<?php echo $row['Country_SlNo'] ?>" <?php if($row['CountryName']=="Bangladesh"){echo "selected";}?>><?php echo $row['CountryName'] ?></option>

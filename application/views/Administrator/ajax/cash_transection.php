@@ -124,10 +124,11 @@
                     <tr class="header">
                         <th style="width:7%">Tr. ID</th>
                         <th style="width:12%">Date</th>
-                        <th style="width:20%">Tr Account</th>
-                        <th style="width:25%">Description</th>
-                        <th style="width:13%">In Amount</th>                      
-                        <th style="width:13%">Out Amount</th>                  
+                        <th style="width:15%">Tr Account</th>
+                        <th style="width:15%">Account Head</th>
+                        <th style="width:20%">Description</th>
+                        <th style="width:10%">In Amount</th>
+                        <th style="width:10%">Out Amount</th>
                         <th style="width:13%">Action</th>
                     </tr>
                 </thead>
@@ -136,18 +137,19 @@
         <div class="row_section clearfix" style="height:300px;overflow:auto;">
             <table class="zebra" cellspacing="0" cellpadding="0" border="0" style="text-align:left;width:70%;border-collapse:collapse;">
                 <tbody>
-                <?php $sql = mysql_query("SELECT * FROM tbl_cashtransaction order by Tr_Id asc");
+                <?php $sql = mysql_query("SELECT tbl_cashtransaction.*,tbl_account.* FROM tbl_cashtransaction left join tbl_account on tbl_account.Acc_SlNo=tbl_cashtransaction.Acc_SlID order by tbl_cashtransaction.Tr_Id desc");
                 while($row = mysql_fetch_array($sql)){ ?>
                     <tr>
                         <td style="width:7%"><?php echo $row['Tr_Id'] ?></td>
                         <td style="width:12%"><?php echo $row['Tr_date'] ?></td>
-                        <td style="width:20%"><?php echo $row['Tr_Type'] ?></td>
-                        <td style="width:25%"><?php echo $row['Tr_Description'] ?></td>
-                        <td style="width:13%"><?php echo $row['In_Amount'] ?></td>
-                        <td style="width:13%"><?php echo $row['Out_Amount'] ?></td>
+                        <td style="width:15%"><?php echo $row['Tr_Type'] ?></td>
+                        <td style="width:15%"><?php echo $row['Acc_Name'] ?></td>
+                        <td style="width:20%"><?php echo $row['Tr_Description'] ?></td>
+                        <td style="width:10%"><?php echo $row['In_Amount'] ?></td>
+                        <td style="width:10%"><?php echo $row['Out_Amount'] ?></td>
                         <td style="width:13%">
-                        <a onclick="Edit_transaction(<?php echo $row['Tr_SlNo'] ?>)" style="cursor:pointer;color:green;font-size:20px;float:left" ><i class="fa fa-pencil"></i></a>
-                        <span onclick="deleted(<?php echo $row['Tr_SlNo'] ?>)" style="cursor:pointer;color:red;font-size:20px;float:left;padding-left:10px"><i class="fa fa-trash-o"></i></span>
+                            <a onclick="Edit_transaction(<?php echo $row['Tr_SlNo'] ?>)" style="cursor:pointer;color:green;font-size:20px;float:left" ><i class="fa fa-pencil"></i></a>
+                            <span onclick="deleted(<?php echo $row['Tr_SlNo'] ?>)" style="cursor:pointer;color:red;font-size:20px;float:left;padding-left:10px"><i class="fa fa-trash-o"></i></span>
                         </td>
                     </tr>  
                 <?php } ?>                

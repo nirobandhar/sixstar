@@ -64,7 +64,7 @@
         var Sales_enddate = $("#Sales_enddate").val();
         var customerID = $("#customerID").val();
         var Salestype = $("#Salestype").val();
-        
+
         var inputData = 'Salestype='+Salestype+'&searchtype='+searchtype+'&Sales_startdate='+Sales_startdate+'&Sales_enddate='+Sales_enddate+'&customerID='+customerID;
         var urldata = "<?php echo base_url(); ?>Administrator/sales/search_sales_record";
         $.ajax({

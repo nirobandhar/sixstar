@@ -112,6 +112,7 @@
     <table class="border" cellspacing="0" cellpadding="0" width="80%">
         <tr>
             <th>SI No.</th>
+            <th>Product Code</th>
             <th>Product Name</th>
             <th>Model</th>
             <th>Company</th>
@@ -139,6 +140,7 @@
                 ?>
                 <tr>
                     <td><?php echo $i; ?></td>
+                    <td><?php echo $rows['Product_Code'] ?></td>
                     <td><?php echo $rows['Product_Name'] ?></td>
                     <td><?php
                         $ssqlsmodel = mysql_query("SELECT * FROM tbl_productcategory where ProductCategory_SlNo = '".$rows['ProductCategory_ID']."'");

@@ -9,6 +9,7 @@
                     <td> 
                         <select id="Salestype" class="inputclass" style="width:200px">
                             <option value="All"> All </option>
+                            <option value="1"> Retail Sales </option>
                             <option value="2"> Whole Sales </option>
                             <option value="3"> Installment Sales </option>
                         </select>
@@ -20,10 +21,10 @@
                             <option value="Customer"> By Customer </option>
                         </select>
                     </td>
-                    <!-- <td><strong>Date</strong></td>
+                    <td><strong>Date</strong></td>
                     <td id="ashiqeCalender"><input name="Purchase_date" type="text" id="Sales_startdate" value="<?php echo date("Y-m-d") ?>" class="inputclass" style="width:200px"/></td>
                     <td> To </td>
-                    <td id="ashiqeCalender"><input name="Purchase_date" type="text" id="Sales_enddate" value="<?php echo date("Y-m-d") ?>" class="inputclass" style="width:200px"/></td> -->
+                    <td id="ashiqeCalender"><input name="Purchase_date" type="text" id="Sales_enddate" value="<?php echo date("Y-m-d") ?>" class="inputclass" style="width:200px"/></td>
                     <td><input type="button" class="buttonAshiqe" onclick="searchforRecord()" value="Search Report"></td>
                 </tr>
                 <tr>
@@ -32,12 +33,13 @@
                             <table>
                             <tr>
                                 <td>Select Customer</td>
-                                <td id="filtercustomer">
-                                    <select name="" id="customerID" class="inputclass" style="width:200px" onchange="Supplierdata()">
+                                <td style="width:250px" id="filtercustomer">
+
+                                    <select name="" id="customerID" class="inputclass" style="width:200px" >
                                         <option value="">  </option>
                                         <?php $sql = mysql_query("SELECT * FROM tbl_customer order by Customer_Name asc");
                                         while($row = mysql_fetch_array($sql)){ ?>
-                                        <option value="<?php echo $row['Customer_SlNo']; ?>"><?php echo $row['Customer_Name']; ?> (<?php echo $row['Customer_Code']; ?>)</option>
+                                            <option value="<?php echo $row['Customer_SlNo'] ?>"> <?php echo $row['Customer_Name']; ?>(<?php echo $row['Customer_Code']; ?>) </option>
                                         <?php } ?>
                                     </select>
                                 </td>
@@ -79,9 +81,10 @@
         if(searchtype == "Customer"){
 			$("#customerID_chosen").css({"width":"200px"})
             $("#showcustomer").show();
-			var Salestypef = $("#Salestype").val();
+
+			/*var Salestypef = $("#Salestype").val();
 			var inputData = 'Salestypef='+Salestypef;
-        	var urldata = "<?php echo base_url();?>Administrator/customer/getcustomer";
+        	var urldata = "<php echo base_url();?>Administrator/customer/getcustomer";
 			$.ajax({
 				type: "POST",
 				url: urldata,
@@ -90,7 +93,7 @@
 					$("#filtercustomer").html(data);
 				}
 			});
-			
+			*/
         }
         if(searchtype == "All"){
             $("#showcustomer").hide();

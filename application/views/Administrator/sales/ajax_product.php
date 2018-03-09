@@ -11,7 +11,7 @@
         <td>Quantity</td>
         <td style="width:200px">
             <div class="full clearfix">
-                <input type="text" id="proQTY" name="proQTY" autofocus onkeyup="keyUPAmount()" class="inputclass" value="" placeholder="0">
+                <input type="text" id="proQTY" name="proQTY" autofocus onkeyup="keyUPAmount()" onkeypress="addcart(event)" class="inputclass" value="" placeholder="0">
             </div>
         </td>
     </tr>
@@ -19,7 +19,7 @@
         <td>Rate</td>
         <td style="width:200px">
             <div class="full clearfix">
-                <input type="text" id="ProRATe" onkeyup="keyupamount2()" class="inputclass" value="<?php echo $Product['Product_InstallmentRate'] ?>">
+                <input type="text" id="ProRATe" onkeyup="keyupamount2()" onkeypress="addcart(event)" class="inputclass" value="<?php echo $Product['Product_SellingPrice'] ?>">
                 <input type="hidden" id="ProPurchaseRATe" value="<?php echo $Product['Product_Purchase_Rate'] ?>">
             </div>
         </td>
@@ -28,7 +28,7 @@
         <td>Discount</td>
         <td style="width:200px">
             <div class="full clearfix">
-                <input type="text" id="ProParcent" onkeyup="keyupamount3()" class="inputclass">
+                <input type="text" id="ProParcent" onkeypress="addcart(event)" onkeyup="keyupamount3()" class="inputclass">
                 <input type="hidden" id="ProParcent" >
             </div>
         </td>

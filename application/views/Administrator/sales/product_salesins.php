@@ -90,14 +90,13 @@
                             <td style="width:100px">Product ID</td>
                             <td style="width:200px">
                                 <div class="side-by-side clearfix">
-                                    <div><?php ?>
+                                    <div>
                                           <select id="ProID" data-placeholder="Choose a Product..." class="chosen-select" style="width:200px;" tabindex="2" onchange="Products()">
                                                 <option value=""></option>
-                                                <?php $sql = mysql_query("SELECT tbl_product.*, tbl_productcategory.*,tbl_branchwise_product.* FROM tbl_product left join tbl_productcategory on tbl_productcategory.ProductCategory_SlNo= tbl_product.ProductCategory_ID Left Join tbl_branchwise_product ON tbl_branchwise_product.pro_codes=tbl_product.Product_SlNo where tbl_branchwise_product.branch_ids = '".$this->sbrunch."' Group By tbl_branchwise_product.pro_codes order by tbl_product.Product_Code asc");
-                                                while($row = mysql_fetch_array($sql)){ ?>
-                                                <option value="<?php echo $row['Product_SlNo'] ?>"><?php echo $row['Product_Name']; ?>(<?php echo $row['Product_Code']; ?>)
-                                                </option>
-                                                <?php } ?>
+                                              <?php $sql = mysql_query("SELECT tbl_product.*, tbl_productcategory.*, tbl_produsize.*, tbl_branchwise_product.* FROM tbl_product left join tbl_productcategory on tbl_productcategory.ProductCategory_SlNo= tbl_product.ProductCategory_ID left join tbl_produsize on tbl_produsize.Productsize_SlNo=tbl_product.sizeId Left Join tbl_branchwise_product ON tbl_branchwise_product.pro_codes=tbl_product.Product_SlNo where tbl_branchwise_product.branch_ids = '".$this->sbrunch."' Group By tbl_branchwise_product.pro_codes order by tbl_product.Product_Code asc");
+                                              while($row = mysql_fetch_array($sql)){ ?>
+                                                  <option value="<?php echo $row['Product_SlNo'] ?>">(<?php echo $row['Product_Code']; ?>)<?php echo $row['Product_Name']; ?> <?php echo $row['ProductCategory_Name']; ?> <?php echo $row['Productsize_Name']; ?></option>
+                                              <?php } ?>
                                           </select>
                                     </div>
                                 </div>
@@ -377,7 +376,7 @@
     function Products()   {
         var ProID = $("#ProID").val();
         var inputdata = 'ProID='+ProID;
-        var urldata = "<?php echo base_url();?>Administrator/sales/SelectProducts";
+        var urldata = "<?php echo base_url();?>Administrator/installment/SelectProducts";
         $.ajax({
             type: "POST",
             url: urldata,

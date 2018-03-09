@@ -14,11 +14,13 @@
 
         <tr bgcolor="#89B03E" style="background:#89B03E;">
 
-          
+
 
             <th>Customer ID</th>
 
             <th>Customer Name</th>
+
+            <th>Address</th>
 
             <th>Contact No</th>
 
@@ -32,7 +34,7 @@
 
         </tr>
 
-        <?php 
+        <?php
 
         $totalpurchase = "";
 
@@ -42,7 +44,7 @@
 
         foreach($record as $record){
 
-			$msino = $record['SaleMaster_InvoiceNo'];
+            $msino = $record['SaleMaster_InvoiceNo'];
 
             //if($record['SaleMaster_DueAmount'] > 0){
 
@@ -54,7 +56,7 @@
 
             while($row = mysql_fetch_array($sql)){
 
-                $paid = $paid+$row['CPayment_amount'];    
+                $paid = $paid+$row['CPayment_amount'];
 
             }$purchase="";
 
@@ -62,27 +64,28 @@
 
             while($rows = mysql_fetch_array($sqls)){
 
-                $purchase = $purchase +$rows['SaleMaster_SubTotalAmount']; 
+                $purchase = $purchase +$rows['SaleMaster_SubTotalAmount'];
 
             }
 
             if($purchase- $paid !="0"){
 
-            $totalpurchase = $totalpurchase+$purchase;
+                $totalpurchase = $totalpurchase+$purchase;
 
-            $Totalpaid = $Totalpaid+$paid;
+                $Totalpaid = $Totalpaid+$paid;
 
-            
 
-            ?>
 
-        <tr>
+                ?>
+         <tr>
 
-          
+
 
             <td><?php echo $record['Customer_Code'] ?></td>
 
             <td><?php echo $record['Customer_Name'] ?></td>
+
+            <td><?php echo $record['Customer_Address'] ?></td>
 
             <td><?php echo $record['Customer_Mobile'] ?></td>
 
@@ -94,24 +97,24 @@
 
             <td><a class="btn-add fancybox fancybox.ajax" href="<?php echo base_url();?>Administrator/customer/customer_due_payment/<?php echo $record['SalseCustomer_IDNo']; ?>">
 
-                <input type="button" name="country_button" value="Due Payment"  class="button" style="padding:7px 10px;font-size:16px;"/>                                
+                <input type="button" name="country_button" value="Due Payment"  class="button" style="padding:7px 10px;font-size:16px;"/>
 
             </a></td>
 
-        </tr>
+         </tr>
 
 
 
-        <?php } }?>
+            <?php } }?>
         <tr>
-            <td colspan="3" style="text-align: right;">Total</td>
+            <td colspan="4" style="text-align: right;">Total</td>
             <td><?php echo $totalpurchase; ?></td>
             <td><?php echo $Totalpaid; ?></td>
             <td><?php echo $totalpurchase - $Totalpaid; ?></td>
             <td></td>
         </tr>
 
-       
+
 
     </table>
 

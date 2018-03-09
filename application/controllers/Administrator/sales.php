@@ -243,12 +243,14 @@ class Sales extends CI_Controller {
                             "AddTime"                                   =>date("Y-m-d h:i:s")
                         );      
                         $this->billing_model->SalesReturn('tbl_salereturndetails',$returns);
-						$query5 ="select * from tbl_branchwise_product Where pro_codes ='".$ron['Product_SlNo']."' AND branch_ids='".$this->session->userdata("BRANCHid")."'";
-					$result5 = mysql_query($query5)or die(mysql_error());
-					$row5 = mysql_fetch_array( $result5);
-					$totalstock2 = $row5['total_branchqty'];
-					$addstock2 = $totalstock2+($returnqtyss[$i]*$romio['cteate_qty']);
-					mysql_query("UPDATE tbl_branchwise_product SET total_branchqty='$addstock2' WHERE pro_codes ='".$ron['Product_SlNo']."' AND branch_ids='".$this->session->userdata("BRANCHid")."'") or die(mysql_error());
+                        //Test Start for Sales return
+                        /*$query5 ="select * from tbl_branchwise_product Where pro_codes ='".$ron['Product_SlNo']."' AND branch_ids='".$this->session->userdata("BRANCHid")."'";
+                        $result5 = mysql_query($query5)or die(mysql_error());
+                        $row5 = mysql_fetch_array( $result5);
+                        $totalstock2 = $row5['total_branchqty'];
+                        $addstock2 = $totalstock2+($returnqtyss[$i]*$romio['cteate_qty']);
+                        mysql_query("UPDATE tbl_branchwise_product SET total_branchqty='$addstock2' WHERE pro_codes ='".$ron['Product_SlNo']."' AND branch_ids='".$this->session->userdata("BRANCHid")."'") or die(mysql_error());*/
+                        //Test End for Sales return
                     }
                 }else{
                     $returns = array(
@@ -270,7 +272,7 @@ class Sales extends CI_Controller {
 					$row5 = mysql_fetch_array( $result5);
 					$totalstock2 = $row5['total_branchqty'];
 					$addstock2 = $totalstock2+$returnqtyss[$i];
-					mysql_query("UPDATE tbl_branchwise_product SET total_branchqty='$addstock2' WHERE pro_codes ='".$productIDs[$i]."' AND branch_ids='".$this->session->userdata("BRANCHid")."'") or die(mysql_error());
+					/*mysql_query("UPDATE tbl_branchwise_product SET total_branchqty='$addstock2' WHERE pro_codes ='".$productIDs[$i]."' AND branch_ids='".$this->session->userdata("BRANCHid")."'") or die(mysql_error());*/
                 }
                 //
                 
@@ -327,7 +329,7 @@ class Sales extends CI_Controller {
 					$row5 = mysql_fetch_array( $result5);
 					$totalstock2 = $row5['total_branchqty'];
 					$addstock2 = $totalstock2+($returnqtyss[$i]*$romio['cteate_qty']);
-					mysql_query("UPDATE tbl_branchwise_product SET total_branchqty='$addstock2' WHERE pro_codes ='".$ron['Product_SlNo']."' AND branch_ids='".$this->session->userdata("BRANCHid")."'") or die(mysql_error());
+					/*mysql_query("UPDATE tbl_branchwise_product SET total_branchqty='$addstock2' WHERE pro_codes ='".$ron['Product_SlNo']."' AND branch_ids='".$this->session->userdata("BRANCHid")."'") or die(mysql_error());*/
                     }
                  }else{
                     $returns = array(
@@ -349,7 +351,7 @@ class Sales extends CI_Controller {
 					$row5 = mysql_fetch_array( $result5);
 					$totalstock2 = $row5['total_branchqty'];
 					$addstock2 = $totalstock2+$returnqtyss[$i];
-					mysql_query("UPDATE tbl_branchwise_product SET total_branchqty='$addstock2' WHERE pro_codes ='".$productIDs[$i]."' AND branch_ids='".$this->session->userdata("BRANCHid")."'") or die(mysql_error());
+					/*mysql_query("UPDATE tbl_branchwise_product SET total_branchqty='$addstock2' WHERE pro_codes ='".$productIDs[$i]."' AND branch_ids='".$this->session->userdata("BRANCHid")."'") or die(mysql_error());*/
                 }
 
                 

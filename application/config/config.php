@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://localhost/six_star/';
+$config['base_url']	= 'http://localhost/sixstar/';
 
 /*
 |--------------------------------------------------------------------------

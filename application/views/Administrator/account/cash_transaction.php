@@ -100,18 +100,7 @@
                             <span>Date</span>
                             <input name="DaTe" id="DaTe" type="text" value="<?php echo date("Y-m-d") ?>" class="required" />
                         </div>     
-                        <div class="full clearfix">
-                            <span></span>
-                            
-                        </div>
-                         <div class="full clearfix">
-                            <span></span>
-                            
-                        </div>
-                         <div class="full clearfix">
-                            <span></span>
-                            
-                        </div>
+
                         <div class="full clearfix">
                             <span>Description</span>
                             <input name="Description" type="text" id="Description" class="txt" required/>
@@ -149,7 +138,7 @@
         <div class="row_section clearfix" style="height:300px;overflow:auto;">
             <table class="zebra" cellspacing="0" cellpadding="0" border="0" style="text-align:left;width:80%;border-collapse:collapse;">
                 <tbody>
-                <?php $sql = mysql_query("SELECT tbl_cashtransaction.*,tbl_account.* FROM tbl_cashtransaction left join tbl_account on tbl_account.Acc_SlNo=tbl_cashtransaction.Acc_SlID order by tbl_cashtransaction.Tr_Id asc");
+                <?php $sql = mysql_query("SELECT tbl_cashtransaction.*,tbl_account.* FROM tbl_cashtransaction left join tbl_account on tbl_account.Acc_SlNo=tbl_cashtransaction.Acc_SlID order by tbl_cashtransaction.Tr_Id desc");
                 while($row = mysql_fetch_array($sql)){ ?>
                     <tr>
                         <td style="width:7%"><?php echo $row['Tr_Id'] ?></td>

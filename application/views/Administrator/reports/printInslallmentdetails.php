@@ -13,6 +13,10 @@
 </head>
 
 <style type="text/css" media="print">
+    @page
+    {
+        size: landscape;
+    }
 
 .hide{display:none}
 
@@ -48,7 +52,7 @@ $newDate = date("F, Y", strtotime($fisrtday));
 
 ?>
 
-      <table width="800px" >
+      <table width="1058px" >
 
         <tr>
 
@@ -100,7 +104,7 @@ $newDate = date("F, Y", strtotime($fisrtday));
 
           
 
-              <table class="border" cellspacing="0" cellpadding="0" width="95%">
+              <table class="border" cellspacing="0" cellpadding="0" width="1058px">
 
         <tr>
 
@@ -120,7 +124,7 @@ $newDate = date("F, Y", strtotime($fisrtday));
 
             <th>Price</th>
 
-            <th>Downpayment</th>
+            <th>Down payment</th>
 
             <th>Total Inst.</th>
 
@@ -133,6 +137,8 @@ $newDate = date("F, Y", strtotime($fisrtday));
             <th>Due/Advance</th>
 
             <th>last stability</th>
+
+            <th>Current Payment</th>
 
         </tr>
 
@@ -211,6 +217,7 @@ $newDate = date("F, Y", strtotime($fisrtday));
             <td><?php echo $restamount - $row['inspay'];?></td>
 
             <td><?php echo $restamount - $row['inspay'];?></td>
+            <td></td>
 
         </tr>
 

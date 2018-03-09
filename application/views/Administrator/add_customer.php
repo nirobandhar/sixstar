@@ -122,7 +122,7 @@
                         </div>  
                     </div>
                 </div>
-                <div class="right_form">
+                <div class="right_form" style="width: 350px">
                     <h2 id="personal-info">Contact Information</h2>
                     <div class="body">
                     	<div class="full clearfix">

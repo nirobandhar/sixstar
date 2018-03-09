@@ -23,6 +23,8 @@
 			return false;
 		}
 		var catdescrip = $('#catdescrip').val();
+		var company = $('#company').val();
+
 		var succes = "";
 		if(succes == ""){
 			var inputdata = 'add_Category='+add_Category+'&catdescrip='+catdescrip+'&company='+company;

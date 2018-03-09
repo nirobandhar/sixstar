@@ -24,7 +24,7 @@
 
                                 <div class="left">                                      
 
-                                    <input name="psize" type="text" selected="" id="psize" class="required" placeholder="" autofocus="" required/>
+                                    <input name="psize" type="text" selected="" id="psize"  onkeydown="post()" class="required" placeholder="" autofocus="" required/>
 
                                     <span id="msg"></span>
 
@@ -122,6 +122,12 @@
 </div> 
 
 <script type="text/javascript">
+    function post() {
+        var post = event.keyCode;
+        if (post == 13) {
+            submit()
+        }
+    }
 
     function submit(){
 

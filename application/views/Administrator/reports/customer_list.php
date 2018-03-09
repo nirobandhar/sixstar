@@ -30,7 +30,7 @@ document.getElementById('printButton').style.visibility="hidden";
 
 window.print();
 
-document.getElementById('printButton').style.visibility="visible";  
+document.getElementById('printButton').style.visibility="visible";
 
 }
 
@@ -74,7 +74,7 @@ document.getElementById('printButton').style.visibility="visible";
 
         <tr>
 
-            <td> 
+            <td>
 
                 <table class="border" cellspacing="0" cellpadding="0" width="100%">
 
@@ -110,9 +110,9 @@ document.getElementById('printButton').style.visibility="visible";
 
                             <td style="width:25%"><?php echo $row['Customer_Mobile'] ?></td>
 
-                        </tr>  
+                        </tr>
 
-                    <?php } ?>                
+                    <?php } ?>
 
                     </tbody>
 
@@ -122,13 +122,13 @@ document.getElementById('printButton').style.visibility="visible";
 
         </tr>
 
-       
+
 
     </table></td>
 
   </tr>
 
-  
+
 
 </table>
 

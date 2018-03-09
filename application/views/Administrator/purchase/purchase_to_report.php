@@ -66,21 +66,22 @@
     
     <table class="border" cellspacing="0" cellpadding="0" width="80%">
          <tr>
-           <th>SI No.</th>
-           <th>Product Name</th>
-           <th>Product Name</th>
-           <th>Model</th>
-           <th>Company</th>
-           <th>Size</th>
-           <th>Unit</th>
-           <th>Rate</th>
-           <th>Quantity</th>
-           <th>Amount</th>
+           <th width="55">SI No.</th>
+             <th colspan="2">Company</th>
+             <th>Model</th>
+             <th>Product Name</th>
+             <th>Size</th>
+             <th>Unit</th>
+<!--             <th>Branch with Qty </th>-->
+             <th>Quantity</th>
+             <th>Rate</th>
+             <th>Amount</th>
+
         </tr>
         <?php $i = "";
         $totalamount = "";
         $Ptotalamount = "";
-        $ssql = mysql_query("SELECT tbl_purchasedetails.*,SUM(tbl_purchasedetails.PurchaseDetails_TotalQuantity) as totalqty,SUM(tbl_purchasedetails.PurchaseDetails_Rate) as totalpr, tbl_product.*, tbl_produsize.* FROM tbl_purchasedetails left join tbl_product on tbl_product.Product_SlNo = tbl_purchasedetails.Product_IDNo left join tbl_produsize on tbl_product.ProductCategory_ID = tbl_produsize.Productsize_SlNo where tbl_purchasedetails.PurchaseMaster_IDNo = '$PurchID' Group By tbl_purchasedetails.Product_IDNo");
+        $ssql = mysql_query("SELECT tbl_purchasedetails.*,SUM(tbl_purchasedetails.PurchaseDetails_TotalQuantity) as totalqty,SUM(tbl_purchasedetails.PurchaseDetails_Rate) as totalpr, tbl_product.*, tbl_produsize.* FROM tbl_purchasedetails left join tbl_product on tbl_product.Product_SlNo = tbl_purchasedetails.Product_IDNo left join tbl_produsize on tbl_produsize.Productsize_SlNo=tbl_product.sizeId where tbl_purchasedetails.PurchaseMaster_IDNo = '$PurchID' Group By tbl_purchasedetails.Product_IDNo");
         while($rows = mysql_fetch_array($ssql)){ 
             $PackName = $rows['PackName'];
             if($PackName==""){
@@ -92,36 +93,38 @@
 
         <tr>
             <td><?php echo $i; ?></td>
-            <td><?php echo $rows['Product_Name']; ?></td>
-            <td><?php $pid= $rows['Product_IDNo'];
-			$allbranch="";
-			$ssqlgodown = mysql_query("SELECT tbl_purchasedetails.PurchaseDetails_branchID,tbl_purchasedetails.PurchaseDetails_TotalQuantity,tbl_brunch.* FROM tbl_purchasedetails left join tbl_brunch on tbl_brunch.brunch_id = tbl_purchasedetails.PurchaseDetails_branchID where tbl_purchasedetails.PurchaseMaster_IDNo = '$PurchID' AND tbl_purchasedetails.Product_IDNo='".$pid."'");
-        while($rowsgodown = mysql_fetch_array($ssqlgodown)){
-			$allbranch .=$rowsgodown['Brunch_name']." - ".$rowsgodown['PurchaseDetails_TotalQuantity'].",";
-			}
-			echo $allbranch;
-			 ?></td>
+            <td colspan="2"><?php
+                $ssqlsmodel2 = mysql_query("SELECT * FROM tbl_productcategory where ProductCategory_SlNo = '".$rows['ProductCategory_ID']."'");
+                $rowsmodel2 = mysql_fetch_array($ssqlsmodel2);
+                echo $rowsmodel2['company'];
+                ?></td>
+
             <td><?php
 			$ssqlsmodel = mysql_query("SELECT * FROM tbl_productcategory where ProductCategory_SlNo = '".$rows['ProductCategory_ID']."'");
            $rowsmodel = mysql_fetch_array($ssqlsmodel);
 		   echo $rowsmodel['ProductCategory_Name'];
 			?></td>
-            <td><?php 
-			$ssqlsmodel2 = mysql_query("SELECT * FROM tbl_productcategory where ProductCategory_SlNo = '".$rows['ProductCategory_ID']."'");
-            $rowsmodel2 = mysql_fetch_array($ssqlsmodel2);
-		   echo $rowsmodel2['company'];
-			 ?></td>
-
-            <td><?php 
-			$ssqlssize = mysql_query("SELECT * FROM tbl_produsize where Productsize_SlNo = '".$rows['Productsize_Name']."'");
-           $rowsize = mysql_fetch_array($ssqlssize);
-		   echo $rowsize['Productsize_Name'];
-			 ?></td>
+            <td><?php echo $rows['Product_Name']; ?></td>
+            <td><?php
+                $ssqlssize = mysql_query("SELECT * FROM tbl_produsize where Productsize_SlNo = '".$rows['sizeId']."'");
+                $rowsize = mysql_fetch_array($ssqlssize);
+                echo $rowsize['Productsize_Name'];
+                ?></td>
 
              <td><?php echo $rows['PurchaseDetails_Unit']; ?></td>
-            <td style="text-align: right;"><?php echo number_format($rows['PurchaseDetails_Rate'], 2); ?></td>
             <td style="text-align: center;"><?php echo $rows['totalqty']; ?></td>
+            <!--<td ><php /*$pid= $rows['Product_IDNo'];
+                $allbranch="";
+                $ssqlgodown = mysql_query("SELECT tbl_purchasedetails.PurchaseDetails_branchID,tbl_purchasedetails.PurchaseDetails_TotalQuantity,tbl_brunch.* FROM tbl_purchasedetails left join tbl_brunch on tbl_brunch.brunch_id = tbl_purchasedetails.PurchaseDetails_branchID where tbl_purchasedetails.PurchaseMaster_IDNo = '$PurchID' AND tbl_purchasedetails.Product_IDNo='".$pid."'");
+                while($rowsgodown = mysql_fetch_array($ssqlgodown)){
+                    $allbranch .=$rowsgodown['Brunch_name']." - ".$rowsgodown['PurchaseDetails_TotalQuantity'].",";
+                }
+                echo $allbranch;
+                */?></td>-->
+            <td style="text-align: right;"><?php echo number_format($rows['PurchaseDetails_Rate'], 2); ?></td>
+
             <td style="text-align: right;"><?php echo number_format($amount, 2); ?></td>
+
         </tr>
 
         <?php } }
@@ -147,7 +150,7 @@
         </tr>
 
         <tr>
-            <td  style="border:0px"><!--<strong>Previous Due</strong>--></td>
+            <td colspan="3"  style="border:0px"><strong>Previous Due</strong></td>
             <td  style="border:0px;color:red;text-align: right;">
                 <!-- Previous Due Customer -->
                 <?php $SupllierID = $selse['Supplier_SlNo'];
@@ -166,25 +169,25 @@
                     $all = $totalamount-$selse['PurchaseMaster_DiscountAmount']+ $selse['PurchaseMaster_Freight']+$vat+$selse['PurchaseMaster_LabourCost'];  $CurrenDue = $all-$selse['PurchaseMaster_PaidAmount'];
                      $previousdue= $Supplierpurchase-$Supplierpaid;
                      $previousdue = $previousdue-$CurrenDue;
-                    /*if($previousdue==''){echo'0.00';}else{echo number_format($previousdue, 2);}*/
+                    if($previousdue==''){echo'0.00';}else{echo number_format($previousdue, 2);}
                 ?>
                 <!-- Previous Due Customer End -->
             </td>
-            <td  style="border:0px" colspan="6"></td>
+            <td  style="border:0px" colspan="4"></td>
             <td style="border:0px"><strong>Vat :</strong> </td>
             <td style="border:0px;text-align: right;"><?php echo number_format($vat, 2); ?></td>
         </tr>
         <tr>
-            <td style="border:0px"><!--<strong>Current Due</strong>--></td>
-            <td style="border:0px;color:red;text-align: right;"><?php /*if($CurrenDue==''){echo '0.00';}else{echo number_format($CurrenDue, 2);} */?></td>
-            <td style="border:0px" colspan="6"></td>
+            <td colspan="3" style="border:0px"><strong>Current Due</strong></td>
+            <td style="border:0px;color:red;text-align: right;"><?php if($CurrenDue==''){echo '0.00';}else{echo number_format($CurrenDue, 2);}?></td>
+            <td style="border:0px" colspan="4"></td>
             <td style="border:0px"><strong>Frieght :</strong> </td>
             <td style="border:0px;text-align: right;"><?php $Frieght = $selse['PurchaseMaster_Freight']; echo number_format($Frieght,2) ?></td>
         </tr>
         <tr>
-            <td style="border-top: 1px solid #999;border-left: 0px ;border-right: 0px ;border-bottom: 0px ;"><strong>Total Due</strong> </td>
+            <td colspan="3" style="border-top: 1px solid #999;border-left: 0px ;border-right: 0px ;border-bottom: 0px ;"><strong>Total Due</strong> </td>
             <td style="color:red;border-top: 1px solid #999;border-left: 0px ;border-right: 0px ;border-bottom: 0px ;text-align: right;"><?php if($previousdue+$CurrenDue==''){echo '0.00';}else{echo number_format(($previousdue+$CurrenDue), 2); }?></td>
-            <td style="border:0px" colspan="6"></td>
+            <td style="border:0px" colspan="4"></td>
             <td style="border:0px"><strong>Discount :</strong> </td>
             <td style="border:0px;text-align: right;"><?php $discount = $selse['PurchaseMaster_DiscountAmount'];echo number_format($discount,2) ?></td>
         </tr>
@@ -206,11 +209,11 @@
             <td style="border:0px"><strong>Paid :</strong> </td>
             <td style="border:0px;text-align: right;"><?php $paid = $selse['PurchaseMaster_PaidAmount']; echo number_format($paid,2);?></td>
         </tr>
-        <tr>
+       <!-- <tr>
             <td colspan="8" style="border:0px"></td>
             <td colspan="2" style="border-top: 2px solid #999;border-left: 0px ;border-right: 0px ;border-bottom: 0px ;"></td>
-           
-        </tr>
+
+        </tr>-->
         <tr>
             <td colspan="8" style="border:0px"></td>
             <td style="border:0px"><strong>Due :</strong> </td>

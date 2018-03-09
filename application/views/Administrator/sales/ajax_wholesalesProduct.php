@@ -26,7 +26,7 @@
 
             <div class="full clearfix">
 
-                <input type="text" id="proQTY" name="proQTY" autofocus onkeyup="keyUPAmount()" class="inputclass" value="" placeholder="0">
+                <input type="text" id="proQTY" name="proQTY" autofocus onkeydown="wacrt()"onkeyup="keyUPAmount()" class="inputclass" value="" placeholder="0">
 
             </div>
 
@@ -39,7 +39,7 @@
         <td style="width:200px">
             <div class="full clearfix">
 
-                <input type="text" id="ProRATe" onkeyup="keyupamount2()" class="inputclass" value="<?php echo $Product['Product_WholesaleRate'] ?>">
+                <input type="text" id="ProRATe" onkeyup="keyupamount2()" onkeydown="wacrt()" class="inputclass" value="<?php echo $Product['Product_WholesaleRate'] ?>">
 
                 <input type="hidden" id="ProPurchaseRATe" value="<?php echo $Product['Product_Purchase_Rate'] ?>">
 
@@ -51,7 +51,7 @@
         <td>Discount</td>
         <td style="width:200px">
             <div class="full clearfix">
-                <input type="text" id="ProParcent" onkeyup="keyupamount3()" class="inputclass">
+                <input type="text" id="ProParcent" onkeydown="wacrt()" onkeyup="keyupamount3()" class="inputclass">
             </div>
         </td>
     </tr>
@@ -78,36 +78,23 @@
 
 
 
-<?php  $pid = $Product['Product_SlNo'];
+<?php $pid = $Product['Product_SlNo'];
 $reordlvl= $Product['Product_ReOrederLevel'];
-$sql = mysql_query("SELECT * FROM tbl_purchasedetails WHERE Product_IDNo = '$pid'");
-
-$stock = "";
-
-while($orw = mysql_fetch_array($sql)){
-
-    $stock = $stock+ $orw['PurchaseDetails_TotalQuantity'];
-
-} 
-
 $sqll = mysql_query("SELECT * FROM tbl_saleinventory WHERE sellProduct_IdNo = '$pid'");
-
 $rox = mysql_fetch_array($sqll);
-
-$curentstock = $stock - $rox['SaleInventory_TotalQuantity'];
-
+$curentstock = $rox['SaleInventory_TotalQuantity'];
+$tsaleretqty = $rox['SaleInventory_ReturnQuantity'];
 $sqlss = mysql_query("SELECT * FROM tbl_purchaseinventory WHERE purchProduct_IDNo = '$pid'");
-
 $roxx = mysql_fetch_array($sqlss);
-
 $returnQty = $roxx['PurchaseInventory_ReturnQuantity'];
-
 $damageQty = $roxx['PurchaseInventory_DamageQuantity'];
 
-$curentstock = $curentstock+$returnQty;
+$sqltstock = mysql_query("SELECT *,SUM(total_branchqty) as totalqty FROM tbl_branchwise_product WHERE pro_codes = '$pid'");
+$roxstock = mysql_fetch_array($sqltstock);
+$perbranchqty = $roxstock['totalqty'];
 
-$curentstock = $curentstock-$damageQty;
-
+$curentstock = $curentstock+$returnQty+$damageQty;
+$curentstock = ($perbranchqty+$tsaleretqty)-$curentstock;
 ?>
 
 <center>
@@ -115,15 +102,13 @@ $curentstock = $curentstock-$damageQty;
 <?php if(!empty($packagname)){ ?>
 
     <input type="hidden" id="STock" value="<?php echo $bulbstock; ?>">
-
-    <?php }else {?>
-
+<?php }else {?>
     <input type="hidden" id="STock" value="<?php if(isset($curentstock)) {echo $curentstock;} ?>">
-
-    <?php } ?>
-	<input type="hidden" id="unitPur" value="<?php echo $Product['Product_WholesaleRate']; ?>">
-    <input type="hidden" id="unitPro" value="<?php echo $Product['Unit_Name']; ?>">  
-    <input type="hidden" id="reordlvl" value="<?php echo $reordlvl; ?>"> 
+<?php } ?>
+	<input type="hidden" id="unitPur" value="<?php echo $Product['Product_Purchase_Rate']; ?>">
+	<input type="hidden" id="unitsll" value="<?php echo $Product['Product_SellingPrice']; ?>">
+    <input type="hidden" id="unitPro" value="<?php echo $Product['Unit_Name']; ?>">
+    <input type="hidden" id="reordlvl" value="<?php echo $reordlvl; ?>">
 
 </center>
 

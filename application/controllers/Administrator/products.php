@@ -17,6 +17,11 @@ class Products extends CI_Controller {
         $data['content'] = $this->load->view('Administrator/products/add_product', $data, TRUE);
         $this->load->view('Administrator/index', $data);
     }
+    public function Products_List()  {
+        $data['title'] = "Products List";
+        $data['content'] = $this->load->view('Administrator/products/Product_List', $data, TRUE);
+        $this->load->view('Administrator/index', $data);
+    }
 
     public function fanceybox_unit()  {
         $this->load->view('Administrator/products/fanceybox_unit');
@@ -156,6 +161,10 @@ class Products extends CI_Controller {
         $data['Searchkey'] = $this->input->post('Searchkey');
         $this->load->view('Administrator/ajax/search_product', $data);
     }
+    function searchmodel(){
+        $data['Searchkey'] = $this->input->post('Searchkey');
+        $this->load->view('Administrator/ajax/search_model', $data);
+    }
 	function transfer(){
 		 $data['title'] = "Product Transfer";
         $data['content'] = $this->load->view('Administrator/products/transfer', $data, TRUE);
@@ -293,7 +302,7 @@ class Products extends CI_Controller {
         $data['content'] = $this->load->view('Administrator/stock/branchcurrent_stock', $data, TRUE);
         $this->load->view('Administrator/index', $data);
 		}
-		
+
 	function branchwisestock(){
 		 $tobranchname = $this->input->post('tobranchname', TRUE);
 		 ?>
@@ -301,19 +310,24 @@ class Products extends CI_Controller {
 
         <h4><a style="cursor:pointer" onclick="window.open('<?php echo base_url();?>Administrator/reports/print_current_stock?brid=<?php echo $tobranchname;?>', 'newwindow', 'width=850, height=800,scrollbars=yes'); return false;"><img src="<?php echo base_url(); ?>images/printer.png" alt=""> Print</a></h4>
         <tr>
-            <td colspan="5" align="center"><h2>Current Stock</h2></td>
+            <td colspan="9" align="center"><h2>Current Stock</h2></td>
         </tr>
-        <tr bgcolor="#ccc">
-            <th>Product Name</th>
-            <th>Qty</th>
-            <th>Purchase Price</th>
-            <th>Total Price</th>
-            <th>Unit</th>
-        </tr>
-        <?php $totalqty = "";$sellTOTALqty = ""; $subtotal = "";
-        $sql = mysql_query("SELECT tbl_purchaseinventory.*,tbl_product.*,tbl_purchasedetails.* FROM tbl_purchaseinventory left join tbl_product on tbl_product.Product_SlNo = tbl_purchaseinventory.purchProduct_IDNo left join tbl_purchasedetails on tbl_purchasedetails.Product_IDNo = tbl_product.Product_SlNo group by tbl_purchasedetails.Product_IDNo");
+             <tr bgcolor="#ccc">
+                 <th>Sl No.</th>
+                 <th>Company</th>
+                 <th>Product Name</th>
+                 <th>Model</th>
+                 <th>Size</th>
+                 <th>Unit</th>
+                 <th>Qty</th>
+                 <th width="110px">Purchase Price</th>
+                 <th width="110px">Total Price</th>
+             </tr>
+        <?php $totalqty = 0;$sellTOTALqty = 0; $subtotal = 0; $gttotalqty = 0; $gttotalpur = 0;
+        $sql = mysql_query("SELECT tbl_purchaseinventory.*,tbl_product.*, tbl_productcategory.*, tbl_produsize.*, tbl_purchasedetails.*,SUM(tbl_purchasedetails.PurchaseDetails_TotalQuantity) as totalqty,SUM(tbl_purchasedetails.PurchaseDetails_Rate) as totalpr FROM tbl_purchaseinventory left join tbl_product on tbl_product.Product_SlNo = tbl_purchaseinventory.purchProduct_IDNo LEFT JOIN tbl_productcategory ON tbl_productcategory.ProductCategory_SlNo = tbl_product.ProductCategory_ID LEFT JOIN tbl_produsize ON tbl_produsize.Productsize_SlNo = tbl_product.sizeId left join tbl_purchasedetails on tbl_purchasedetails.Product_IDNo = tbl_product.Product_SlNo group by tbl_purchasedetails.Product_IDNo  order by company asc");
+        $i=0;
         while($record = mysql_fetch_array($sql)){
-            
+            $i++;
                 $totalprretqty = $record['PurchaseInventory_ReturnQuantity'];
                 $totalprdamqty = $record['PurchaseInventory_DamageQuantity'];
                 
@@ -336,25 +350,40 @@ class Products extends CI_Controller {
                 if($totalqty !="0"){
                     $rate = $totalqty*$record['PurchaseDetails_Rate'];
                     $subtotal = $subtotal+$rate;
+                    $totalrate=$rate+$rate;
                 ?>
                 <tr>
+                    <td><?php echo $i; ?></td>
+                    <td><?php echo $record['company'] ?></td>
                     <td><?php echo $record['Product_Name'] ?></td>
-                    <td><?php echo $totalqty; ?></td>
-                    <td><?php echo $record['PurchaseDetails_Rate']; ?></td>
-                    <td><?php echo $rate ?></td>
+                    <td><?php echo $record['ProductCategory_Name'] ?></td>
+                    <td><?php echo $record['Productsize_Name'] ?></td>
                     <td><?php if($record['PurchaseDetails_Unit']==""){echo "pcs";} else{echo $record['PurchaseDetails_Unit']; }?></td>
+                    <td style="text-align: center;"><?php echo $totalqty;
+                        $gttotalqty = $gttotalqty+$totalqty;
+                        ?></td>
+                    <td style="text-align: right;"><?php echo number_format($record['PurchaseDetails_Rate'], 2);
+                        $gttotalpur = $gttotalpur+$record['PurchaseDetails_Rate'];
+                        ?></td>
+                    <td><?php echo $rate ?></td>
                 </tr>
         <?php } } }?>
+           <!--  <tr>
+                 <td colspan="5" style="text-align: right;"><strong>Sub Total:</strong></td>
+                 <td style="text-align: center;"><strong><?php /*echo $gttotalqty; */?></strong></td>
+                 <td style="text-align: right;"><strong><?php /*echo number_format($gttotalpur, 2); */?> Tk</strong> </td>
+                 <td style="text-align: right;"><strong><?php /*echo number_format($subtotal, 2); */?> Tk</strong></td>
+             </tr>-->
         <tr>
-            <td style="border:0px"></td>
-            <td style="border:0px"></td>
+            <td colspan="5" style="border:0px"></td>
             <td><strong>Sub Total:</strong> </td>
-            <td><strong><?php echo $subtotal ?> Tk</strong></td>
-            <td style="border:0px"></td>
+            <td style="text-align: center;"><strong><?php echo $gttotalqty; ?></strong></td>
+            <td style="text-align: right;"><strong><?php echo number_format($gttotalpur, 2); ?> Tk</strong> </td>
+            <td><strong><?php echo number_format($subtotal, 2); ?> Tk</strong></td>
         </tr>
        
     </table>
-		<?php 
+		<?php
 		}
 
     public function generatebarcode(){

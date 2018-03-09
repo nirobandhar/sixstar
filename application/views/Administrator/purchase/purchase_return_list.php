@@ -38,6 +38,7 @@
               </table>
 <table  class="zebra" cellspacing="0" cellpadding="0" border="0" id="" style="text-align:left;width:100%;border-collapse:collapse;">
 	<tr>
+		<th>ID</th>
 		<th>Product</th>
 		<th>Purchase Rate</th>
 		<th>Total Qty</th>
@@ -68,6 +69,7 @@
 	 	<input type="hidden" name="packname[]" value="<?php echo $PackName ?>">
 	 	<input type="hidden" name="productsName[]" value="<?php echo $rox['Product_Name'] ?>">
 	 	<input type="hidden" name="productsCodes[]" value="">
+		<td><?php echo $rox['Product_Code'];?></td>
 		<td><?php echo $rox['Product_Name'];?></td>
 		<td><?php echo $rox['PurchaseDetails_Rate'];?></td>
 		<td><?php echo $rox['totalqty'];?></td>
@@ -89,7 +91,7 @@
 	<input type="hidden" >
 	<tr>
 		<td colspan="8"> 
-			<table style="order: 1px solid #d8d8d8;">
+			<table style="border: 1px solid #d8d8d8;">
 				<tr>
 					<td> Notes </td>
 					<td>

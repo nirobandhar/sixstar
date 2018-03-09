@@ -94,8 +94,8 @@
                             </div>
                             <div class="rightElement">
                                 <a class="btn-add fancybox fancybox.ajax" href="<?php echo base_url();?>Administrator/supplier/supplier_district">
-                                    <input type="button" name="add_cat" value="+"  class="button" style="padding:7px 10px;font-size:16px;"/>                                
-                                </a> 
+                                    <input type="button" name="add_cat" value="+"  class="button" style="padding:7px 10px;font-size:16px;"/>
+                                </a>
                             </div>
                         </div>
                         <div class="full clearfix">
@@ -114,8 +114,8 @@
                             </div>
                             <div class="rightElement">
                                 <a class="btn-add fancybox fancybox.ajax" href="<?php echo base_url();?>Administrator/supplier/supplier_country">
-                                    <input type="button" name="country_button" value="+"  class="button" style="padding:7px 10px;font-size:16px;"/>                                
-                                </a> 
+                                    <input type="button" name="country_button" value="+"  class="button" style="padding:7px 10px;font-size:16px;"/>
+                                </a>
                             </div>
                         </div>  
                           

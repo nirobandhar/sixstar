@@ -12,6 +12,7 @@ class Page extends CI_Controller {
         $this->load->model('model_table', "mt", TRUE);
         date_default_timezone_set('Asia/Dhaka');
     }
+
     public function index()  {
         $data['title'] = "Dashboard";
         $data['content'] = $this->load->view('dashboard', $data, TRUE);

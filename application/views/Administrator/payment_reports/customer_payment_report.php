@@ -9,6 +9,7 @@
                     <td> 
                         <select id="Salestype" class="inputclass" style="width:200px">
                             <option value="All"> All </option>
+                            <option value="1"> Retail Sales </option>
                             <option value="2"> Whole Sales </option>
                             <option value="3"> Installment Sales </option>
                         </select>
@@ -36,9 +37,9 @@
                                    
                                     <select name="" id="customerID" class="inputclass" style="width:200px" >
                                         <option value="">  </option>
-                                        <?php $sql = mysql_query("SELECT * FROM tbl_customer order by Customer_Name desc");
+                                        <?php $sql = mysql_query("SELECT * FROM tbl_customer order by Customer_Name asc");
                                         while($row = mysql_fetch_array($sql)){ ?>
-                                        <option value="<?php echo $row['Customer_SlNo']; ?>"><?php echo $row['Customer_Name']; ?></option>
+                                            <option value="<?php echo $row['Customer_SlNo'] ?>"> <?php echo $row['Customer_Name']; ?>(<?php echo $row['Customer_Code']; ?>) </option>
                                         <?php } ?>
                                     </select> 
                                 </td>
@@ -80,9 +81,9 @@
         if(searchtype == "Customer"){
 			$("#customerID_chosen").css({"width":"200px"})
             $("#showcustomer").show();
-			var Salestypef = $("#Salestype").val();
+			/*var Salestypef = $("#Salestype").val();
 			var inputData = 'Salestypef='+Salestypef;
-        	var urldata = "<?php echo base_url();?>Administrator/customer/getcustomer2";
+        	var urldata = "<php echo base_url();?>Administrator/customer/getcustomer2";
 			$.ajax({
 				type: "POST",
 				url: urldata,
@@ -90,7 +91,7 @@
 				success:function(data){
 					$("#filtercustomer").html(data);
 				}
-			});
+			});*/
         }
         if(searchtype == "All"){
             $("#showcustomer").hide();

@@ -110,23 +110,24 @@ document.getElementById('printButton').style.visibility="visible";
           <td>
             <table class="border" cellspacing="0" cellpadding="0" width="100%">
                 <tr>
-                   <th>SI No.</th>
-                   <th>Product Name</th>
-                   <th>Product Name</th>
-                   <th>Model</th>
-                   <th>Company</th>
-                   <th>Size</th>
-                   <th>Unit</th>
+                    <th width="55">SI No.</th>
+                    <th colspan="2">Product Name</th>
+                    <th>Model</th>
+                    <th>Company</th>
+                    <th>Size</th>
+                    <th>Unit</th>
+                    <!--             <th>Branch with Qty </th>-->
+                    <th>Quantity</th>
                     <th>Rate</th>
-                   <th>Quantity</th>
-                   <th>Amount</th>
+                    <th>Amount</th>
+
                 </tr>
                 <?php $i = "";
         $totalamount = "";
         $Ptotalamount = "";
-		
+
         $ssql = mysql_query("SELECT tbl_purchasedetails.*,SUM(tbl_purchasedetails.PurchaseDetails_TotalQuantity) as totalqty,SUM(tbl_purchasedetails.PurchaseDetails_Rate) as totalpr, tbl_product.* FROM tbl_purchasedetails left join tbl_product on tbl_product.Product_SlNo = tbl_purchasedetails.Product_IDNo where tbl_purchasedetails.PurchaseMaster_IDNo = '$id' Group By tbl_purchasedetails.Product_IDNo");
-        while($rows = mysql_fetch_array($ssql)){ 
+        while($rows = mysql_fetch_array($ssql)){
             $PackName = $rows['PackName'];
             if($PackName==""){
 
@@ -136,38 +137,38 @@ document.getElementById('printButton').style.visibility="visible";
         ?>
         <tr>
         	<td align="center"><?php echo $i; ?></td>
-            <td><?php echo $rows['Product_Name']; ?></td>
-            <td><?php $pid= $rows['Product_IDNo'];
+            <td colspan="2"><?php echo $rows['Product_Name']; ?></td>
+            <!--<td>--><?php /*$pid= $rows['Product_IDNo'];
 			$allbranch="";
 			$ssqlgodown = mysql_query("SELECT tbl_purchasedetails.PurchaseDetails_branchID,tbl_purchasedetails.PurchaseDetails_TotalQuantity,tbl_brunch.* FROM tbl_purchasedetails left join tbl_brunch on tbl_brunch.brunch_id = tbl_purchasedetails.PurchaseDetails_branchID where tbl_purchasedetails.PurchaseMaster_IDNo = '$id' AND tbl_purchasedetails.Product_IDNo='".$pid."'");
         while($rowsgodown = mysql_fetch_array($ssqlgodown)){
 			$allbranch .=$rowsgodown['Brunch_name']." - ".$rowsgodown['PurchaseDetails_TotalQuantity'].",";
 			}
-			echo $allbranch;
+			echo $allbranch;*/
 			 ?></td>
             <td><?php
 			$ssqlsmodel = mysql_query("SELECT * FROM tbl_productcategory where ProductCategory_SlNo = '".$rows['ProductCategory_ID']."'");
            $rowsmodel = mysql_fetch_array($ssqlsmodel);
 		   echo $rowsmodel['ProductCategory_Name'];
 			?></td>
-            <td><?php 
+            <td><?php
 			$ssqlsmodel2 = mysql_query("SELECT * FROM tbl_productcategory where ProductCategory_SlNo = '".$rows['ProductCategory_ID']."'");
             $rowsmodel2 = mysql_fetch_array($ssqlsmodel2);
 		   echo $rowsmodel2['company'];
 			 ?></td>
-            <td><?php 
-			$ssqlssize = mysql_query("SELECT * FROM tbl_produsize where Productsize_SlNo = '".$rows['ProductCategory_ID']."'");
-           $rowsize = mysql_fetch_array($ssqlssize);
-		   echo $rowsize['Productsize_Name'];
+            <td><?php
+                $ssqlssize = mysql_query("SELECT * FROM tbl_produsize where Productsize_SlNo = '".$rows['sizeId']."'");
+                $rowsize = mysql_fetch_array($ssqlssize);
+                echo $rowsize['Productsize_Name'];
 			 ?></td>
              <td style="text-align: center;"><?php echo $rows['PurchaseDetails_Unit']; ?></td>
-            <td style="text-align: right;"><?php echo number_format($rows['PurchaseDetails_Rate'], 2); ?></td>
-            <td style="text-align: center;"><?php echo $rows['totalqty']; ?></td>
+             <td style="text-align: center;"><?php echo $rows['totalqty']; ?></td>
+             <td style="text-align: right;"><?php echo number_format($rows['PurchaseDetails_Rate'], 2); ?></td>
             <td style="text-align: right;"><?php echo number_format($amount, 2); ?></td>
         </tr>
         <?php } }
             $ssqlx = mysql_query("SELECT tbl_purchasedetails.*, tbl_product.* FROM tbl_purchasedetails left join tbl_product on tbl_product.Product_SlNo = tbl_purchasedetails.Product_IDNo where tbl_purchasedetails.PurchaseMaster_IDNo = '$id' group by tbl_purchasedetails.PackName");
-            while($rows= mysql_fetch_array($ssqlx)){ 
+            while($rows= mysql_fetch_array($ssqlx)){
             if($rows['PackName']!=""){    $i++;
             $Pamount = $rows['PackPice']*$rows['Pack_qty'] ;
             $Ptotalamount = $Ptotalamount+$Pamount;
@@ -188,20 +189,20 @@ document.getElementById('printButton').style.visibility="visible";
             <td style="border:0px;text-align: right;"><?php $totalamount = $Ptotalamount+$totalamount; echo number_format($totalamount,2); ?></td>
         </tr>
                 <tr>
-            <td  style="border:0px"><strong>Previous Due</strong></td>
+            <td colspan="3"  style="border:0px"><strong>Previous Due</strong></td>
             <td  style="border:0px;color:red;text-align: right;">
                 <!-- Previous Due Customer -->
-                <?php $SupllierID = $selse['Supplier_SlNo']; 
+                <?php $SupllierID = $selse['Supplier_SlNo'];
                     $Supplierpaid='';
                     $Supplierpurchase='';
                     $sql = mysql_query("SELECT * FROM tbl_supplier_payment WHERE SPayment_customerID = '".$SupllierID."'");
                     while($row = mysql_fetch_array($sql)){
-                        $Supplierpaid = $Supplierpaid+$row['SPayment_amount'];    
-                    } 
+                        $Supplierpaid = $Supplierpaid+$row['SPayment_amount'];
+                    }
 
                     $sqls = mysql_query("SELECT * FROM tbl_purchasemaster WHERE Supplier_SlNo = '".$SupllierID."'");
                     while($rows= mysql_fetch_array($sqls)){
-                        $Supplierpurchase = $Supplierpurchase+$rows['PurchaseMaster_SubTotalAmount'];    
+                        $Supplierpurchase = $Supplierpurchase+$rows['PurchaseMaster_SubTotalAmount'];
                     }
                     $vat = $selse['PurchaseMaster_Tax'];  $vat = ($totalamount*$vat)/100;
                     $all = $totalamount-$selse['PurchaseMaster_DiscountAmount']+ $selse['PurchaseMaster_Freight']+$vat+$selse['PurchaseMaster_LabourCost'];  $CurrenDue = $all-$selse['PurchaseMaster_PaidAmount'];
@@ -211,21 +212,21 @@ document.getElementById('printButton').style.visibility="visible";
                 ?>
                 <!-- Previous Due Customer End -->
             </td>
-            <td  style="border:0px" colspan="6"></td>
+            <td  style="border:0px" colspan="4"></td>
             <td style="border:0px"><strong>Vat :</strong> </td>
             <td style="border:0px;text-align: right;"><?php echo number_format($vat, 2); ?></td>
         </tr>
         <tr>
-            <td style="border:0px"><strong>Current Due</strong></td>
+            <td colspan="3" style="border:0px"><strong>Current Due</strong></td>
             <td style="border:0px;color:red;text-align: right;"><?php if($CurrenDue==''){echo '0.00';}else{echo number_format($CurrenDue, 2);} ?></td>
-            <td style="border:0px" colspan="6"></td>
+            <td style="border:0px" colspan="4"></td>
             <td style="border:0px"><strong>Frieght :</strong> </td>
             <td style="border:0px;text-align: right;"><?php $Frieght = $selse['PurchaseMaster_Freight']; echo number_format($Frieght,2) ?></td>
         </tr>
         <tr>
-            <td style="border-top: 1px solid #999;border-left: 0px ;border-right: 0px ;border-bottom: 0px ;"><strong>Total Due</strong> </td>
+            <td colspan="3" style="border-top: 1px solid #999;border-left: 0px ;border-right: 0px ;border-bottom: 0px ;"><strong>Total Due</strong> </td>
             <td style="color:red;border-top: 1px solid #999;border-left: 0px ;border-right: 0px ;border-bottom: 0px ;text-align: right;"><?php if($previousdue+$CurrenDue==''){echo '0.00';}else{echo number_format(($previousdue+$CurrenDue), 2);} ?></td>
-            <td style="border:0px" colspan="6"></td>
+            <td style="border:0px" colspan="4"></td>
             <td style="border:0px"><strong>Discount :</strong> </td>
             <td style="border:0px;text-align: right;"><?php $discount = $selse['PurchaseMaster_DiscountAmount'];echo number_format($discount,2) ?></td>
         </tr>
@@ -233,7 +234,7 @@ document.getElementById('printButton').style.visibility="visible";
             <td colspan="8" style="border:0px"></td>
             <td style="border-top: 0px;border-left: 0px ;border-right: 0px ;border-bottom: 2px solid #999;"><strong>Labour Cost</strong></td>
             <td colspan="2" style="border-top: 0px;border-left: 0px ;border-right: 0px ;border-bottom: 2px solid #999; text-align: right;"><?php $labourcost = $selse['PurchaseMaster_LabourCost'];echo number_format($labourcost,2) ?></td>
-           
+
         </tr>
                 <tr>
                     <td colspan="8" style="border:0px"></td>
@@ -248,7 +249,7 @@ document.getElementById('printButton').style.visibility="visible";
                 <tr>
                     <td colspan="8" style="border:0px"></td>
                     <td colspan="2" style="border-top: 2px solid #999;border-left: 0px ;border-right: 0px ;border-bottom: 0px ;"></td>
-                   
+
                 </tr>
                 <tr>
                     <td colspan="8" style="border:0px"></td>
@@ -317,17 +318,54 @@ document.getElementById('printButton').style.visibility="visible";
   
 </table>
 
+
+<style>
+    .signature_area{
+        position: fixed!important;
+        bottom: 70px;
+        width: 100%;
+        left: 55px;
+    }
+    .signatureasdf {
+        float: left;
+        padding: 0px;
+        color: black;
+        width: 25%;
+        font-size: 14px;
+        font-family: tahoma;
+    }
+
+</style>
+<div style="clear: both;"></div>
+<div class="signature_area">
+    <div class="signatureasdf">
+        <span style="border-top:1px solid #000;">Purchased By</span>
+    </div>
+
+    <div class="signatureasdf">
+        <span style="border-top:1px solid #000;">Payment By</span>
+    </div>
+
+    <div class="signatureasdf">
+        <span style="border-top:1px solid #000;">Checked & Received By</span>
+    </div>
+
+    <div class="signatureasdf">
+        <span style="border-top:1px solid #000;">Authorized By</span>
+    </div>
+    <div style="clear: both;"></div>
+</div>
+
+<div style="clear: both;"></div>
 <div class="provied">
-  
-  <span style="float:left;font-size:11px;">
+
+  <span style="font-size:11px;">
 <i>"THANK YOU FOR YOUR BUSINESS"</i><br>
   Software Provied By Link-Up Technology</span>
 </div>
-<div class="signature">
-<span style="border-top:1px solid #000;">
-  Authorize Signature
-</span>
-</div>
+
+
 </body>
 </html>
+
 

@@ -104,6 +104,8 @@ document.getElementById('printButton').style.visibility="visible";
 
                   <th>Contact</th>
 
+                  <th>Address</th>
+
                   <th>Total</th>
 
                   <th>Paid</th>
@@ -162,6 +164,9 @@ document.getElementById('printButton').style.visibility="visible";
 
             <td><?php echo $record['Customer_Mobile'] ?></td>
 
+            <td><?php echo $record['Customer_Address'] ?></td>
+
+
             <td style="text-align: right;"><?php echo number_format($purchase, 2); ?></td>
 
             <td style="text-align: right;"><?php echo number_format($paid, 2) ?></td>
@@ -199,37 +204,7 @@ document.getElementById('printButton').style.visibility="visible";
 
        
 
-    </table></td>
-
-  </tr>
-
-  
-
-</table>
-
-
-
-<div class="provied">
-
-  
-
-  <span style="float:left;font-size:11px;">
-
-<i>"THANK YOU FOR YOUR BUSINESS"</i><br>
-
-  Software Provied By Link-Up Technology</span>
-
-</div>
-
-<div class="signature">
-
-<span style="border-top:1px solid #000;">
-
-  Authorize Signature
-
-</span>
-
-</div>
+    </table>
 
 </body>
 

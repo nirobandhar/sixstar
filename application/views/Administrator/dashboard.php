@@ -19,21 +19,13 @@
 
     		<td align="center"><a href="<?php echo base_url()?>Administrator/products"><img style="width:100px;height:100px" src="<?php echo base_url()?>images/dashboard/products.png" alt=""><br><h3>Add Products</h3></a></td>
 
-            <td align="center">
-
-            <?php $selltype = $this->session->userdata('userBrunch'); if($selltype!='2'){ ?>
-
-            <a href="<?php echo base_url()?>Administrator/wholesales"><?php } else{?><a href="">
-
-            <?php } ?>
-
-            <img style="width:100px;height:100px" src="<?php echo base_url()?>images/dashboard/whole-sell.png" alt=""><br><h3>Purchase</h3></a></td>
+            <td align="center"><a href="<?php echo base_url()?>Administrator/purchase/order"><img style="width:100px;height:100px" src="<?php echo base_url()?>images/dashboard/whole-sell.png" alt=""><br><h3>Purchase</h3></a></td>
 
     	</tr>
 
     	<tr>
 
-    		<td align="center"><a href="<?php echo base_url()?>Administrator"><img style="width:100px;height:100px" src="<?php echo base_url()?>images/dashboard/reports.png" alt=""><br><h3>Reports</h3></a></td>
+    		<td align="center"><a href="<?php echo base_url()?>Administrator/account/expense"><img style="width:100px;height:100px" src="<?php echo base_url()?>images/dashboard/reports.png" alt=""><br><h3>Official Expense</h3></a></td>
 
     		<td align="center"><a href="<?php echo base_url()?>Administrator/products/current_stock"><img style="width:100px;height:100px" src="<?php echo base_url()?>images/dashboard/stock.png" alt=""><br><h3>Current Stock</h3></a></td>
 

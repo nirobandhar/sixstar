@@ -25,6 +25,7 @@ class Reports extends CI_Controller {
     }
     public function customerlist()  {
         $data['title'] = "Customer List";
+
         $this->load->view('Administrator/reports/customer_list', $data);
     }
     public function employeelist()  {
@@ -35,6 +36,11 @@ class Reports extends CI_Controller {
         $data['title'] = "Sales Invoice";
         $data['id'] = $this->session->userdata('SalesID');
         $this->load->view('Administrator/reports/sales_invoice', $data);
+    }
+    public function sales_challan()  {
+        $data['title'] = "Challan";
+        $data['id'] = $this->session->userdata('SalesID');
+        $this->load->view('Administrator/reports/sales_challan', $data);
     }
     public function sales_invoice_search($id='')  {
         $data['title'] = "Sales Invoice";
@@ -58,8 +64,16 @@ class Reports extends CI_Controller {
             $sql = "SELECT tbl_purchasemaster.*, tbl_supplier.* FROM tbl_purchasemaster left join tbl_supplier on tbl_supplier.Supplier_SlNo = tbl_purchasemaster.Supplier_SlNo WHERE tbl_purchasemaster.Supplier_SlNo = '$Supplierid' and  tbl_purchasemaster.PurchaseMaster_OrderDate between  '$Purchase_startdate' and '$Purchase_enddate'";
         }
         $datas["record"] = $this->mt->ccdata($sql);
-        
+
         $this->load->view('Administrator/reports/purchase_record_print', $datas);
+    }
+    function purchase_record_print($invoce)  {
+        $datas["id"] = $invoce;
+        $this->load->view('Administrator/reports/purchase_invoice', $datas);
+    }
+    function barcode_print($id){
+        $datas["id"] = $id;
+        $this->load->view('Administrator/reports/barcode_print', $datas);
     }
     function search_sales_record()  {
         $searchtype = $this->session->userdata('searchtype');
@@ -80,15 +94,19 @@ class Reports extends CI_Controller {
             }else{
                 $sql = "SELECT tbl_salesmaster.*,tbl_salesmaster.Status as type, tbl_customer.* FROM tbl_salesmaster left join tbl_customer on tbl_customer.Customer_SlNo = tbl_salesmaster.SalseCustomer_IDNo WHERE tbl_salesmaster.Status = '$Salestype' and tbl_salesmaster.SalseCustomer_IDNo = '$customerID' and  tbl_salesmaster.SaleMaster_SaleDate between  '$Sales_startdate' and '$Sales_enddate'";
             }
-            
+
         }
         $datas["record"] = $this->mt->ccdata($sql);
-        
+
         $this->load->view('Administrator/reports/sales_record_print', $datas);
     }
     function sales_record_print($invoce)  {
         $datas["id"] = $invoce;
         $this->load->view('Administrator/reports/sales_invoice', $datas);
+    }
+    function challan_record_print($invoce)  {
+        $datas["id"] = $invoce;
+        $this->load->view('Administrator/reports/sales_challan', $datas);
     }
     function sales_stock()  {
         $datas['title'] = "Sales Stock";
@@ -112,7 +130,7 @@ class Reports extends CI_Controller {
             $sql = "SELECT tbl_purchasemaster.*, tbl_supplier.* FROM tbl_purchasemaster left join tbl_supplier on tbl_supplier.Supplier_SlNo = tbl_purchasemaster.Supplier_SlNo WHERE tbl_purchasemaster.Supplier_SlNo = '$Supplierid'  group by tbl_purchasemaster.Supplier_SlNo";
         }
         $datas["record"] = $this->mt->ccdata($sql);
-        
+
         $this->load->view('Administrator/reports/supplier_due_list_print', $datas);
     }
     function search_customer_due()  {
@@ -143,7 +161,7 @@ class Reports extends CI_Controller {
 				}
 			}
         $datas["record"] = $this->mt->ccdata($sql);
-        
+
         $this->load->view('Administrator/reports/customer_due_print', $datas);
     }
     function supplier_payment_print()  {
@@ -152,7 +170,7 @@ class Reports extends CI_Controller {
         $Purchase_enddate = $this->session->userdata('Purchase_enddate');
         $Supplierid = $this->session->userdata('Supplierid');
 		$salestype = $this->session->userdata('salestype');
-		
+
         if($searchtype == "All"){
             $sql = "SELECT tbl_supplier_payment.*, tbl_supplier.* FROM tbl_supplier_payment left join tbl_supplier on tbl_supplier.Supplier_SlNo = tbl_supplier_payment.SPayment_customerID WHERE tbl_supplier_payment.SPayment_date between  '$Purchase_startdate' and '$Purchase_enddate'";
         }
@@ -160,7 +178,7 @@ class Reports extends CI_Controller {
             $sql = "SELECT tbl_supplier_payment.*, tbl_supplier.* FROM tbl_supplier_payment left join tbl_supplier on tbl_supplier.Supplier_SlNo = tbl_supplier_payment.SPayment_customerID WHERE tbl_supplier_payment.SPayment_customerID = '$Supplierid' and  tbl_supplier_payment.SPayment_date between  '$Purchase_startdate' and '$Purchase_enddate'";
         }
         $datas["record"] = $this->mt->ccdata($sql);
-        
+
         $this->load->view('Administrator/reports/supplier_payment_print', $datas);
     }
     function customer_payment_print()  {
@@ -186,12 +204,16 @@ class Reports extends CI_Controller {
 				}
 			}
         $datas["record"] = $this->mt->ccdata($sql);
-        
+
         $this->load->view('Administrator/reports/customer_payment_print', $datas);
     }
     function current_stock()  {
         $datas['title'] = "Current Stock";
         $this->load->view('Administrator/reports/current_stock', $datas);
+    }
+    function Product_List()  {
+        $datas['title'] = "Products List";
+        $this->load->view('Administrator/reports/product_list', $datas);
     }
 	function print_current_stock()  {
         $datas['title'] = "Current Stock";
@@ -210,7 +232,7 @@ class Reports extends CI_Controller {
             $sql = "SELECT tbl_cashtransaction.*,tbl_account.* FROM tbl_cashtransaction left join tbl_account on tbl_account.Acc_SlNo=tbl_cashtransaction.Acc_SlID where tbl_cashtransaction.Acc_SlID ='$accountid ' and tbl_cashtransaction.Tr_date between '$expence_startdate' and '$expence_enddate'";
         }
         $datas["record"] = $this->mt->ccdata($sql);
-        
+
         $this->load->view('Administrator/reports/expense_list', $datas);
     }
     function cashview_print()  {

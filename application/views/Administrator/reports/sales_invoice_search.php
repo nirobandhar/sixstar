@@ -154,7 +154,7 @@ document.getElementById('printButton').style.visibility="visible";
 
                     <table class="border" cellspacing="0" cellpadding="0" width="100%">
                         <tr>
-                            <th>SI No.</th>
+                            <th style="width: 30px">SI No.</th>
                             <th>Product Name</th>
                             <th>Model</th>
                             <th>Company</th>

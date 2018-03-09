@@ -199,7 +199,7 @@ class Customer extends CI_Controller {
         $dAta['customerID']=$customerID = $this->input->post('customerID');
 		$dAta['salestype']=$Salestype = $this->input->post('Salestype');
         $this->session->set_userdata($dAta);
-		
+
 	if($Salestype == 'All'){
         if($searchtype == "All"){
             $sql = "SELECT tbl_salesmaster.*,tbl_salesmaster.Status as salestatus, tbl_customer.* FROM tbl_salesmaster left join tbl_customer on tbl_customer.Customer_SlNo = tbl_salesmaster.SalseCustomer_IDNo group by tbl_salesmaster.SalseCustomer_IDNo";

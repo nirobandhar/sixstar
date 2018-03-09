@@ -6,16 +6,16 @@
                         <div class="body">
                             <div class="full clearfix">
                                 <span>Product Id</span>
-                                <div class="left">                                    
+                                <div class="left">
                                     <input name="Emp_id" type="text" id="Empr_id" class="required" disabled="" value="<?php echo $selected['Product_Code'] ?>" />
                                     <input name="Product_id" type="hidden" id="Product_id" class="required" value="<?php echo $selected['Product_Code'] ?>" />
                                     <input name="iidd" type="hidden" id="iidd" value="<?php echo $selected['Product_SlNo'] ?>" />
                                 </div>
-                            </div>                                
-                           
+                            </div>
+
                             <div class="full clearfix">
                                 <span>MOdel</span>
-                                <div class="left">                                      
+                                <div class="left">
                                   <div id="Search_Results_category">
                                         <select name="pCategory" id="pCategory" style="width:163px;" required>
                                             <option value="<?php echo $selected['ProductCategory_ID'] ?>"><?php echo $selected['ProductCategory_Name'] ?></option>
@@ -23,19 +23,19 @@
                                             while($row = mysql_fetch_array($sql)){ ?>
                                             <option value="<?php echo $row['ProductCategory_SlNo'] ?>"><?php echo $row['ProductCategory_Name'] ?></option>
                                             <?php } ?>
-                                        </select>  
-                                    </div>               
+                                        </select>
+                                    </div>
                                 </div>
                                 <div class="rightElement">
                                     <a class="btn-add fancybox fancybox.ajax" href="<?php echo base_url();?>Administrator/products/fanceybox_category">
-                                        <input type="button" name="country_button" value="+"  class="button" style="padding:7px 10px;font-size:16px;"/>                                
-                                    </a> 
+                                        <input type="button" name="country_button" value="+"  class="button" style="padding:7px 10px;font-size:16px;"/>
+                                    </a>
                                 </div>
                                 <div id="pCategory_"></div>
                             </div>
                             <div class="full clearfix">
                                 <span>Size</span>
-                                <div class="left">                                      
+                                <div class="left">
                                   <div id="Search_Results_size">
                                         <select name="psize" id="psize" style="width:163px;" required>
                                             <option value="">Select</option>
@@ -43,19 +43,19 @@
                                             while($row = mysql_fetch_array($sql)){ ?>
                                             <option value="<?php echo $row['Productsize_SlNo'] ?>" <?php if($row['Productsize_SlNo'] == $selected['sizeId']){echo 'selected';} ?>><?php echo $row['Productsize_Name'] ?></option>
                                             <?php } ?>
-                                        </select>  
-                                    </div>               
+                                        </select>
+                                    </div>
                                 </div>
                                 <div class="rightElement">
                                     <a class="btn-add fancybox fancybox.ajax" href="<?php echo base_url();?>Administrator/products/fanceybox_size">
-                                    <input type="button" name="country_button" value="+"  class="button" style="padding:7px 10px;font-size:16px;"/>                                
-                                    </a> 
+                                    <input type="button" name="country_button" value="+"  class="button" style="padding:7px 10px;font-size:16px;"/>
+                                    </a>
                                 </div>
                                 <div id="psize_"></div>
                             </div>
                             <div class="full clearfix">
                                 <span>Name</span>
-                                <div class="left">                                    
+                                <div class="left">
                                     <input name="pro_Name" type="text" id="pro_Name" value="<?php echo $selected['Product_Name'] ?>" class="required" required/>
                                     <span id="pro_Name_"></span>
                                 </div>
@@ -63,50 +63,50 @@
                                 <input id="product_check" type="hidden" value="Product" <?php if($selected['Product_type']=="Product"){echo "checked";} ?> checked name="product_check" />
                            <!--  <div class="full clearfix">
                                <span>Type</span>
-                               <div class="left">                                    
+                               <div class="left">
                                <input id="product_check" type="radio" value="Product" <?php if($selected['Product_type']=="Product"){echo "checked";} ?> checked name="product_check" />
                                <label for="chkMultiple">Product</label>&nbsp;&nbsp;&nbsp;
                                <input type="radio" id="product_check"name="product_check" value="Service" <?php if($selected['Product_type']=="Service"){echo "checked";} ?> />
-                               <label for="chkMultiple">Service</label>           
+                               <label for="chkMultiple">Service</label>
                                </div>
                            </div> -->
                              <div class="full clearfix">
                                 <span>Re-Order Level</span>
-                                <div class="left">                                    
+                                <div class="left">
                                     <input name="Re_Order" type="text" id="Re_Order" value="<?php echo $selected['Product_ReOrederLevel'] ?>" class="required" />
                                     <span id="Re_Order_"></span>
                                 </div>
-                            </div>                                                                                                                                    
+                            </div>
                         </div>
-                       
+
                     </div>
                     <div class="right_form">
                         <div class="body">
-                            
-                           
+
+
                             <div class="full clearfix">
                                 <span>Purchase Rate</span>
-                                <input name="Purchase_rate" type="text" id="Purchase_rate" value="<?php echo $selected['Product_Purchase_Rate'] ?>" class="txt" required/>
+                                <input name="Purchase_rate" type="text" tabindex="1" id="Purchase_rate" onkeypress="Update(event)" value="<?php echo $selected['Product_Purchase_Rate'] ?>" class="txt" autofocus required/>
                                 <span id="Purchase_rate_"></span>
                             </div>
                             <div class="full clearfix">
                                 <span>Wholesales Rate</span>
-                                <input name="wholesale_rate" type="text" id="wholesale_rate" value="<?php echo $selected['Product_WholesaleRate'] ?>" class="txt" required/>
+                                <input name="wholesale_rate" type="text" tabindex="2" id="wholesale_rate" onkeypress="Update(event)" value="<?php echo $selected['Product_WholesaleRate'] ?>" class="txt" required/>
                                 <span id="wholesale_rate_"></span>
                             </div>
                             <div class="full clearfix">
                                 <span>Sell Rate</span>
-                                <input name="sell_rate" type="text" id="sell_rate" value="<?php echo $selected['Product_SellingPrice'] ?>" class="txt" required/>
+                                <input name="sell_rate" type="text" tabindex="3" id="sell_rate" onkeypress="Update(event)" value="<?php echo $selected['Product_SellingPrice'] ?>" class="txt" required/>
                                 <span id="sell_rate_"></span>
-                            </div> 
+                            </div>
                             <div class="full clearfix">
                                 <span>Installment Rate</span>
                                 <input name="Installment_rate" type="text" id="Installment_rate" value="<?php echo $selected['Product_InstallmentRate'] ?>" class="txt" required/>
                                 <span id="installment_rate_"></span>
-                            </div> 
+                            </div>
                             <div class="full clearfix">
                                 <span>Unit</span>
-                                <div class="left">                                      
+                                <div class="left">
                                     <div id="Search_Results">
                                         <select name="product_unit" id="product_unit" style="width:200px;" required>
                                             <option value="<?php echo $selected['Unit_ID'] ?>"><?php echo $selected['Unit_Name'] ?></option>
@@ -114,13 +114,13 @@
                                             while($row = mysql_fetch_array($sql)){ ?>
                                             <option value="<?php echo $row['Unit_SlNo'] ?>"><?php echo $row['Unit_Name'] ?></option>
                                             <?php } ?>
-                                        </select>  
-                                    </div>               
+                                        </select>
+                                    </div>
                                 </div>
                                 <div class="rightElement">
                                     <a class="btn-add fancybox fancybox.ajax" href="<?php echo base_url();?>Administrator/products/fanceybox_unit">
-                                        <input type="button" name="country_button" value="+"  class="button" style="padding:7px 10px;font-size:16px;"/>                                
-                                    </a> 
+                                        <input type="button" name="country_button" value="+"  class="button" style="padding:7px 10px;font-size:16px;"/>
+                                    </a>
                                 </div>
                                 <div id="product_unit_"></div>
                             </div>
@@ -172,4 +172,11 @@
             <?php } ?> 
             </tbody>    
         </table> 
-    </div> 
+    </div>
+<script type="text/javascript">
+    function Update(e) {
+        if(e.keyCode === 13){
+            update_pro()
+        }
+    }
+</script>

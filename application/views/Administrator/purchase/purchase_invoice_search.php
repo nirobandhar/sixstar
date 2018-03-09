@@ -119,16 +119,16 @@
     <table class="border" cellspacing="0" cellpadding="0" width="70%">
 
         <tr>
-
-           <th>SI No.</th>
-
-           <th>Product Name</th>
-
-           <th>Quantity</th>
-
-           <th>Rate</th>
-
-           <th>Amount</th>
+            <th width="55">SI No.</th>
+            <th colspan="2">Company</th>
+            <th>Model</th>
+            <th>Product Name</th>
+            <th>Size</th>
+            <th>Unit</th>
+            <!--             <th>Branch with Qty </th>-->
+            <th>Quantity</th>
+            <th>Rate</th>
+            <th>Amount</th>
 
         </tr>
 
@@ -160,7 +160,25 @@
 
             <td><?php echo $i; ?></td>
 
-            <td><?php echo $rows['Product_Name'] ?></td>
+            <td colspan="2"><?php
+                $ssqlsmodel2 = mysql_query("SELECT * FROM tbl_productcategory where ProductCategory_SlNo = '".$rows['ProductCategory_ID']."'");
+                $rowsmodel2 = mysql_fetch_array($ssqlsmodel2);
+                echo $rowsmodel2['company'];
+                ?></td>
+            <td><?php
+                $ssqlsmodel = mysql_query("SELECT * FROM tbl_productcategory where ProductCategory_SlNo = '".$rows['ProductCategory_ID']."'");
+                $rowsmodel = mysql_fetch_array($ssqlsmodel);
+                echo $rowsmodel['ProductCategory_Name'];
+                ?></td>
+            <td><?php echo $rows['Product_Name']; ?></td>
+            <td><?php
+                $ssqlssize = mysql_query("SELECT * FROM tbl_produsize where Productsize_SlNo = '".$rows['sizeId']."'");
+                $rowsize = mysql_fetch_array($ssqlssize);
+                echo $rowsize['Productsize_Name'];
+                ?></td>
+
+            <td><?php echo $rows['PurchaseDetails_Unit']; ?></td>
+
 
             <td style="text-align: center;"><?php echo $rows['PurchaseDetails_TotalQuantity']; ?>
 
@@ -206,7 +224,7 @@
 
         <tr>
 
-            <td colspan="3" style="border:0px"></td>
+            <td colspan="8" style="border:0px"></td>
 
             <td style="border:0px"><strong>Sub Total :</strong> </td>
 
@@ -216,7 +234,7 @@
 
         <tr>
 
-            <td  style="border:0px"><strong>Previous Due</strong></td>
+            <td colspan="3" style="border:0px"><strong>Previous Due</strong></td>
 
             <td  style="border:0px;color:red;text-align: right;">
 
@@ -262,7 +280,7 @@
 
             </td>
 
-            <td  style="border:0px"></td>
+            <td colspan="4" style="border:0px"></td>
 
             <td style="border:0px"><strong>Vat :</strong> </td>
 
@@ -272,13 +290,13 @@
 
         <tr>
 
-            <td style="border:0px"><strong>Current Due</strong></td>
+            <td colspan="3" style="border:0px"><strong>Current Due</strong></td>
 
             <td style="border:0px;color:red;text-align: right;"><?php if($CurrenDue){echo number_format($CurrenDue, 2);}else{echo '0.00';} ?></td>
 
-            <td style="border:0px"></td>
+            <td colspan="4" style="border:0px"></td>
 
-            <td style="border:0px"><strong>Frieght :</strong> </td>
+            <td  style="border:0px"><strong>Frieght :</strong> </td>
 
             <td style="border:0px;text-align: right;"><?php $Frieght = $selse['PurchaseMaster_Freight']; echo number_format($Frieght,2) ?></td>
 
@@ -286,11 +304,11 @@
 
         <tr>
 
-            <td style="border-top: 1px solid #999;border-left: 0px ;border-right: 0px ;border-bottom: 0px ;"><strong>Total Due</strong> </td>
+            <td colspan="3" style="border-top: 1px solid #999;border-left: 0px ;border-right: 0px ;border-bottom: 0px ;"><strong>Total Due</strong> </td>
 
             <td style="color:red;border-top: 1px solid #999;border-left: 0px ;border-right: 0px ;border-bottom: 0px ;text-align: right;"><?php if($previousdue+$CurrenDue==0){echo '0.00';}else{ echo number_format(($previousdue+$CurrenDue), 2);} ?></td>
 
-            <td style="border:0px"></td>
+            <td colspan="4" style="border:0px"></td>
 
             <td style="border:0px"><strong>Labour Cost :</strong> </td>
 
@@ -300,9 +318,9 @@
 
          <tr>
 
-            <td colspan="3" style="border:0px"></td>
+            <td colspan="8" style="border:0px"></td>
 
-            <td colspan="2" style="border-top: 2px solid #999;border-left: 0px ;border-right: 0px ;border-bottom: 0px ;"></td>
+            <td colspan="8" style="border-top: 2px solid #999;border-left: 0px ;border-right: 0px ;border-bottom: 0px ;"></td>
 
            
 
@@ -310,7 +328,7 @@
 
         <tr>
 
-            <td colspan="3" style="border:0px"></td>
+            <td colspan="8" style="border:0px"></td>
 
             <td style="border:0px"><strong>Total :</strong> </td>
 
@@ -320,7 +338,7 @@
 
         <tr>
 
-            <td colspan="3" style="border:0px"></td>
+            <td colspan="8" style="border:0px"></td>
 
             <td style="border:0px"><strong>Paid :</strong> </td>
 
@@ -330,9 +348,9 @@
 
         <tr>
 
-            <td colspan="3" style="border:0px"></td>
+            <td colspan="8" style="border:0px"></td>
 
-            <td colspan="2" style="border-top: 2px solid #999;border-left: 0px ;border-right: 0px ;border-bottom: 0px ;"></td>
+            <td colspan="8" style="border-top: 2px solid #999;border-left: 0px ;border-right: 0px ;border-bottom: 0px ;"></td>
 
            
 
@@ -340,7 +358,7 @@
 
         <tr>
 
-            <td colspan="3" style="border:0px"></td>
+            <td colspan="8" style="border:0px"></td>
 
             <td style="border:0px"><strong>Due :</strong> </td>
 

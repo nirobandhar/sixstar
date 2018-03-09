@@ -25,20 +25,20 @@
                     </div></td>
                     <td>Date</td>
                     <td>
-                    <div class="full clearfix" >
-                        <input name="sales_date" readonly="" id="sales_date" type="text" value="<?php echo date("Y-m-d") ?>" class="inputclass" style="width:200px"/>
+                    <div class="full clearfix" id="ashiqeCalender">
+                        <input name="sales_date" id="sales_date" type="text" value="<?php echo date("Y-m-d") ?>" class="inputclass" style="width:200px"/>
                     </div></td>
                 </tr>
             </table>
         </div><br>
         <div style="width:100%; ">
-        <table width="100%" style="float-left"> 
+        <table width="100%" style="float-left">
             <tr>
                 <td style="border: 1px solid #ddd;"><!-- Customer area -->
-                    <table > 
+                    <table >
                         <tr>
                             <td style="width:100px">Customer ID</td>
-                           
+
                             <td>
                                 <div class="side-by-side clearfix">
                                     <div>
@@ -46,7 +46,7 @@
                                                 <option value=""></option>
                                                 <?php $sql = mysql_query("SELECT * FROM tbl_customer order by Customer_Name asc");
                                                 while($row = mysql_fetch_array($sql)){ ?>
-                                                <option value="<?php echo $row['Customer_SlNo'] ?>"> <?php echo $row['Customer_Name']; ?>(<?php echo $row['Customer_Code']; ?>) </option>
+                                                <option value="<?php echo $row['Customer_SlNo'] ?>"> <?php echo $row['Customer_Name']; ?>(<?php echo $row['Customer_Code']; ?>)<?php echo $row['Customer_Mobile']; ?> </option>
                                                 <?php } ?>
                                           </select>
                                     </div>
@@ -80,12 +80,20 @@
                                         </div>
                                     </td>
                                 </tr>
-                                
+
                             </table>
                         </span>
+                    <span id="country_"></span>
+                            </div>
+	                            <div class="rightElement">
+	                                <a class="btn-add fancybox fancybox.ajax" href="<?php echo base_url();?>Administrator/page/fancybox_add_customer">
+	                                    <input type="button" name="country_button" value="+"  class="button" style="padding:10px 25px;font-size:16px;"/>
+	                                </a>
+	                            </div>
+                            </div>
                 </td>
                 <td style="border: 1px solid #ddd;"><!-- Product area -->
-                    <table > 
+                    <table >
                         <tr>
                             <td style="width:100px">Product ID</td>
                             <td style="width:200px">
@@ -93,10 +101,10 @@
                                     <div>
                                           <select id="ProID" data-placeholder="Choose a Product..." class="chosen-select" style="width:200px;" tabindex="2" onchange="Products()">
                                                 <option value=""></option>
-                                                <?php $sql = mysql_query("SELECT tbl_product.*, tbl_productcategory.* FROM tbl_product left join tbl_productcategory on tbl_productcategory.ProductCategory_SlNo= tbl_product.ProductCategory_ID order by tbl_product.Product_Code asc");
-                                                while($row = mysql_fetch_array($sql)){ ?>
-                                                <option value="<?php echo $row['Product_SlNo'] ?>"><?php echo $row['Product_Name']; ?>(<?php echo $row['Product_Code']; ?>)</option>
-                                                <?php } ?>
+                                              <?php $sql = mysql_query("SELECT tbl_product.*, tbl_productcategory.*, tbl_produsize.*, tbl_branchwise_product.* FROM tbl_product left join tbl_productcategory on tbl_productcategory.ProductCategory_SlNo= tbl_product.ProductCategory_ID left join tbl_produsize on tbl_produsize.Productsize_SlNo=tbl_product.sizeId Left Join tbl_branchwise_product ON tbl_branchwise_product.pro_codes=tbl_product.Product_SlNo where tbl_branchwise_product.branch_ids = '".$this->sbrunch."' Group By tbl_branchwise_product.pro_codes order by tbl_product.Product_Code asc");
+                                              while($row = mysql_fetch_array($sql)){ ?>
+                                                  <option value="<?php echo $row['Product_SlNo'] ?>">(<?php echo $row['Product_Code']; ?>)<?php echo $row['company']; ?> <?php echo $row['Product_Name']; ?><?php echo $row['ProductCategory_Name']; ?><?php echo $row['Productsize_Name']; ?><?php echo $row['Product_WholesaleRate']; ?></option>
+                                              <?php } ?>
                                           </select>
                                     </div>
                                 </div>
@@ -117,7 +125,7 @@
                             <td>Quantity</td>
                             <td style="width:200px">
                                 <div class="full clearfix">
-                                    <input type="text" id="proQTY" onkeyup="keyUPAmount()" class="inputclass">
+                                    <input type="text" id="proQTY" onkeydown="wacrt()" onkeyup="keyUPAmount()" class="inputclass">
                                 </div>
                             </td>
                         </tr>
@@ -125,7 +133,7 @@
                             <td>Rate</td>
                             <td style="width:200px">
                                 <div class="full clearfix">
-                                    <input type="text" id="ProRATe" onkeyup="keyupamount2()" class="inputclass">
+                                    <input type="text" id="ProRATe" onkeydown="wacrt()" onkeyup="keyupamount2()" class="inputclass">
                                     <input type="hidden" id="ProPurchaseRATe" >
                                 </div>
                             </td>
@@ -134,7 +142,7 @@
                             <td>Discount</td>
                             <td style="width:200px">
                                 <div class="full clearfix">
-                                    <input type="text" id="ProParcent" onkeyup="keyupamount3()" class="inputclass">
+                                    <input type="text" id="ProParcent" onkeydown="wacrt()" onkeyup="keyupamount3()" class="inputclass">
                                 </div>
                             </td>
                         </tr>
@@ -161,13 +169,15 @@
                             <td align="center">
                                 <input type="text" id="stockpro" readonly style="border:none;font-size:20px;width:78px;text-align:center;color:green"><br>
                                 <input type="text" id="Prounit" readonly style="border:none;font-size:12px;width:20px"><br><br/>
-                                <span style="color:red; font-weight:bold;">Wholesale Rate</span><br/>
+                                <span id="show_price" style="display: none;">Purchase Rate<br/>
                                 <input type="text" id="purate" readonly style="border:none;font-size:20px;width:78px;text-align:center;color:green" value="0"><br><strong>Tk.</strong>
+								</span>
                             </td>
                         </tr>
                         <tr>
                             <td>
                                 <input type="button" class="buttonAshiqe" value="Add Cart" onclick="ADDTOCART()">
+								<input type="button" class="buttonAshiqe" value="Hide" onclick="whs()">
                             </td>
                         </tr>
                     </table>
@@ -190,11 +200,11 @@
                             <th style="width:10%">Action</th>
                         </tr>
                     </thead>
-                </table>                    
-            </div> 
+                </table>
+            </div>
             <span id="Salescartlist">
             <div class="clearfix moderntabs" style="width:330px;width:100%;max-height:100px;min-height:100px;overflow:auto;">
-                
+
                <?php  if ($cart = $this->cart->contents()): ?>
                         <table class="zebra" cellspacing="0" cellpadding="0" border="0" id="" style="text-align:left;width:100%;border-collapse:collapse;">
                             <tbody>
@@ -213,8 +223,8 @@
 									echo form_hidden('cart[' . $item['id'] . '][size]', $item['size']);
                                     echo form_hidden('cart[' . $item['id'] . '][price]', $item['price']);
                                     echo form_hidden('cart[' . $item['id'] . '][qty]', $item['qty']);
-                                    echo form_hidden('cart[' . $item['id'] . '][image]', $item['image']); 
-                            ?> 
+                                    echo form_hidden('cart[' . $item['id'] . '][image]', $item['image']);
+                            ?>
                                 <tr>
                                     <td style="width:4%"><?php echo $i; ?></td>
                                     <td style="width:13%"><?php echo $item['name']; ?></td>
@@ -243,11 +253,11 @@
 
 
                                 <?php endforeach; ?>
-                            </tbody>    
-                        </table> 
+                            </tbody>
+                        </table>
                         <input type="hidden" id="ckqty" value="<?php echo $count; ?>">
                         <?php endif; ?>
-                    
+
             </div>
         <table width="100%">
             <tr>
@@ -272,13 +282,13 @@
 
             </tr>
         </table>
-        </span>   
+        </span>
     </div>
     </div>
     <div style="width:20%; float:left">
         <fieldset>
             <legend>Amount Details</legend>
-            <table width="100%"> 
+            <table width="100%">
                 <tr>
                     <td>Sub Total<br>
                     <div class="full clearfix">
@@ -289,11 +299,11 @@
                 <tr>
                     <td>Vat<br>
                     <div class="full clearfix">
-                        <input type="text" id="vatPersent" onkeyup="vatonkeyup()" class="inputclass" style="width:50px" value="0"> % 
+                        <input type="text" id="vatPersent" onkeyup="vatonkeyup()" class="inputclass" style="width:50px" value="0"> %
                         <input type="text" id="SellVat" readonly="" class="inputclass" style="width:86px" value="0">
                     </div></td>
                 </tr>
-                
+
                 <tr>
                     <td>Freight<br>
                     <div class="full clearfix">
@@ -303,8 +313,8 @@
                 <tr>
                     <td>Discount<br>
                     <div class="full clearfix">
-                        <input type="text" id="SellsDiscount2" onkeyup="Discountonkeyup()" class="inputclass" style="width:50px" value="0"> % 
-                        <input type="text" id="SellsDiscount" readonly="" class="inputclass" style="width:86px" value="0">
+                        <input type="text" id="SellsDiscount2" onkeyup="Discountonkeyup()" class="inputclass" style="width:50px" value="0"> %
+                        <input type="text" id="SellsDiscount" class="inputclass" style="width:86px" value="0">
 
                     </div></td>
                 </tr>
@@ -324,7 +334,7 @@
                 <tr>
                     <td>Paid<br>
                      <div class="full clearfix">
-                        <input type="text" id="SellsPaid" class="inputclass" value="0" onkeyup="PaidAmount()" onkeypress="CraditLimit()">
+                        <input type="text" id="SellsPaid" class="inputclass" value="0" onkeydown="wsll" onkeyup="PaidAmount()" onkeypress="CraditLimit()">
                     </div></td>
                 </tr>
                 <tr>
@@ -338,15 +348,28 @@
                 </tr>
                 <tr>
                     <td><input type="button" class="buttonAshiqe" onclick="SalseToCart()" value="Sell" style="width:50px">
-                    <input type="button" class="buttonAshiqe" onclick="window.location = '<?php echo base_url(); ?>sales'" value="New Sell"></td>
+                    <input type="button" class="buttonAshiqe" onclick="window.location = '<?php echo base_url(); ?>Administrator/wholesales'" value="New Sell"></td>
                 </tr>
 
             </table>
         </fieldset>
     </div>
-</div> 
+</div>
 </span>
 <script type="text/javascript">
+    function wacrt() {
+        var wacrt = event.keyCode;
+        if (wacrt == 13) {
+            ADDTOCART()
+        }
+    }
+    function wsll() {
+        var wsll=event.keyCode;
+        if (wsll == 13){
+            SalseToCart()
+        }
+
+    }
     function keyUPAmount()   {
         var proQTY = $("#proQTY").val();
         var ProRATe = $("#ProRATe").val();
@@ -390,7 +413,7 @@
     function Products()   {
         var ProID = $("#ProID").val();
         var inputdata = 'ProID='+ProID;
-        var urldata = "<?php echo base_url();?>Administrator/sales/SelectProducts";
+        var urldata = "<?php echo base_url();?>Administrator/wholesales/SelectProducts";
         $.ajax({
             type: "POST",
             url: urldata,
@@ -417,6 +440,14 @@
     }
 </script>
 <script type="text/javascript">
+function whs() {
+        var x = document.getElementById("show_price");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+	}
     function ADDTOCART(){
         var ProID = $('#ProID').val();
         if(ProID==0){
@@ -566,7 +597,7 @@
 
                 $('#SellTotals').val(totalAmOuNT);
                 $('#SellTotaldisabled').val(totalAmOuNT);
-                $('#SellsPaid').val(totalAmOuNT);
+                /*$('#SellsPaid').val(totalAmOuNT);*/
                 //due
                 var total = $("#SellTotaldisabled").val();
                 var SellsPaid = $("#SellsPaid").val();
@@ -576,7 +607,6 @@
                 $('#SellsDue2').val(totalDUE);
             }
         });
-
 
     }
     function cartRemove(aid)   {
@@ -618,7 +648,7 @@
         var totalAmOuNT = parseFloat(subTotal)-parseFloat(Reword_Discount)+ parseFloat(SellVat)+ parseFloat(SellsFreight)-parseFloat(SellsDiscount);
         $('#SellTotals').val(totalAmOuNT);
         $('#SellTotaldisabled').val(totalAmOuNT);
-        $('#SellsPaid').val(totalAmOuNT);
+        /*$('#SellsPaid').val(totalAmOuNT);*/
         //due
         var total = $("#SellTotaldisabled").val();
         var SellsPaid = $("#SellsPaid").val();
@@ -642,7 +672,7 @@
         var totalAmOuNT = parseFloat(subtotal)-parseFloat(Reword_Discount)+ parseFloat(SellVat)+ parseFloat(SellsFreight)-parseFloat(SellsDiscount);
         $('#SellTotals').val(totalAmOuNT);
         $('#SellTotaldisabled').val(totalAmOuNT);
-        $('#SellsPaid').val(totalAmOuNT);
+        /*$('#SellsPaid').val(totalAmOuNT);*/
         //Reword_Discount
         var total = $("#SellTotaldisabled").val();
         var SellsPaid = $("#SellsPaid").val();
@@ -660,7 +690,7 @@
         var totalAmOuNT = parseFloat(subtotal)-parseFloat(Reword_Discount)+ parseFloat(SellVat)+ parseFloat(SellsFreight)-parseFloat(SellsDiscount);
         $('#SellTotals').val(totalAmOuNT);
         $('#SellTotaldisabled').val(totalAmOuNT);
-        $('#SellsPaid').val(totalAmOuNT);
+        /*$('#SellsPaid').val(totalAmOuNT);*/
         //Reword_Discount
         var total = $("#SellTotaldisabled").val();
         var SellsPaid = $("#SellsPaid").val();
@@ -684,7 +714,7 @@
         var totalAmOuNT = parseFloat(subtotal)-parseFloat(Reword_Discount)+ parseFloat(SellVat)+ parseFloat(SellsFreight)-parseFloat(SellsDiscount);
         $('#SellTotals').val(totalAmOuNT);
         $('#SellTotaldisabled').val(totalAmOuNT);
-        $('#SellsPaid').val(totalAmOuNT);
+        /*$('#SellsPaid').val(totalAmOuNT);*/
         //Reword_Discount
         var total = $("#SellTotaldisabled").val();
         var SellsPaid = $("#SellsPaid").val();
@@ -702,7 +732,7 @@
         var totalAmOuNT = parseFloat(subtotal)-parseFloat(Reword_Discount)+ parseFloat(SellVat)+ parseFloat(SellsFreight)-parseFloat(SellsDiscount);
         $('#SellTotals').val(totalAmOuNT);
         $('#SellTotaldisabled').val(totalAmOuNT);
-        $('#SellsPaid').val(totalAmOuNT);
+        /*$('#SellsPaid').val(totalAmOuNT);*/
         //Reword_Discount
         var total = $("#SellTotaldisabled").val();
         var SellsPaid = $("#SellsPaid").val();
@@ -759,12 +789,12 @@
             $("#SellsFreight").css("border-color","gray");
         }
 
-        var SellsDiscount = $("#SellsDiscount2").val();
+        var SellsDiscount = $("#SellsDiscount").val();
         if(SellsDiscount==""){
-            $("#SellsDiscount2").css("border-color","red");
+            $("#SellsDiscount").css("border-color","red");
             return false;
         }else{
-            $("#SellsDiscount2").css("border-color","gray");
+            $("#SellsDiscount").css("border-color","gray");
         }
 
         var Reword_Discount = $("#Reword_Discount").val();
@@ -794,8 +824,8 @@
         var ProParcentCartData = 0;
         ProParcentCartData = Math.round($("#ProParcentCartData").val());
 
-        var inputdata = 'packagename='+packagename+'&ProParcentCartData='+ProParcentCartData+'&ProParcent='+ProParcent+'&salesInvoiceno='+salesInvoiceno+'&sales_date='+sales_date+'&customerID='+customerID+'&CusName='+CusName+'&CusMobile='+CusMobile+'&CusAddress='+CusAddress+'&SelesNotes='+SelesNotes+'&subTotal='+subTotal+'&vatPersent='+vatPersent+'&SellsFreight='+SellsFreight+'&SellsDiscount='+SellsDiscount+'&SellTotals='+SellTotals+'&SellsPaid='+SellsPaid+'&SellsDue='+SellsDue+'&Reword_Discount='+Reword_Discount+'&status='+1;
-        var urldata = "<?php echo base_url();?>Administrator/sales/sales_order/";
+        var inputdata = 'packagename='+packagename+'&ProParcentCartData='+ProParcentCartData+'&ProParcent='+ProParcent+'&salesInvoiceno='+salesInvoiceno+'&sales_date='+sales_date+'&customerID='+customerID+'&CusName='+CusName+'&CusMobile='+CusMobile+'&CusAddress='+CusAddress+'&SelesNotes='+SelesNotes+'&subTotal='+subTotal+'&vatPersent='+vatPersent+'&SellsFreight='+SellsFreight+'&SellsDiscount='+SellsDiscount+'&SellTotals='+SellTotals+'&SellsPaid='+SellsPaid+'&SellsDue='+SellsDue+'&Reword_Discount='+Reword_Discount+'&status='+2;
+        var urldata = "<?php echo base_url();?>Administrator/wholesales/sales_order/";
 
         $.ajax({
             type: "POST",
@@ -814,6 +844,19 @@
                     }
                 }
 
+            }
+        });
+    }
+    function CraditLimit(){
+        var custID = $("#customerID").val();
+        var inputdata = 'custID='+custID;
+        var urldata = "<?php echo base_url(); ?>Administrator/sales/craditlimit/";
+        $.ajax({
+            type: "POST",
+            url: urldata,
+            data: inputdata,
+            success:function(data){
+                $("#ShowCraditLimitAndDue").html(data);
             }
         });
     }

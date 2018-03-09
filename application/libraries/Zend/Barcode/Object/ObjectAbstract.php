@@ -64,7 +64,7 @@ abstract class Zend_Barcode_Object_ObjectAbstract
      * Height of the bar
      * @var integer
      */
-    protected $_barHeight = 30;
+    protected $_barHeight = 22;
 
     /**
      * Width of a thin bar
@@ -76,7 +76,7 @@ abstract class Zend_Barcode_Object_ObjectAbstract
      * Width of a thick bar
      * @var integer
      */
-    protected $_barThickWidth = 3;
+    protected $_barThickWidth = 2;
 
     /**
      * Factor to multiply bar and font measure
@@ -165,7 +165,7 @@ abstract class Zend_Barcode_Object_ObjectAbstract
      * Font size
      * @var float
      */
-    protected $_fontSize = 10;
+    protected $_fontSize = 12;
 
     /**
      * Drawing of checksum
@@ -1030,17 +1030,17 @@ abstract class Zend_Barcode_Object_ObjectAbstract
         if ($this->_offsetLeft === null || $recalculate) {
             $this->_offsetLeft = - min(array(
                 0 * cos(
-                        $this->_orientation / 180 * pi()) - 0 * sin(
-                        $this->_orientation / 180 * pi()),
+                    $this->_orientation / 180 * pi()) - 0 * sin(
+                    $this->_orientation / 180 * pi()),
                 0 * cos(
-                        $this->_orientation / 180 * pi()) - $this->_calculateBarcodeHeight() * sin(
-                        $this->_orientation / 180 * pi()),
+                    $this->_orientation / 180 * pi()) - $this->_calculateBarcodeHeight() * sin(
+                    $this->_orientation / 180 * pi()),
                 $this->_calculateBarcodeWidth() * cos(
-                        $this->_orientation / 180 * pi()) - $this->_calculateBarcodeHeight() * sin(
-                        $this->_orientation / 180 * pi()),
+                    $this->_orientation / 180 * pi()) - $this->_calculateBarcodeHeight() * sin(
+                    $this->_orientation / 180 * pi()),
                 $this->_calculateBarcodeWidth() * cos(
-                        $this->_orientation / 180 * pi()) - 0 * sin(
-                        $this->_orientation / 180 * pi()),
+                    $this->_orientation / 180 * pi()) - 0 * sin(
+                    $this->_orientation / 180 * pi()),
             ));
         }
         return $this->_offsetLeft;
@@ -1057,17 +1057,17 @@ abstract class Zend_Barcode_Object_ObjectAbstract
         if ($this->_offsetTop === null || $recalculate) {
             $this->_offsetTop = - min(array(
                 0 * cos(
-                        $this->_orientation / 180 * pi()) + 0 * sin(
-                        $this->_orientation / 180 * pi()),
+                    $this->_orientation / 180 * pi()) + 0 * sin(
+                    $this->_orientation / 180 * pi()),
                 $this->_calculateBarcodeHeight() * cos(
-                        $this->_orientation / 180 * pi()) + 0 * sin(
-                        $this->_orientation / 180 * pi()),
+                    $this->_orientation / 180 * pi()) + 0 * sin(
+                    $this->_orientation / 180 * pi()),
                 $this->_calculateBarcodeHeight() * cos(
-                        $this->_orientation / 180 * pi()) + $this->_calculateBarcodeWidth() * sin(
-                        $this->_orientation / 180 * pi()),
+                    $this->_orientation / 180 * pi()) + $this->_calculateBarcodeWidth() * sin(
+                    $this->_orientation / 180 * pi()),
                 0 * cos(
-                        $this->_orientation / 180 * pi()) + $this->_calculateBarcodeWidth() * sin(
-                        $this->_orientation / 180 * pi()),
+                    $this->_orientation / 180 * pi()) + $this->_calculateBarcodeWidth() * sin(
+                    $this->_orientation / 180 * pi()),
             ));
         }
         return $this->_offsetTop;
@@ -1203,7 +1203,7 @@ abstract class Zend_Barcode_Object_ObjectAbstract
                         $this->_rotate(
                             $leftPosition,
                             (int) $this->_withBorder * 2
-                                + $this->_factor * ($this->_barHeight + $this->_fontSize) + 1
+                            + $this->_factor * ($this->_barHeight + $this->_fontSize) + 1
                         ),
                         $this->_font,
                         $this->_foreColor,
@@ -1218,7 +1218,7 @@ abstract class Zend_Barcode_Object_ObjectAbstract
                     $this->_rotate(
                         $this->_calculateWidth() / 2,
                         (int) $this->_withBorder * 2
-                            + $this->_factor * ($this->_barHeight + $this->_fontSize) + 1
+                        + $this->_factor * ($this->_barHeight + $this->_fontSize) + 1
                     ),
                     $this->_font,
                     $this->_foreColor,

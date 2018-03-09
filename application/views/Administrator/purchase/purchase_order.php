@@ -83,12 +83,13 @@
                                 <td style="width:150px">
                                     <div class="side-by-side clearfix">
                                         <div>
+                                            <a href='<?php echo base_url();?>Administrator/products'target="_blank"><span style="font-weight:bold">Add Products</span></a>
                                               <select id="ProID" data-placeholder="Choose a Product..." class="chosen-select" style="width:220px;" tabindex="2" onchange="Products()">
-                                                     <option value=""></option>
-                                                    <?php $sql = mysql_query("SELECT tbl_product.*, tbl_productcategory.* FROM tbl_product left join tbl_productcategory on tbl_productcategory.ProductCategory_SlNo= tbl_product.ProductCategory_ID order by tbl_product.Product_Code asc");
-                                                    while($row = mysql_fetch_array($sql)){ 
+                                                  <option value=""></option>
+                                                  <?php $sql = mysql_query("SELECT tbl_product.*, tbl_productcategory.*,tbl_produsize.* FROM tbl_product left join tbl_productcategory on tbl_productcategory.ProductCategory_SlNo= tbl_product.ProductCategory_ID left join tbl_produsize on tbl_produsize.Productsize_SlNo= tbl_product.sizeId order by tbl_product.Product_Code desc");
+                                                  while($row = mysql_fetch_array($sql)){ ?>
                                                         $proname = $row['Product_Name'];?>
-                                                    <option value="<?php echo $row['Product_SlNo'] ?>"><?php echo $row['Product_Code']." "; ?>_<?php echo $row['ProductCategory_Name']." "; ?>_<?php echo $row['Product_Name']; ?> </option>
+                                                    <option value="<?php echo $row['Product_SlNo'] ?>"><?php echo $row['Product_Code']." "; ?> <?php echo $row['company']; ?> <?php echo $row['Product_Name']; ?> <?php echo $row['ProductCategory_Name']." "; ?><?php echo $row['Productsize_Name']." "; ?> </option>
                                                     <?php } ?>
                                               </select>
                                         </div>
@@ -105,7 +106,7 @@
                                                     </div>
                                                 </td>
                                                 <td> Quantity </td>
-                                                <td style="width:80px"><div class="full clearfix"><input type="text" id="PurchaseQTY" name="PurchaseQTY" value="" selected="1" class="inputclass" placeholder="0" onkeyup="calamount()"></div></td>
+                                                <td style="width:80px"><div class="full clearfix"><input type="text" id="PurchaseQTY" name="PurchaseQTY" value="" selected="1" class="inputclass" placeholder="0" onkeyup="calamount()" onkeypress="AddCart(event)"></div></td>
 
                                                 <td> Rate </td>
                                                 <td style="width:100px">
@@ -156,6 +157,7 @@
                             <th style="width:13%">Product Name</th>
                             <th style="width:10%">Company</th>
                             <th style="width:12%">Model</th>
+                            <th style="width:12%">Size</th>
                             <!--<th style="width:10%">size</th>-->
                             <th style="width:10%">Qty</th>
                             <th style="width:10%">Rate</th>
@@ -163,11 +165,11 @@
                             <th style="width:10%">Total</th>
                             <th style="width:10%">Action</th>
                         </thead>
-                    </table>                    
-                </div> 
+                    </table>
+                </div>
             <span id="ShowcarTProduct">
                 <div class="clearfix moderntabs" style="width:330px;width:100%;max-height:150px;min-height:150px;overflow:auto;">
-                        
+
                         <?php  if ($cart = $this->cart->contents()): ?>
                         <table class="zebra" cellspacing="0" cellpadding="0" border="0" id="" style="text-align:left;width:100%;border-collapse:collapse;">
                             <tbody>
@@ -184,17 +186,18 @@
                                     echo form_hidden('cart[' . $item['id'] . '][price]', $item['price']);
                                     echo form_hidden('cart[' . $item['id'] . '][purchaserate]', $item['purchaserate']);
                                     echo form_hidden('cart[' . $item['id'] . '][model]', $item['model']);
+                                    echo form_hidden('cart[' . $item['id'] . '][sizep]', $item['sizep']);
 									echo form_hidden('cart[' . $item['id'] . '][gqty]', $item['gqty']);
                                     echo form_hidden('cart[' . $item['id'] . '][qty]', $item['qty']);
-                                    echo form_hidden('cart[' . $item['id'] . '][image]', $item['image']); 
-                            ?> 
+                                    echo form_hidden('cart[' . $item['id'] . '][image]', $item['image']);
+                            ?>
                                 <tr>
 
                                     <td style="width:4%"><?php echo $i; ?></td>
                                     <td style="width:13%"><?php echo $item['name']; ?></td>
                                     <td style="width:10%"><?php echo $item['company_name']; ?></td>
                                     <td style="width:12%"><?php echo $item['model']; ?></td>
-                                    <td style="width:10%"><?php echo $item['size']; ?></td>
+                                    <td style="width:10%"><?php echo $item['sizep']; ?></td>
 
                                     <td style="width:10%"><?php echo $item['qty']; ?><?php if(!empty($item['packagename'])){ ?><input type="hidden" name="sqty[]" id="sqty<?php echo $i;?>" value="<?php echo $item['qty']; ?>">
                                             <input type="hidden" name="sNaMe[]" id="sNaMe<?php echo $i;?>" value="<?php echo $item['name']; ?>">
@@ -216,8 +219,8 @@
 
                                 </tr>
                                 <?php endforeach; ?>
-                            </tbody>    
-                        </table> 
+                            </tbody>
+                        </table>
                         <?php endif; ?>
                 </div>
                 <table width="100%">
@@ -274,7 +277,8 @@
                 <tr>
                     <td>Discount<br>
                     <div class="full clearfix">
-                        <input type="text" class="inputclass" id="purchDiscount" onkeyup="Discountonkeyup()" value="0">
+                        <input type="text" id="discPersent"  onkeyup="disconkeyup()" class="inputclass" style="width:50px" value="0"> %
+                        <input type="text" class="inputclass" id="purchDiscount" onkeyup="Discountonkeyup()" style="width:86px" value="0">
                     </div></td>
                 </tr>
                 <tr>
@@ -330,6 +334,11 @@ $(function(){
 		}
     });
 });
+function AddCart(e) {
+    if(e.keyCode === 13){
+        AddToPurchaseCart()
+    }
+}
 function calamount(){
 	var qty = $("#PurchaseQTY").val();
 	var ProductRATE = $("#ProductRATE").val();
@@ -375,6 +384,7 @@ function calamount2(){
             }
         });
     }
+
     function AddToPurchaseCart(){
         var id = $("#ProID").val();
         if(id == ""){
@@ -579,6 +589,31 @@ function calamount2(){
         $('#purchaseDue2').val(totalDUE);
 
     }
+function disconkeyup(){
+    var subtotal = $("#subTotal").val();
+    var purchVat = $("#purchVat").val();
+    var purchFreight = $("#purchFreight").val();
+    var discPersent = $("#discPersent").val();
+    var purchDiscount = $("#purchDiscount").val();
+    var labourCost = $("#labourCost").val();
+    var disctotal = parseFloat(subtotal) * parseFloat(discPersent);
+    var pdtotal = parseFloat(disctotal) / 100;
+    $('#purchDiscount').val(pdtotal);
+    //
+    var totalAmOuNT = parseFloat(subtotal)+ parseFloat(purchVat)+ parseFloat(purchFreight)-parseFloat(purchDiscount)+ parseFloat(labourCost);
+    $('#purchTotal').val(totalAmOuNT);
+    $('#purchTotaldisabled').val(totalAmOuNT);
+    $('#PurchPaid').val(totalAmOuNT);
+    //due
+    var total = $("#purchTotaldisabled").val();
+    var PurchPaid = $("#PurchPaid").val();
+    var purchaseDue = $("#purchaseDue").val();
+    var totalDUE = parseFloat(total)- parseFloat(PurchPaid);
+    $('#purchaseDue').val(totalDUE);
+    $('#purchaseDue2').val(totalDUE);
+
+
+}
     function Discountonkeyup(){
         var subtotal = $("#subTotal").val();
         var purchVat = $("#purchVat").val();

@@ -24,7 +24,7 @@ $sqq = mysql_query("SELECT tbl_package_create.*, tbl_package.* FROM tbl_package_
             <td> Quantity </td>
             <td style="width:80px">
                 <div class="full clearfix">
-                    <input type="text" id="PurchaseQTY" name="PurchaseQTY" value="" selected="1" class="inputclass" placeholder="0" onkeyup="calamount()">
+                    <input type="text" id="PurchaseQTY" name="PurchaseQTY" value="" selected="1" class="inputclass" placeholder="0" onkeyup="calamount()" onkeypress="AddCart(event)">
                 </div>
             </td>
             <td> Rate </td>

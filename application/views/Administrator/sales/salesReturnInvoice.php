@@ -157,9 +157,9 @@
 
                                 <td><?php echo $rox['SaleDetails_Rate']*$rox['SaleDetails_TotalQuantity'];?></td>
 
-                                <td><?php echo $rox['SaleReturn_ReturnQuantity'];?></td>
+                                <td><?php echo $treteun;?></td>
 
-                                <td><?php echo $rox['SaleReturn_ReturnAmount'];?></td>
+                                <td><?php echo $tamount;?></td>
 
                                 <!--<td><php /*//echo $rox['SaleDetails_SlNo']; */?></td>
 

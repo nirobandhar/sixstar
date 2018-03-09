@@ -10,15 +10,15 @@
             <div id='cssmenu'>
                 <ul>
                     <li class='active'><a href='<?php echo base_url();?>Administrator/sales'><span style="font-weight:bold">Retail Sales</span></a></li>
-                    <?php $selltype = $this->session->userdata('userBrunch'); if($selltype!='2'){ ?>
+<!--                    --><?php //$selltype = $this->session->userdata('userBrunch'); if($selltype!='2'){ ?>
                     <li class='active'><a href='<?php echo base_url(); ?>Administrator/wholesales'><span style="font-weight:bold">Whole Sales</span></a></li>
-                    <?php } ?>
                     <li class='active'><a href='<?php echo base_url();?>Administrator/installment'><span style="font-weight:bold">Installment Sale</span></a></li>
                     <li class='active'><a href='<?php echo base_url();?>Administrator/sales/salesreturn'><span style="font-weight:bold">Sales Return</span></a></li>
                     <li class='active'><a href='<?php echo base_url();?>Administrator/purchase/order'><span style="font-weight:bold">Purchase </span></a></li>
                     <li class='active'><a href='<?php echo base_url();?>Administrator/purchase/returns'><span style="font-weight:bold">Purchase Return</span></a></li>
                     <li class='active'><a href='<?php echo base_url();?>Administrator/products/current_stock'><span style="font-weight:bold">Current Stock</span></a></li>
                     <li class='active'><a href='<?php echo base_url();?>Administrator/account/cash_transaction'><span style="font-weight:bold">Cash Transaction</span></a></li>
+                    <li class='active'><a href='<?php echo base_url();?>Administrator/page/service'><span style="font-weight:bold">Services</span></a></li>
                     <!--<li class='active has-sub'><a href='<?php //echo base_url() ?>Administrator/products/transfer'><span style="font-weight:bold">Product Transfer</span></a>
                     	<ul>
                             <li><a href='<?php //echo base_url();?>Administrator/products/pending'><span>Pending Transaction</span></a></li>
@@ -49,7 +49,23 @@
                     <li class='active'><a href='<?php echo base_url();?>Administrator/customer'><span>Customer</span></a></li>
                 </ul>
             </div>                      
-        </li>        
+        </li>
+        <li>
+            <div id='cssmenu'>
+                <ul>
+                    <li class='active has-sub'><a href='#'><span>Product</span></a>
+                        <ul>
+                            <li class='active'><a href='<?php echo base_url();?>Administrator/products'><span style="font-weight:bold">Add Products</span></a></li>
+                            <li><a href='<?php echo base_url();?>Administrator/products/Products_List'><span>Products List</span></a></li>
+                            <li><a href='<?php echo base_url();?>Administrator/page/add_category'><span>Add Model</span></a></li>
+                            <li><a href='<?php echo base_url();?>Administrator/page/add_size'><span>Add Size</span></a></li>
+                            <li><a href='<?php echo base_url();?>Administrator/page/unit'><span>Add Unit</span></a></li>
+
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </li>
         <li>
             <div id='cssmenu'>
                 <ul>
@@ -218,21 +234,17 @@
                 <ul>
                     <li class='active has-sub'><a href='#'><span>Settings</span></a>
                         <ul>
-                            <li><a href='<?php echo base_url();?>Administrator/page/add_category'><span>Add Model</span></a></li>
-                            <li><a href='<?php echo base_url();?>Administrator/page/add_size'><span>Add Size</span></a></li>
-                            <li><a href='<?php echo base_url();?>Administrator/products'><span>Add Product</span></a></li>
-                            <!-- <li><a href='<?php echo base_url();?>Administrator/page/company_profile'><span>Company Profile</span></a></li> -->
+                            <!--<li><a href='<?php /*echo base_url();*/?>Administrator/page/company_profile'><span>Company Profile</span></a></li>-->
                             <?php $access = $this->session->userdata('accountType'); if($access != 'u'){?>
                             <li><a href='<?php echo base_url();?>Administrator/user_management'><span>User Profile</span></a></li><?php } ?>
-                            <li><a href='<?php echo base_url();?>Administrator/page/unit'><span>Add Unit</span></a></li> 
                             <li><a href='<?php echo base_url();?>Administrator/page/brunch'><span>Add Branch</span></a></li> 
                             <li><a href='<?php echo base_url();?>Administrator/page/district'><span>Add District</span></a></li> 
                             <li><a href='<?php echo base_url();?>Administrator/page/add_country'><span>Add Country</span></a></li>
-                            <!-- <li><a href='<?php echo base_url();?>Administrator/'><span>Database Backup</span></a></li> -->                               
+                             <li><a href='<?php echo base_url();?>Administrator/'><span>Database Backup</span></a></li>
                         </ul>
                     </li>
                 </ul>
-            </div>             
+            </div>
         </li>
         <!-- <li>
             <div id='cssmenu'>
@@ -242,11 +254,11 @@
                             <li><a href='#'><span>Calculator</span></a></li>
                             <li><a href='#'><span>Notepad</span></a></li>
                             <li><a href='#'><span>Task Manager</span></a></li>
-                            <li><a href='#'><span>MS Word</span></a></li>                            
+                            <li><a href='#'><span>MS Word</span></a></li>
                         </ul>
                     </li>
                 </ul>
-            </div>             
+            </div>
         </li> -->
         <li>
             <div id='cssmenu'>

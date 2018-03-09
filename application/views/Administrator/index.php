@@ -196,7 +196,7 @@
 
                 <i></i>
 
-                <span>Six Star Electronics & Furniture</span>
+                <span><marquee style="z-index:1;font-family:Cursive;font-size:12pt; direction="left"> Welcome to Six Star Electronics & Furniture </marquee> </span>
 
             </div>
 

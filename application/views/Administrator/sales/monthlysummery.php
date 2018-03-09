@@ -5,7 +5,7 @@
             <table width="100%"> 
                 <tr>
                     <td width="150"><strong>Select Month</strong></td>
-                    <td id="ashiqeCalender" width="220"><input name="Purchase_date" type="text" id="Sales_enddate" value="<?php echo date("Y-m-d") ?>" class="inputclass" style="width:200px"/></td>
+                    <td id="month" width="220"><input type= month name="Purchase_date" type="text" id="Sales_enddate" value="<?php echo date("Y-m-d") ?>" class="inputclass" style="width:200px"/></td>
                     <td>
                         <div class="side-by-side clearfix">
                             <div>

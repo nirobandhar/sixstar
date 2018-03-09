@@ -100,6 +100,7 @@ class Account extends CI_Controller {
     public function fancybox_add_account()  {
         $this->load->view('Administrator/ajax/fanceybox_add_account');
     }
+
     public function AccountType()  {
         $acc_type = $this->input->post('acc_type');
         if($acc_type=="Customer"){

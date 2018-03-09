@@ -18,7 +18,7 @@ $enddate = base64_encode($lastday);
             <th>Company</th>
             <th>Sale Date</th>
             <th>Price</th>
-            <th>Downpayment</th>
+            <th>Down payment</th>
             <th>Total Inst.</th>
             <th>Inst. Rate</th>
             <th>Cur inst.</th>
@@ -28,7 +28,7 @@ $enddate = base64_encode($lastday);
         </tr>
         <?php $i=0;
 		//echo "SELECT tbl_salesmaster.*,tbl_saledetails.Product_IDNo,tbl_product.Product_Name,tbl_productcategory.ProductCategory_Name,tbl_produsize.Productsize_Name, tbl_customer.*,tbl_installment.*,SUM(tbl_installment.payment_amount) as inspay,tbl_installment_date.* FROM tbl_salesmaster left join tbl_customer on tbl_customer.Customer_SlNo = tbl_salesmaster.SalseCustomer_IDNo Left Join tbl_installment ON tbl_installment.invoice=tbl_salesmaster.SaleMaster_InvoiceNo Left Join tbl_installment_date ON tbl_installment_date.invoiceid=tbl_salesmaster.SaleMaster_InvoiceNo Left Join tbl_saledetails ON tbl_saledetails.SaleMaster_IDNo=tbl_salesmaster.SaleMaster_SlNo Inner Join tbl_product ON tbl_product.Product_SlNo=tbl_saledetails.Product_IDNo Inner Join tbl_productcategory ON tbl_productcategory.ProductCategory_SlNo=tbl_product.ProductCategory_ID Inner Join tbl_produsize ON tbl_produsize.Productsize_SlNo=tbl_product.sizeId WHERE tbl_salesmaster.SaleMaster_SaleDate between  '$fisrtday' and '$lastday' AND tbl_salesmaster.Status='3' Group BY tbl_salesmaster.SaleMaster_InvoiceNo";
-		$sql = mysql_query("SELECT tbl_salesmaster.*,tbl_saledetails.Product_IDNo,tbl_product.Product_Name,tbl_productcategory.ProductCategory_Name,tbl_produsize.Productsize_Name, tbl_customer.*,tbl_installment.*,SUM(tbl_installment.payment_amount) as inspay,tbl_installment_date.* FROM tbl_salesmaster left join tbl_customer on tbl_customer.Customer_SlNo = tbl_salesmaster.SalseCustomer_IDNo Left Join tbl_installment ON tbl_installment.invoice=tbl_salesmaster.SaleMaster_InvoiceNo Left Join tbl_installment_date ON tbl_installment_date.invoiceid=tbl_salesmaster.SaleMaster_InvoiceNo Left Join tbl_saledetails ON tbl_saledetails.SaleMaster_IDNo=tbl_salesmaster.SaleMaster_SlNo Inner Join tbl_product ON tbl_product.Product_SlNo=tbl_saledetails.Product_IDNo Inner Join tbl_productcategory ON tbl_productcategory.ProductCategory_SlNo=tbl_product.ProductCategory_ID Inner Join tbl_produsize ON tbl_produsize.Productsize_SlNo=tbl_product.sizeId WHERE tbl_salesmaster.SaleMaster_SaleDate between  '$fisrtday' and '$lastday' AND tbl_salesmaster.Status='3' Group BY tbl_salesmaster.SaleMaster_InvoiceNo");
+		$sql = mysql_query("SELECT tbl_salesmaster.*, tbl_productcategory.*,tbl_saledetails.Product_IDNo,tbl_product.Product_Name,tbl_productcategory.ProductCategory_Name,tbl_produsize.Productsize_Name, tbl_customer.*,tbl_installment.*,SUM(tbl_installment.payment_amount) as inspay,tbl_installment_date.* FROM tbl_salesmaster left join tbl_customer on tbl_customer.Customer_SlNo = tbl_salesmaster.SalseCustomer_IDNo Left Join tbl_installment ON tbl_installment.invoice=tbl_salesmaster.SaleMaster_InvoiceNo Left Join tbl_installment_date ON tbl_installment_date.invoiceid=tbl_salesmaster.SaleMaster_InvoiceNo Left Join tbl_saledetails ON tbl_saledetails.SaleMaster_IDNo=tbl_salesmaster.SaleMaster_SlNo Inner Join tbl_product ON tbl_product.Product_SlNo=tbl_saledetails.Product_IDNo Inner Join tbl_productcategory ON tbl_productcategory.ProductCategory_SlNo=tbl_product.ProductCategory_ID Inner Join tbl_produsize ON tbl_produsize.Productsize_SlNo=tbl_product.sizeId WHERE tbl_salesmaster.SaleMaster_SaleDate between  '$fisrtday' and '$lastday' AND tbl_salesmaster.Status='3' Group BY tbl_salesmaster.SaleMaster_InvoiceNo");
 		while($row = mysql_fetch_array($sql)){
 			$i++;
 		?>
@@ -38,7 +38,7 @@ $enddate = base64_encode($lastday);
             <td><?php echo $row['Customer_Address'];?></td>
             <td><?php echo $row['Customer_Mobile'];?></td>
             <td><?php echo $row['Product_Name'];?></td>
-            <td><?php echo $row['ProductCategory_Name'].$row['Productsize_Name'];?></td>
+            <td><?php echo $row['company']?> <?php echo $row['ProductCategory_Name']?> <?php echo $row['Productsize_Name'];?></td>
             <td><?php echo $row['SaleMaster_SaleDate'];?></td>
             <td><?php echo $row['SaleMaster_TotalSaleAmount'];?></td>
             <td><?php echo $row['SaleMaster_PaidAmount'];?></td>

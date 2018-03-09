@@ -435,8 +435,9 @@ class Purchase extends CI_Controller {
                     );      
 
                     $this->billing_model->SalesReturn('tbl_purchasereturndetails',$returns);
+                    //Test Start for Purchase return
 
-					$query5 ="select * from tbl_branchwise_product Where pro_codes ='".$productIDs[$i]."' AND branch_ids='".$this->session->userdata("BRANCHid")."'";
+					/*$query5 ="select * from tbl_branchwise_product Where pro_codes ='".$productIDs[$i]."' AND branch_ids='".$this->session->userdata("BRANCHid")."'";
 
 					$result5 = mysql_query($query5)or die(mysql_error());
 
@@ -446,7 +447,8 @@ class Purchase extends CI_Controller {
 
 					$addstock2 = $totalstock2-$returnqtyss[$i];
 
-					mysql_query("UPDATE tbl_branchwise_product SET total_branchqty='$addstock2' WHERE pro_codes ='".$productIDs[$i]."' AND branch_ids='".$this->session->userdata("BRANCHid")."'") or die(mysql_error());
+					mysql_query("UPDATE tbl_branchwise_product SET total_branchqty='$addstock2' WHERE pro_codes ='".$productIDs[$i]."' AND branch_ids='".$this->session->userdata("BRANCHid")."'") or die(mysql_error());*/
+                //Test End for Purchase return
 
             } 
 

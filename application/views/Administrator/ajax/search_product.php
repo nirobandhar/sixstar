@@ -123,27 +123,29 @@
                 <thead>
                     <tr class="header">
                         <th style="width:10%">ID</th>
+                        <th style="width:25%">Product Name</th>
                         <th style="width:25%">Category</th>
-                        <th style="width:25%">Product Name</th>                                                               
-                        <th style="width:15%">Purchase Rate</th>                                                               
-                        <th style="width:15%">Sell Rate</th>                                                               
+                        <th style="width:10%">Purchase Rate</th>
+                        <th style="width:10%">Wholesale Rate</th>
+                        <th style="width:10%">Sell Rate</th>
                         <th style="width:10%">Action</th>                                                               
                     </tr>
                 </thead>
             </table>                    
         </div> 
-        <div class="clearfix moderntabs" style="width:330px;width:90%;max-height:500px;overflow:auto;">
+        <div class="clearfix moderntabs" style="width:330px;width:90%;max-height:500px;">
            
             <table class="zebra" cellspacing="0" cellpadding="0" border="0" id="" style="text-align:left;width:100%;border-collapse:collapse;">
                 <tbody>
-                <?php $sql = mysql_query("SELECT tbl_product.*, tbl_productcategory.* FROM tbl_product left join tbl_productcategory on tbl_productcategory.ProductCategory_SlNo= tbl_product.ProductCategory_ID where tbl_product.Product_Name like '%$Searchkey%' order by tbl_product.Product_Code asc");
+                <?php $sql = mysql_query("SELECT tbl_product.*, tbl_productcategory.* FROM tbl_product left join tbl_productcategory on tbl_productcategory.ProductCategory_SlNo= tbl_product.ProductCategory_ID where tbl_product.Product_Code like '%$Searchkey%' or Product_Name LIKE '%$Searchkey%' or tbl_productcategory.company LIKE '%$Searchkey%' or tbl_productcategory.ProductCategory_Name LIKE '%$Searchkey%' order by tbl_product.Product_Code asc");
                 while($row = mysql_fetch_array($sql)){ ?>
                     <tr>
                         <td style="width:10%"><?php echo $row['Product_Code'] ?></td>
-                        <td style="width:25%"><?php echo $row['ProductCategory_Name'] ?></td>
                         <td style="width:25%"><?php echo $row['Product_Name'] ?></td>
-                        <td style="width:15%"><?php echo $row['Product_Purchase_Rate'] ?></td>
-                        <td style="width:15%"><?php echo $row['Product_SellingPrice'] ?></td>
+                        <td style="width:25%"><?php echo $row['ProductCategory_Name'] ?></td>
+                        <td style="width:10%"><?php echo $row['Product_Purchase_Rate'] ?></td>
+                        <td style="width:10%"><?php echo $row['Product_WholesaleRate'] ?></td>
+                        <td style="width:10%"><?php echo $row['Product_SellingPrice'] ?></td>
                         <td style="width:10%">
                             <span onclick="Edit_product(<?php echo $row['Product_SlNo'] ?>)" style="cursor:pointer;color:green;font-size:20px;float:left"><i class="fa fa-pencil"></i></span>
                             <span  onclick="deleted(<?php echo $row['Product_SlNo'] ?>)" style="cursor:pointer;color:red;font-size:20px;float:left;padding-left:10px" ><i class="fa fa-trash-o"></i></span>

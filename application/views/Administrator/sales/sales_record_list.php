@@ -18,7 +18,8 @@
             <th>Paid</th>
             <th>Due</th>
             <th>Notes</th>
-            <th></th>
+            <th>Invoice</th>
+            <th>Challan</th>
         </tr>
         <?php 
         $totalpurchase = 0;
@@ -66,6 +67,7 @@
             <td style="text-align: right;"><?php echo number_format($record['SaleMaster_DueAmount'], 2); ?></td>
             <td><?php echo $record['SaleMaster_Description'] ?></td>
             <td><a style="cursor:pointer" onclick="window.open('<?php echo base_url();?>Administrator/reports/sales_record_print/<?php echo $record['SaleMaster_SlNo'];?>', 'newwindow', 'width=850, height=800,scrollbars=yes'); return false;"><img src="<?php echo base_url(); ?>images/printer.png" alt=""> Print</a></td>
+            <td><a style="cursor:pointer" onclick="window.open('<?php echo base_url();?>Administrator/reports/challan_record_print/<?php echo $record['SaleMaster_SlNo'];?>', 'newwindow', 'width=850, height=800,scrollbars=yes'); return false;"><img src="<?php echo base_url(); ?>images/printer.png" alt=""> Print</a></td>
 
         </tr>
         <?php } ?>
@@ -82,6 +84,7 @@
             <td style="text-align: right;"><strong><?php echo number_format($totalpurchase, 2); ?></strong></td>
             <td style="text-align: right;"><strong><?php echo number_format($Totalpaid, 2); ?></strong></td>
             <td style="text-align: right;"><strong><?php echo number_format($totaldue, 2); ?></strong></td>
+            <td style="text-align: right;"></td>
             <td style="text-align: right;"></td>
             <td style="text-align: right;"></td>
         </tr>

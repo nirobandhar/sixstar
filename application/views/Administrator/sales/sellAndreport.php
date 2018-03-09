@@ -1,7 +1,9 @@
 <link href="<?php echo base_url()?>css/prints.css" rel="stylesheet" />
 <div class="content_scroll" style="padding:120px 20px 25px 160px">
-<a style="cursor:pointer" onclick="window.open('<?php echo base_url();?>Administrator/reports/sales_invoice', 'newwindow', 'width=850, height=800,scrollbars=yes'); return false;"><img src="<?php echo base_url(); ?>images/printer.png" alt=""> Print</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a style="cursor:pointer" onclick="window.open('<?php echo base_url();?>Administrator/reports/sales_invoice', 'newwindow', 'width=850, height=800,scrollbars=yes'); return false;"><img src="<?php echo base_url(); ?>images/printer.png" alt=""> Invoice</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a style="cursor:pointer" onclick="window.open('<?php echo base_url();?>Administrator/reports/sales_challan', 'newwindow', 'width=850, height=800,scrollbars=yes'); return false;"><img src="<?php echo base_url(); ?>images/printer.png" alt=""> Challan</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <a href="<?php echo base_url();?>Administrator/sales" title="" class="buttonAshiqe">Back To Sales</a>
+<a href="<?php echo base_url();?>Administrator/wholesales" title="" class="buttonAshiqe">Back To Whole Sales</a>
 
 <?php 
   $sql = mysql_query("SELECT tbl_salesmaster.*, tbl_salesmaster.AddBy as served,tbl_salesmaster.Status as state, tbl_customer.* FROM tbl_salesmaster left join tbl_customer on tbl_customer.Customer_SlNo = tbl_salesmaster.SalseCustomer_IDNo where tbl_salesmaster.SaleMaster_SlNo = '$SalesID'");
@@ -112,14 +114,14 @@
     <table class="border" cellspacing="0" cellpadding="0" width="80%">
         <tr>
            <th>SI No.</th>
-           <th>Product Name</th>
+            <th>Product Name</th>
+            <th>Company</th>
            <th>Model</th>
-           <th>Company</th>
            <th>Size</th>
            <th>Unit</th>
+            <th>Quantity</th>
             <th>Rate</th>
             <th>Discount</th>
-           <th>Quantity</th>
            <th>Amount</th>
         </tr>
         <?php
@@ -141,24 +143,24 @@
             <td><?php echo $i; ?></td>
             <td><?php echo $rows['Product_Name'] ?></td>
             <td><?php
+                $ssqlsmodel2 = mysql_query("SELECT * FROM tbl_productcategory where ProductCategory_SlNo = '".$rows['ProductCategory_ID']."'");
+                $rowsmodel2 = mysql_fetch_array($ssqlsmodel2);
+                echo $rowsmodel2['company'];
+                ?></td>
+            <td><?php
 			$ssqlsmodel = mysql_query("SELECT * FROM tbl_productcategory where ProductCategory_SlNo = '".$rows['ProductCategory_ID']."'");
            $rowsmodel = mysql_fetch_array($ssqlsmodel);
 		   echo $rowsmodel['ProductCategory_Name'];
 			?></td>
-            <td><?php 
-			$ssqlsmodel2 = mysql_query("SELECT * FROM tbl_productcategory where ProductCategory_SlNo = '".$rows['ProductCategory_ID']."'");
-            $rowsmodel2 = mysql_fetch_array($ssqlsmodel2);
-		   echo $rowsmodel2['company'];
-			 ?></td>
             <td><?php 
 			$ssqlssize = mysql_query("SELECT * FROM tbl_produsize where Productsize_SlNo = '".$rows['sizeId']."'");
            $rowsize = mysql_fetch_array($ssqlssize);
 		   echo $rowsize['Productsize_Name'];
 			 ?></td>
             <td><?php echo $rows['SaleDetails_unit']; ?></td>
+            <td style="text-align: center;"><?php echo $rows['SaleDetails_TotalQuantity'] ?></td>
             <td style="text-align: right;"><?php echo number_format($rows['SaleDetails_Rate'], 2); ?></td>
             <td style="text-align: right;"><?php echo $rows['SaleDetails_Discount']; ?>%</td><!--Discount-->
-            <td style="text-align: center;"><?php echo $rows['SaleDetails_TotalQuantity'] ?></td>
             <td style="text-align: right;"><?php echo number_format($rows['discount_price'], 2); ?></td> <!--Amount Field-->
         </tr>
         <?php } }
@@ -220,7 +222,7 @@
             <td style="color:red;border-top: 1px solid #999;border-left: 0px ;border-right: 0px ;border-bottom: 0px ;text-align: right;"><?php if($previousdue+$CurrenDue==''){echo '0.00';}else{echo number_format(($previousdue+$CurrenDue), 2);} ?></td>
             <td style="border:0px" colspan="6"></td>
             <td style="border:0px"><strong>Discount :</strong> </td>
-            <td style="border:0px;text-align: right;"><?php $discount = $selse['SaleMaster_TotalDiscountAmount'];  $discount = ($totalamount*$discount)/100;
+            <td style="border:0px;text-align: right;"><?php $discount = $selse['SaleMaster_TotalDiscountAmount'];  /*$discount = ($totalamount*$discount)/100*/;
 			echo number_format($discount,2) ?></td>
         </tr>
         <tr>

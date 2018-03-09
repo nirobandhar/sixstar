@@ -8,10 +8,10 @@
 
     <title>
 
-       Six Star Electronics & Furniture| Login Form
+       Six Star Electronics & Furniture| Login Form <?php echo $title; ?>
 
     </title>
-
+    <link rel="shortcut icon" href="<?php echo base_url()?>images/favicon.png">
     <link href="//fonts.googleapis.com/css?family=Roboto|Roboto+Slab:400,700" rel="stylesheet" type="text/css" />
 
     <script src="<?php echo base_url();?>js/jquery-2.1.4.min.js" type="text/javascript"></script>
@@ -28,9 +28,13 @@
 
 </head>
 
+
+
+
+
 <body>
 
-
+<marquee style="z-index:1;font-family:Cursive;font-size:40pt;color:green;height:150; direction="left"> Welcome to Six Star Electronics & Furniture </marquee>
 
     <div id="ctl00_divContainer" class="container">
 
