@@ -70,16 +70,49 @@
 
             }
 
-            if($purchase- $paid !="0"){
+            if($purchase - $paid =="0")
+            {
 
                 $totalpurchase = $totalpurchase+$purchase;
 
                 $Totalpaid = $Totalpaid+$paid;
 
-
-
-                ?>
+            ?>
          <tr>
+
+
+
+            <td><?php echo $record['Customer_Code'] ?></td>
+
+            <td><?php echo $record['Customer_Name'] ?></td>
+
+            <td><?php echo $record['Customer_Address'] ?></td>
+
+            <td><?php echo $record['Customer_Mobile'] ?></td>
+
+            <td><?php echo $purchase ?></td>
+
+            <td><?php echo $paid ?></td>
+
+            <td><?php echo $purchase- $paid ?></td>
+
+            <td><a class="btn-add fancybox fancybox.ajax" href="<?php echo base_url();?>Administrator/customer/customer_due_payment/<?php echo $record['SalseCustomer_IDNo']; ?>">
+
+                <input type="button" name="country_button" value="Advance Payment"  class="button" style="padding:7px 10px;font-size:16px;"/>
+
+            </a></td>
+
+         </tr>
+
+            <?php
+            }else{
+            $totalpurchase = $totalpurchase+$purchase;
+
+            $Totalpaid = $Totalpaid+$paid;
+
+            ?>
+
+        <tr>
 
 
 
@@ -104,10 +137,11 @@
             </a></td>
 
          </tr>
+        <?php
+            }
+        }
+        ?>
 
-
-
-            <?php } }?>
         <tr>
             <td colspan="4" style="text-align: right;">Total</td>
             <td><?php echo $totalpurchase; ?></td>

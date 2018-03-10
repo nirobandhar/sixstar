@@ -224,6 +224,7 @@ class Customer extends CI_Controller {
         
         $this->load->view('Administrator/due_report/customer_due_list', $datas);
     }
+
     function customer_due_payment($Custid){
         $sql = "SELECT tbl_salesmaster.*,tbl_salesmaster.Status as cstatus, tbl_customer.* FROM tbl_salesmaster left join tbl_customer on tbl_customer.Customer_SlNo = tbl_salesmaster.SalseCustomer_IDNo WHERE tbl_salesmaster.SalseCustomer_IDNo = '$Custid' group by tbl_salesmaster.SalseCustomer_IDNo ";
         $datas["record"] = $this->mt->ccdata($sql);
@@ -235,25 +236,26 @@ class Customer extends CI_Controller {
         $status = $this->input->post('status');
 		if($status==3){
 			$datastatus = array(
-            "invoice"                           =>$this->input->post('invoice', TRUE),
-			"custid"                            =>$this->input->post('CustID', TRUE),
-            "payment_amount"                    =>$this->input->post('paidAmount', TRUE),
-            "pay_date"                          =>$this->input->post('paymentDate', TRUE),
+            "invoice"                           =>$this->input->post('invoice'),
+			"custid"                            =>$this->input->post('CustID'),
+            "payment_amount"                    =>$this->input->post('paidAmount'),
+            "pay_date"                          =>$this->input->post('paymentDate'),
             "comments"                          =>''
         );
         $this->mt->save_data("tbl_installment", $datastatus);
 			}
         $data = array(
-            "CPayment_date"                     =>$this->input->post('paymentDate', TRUE),
-            "CPayment_invoice"                  =>$this->input->post('invoice', TRUE),
-            "CPayment_customerID"               =>$this->input->post('CustID', TRUE),
-            "CPayment_amount"                   =>$this->input->post('paidAmount', TRUE),
-            "CPayment_notes"                    =>$this->input->post('country', TRUE),
-			"status"                            =>$this->input->post('status', TRUE),
-            "CPayment_Paymentby"                =>$this->input->post('Paymentby', TRUE),
+            "CPayment_date"                     =>$this->input->post('paymentDate'),
+            "CPayment_notes"                    =>$this->input->post('Note'),
+            "CPayment_invoice"                  =>$this->input->post('invoice'),
+            "CPayment_customerID"               =>$this->input->post('CustID'),
+            "CPayment_amount"                   =>$this->input->post('paidAmount'),
+			"status"                            =>$this->input->post('status'),
+            "CPayment_Paymentby"                =>$this->input->post('Paymentby'),
             "CPayment_Addby"                    =>$this->session->userdata("FullName"),
             "CPayment_brunchid"                 =>$this->session->userdata("BRANCHid")			
         );
+        //die(var_dump($data));
         $this->mt->save_data("tbl_customer_payment", $data);
 
         $searchtype = $this->session->userdata('searchtype');

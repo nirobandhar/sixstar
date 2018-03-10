@@ -51,6 +51,9 @@ foreach($record as $record){
 	<tr>
 		<td>Remainded Due : </td>
 		<td><input type="text" id="remainddue" disabled=""></td>
+	</tr><tr>
+		<td>Note : </td>
+		<td><input type="text" id="Note"></td>
 	</tr>
 	<tr>
 		<td></td>
@@ -64,19 +67,23 @@ foreach($record as $record){
 		var invoice = $('#invoice').val();
 		var CustID = $('#CustID').val();
 		var status = $("#status").val();
+		var Note = $("#Note").val();
+		//alert(Note);
 		var regex = /^[0-9]+$/;
 		var paidAmount = $('#paidAmount').val();
-		if(paidAmount=="0"){
+
+		/*if(paidAmount=="0"){
 			$("#paidAmount").css('border-color','red');
-            return false;
+            //return false;
 		}else{
 			if(!regex.test(paidAmount)){
 	            $("#paidAmount").css('border-color','red');
-	            return false;
+	            //return false;
 	        }else{
 	            $("#paidAmount").css('border-color','gray');
 	        }
-		}
+		}*/
+
         var Paymentby = $('#Paymentby').val();
         if(Paymentby==""){
             $("#Paymentby").css('border-color','red');
@@ -86,7 +93,7 @@ foreach($record as $record){
         }
 		var succes = "";
 		if(succes == ""){
-			var inputdata = 'Paymentby='+Paymentby+'&paymentDate='+paymentDate+'&invoice='+invoice+'&CustID='+CustID+'&paidAmount='+paidAmount+'&status='+status;
+			var inputdata = 'Paymentby='+Paymentby+'&paymentDate='+paymentDate+'&invoice='+invoice+'&CustID='+CustID+'&paidAmount='+paidAmount+'&status='+status+'&Note='+Note;
 			//alert(inputdata);
 			var urldata = "<?php echo base_url();?>Administrator/customer/custome_PaymentAmount/";
 			$.ajax({
