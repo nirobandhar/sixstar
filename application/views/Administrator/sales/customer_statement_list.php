@@ -1,5 +1,12 @@
 <?php
-    $openingBalance = $openingBalance?$openingBalance:0;
+    $openingBalance2 = 0;
+    $customerName = '';
+    $customerId = '';
+    foreach ($openingBAll as $singleOpeB){
+        $openingBalance2 = $openingBalance2 + $singleOpeB['SaleMaster_DueAmount'];
+        $customerName = $singleOpeB['Customer_Name'];
+        $customerId = $singleOpeB['Customer_Code'];
+    }
 ?>
 <link href="<?php echo base_url()?>css/prints.css" rel="stylesheet" />
 <div class="content_scroll" style="padding:40px 20px 25px 160px">
@@ -9,17 +16,17 @@
     <table class="border" cellspacing="0" cellpadding="0" width="80%">
         <tr>
             <td width="125px">Customer ID</td>
-            <td><?php echo $record[0]['Customer_Code'] ?></td>
+            <td><?php echo $customerId ? $customerId : ''; ?></td>
             <td></td>
         </tr>
         <tr>
             <td>Customer Name</td>
-            <td><?php echo $record[0]['Customer_Name'] ?></td>
+            <td><?php echo $customerName ? $customerName : ''; ?></td>
             <td></td>
         </tr>
         <tr>
             <td colspan="2">Opening Balance</td>
-            <td><?php echo $openingBalance; ?></td>
+            <td><?php echo $openingBalance?$openingBalance:0; ?></td>
         </tr>
 
     </table>

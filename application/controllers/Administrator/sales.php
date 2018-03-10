@@ -484,6 +484,7 @@ class Sales extends CI_Controller {
             $openingBalance = $openingBalance + $openingB['SaleMaster_DueAmount'];
         }
         $dAta['openingBalance'] = $datas['openingBalance'] = $openingBalance;
+        $datas['openingBAll'] = $openingBAll;
 
         $this->session->set_userdata($dAta);
         $this->load->view('Administrator/sales/customer_statement_list', $datas);
