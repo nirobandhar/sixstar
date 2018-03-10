@@ -100,6 +100,17 @@ class Reports extends CI_Controller {
 
         $this->load->view('Administrator/reports/sales_record_print', $datas);
     }
+    function customer_statement_print()  {
+        $Sales_startdate = $this->session->userdata('Sales_startdate');
+        $Sales_enddate = $this->session->userdata('Sales_enddate');
+        $customerID = $this->session->userdata('customerID');
+
+        $sql = "SELECT tbl_salesmaster.*,tbl_salesmaster.Status as type, tbl_customer.*, tbl_customer_payment.* FROM tbl_customer_payment left join tbl_salesmaster on tbl_salesmaster.SaleMaster_InvoiceNo = tbl_customer_payment.CPayment_invoice left join tbl_customer on tbl_customer.Customer_SlNo = tbl_customer_payment.CPayment_customerID WHERE tbl_customer_payment.CPayment_customerID = '$customerID' and  tbl_customer_payment.CPayment_date between  '$Sales_startdate' and '$Sales_enddate' ORDER BY tbl_customer_payment.CPayment_id ASC";
+        $datas["record"] = $this->mt->ccdata($sql);
+
+        $datas['openingBalance'] = $this->session->userdata('openingBalance');
+        $this->load->view('Administrator/reports/customer_statement_print', $datas);
+    }
 
     function sales_record_print($invoce)  {
         $datas["id"] = $invoce;

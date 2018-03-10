@@ -130,6 +130,8 @@
                             </li>
                             <li class='active'>
                                 <a style="cursor:pointer" onclick="window.open('<?php echo base_url();?>Administrator/reports/customerlist', 'newwindow', 'width=850, height=800,scrollbars=yes'); return false;"><span>Customer List</span></a>
+                            </li><li class='active'>
+                                <a style="cursor:pointer" onclick="window.open('<?php echo base_url();?>Administrator/sales/customer_statement', 'width=850, height=800,scrollbars=yes'); return false;"><span>Customer Statement</span></a>
                             </li>
                             <li class='active'>
                                 <a style="cursor:pointer" href="<?php echo base_url(); ?>Administrator/account/daily_summery"><span>Daily Summery</span></a>

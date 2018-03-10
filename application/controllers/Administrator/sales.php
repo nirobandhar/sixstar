@@ -426,6 +426,11 @@ class Sales extends CI_Controller {
         $data['content'] = $this->load->view('Administrator/sales/sales_record', $data, TRUE);
         $this->load->view('Administrator/index', $data);
     }
+    function customer_statement()  {
+        $data['title'] = "Sales Record";
+        $data['content'] = $this->load->view('Administrator/sales/customer_statement', $data, TRUE);
+        $this->load->view('Administrator/index', $data);
+    }
     function sales_customerName()  {
         $id = $this->input->post('customerID');
         $sql = mysql_query("SELECT * FROM tbl_customer WHERE Customer_SlNo = '$id'");
@@ -462,6 +467,28 @@ class Sales extends CI_Controller {
         
         $this->load->view('Administrator/sales/sales_record_list', $datas);
     }
+
+    function search_statement()  {
+        $dAta['Sales_startdate']=$Sales_startdate = $this->input->post('Sales_startdate');
+        $dAta['Sales_enddate']=$Sales_enddate = $this->input->post('Sales_enddate');
+        $dAta['customerID']=$customerID = $this->input->post('customerID');
+
+        $sql = "SELECT tbl_salesmaster.*,tbl_salesmaster.Status as type, tbl_customer.*, tbl_customer_payment.* FROM tbl_customer_payment left join tbl_salesmaster on tbl_salesmaster.SaleMaster_InvoiceNo = tbl_customer_payment.CPayment_invoice left join tbl_customer on tbl_customer.Customer_SlNo = tbl_customer_payment.CPayment_customerID WHERE tbl_customer_payment.CPayment_customerID = '$customerID' and  tbl_customer_payment.CPayment_date between  '$Sales_startdate' and '$Sales_enddate' ORDER BY tbl_customer_payment.CPayment_id ASC";
+        $datas["record"] = $this->mt->ccdata($sql);
+
+        //Opening Balance
+        $sqlOpenBal = "SELECT tbl_salesmaster.*,tbl_salesmaster.Status as type, tbl_customer.* FROM tbl_salesmaster left join tbl_customer on tbl_customer.Customer_SlNo = tbl_salesmaster.SalseCustomer_IDNo WHERE tbl_salesmaster.SalseCustomer_IDNo = '$customerID' and  tbl_salesmaster.SaleMaster_SaleDate < '$Sales_startdate'";
+        $openingBAll = $this->mt->ccdata($sqlOpenBal);
+        $openingBalance = 0;
+        foreach($openingBAll as $openingB) {
+            $openingBalance = $openingBalance + $openingB['SaleMaster_DueAmount'];
+        }
+        $dAta['openingBalance'] = $datas['openingBalance'] = $openingBalance;
+
+        $this->session->set_userdata($dAta);
+        $this->load->view('Administrator/sales/customer_statement_list', $datas);
+    }
+
     function sales_stock()  {
         $data['title'] = "Sales Stock";
         $data['content'] = $this->load->view('Administrator/stock/sales_stock', $data, TRUE);
