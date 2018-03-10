@@ -828,6 +828,7 @@
         var crPreviousDue = parseInt($("#crPreviousDue").val());
         var totalPreDue = SellsDue + crPreviousDue;
         //debugger
+        alert(totalPreDue);
         if (totalPreDue >= CreditLimit){
 
             alert("Cradit Limit Crossed "+(totalPreDue-CreditLimit));
@@ -838,7 +839,7 @@
         var ProParcentCartData = 0;
 		ProParcentCartData = Math.round($("#ProParcentCartData").val());
 
-        var inputdata = 'packagename='+packagename+'&ProParcentCartData='+ProParcentCartData+'&ProParcent='+ProParcent+'&salesInvoiceno='+salesInvoiceno+'&sales_date='+sales_date+'&customerID='+customerID+'&CusName='+CusName+'&CusMobile='+CusMobile+'&CusAddress='+CusAddress+'&SelesNotes='+SelesNotes+'&subTotal='+subTotal+'&vatPersent='+vatPersent+'&SellsFreight='+SellsFreight+'&SellsDiscount='+SellsDiscount+'&SellTotals='+SellTotals+'&SellsPaid='+SellsPaid+'&SellsDue='+SellsDue+'&Reword_Discount='+Reword_Discount+'&status='+1;
+        var inputdata = 'packagename='+packagename+'&ProParcentCartData='+ProParcentCartData+'&ProParcent='+ProParcent+'&salesInvoiceno='+salesInvoiceno+'&sales_date='+sales_date+'&customerID='+customerID+'&CusName='+CusName+'&CusMobile='+CusMobile+'&CusAddress='+CusAddress+'&SelesNotes='+SelesNotes+'&subTotal='+subTotal+'&vatPersent='+vatPersent+'&SellsFreight='+SellsFreight+'&SellsDiscount='+SellsDiscount+'&SellTotals='+SellTotals+'&SellsPaid='+SellsPaid+'&SellsDue='+SellsDue+'&Reword_Discount='+Reword_Discount+'&status='+1+'&totalPreDue='+totalPreDue;
         var urldata = "<?php echo base_url();?>Administrator/sales/sales_order/";
 
         $.ajax({

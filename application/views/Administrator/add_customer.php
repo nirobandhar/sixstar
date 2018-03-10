@@ -178,21 +178,23 @@
             <table class="zebra" cellspacing="0" cellpadding="0" border="0" id="" style="text-align:left;width:70%;border-collapse:collapse;">
                 <thead>
                     <tr class="header">
-                        <th style="width:12%">ID</th>
+                        <th style="width:10%">ID</th>
                         <th style="width:25%">Customer Name</th>
-                        <th style="width:25%">Address</th>
+                        <th style="width:20%">Address</th>
                         <th style="width:25%">Contact No</th>
-                        <th style="width:13%">Action</th>           
+                        <th style="width:12%">Credit Limit</th>
+                        <th style="width:13%">Action</th>
                     </tr>
                 </thead>
                 <tbody>
                 <?php $sql = mysql_query("SELECT * FROM tbl_customer order by Customer_Code asc");
                 while($row = mysql_fetch_array($sql)){ ?>
                     <tr>
-                        <td style="width:12%"><?php echo $row['Customer_Code'] ?></td>
+                        <td style="width:10%"><?php echo $row['Customer_Code'] ?></td>
                         <td style="width:25%"><?php echo $row['Customer_Name'] ?></td>
-                        <td style="width:25%"><?php echo $row['Customer_Address'] ?></td>
+                        <td style="width:20%"><?php echo $row['Customer_Address'] ?></td>
                         <td style="width:25%"><?php echo $row['Customer_Mobile'] ?></td>
+                        <td style="width:12%"><?php echo $row['Customer_Credit_Limit'] ?></td>
                         <td style="width:13%">
                         <a onclick="customer_edit(<?php echo $row['Customer_SlNo'] ?>)" style="cursor:pointer;color:green;font-size:20px;float:left;left;margin-right: 20px;"><i class="fa fa-pencil"></i></a>
                         <span onclick="deleted(<?php echo $row['Customer_SlNo'] ?>)" style="cursor:pointer;color:red;font-size:20px;float:left;padding-left:10px"><i class="fa fa-trash-o"></i></span>
