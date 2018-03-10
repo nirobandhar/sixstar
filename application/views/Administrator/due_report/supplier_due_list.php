@@ -67,7 +67,7 @@
                 $totalpurchase = $totalpurchase +$purch; 
 
                 $Totalpaid = $Totalpaid +$paid;
-                if(($purch-$paid) > 0){
+
 
             ?>
 
@@ -86,14 +86,16 @@
             <td style="text-align: right;"><?php echo number_format(($purch-$paid), 2); ?></td>
 
             <td><a class="btn-add fancybox fancybox.ajax" href="<?php echo base_url();?>Administrator/supplier/supplier_due_payment/<?php echo $supid; ?>">
-
-                <input type="button" name="country_button" value="Due Payment"  class="button" style="padding:7px 10px;font-size:16px;"/>                                
-
+                <?php if(($purch-$paid) > 0){ ?>
+                    <input type="button" name="country_button" value="Due Payment"  class="button" style="padding:7px 10px;font-size:16px;"/>
+                <?php }else{ ?>
+                    <input type="button" name="country_button" value="Advance Payment"  class="button" style="padding:7px 10px;font-size:16px;"/>
+               <?php } ?>
             </a></td>
 
         </tr>
 
-        <?php } }?>
+        <?php } ?>
 
        <tr>
            <td colspan="3" style="text-align: right;"><strong>Total</strong></td>
