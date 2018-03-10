@@ -156,7 +156,7 @@ class Supplier extends CI_Controller {
             "SPayment_invoice"                  =>$this->input->post('invoice', TRUE),
             "SPayment_customerID"               =>$this->input->post('SuppID', TRUE),
             "SPayment_amount"                   =>$this->input->post('paidAmount', TRUE),
-            "SPayment_notes"                    =>$this->input->post('country', TRUE),
+            "SPayment_notes"                    =>$this->input->post('Note', TRUE),
             "SPayment_Paymentby"                =>$this->input->post('Paymentby', TRUE),
 
             "SPayment_Addby"                    =>$this->session->userdata("FullName"),

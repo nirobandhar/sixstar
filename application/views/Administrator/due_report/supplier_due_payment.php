@@ -59,6 +59,10 @@ foreach($record as $record){
 		<td>Remainded Due : </td>
 		<td><input type="text" id="remainddue" disabled=""></td>
 	</tr>
+    <tr>
+		<td>Note : </td>
+		<td><input type="text" id="Note"></td>
+	</tr>
 	<tr>
 		<td></td>
 		<td><input type="button" value="Payment" onclick="Submitdata()" id="remainddue"></td>
@@ -70,10 +74,12 @@ foreach($record as $record){
 		var paymentDate = $('#paymentDate').val();
 		var invoice = $('#invoice').val();
 		var SuppID = $('#SuppID').val();
-		
+		var Note = $('#Note').val();
+
 		var regex = /^[0-9]+$/;
 		var paidAmount = $('#paidAmount').val();
-		if(paidAmount=="0"){
+
+		/*if(paidAmount=="0"){
 			$("#paidAmount").css('border-color','red');
             return false;
 		}else{
@@ -83,7 +89,8 @@ foreach($record as $record){
 	        }else{
 	            $("#paidAmount").css('border-color','gray');
 	        }
-		}
+		}*/
+
         var Paymentby = $('#Paymentby').val();
         if(Paymentby==""){
             $("#Paymentby").css('border-color','red');
@@ -93,7 +100,7 @@ foreach($record as $record){
         }
 		var succes = "";
 		if(succes == ""){
-			var inputdata = 'Paymentby='+Paymentby+'&paymentDate='+paymentDate+'&invoice='+invoice+'&SuppID='+SuppID+'&paidAmount='+paidAmount;
+			var inputdata = 'Paymentby='+Paymentby+'&paymentDate='+paymentDate+'&invoice='+invoice+'&SuppID='+SuppID+'&paidAmount='+paidAmount+'&Note='+Note;
 			//alert(inputdata);
 			var urldata = "<?php echo base_url();?>Administrator/supplier/supplier_PaymentAmount/";
 			$.ajax({
