@@ -473,7 +473,7 @@ class Sales extends CI_Controller {
         $dAta['Sales_enddate']=$Sales_enddate = $this->input->post('Sales_enddate');
         $dAta['customerID']=$customerID = $this->input->post('customerID');
 
-        $sql = "SELECT tbl_salesmaster.*,tbl_salesmaster.Status as type, tbl_customer.*, tbl_customer_payment.* FROM tbl_customer_payment left join tbl_salesmaster on tbl_salesmaster.SaleMaster_InvoiceNo = tbl_customer_payment.CPayment_invoice left join tbl_customer on tbl_customer.Customer_SlNo = tbl_customer_payment.CPayment_customerID WHERE tbl_customer_payment.CPayment_customerID = '$customerID' and  tbl_customer_payment.CPayment_date between  '$Sales_startdate' and '$Sales_enddate' ORDER BY tbl_customer_payment.CPayment_id ASC";
+        $sql = "SELECT tbl_salesmaster.*,tbl_salesmaster.Status as type, tbl_customer.*, tbl_customer_payment.* FROM tbl_salesmaster left join tbl_customer_payment on tbl_salesmaster.SaleMaster_InvoiceNo = tbl_customer_payment.CPayment_invoice left join tbl_customer on tbl_customer.Customer_SlNo = tbl_customer_payment.CPayment_customerID WHERE tbl_customer_payment.CPayment_customerID = '$customerID' and  tbl_customer_payment.CPayment_date between  '$Sales_startdate' and '$Sales_enddate' ORDER BY tbl_customer_payment.CPayment_id ASC";
         $datas["record"] = $this->mt->ccdata($sql);
 
         //Opening Balance

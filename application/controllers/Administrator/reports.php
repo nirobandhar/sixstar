@@ -67,6 +67,27 @@ class Reports extends CI_Controller {
 
         $this->load->view('Administrator/reports/purchase_record_print', $datas);
     }
+
+    function customer_statement_print()  {
+        $Sales_startdate = $this->session->userdata('Sales_startdate');
+        $Sales_enddate = $this->session->userdata('Sales_enddate');
+        $customerID = $this->session->userdata('customerID');
+
+        $sql = "SELECT tbl_salesmaster.*,tbl_salesmaster.Status as type, tbl_customer.*, tbl_customer_payment.* FROM tbl_customer_payment left join tbl_salesmaster on tbl_salesmaster.SaleMaster_InvoiceNo = tbl_customer_payment.CPayment_invoice left join tbl_customer on tbl_customer.Customer_SlNo = tbl_customer_payment.CPayment_customerID WHERE tbl_customer_payment.CPayment_customerID = '$customerID' and  tbl_customer_payment.CPayment_date between  '$Sales_startdate' and '$Sales_enddate' ORDER BY tbl_customer_payment.CPayment_id ASC";
+        $datas["record"] = $this->mt->ccdata($sql);
+
+        //Opening Balance
+        $sqlOpenBal = "SELECT tbl_salesmaster.*,tbl_salesmaster.Status as type, tbl_customer.* FROM tbl_salesmaster left join tbl_customer on tbl_customer.Customer_SlNo = tbl_salesmaster.SalseCustomer_IDNo WHERE tbl_salesmaster.SalseCustomer_IDNo = '$customerID' and  tbl_salesmaster.SaleMaster_SaleDate < '$Sales_startdate'";
+        $openingBAll = $this->mt->ccdata($sqlOpenBal);
+        $openingBalance = 0;
+        foreach($openingBAll as $openingB) {
+            $openingBalance = $openingBalance + $openingB['SaleMaster_DueAmount'];
+        }
+
+        $datas['openingBalance'] = $this->session->userdata('openingBalance');
+        $this->load->view('Administrator/reports/customer_statement_print', $datas);
+    }
+
     function purchase_record_print($invoce)  {
         $datas["id"] = $invoce;
         $this->load->view('Administrator/reports/purchase_invoice', $datas);
@@ -75,6 +96,7 @@ class Reports extends CI_Controller {
         $datas["id"] = $id;
         $this->load->view('Administrator/reports/barcode_print', $datas);
     }
+
     function search_sales_record()  {
         $searchtype = $this->session->userdata('searchtype');
         $Sales_startdate = $this->session->userdata('Sales_startdate');
@@ -99,17 +121,6 @@ class Reports extends CI_Controller {
         $datas["record"] = $this->mt->ccdata($sql);
 
         $this->load->view('Administrator/reports/sales_record_print', $datas);
-    }
-    function customer_statement_print()  {
-        $Sales_startdate = $this->session->userdata('Sales_startdate');
-        $Sales_enddate = $this->session->userdata('Sales_enddate');
-        $customerID = $this->session->userdata('customerID');
-
-        $sql = "SELECT tbl_salesmaster.*,tbl_salesmaster.Status as type, tbl_customer.*, tbl_customer_payment.* FROM tbl_customer_payment left join tbl_salesmaster on tbl_salesmaster.SaleMaster_InvoiceNo = tbl_customer_payment.CPayment_invoice left join tbl_customer on tbl_customer.Customer_SlNo = tbl_customer_payment.CPayment_customerID WHERE tbl_customer_payment.CPayment_customerID = '$customerID' and  tbl_customer_payment.CPayment_date between  '$Sales_startdate' and '$Sales_enddate' ORDER BY tbl_customer_payment.CPayment_id ASC";
-        $datas["record"] = $this->mt->ccdata($sql);
-
-        $datas['openingBalance'] = $this->session->userdata('openingBalance');
-        $this->load->view('Administrator/reports/customer_statement_print', $datas);
     }
 
     function sales_record_print($invoce)  {

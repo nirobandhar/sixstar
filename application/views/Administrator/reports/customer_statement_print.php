@@ -73,7 +73,7 @@
                 foreach($record as $record){
                     $openingBalance = $openingBalance + $record['SaleMaster_DueAmount'];
                     $totalpurchase = $totalpurchase +$record['SaleMaster_SubTotalAmount'];
-                    $Totalpaid = $Totalpaid +$record['SaleMaster_PaidAmount'];
+                    $Totalpaid = $Totalpaid +$record['CPayment_amount'];
                     $totaldue = $totaldue+$record['SaleMaster_DueAmount'];
                     $totalreward = $totalreward+$record['SaleMaster_RewordDiscount'];
                     ?>
