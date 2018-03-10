@@ -828,7 +828,6 @@
         var crPreviousDue = parseInt($("#crPreviousDue").val());
         var totalPreDue = SellsDue + crPreviousDue;
         //debugger
-        alert(totalPreDue);
         if (totalPreDue >= CreditLimit){
 
             alert("Cradit Limit Crossed "+(totalPreDue-CreditLimit));
