@@ -173,7 +173,11 @@
             </form>
         </div>
     </div>
-                    
+    <div class="full clearfix" style="float:right;margin-right:10%">
+        <input type="text" id="Searchkey" placeholder="Search Customer" required class="txt" onkeypress="ModelSearch(event)" style="border: 1px solid #c8d3df;
+  border-radius: 2px;
+  padding: 7px !important;" />
+    </div><br>
         <div class="row_section clearfix">
             <table class="zebra" cellspacing="0" cellpadding="0" border="0" id="" style="text-align:left;width:70%;border-collapse:collapse;">
                 <thead>
@@ -337,5 +341,21 @@
         readImgURLlnd(this);
         console.log('File selected');
     });
+    function ModelSearch(e){
+        if(e.keyCode === 13){
+            var Searchkey = $('#Searchkey').val();
+            var inputdata = 'Searchkey='+Searchkey;
+            var urldata = "<?php echo base_url();?>Administrator/customer/searchcustomer/";
+            $.ajax({
+                type: "POST",
+                url: urldata,
+                data: inputdata,
+                success:function(data){
+                    $('#saveResult').html(data);
+                }
+            });
+        }
+        return false;
+    }
     //End image preview
 </script>

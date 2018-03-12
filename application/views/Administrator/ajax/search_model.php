@@ -1,5 +1,3 @@
-<di
-
     <div class="tabContent">
         <div id="tabs" class="clearfix moderntabs">
             <div id="tabs-1">

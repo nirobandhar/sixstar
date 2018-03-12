@@ -40,7 +40,7 @@
         </div>
     </div>
     <span id="saveResult">
- <div class="full clearfix" style="float:right;margin-right:10%">
+    <div class="full clearfix" style="float:right;margin-right:10%">
         <input type="text" id="Searchkey" placeholder="Search Model" required class="txt" onkeypress="modelSearch(event)" style="border: 1px solid #c8d3df;
   border-radius: 2px;
   padding: 7px !important;" />

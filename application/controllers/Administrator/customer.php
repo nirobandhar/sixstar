@@ -17,6 +17,10 @@ class Customer extends CI_Controller {
         $data['content'] = $this->load->view('Administrator/add_customer', $data, TRUE);
         $this->load->view('Administrator/index', $data);
     }
+    function searchcustomer()  {
+        $data['Searchkey'] = $this->input->post('Searchkey');
+        $this->load->view('Administrator/ajax/search_customer', $data);
+    }
     public function insert_customer()  {
 		$data=array();
         $this->load->library('upload');
