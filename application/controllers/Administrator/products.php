@@ -151,6 +151,12 @@ class Products extends CI_Controller {
         $data['content'] = $this->load->view('Administrator/stock/current_stock', $data, TRUE);
         $this->load->view('Administrator/index', $data);
     }
+    /// Short List
+public function current_short_list()  {
+        $data['title'] = "Current Stock";
+        $data['content'] = $this->load->view('Administrator/stock/current_short_list', $data, TRUE);
+        $this->load->view('Administrator/index', $data);
+    }
 
 	public function branch_current_stock()  {
         $data['title'] = "Current Stock";

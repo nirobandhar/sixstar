@@ -183,6 +183,7 @@ document.getElementById('printButton').style.visibility="visible";
         <tr>
             <td></td>
             <td></td>
+			<td></td>
             <td style="text-align: right;"><strong>Total</strong></td>
             <td style="text-align: right;"><strong><?php echo number_format($totalpurchase, 2); ?></strong></td>
             <td style="text-align: right;"><strong><?php echo number_format($Totalpaid, 2); ?></strong></td>

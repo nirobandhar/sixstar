@@ -17,6 +17,7 @@
                     <li class='active'><a href='<?php echo base_url();?>Administrator/purchase/order'><span style="font-weight:bold">Purchase </span></a></li>
                     <li class='active'><a href='<?php echo base_url();?>Administrator/purchase/returns'><span style="font-weight:bold">Purchase Return</span></a></li>
                     <li class='active'><a href='<?php echo base_url();?>Administrator/products/current_stock'><span style="font-weight:bold">Current Stock</span></a></li>
+                    <li class='active'><a href='<?php echo base_url();?>Administrator/products/current_short_list'><span style="font-weight:bold">Short List</span></a></li>
                     <li class='active'><a href='<?php echo base_url();?>Administrator/account/cash_transaction'><span style="font-weight:bold">Cash Transaction</span></a></li>
                     <li class='active'><a href='<?php echo base_url();?>Administrator/page/service'><span style="font-weight:bold">Services</span></a></li>
                     <!--<li class='active has-sub'><a href='<?php //echo base_url() ?>Administrator/products/transfer'><span style="font-weight:bold">Product Transfer</span></a>

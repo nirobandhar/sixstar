@@ -235,6 +235,11 @@ class Reports extends CI_Controller {
         $datas['title'] = "Current Stock";
         $this->load->view('Administrator/reports/current_stock', $datas);
     }
+    /////Short List
+    function current_short_list()  {
+        $datas['title'] = "Current Stock";
+        $this->load->view('Administrator/reports/current_short_list', $datas);
+    }
     function Product_List()  {
         $datas['title'] = "Products List";
         $this->load->view('Administrator/reports/product_list', $datas);

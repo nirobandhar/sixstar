@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://localhost/sixstar/';
+$config['base_url']	= 'http://localhost/sixstar/'; 'http://192.168.0.19.xip.io/sixstar/';
 
 /*
 |--------------------------------------------------------------------------
