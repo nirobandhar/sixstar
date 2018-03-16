@@ -1,9 +1,70 @@
 <link href="<?php echo base_url()?>css/prints.css" rel="stylesheet" />
+
+
 <div class="content_scroll" style="padding:120px 20px 25px 160px">
+    <!--Search Button-->
+    <div style="border:1px solid #ddd">
+        <table >
+            <tr>
+                <td><strong>Sales Type</strong></td>
+                <td>
+                    <select id="Salestype" class="inputclass" style="width:200px">
+                        <option value="" selected="selected" disabled="disabled">Select one</option>
+                        <option value="allSelected"> All </option>
+                        <option value="companySelected">Company wise</option>
+                        <option value="proSelected">Product wise</option>
+                    </select>
+                </td>
+
+                <!--One td-->
+                <td>
+                    <span class="searchHide" id="companyList">
+                            <table>
+                            <tr>
+                                <td>Select Company</td>
+                                <td style="width:250px" id="filtercustomer">
+
+                                    <select name="" id="customerID" class="inputclass" style="width:200px" >
+                                        <option value="" selected="selected" disabled="disabled">Select one</option>
+                                        <option value="">Company wise</option>
+                                    </select>
+                                </td>
+                            </tr>
+                        </table>
+                    </span>
+                </td>
+                <!--End One td-->
+
+                <!--three td-->
+                <td>
+                    <span class="searchHide" id="productList">
+                            <table>
+                            <tr>
+                                <td>Select Product</td>
+                                <td style="width:250px" id="filtercustomer">
+
+                                    <select name="" id="customerID" class="inputclass" style="width:200px" >
+                                        <option value="" selected="selected" disabled="disabled">Select one</option>
+                                        <option value="">Product wise</option>
+                                    </select>
+                                </td>
+                            </tr>
+                        </table>
+                    </span>
+                </td>
+                <!--End three td-->
+
+
+                <td><input type="button" class="buttonAshiqe" onclick="searchforRecord()" value="Search Report"></td>
+            </tr>
+
+        </table>
+    </div>
+    <!--End Search Button-->
 
     <table class="border" cellspacing="0" cellpadding="0" width="70%">
-
         <h4><a style="cursor:pointer" onclick="window.open('<?php echo base_url();?>Administrator/reports/current_stock', 'newwindow', 'width=850, height=800,scrollbars=yes'); return false;"><img src="<?php echo base_url(); ?>images/printer.png" alt=""> Print</a></h4>
+
         <tr>
             <td colspan="10" align="center"><h2>Current Stock</h2></td>
         </tr>
@@ -92,4 +153,26 @@
         </tr>
 
     </table>
+
 </div>
+
+<script>
+    $(window).load(function () {
+        $(".searchHide").hide();
+        $('#Salestype').on('change', function () {
+            var value = $(this).val();
+
+            if(value == 'companySelected'){
+                $("#companyList").show();
+            }else{
+                $("#companyList").hide();
+            }
+
+            if(value == 'proSelected'){
+                $("#productList").show();
+            }else{
+                $("#productList").hide();
+            }
+        });
+    });
+</script>
