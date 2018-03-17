@@ -191,11 +191,13 @@ class Customer extends CI_Controller {
 			 <?php } ?>
              </select>
 		<?php }
+
     function customer_due(){
         $data['title'] = 'Customer Due';
         $data['content'] = $this->load->view('Administrator/due_report/customer_due', $data, TRUE);
         $this->load->view('Administrator/index', $data);
-    } 
+    }
+
     function search_customer_due()  {
         $dAta['searchtype']= $searchtype = $this->input->post('searchtype');
         $dAta['Sales_startdate']=$Sales_startdate = $this->input->post('Sales_startdate');
@@ -213,8 +215,7 @@ class Customer extends CI_Controller {
             $sql = "SELECT tbl_salesmaster.*,tbl_salesmaster.Status as salestatus, tbl_customer.* FROM tbl_salesmaster left join tbl_customer on tbl_customer.Customer_SlNo = tbl_salesmaster.SalseCustomer_IDNo WHERE tbl_salesmaster.SalseCustomer_IDNo = '$customerID' group by tbl_salesmaster.SalseCustomer_IDNo";
             // $sql = "SELECT tbl_salesmaster.*, tbl_customer.* FROM tbl_salesmaster left join tbl_customer on tbl_customer.Customer_SlNo = tbl_salesmaster.SalseCustomer_IDNo WHERE tbl_salesmaster.SalseCustomer_IDNo = '$customerID' and  tbl_salesmaster.SaleMaster_SaleDate between  '$Sales_startdate' and '$Sales_enddate' group by tbl_salesmaster.SalseCustomer_IDNo";
         }
-	}
-	else{
+	}else{
         if($searchtype == "All"){
             $sql = "SELECT tbl_salesmaster.*,tbl_salesmaster.Status as salestatus, tbl_customer.* FROM tbl_salesmaster left join tbl_customer on tbl_customer.Customer_SlNo = tbl_salesmaster.SalseCustomer_IDNo Where tbl_salesmaster.Status = '$Salestype' group by tbl_salesmaster.SalseCustomer_IDNo";
             // $sql = "SELECT tbl_salesmaster.*, tbl_customer.* FROM tbl_salesmaster left join tbl_customer on tbl_customer.Customer_SlNo = tbl_salesmaster.SalseCustomer_IDNo WHERE tbl_salesmaster.SaleMaster_SaleDate between  '$Sales_startdate' and '$Sales_enddate' group by tbl_salesmaster.SalseCustomer_IDNo";
@@ -224,9 +225,9 @@ class Customer extends CI_Controller {
             // $sql = "SELECT tbl_salesmaster.*, tbl_customer.* FROM tbl_salesmaster left join tbl_customer on tbl_customer.Customer_SlNo = tbl_salesmaster.SalseCustomer_IDNo WHERE tbl_salesmaster.SalseCustomer_IDNo = '$customerID' and  tbl_salesmaster.SaleMaster_SaleDate between  '$Sales_startdate' and '$Sales_enddate' group by tbl_salesmaster.SalseCustomer_IDNo";
         }
 	}
-        $datas["record"] = $this->mt->ccdata($sql);
-        
-        $this->load->view('Administrator/due_report/customer_due_list', $datas);
+
+	$datas["record"] = $this->mt->ccdata($sql);
+    $this->load->view('Administrator/due_report/customer_due_list', $datas);
     }
 
     function customer_due_payment($Custid){

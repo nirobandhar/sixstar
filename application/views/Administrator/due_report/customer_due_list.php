@@ -36,7 +36,7 @@
 
         <?php
 
-        $totalpurchase = "";
+        $totalpurchase = 0;
 
         $Totalpaid = "";
 
@@ -50,7 +50,7 @@
 
             $Custid = $record['SalseCustomer_IDNo'];
 
-            $paid='';
+            $paid = 0;
 
             $sql = mysql_query("SELECT * FROM tbl_customer_payment WHERE CPayment_customerID = '".$Custid."'");
 
@@ -60,25 +60,37 @@
 
             }
 
-            $purchase="";
+            $SubTotalAmnt = 0;
 
             $sqls = mysql_query("SELECT * FROM tbl_salesmaster WHERE SalseCustomer_IDNo = '".$Custid."'");
 
             while($rows = mysql_fetch_array($sqls)){
 
-                $purchase = $purchase +$rows['SaleMaster_SubTotalAmount'];
+                $SubTotalAmnt = $SubTotalAmnt +$rows['SaleMaster_SubTotalAmount'];
 
             }
-            if($purchase- $paid !="0"){
 
-                $totalpurchase = $totalpurchase+$purchase;
+            //Return Amount
+            $totalAmnt = 0;
+            $sqlss = mysql_query("SELECT tbl_salesmaster.*, tbl_salereturn.*, tbl_salereturndetails.* FROM tbl_salereturn LEFT join tbl_salesmaster on tbl_salereturn.SaleMaster_InvoiceNo = tbl_salesmaster.SaleMaster_InvoiceNo LEFT JOIN tbl_salereturndetails on tbl_salereturndetails.SaleReturn_IdNo = tbl_salereturn.SaleReturn_SlNo WHERE tbl_salesmaster.SalseCustomer_IDNo = '".$Custid."'");
+
+            while($rowss = mysql_fetch_array($sqlss)){
+                $totalAmnt = $totalAmnt +$rowss['SaleReturn_ReturnAmount'];
+            }
+            /*var_dump($totalAmnt);*/
+            //End Return Amount
+
+
+            if($SubTotalAmnt - $paid != 0){
+
+                $totalpurchase = $totalpurchase+$SubTotalAmnt;
 
                 $Totalpaid = $Totalpaid+$paid;
 
-            /*if($purchase - $paid =="0")
+            /*if($SubTotalAmnt - $paid =="0")
             {
 
-                $totalpurchase = $totalpurchase+$purchase;
+                $totalpurchase = $totalpurchase+$SubTotalAmnt;
 
                 $Totalpaid = $Totalpaid+$paid;*/
 
@@ -95,11 +107,11 @@
 
             <td><?php echo $record['Customer_Mobile'] ?></td>
 
-            <td><?php echo $purchase ?></td>
+            <td><?php echo $SubTotalAmnt ?></td>
 
             <td><?php echo $paid ?></td>
 
-            <td><?php echo $purchase- $paid ?></td>
+            <td><?php echo ($SubTotalAmnt - $paid-$totalAmnt) ?></td>
 
             <td><a class="btn-add fancybox fancybox.ajax" href="<?php echo base_url();?>Administrator/customer/customer_due_payment/<?php echo $record['SalseCustomer_IDNo']; ?>">
 
@@ -112,7 +124,7 @@
 
             <?php
             }/*else{
-            $totalpurchase = $totalpurchase+$purchase;
+            $totalpurchase = $totalpurchase+$SubTotalAmnt;
 
             $Totalpaid = $Totalpaid+$paid;
 
@@ -130,11 +142,11 @@
 
             <td><php /*echo $record['Customer_Mobile'] */?></td>
 
-            <td><php /*echo $purchase */?></td>
+            <td><php /*echo $SubTotalAmnt */?></td>
 
             <td><php /*echo $paid */?></td>
 
-            <td><php /*echo $purchase- $paid */?></td>
+            <td><php /*echo $SubTotalAmnt- $paid */?></td>
 
             <td><a class="btn-add fancybox fancybox.ajax" href="<php /*echo base_url();*/?>Administrator/customer/customer_due_payment/<?php /*echo $record['SalseCustomer_IDNo']; */?>">
 
