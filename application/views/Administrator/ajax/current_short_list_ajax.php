@@ -40,6 +40,7 @@
         $i++;
         $totalprretqty = $record['PurchaseInventory_ReturnQuantity'];
         $totalprdamqty = $record['PurchaseInventory_DamageQuantity'];
+        $OrderLvl = "";
         $OrderLvl = $record['Product_ReOrederLevel'];
 
         $totalprlostqty = $totalprretqty+$totalprdamqty;

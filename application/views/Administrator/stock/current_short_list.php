@@ -74,7 +74,7 @@
     <!--End Search Button-->
     <span id="stockRecord">
         <table class="border" cellspacing="0" cellpadding="0" width="70%">
-        <h4><a style="cursor:pointer" onclick="window.open('<?php echo base_url();?>Administrator/reports/current_stock', 'newwindow', 'width=850, height=800,scrollbars=yes'); return false;"><img src="<?php echo base_url(); ?>images/printer.png" alt=""> Print</a></h4>
+        <h4><a style="cursor:pointer" onclick="window.open('<?php echo base_url();?>Administrator/reports/current_short_list', 'newwindow', 'width=850, height=800,scrollbars=yes'); return false;"><img src="<?php echo base_url(); ?>images/printer.png" alt=""> Print</a></h4>
 
         <tr>
             <td colspan="10" align="center"><h2>Current Stock</h2></td>
@@ -118,6 +118,7 @@
                 $i++;
                 $totalprretqty = $record['PurchaseInventory_ReturnQuantity'];
                 $totalprdamqty = $record['PurchaseInventory_DamageQuantity'];
+                $OrderLvl = "";
                 $OrderLvl = $record['Product_ReOrederLevel'];
 
                 $totalprlostqty = $totalprretqty+$totalprdamqty;

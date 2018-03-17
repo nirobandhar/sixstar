@@ -233,6 +233,8 @@ class Reports extends CI_Controller {
     }
     function current_stock()  {
         $datas['title'] = "Current Stock";
+        $datas['searchtypeval'] = $this->session->userdata('searchtypeval');
+
         $this->load->view('Administrator/reports/current_stock', $datas);
     }
     /////Short List
