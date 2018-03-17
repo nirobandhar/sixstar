@@ -118,7 +118,6 @@
                 $i++;
                 $totalprretqty = $record['PurchaseInventory_ReturnQuantity'];
                 $totalprdamqty = $record['PurchaseInventory_DamageQuantity'];
-                $OrderLvl = "";
                 $OrderLvl = $record['Product_ReOrederLevel'];
 
                 $totalprlostqty = $totalprretqty+$totalprdamqty;
@@ -137,7 +136,7 @@
                 $perbranchqty = $roxstock['branqty'];
 
                 $totalqty = ($perbranchqty+$totalsaretqty)-($totalprlostqty+$sellTOTALqty);
-                if($totalqty <=$OrderLvl){
+                if($totalqty <= $OrderLvl){
                     $rate = $totalqty*$record['PurchaseDetails_Rate'];
                     $subtotal = $subtotal+$rate;
                     ?>
@@ -188,16 +187,33 @@
                 $("#productList").hide();
             }
 
-            if(value == 'allSelected') {
-                location.reload(true);
-            }
+            /* if(value == 'allSelected') {
+             location.reload(true);
+             }*/
         });
     });
 
     $('.searchtypeval').on('change', function () {
         var searchtypeval = $(this).val();
         var inputData ='searchtypeval='+searchtypeval;
-        var urldata = "<?php echo base_url(); ?>Administrator/products/current_stock_ajax";
+        var urldata = "<?php echo base_url(); ?>Administrator/products/current_short_list_ajax";
+        $.ajax({
+            type: "POST",
+            url: urldata,
+            data: inputData,
+            success:function(data){
+                $("#stockRecord").html(data);
+            }
+        });
+    });
+
+    $('#searchtype').on('change', function () {
+        var searchtypeval = $(this).val();
+        if(searchtypeval!='allSelected'){
+            return false;
+        }
+        var inputData ='searchtypeval='+searchtypeval;
+        var urldata = "<?php echo base_url(); ?>Administrator/products/current_short_list_ajax";
         $.ajax({
             type: "POST",
             url: urldata,

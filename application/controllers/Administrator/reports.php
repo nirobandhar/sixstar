@@ -239,11 +239,13 @@ class Reports extends CI_Controller {
     }
     /////Short List
     function current_short_list()  {
-        $datas['title'] = "Current Stock";
+        $datas['title'] = "Short List";
+        $datas['searchtypevalshortlist'] = $this->session->userdata('searchtypevalshortlist');
         $this->load->view('Administrator/reports/current_short_list', $datas);
     }
     function Product_List()  {
         $datas['title'] = "Products List";
+
         $this->load->view('Administrator/reports/product_list', $datas);
     }
 	function print_current_stock()  {
