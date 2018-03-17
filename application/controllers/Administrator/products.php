@@ -151,6 +151,18 @@ class Products extends CI_Controller {
         $data['content'] = $this->load->view('Administrator/stock/current_stock', $data, TRUE);
         $this->load->view('Administrator/index', $data);
     }
+
+    public function current_stock_ajax()  {
+        $datas['searchtypeval'] = $this->input->post('searchtypeval');
+        $content = $this->load->view('Administrator/ajax/current_stock_ajax', $datas, TRUE);
+        echo $content;
+    }
+    public function current_short_ajax()  {
+        $datas['searchtypeval'] = $this->input->post('searchtypeval');
+        $content = $this->load->view('Administrator/ajax/current_short_list_ajax', $datas, TRUE);
+        echo $content;
+    }
+
     /// Short List
 public function current_short_list()  {
         $data['title'] = "Current Stock";

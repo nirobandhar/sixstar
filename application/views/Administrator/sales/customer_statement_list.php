@@ -38,8 +38,10 @@
         <tr bgcolor="#89B03E" style="background:#89B03E;">
             <th>Date</th>
             <th>Invoice No.</th>
+            <th>Payment ID</th>
             <th>Sales Type</th>
             <th>Total Sale</th>
+            <th>Return Value</th>
             <th>Paid</th>
             <th>Balance</th>
             <th>Notes</th>
@@ -66,6 +68,7 @@
         <tr>
             <td><?php echo $record['CPayment_date'] ?></td>
             <td><?php echo $record['CPayment_invoice'] ?></td>
+            <td><?php echo $record['CPayment_id'] ?></td>
             <td><?php if($record['type']==1){ echo "Retail Sale";}
 			if($record['type']==2){ echo "Whole Sale";}
 			if($record['type']==3){ echo "Installment Sale";}
@@ -84,6 +87,7 @@
                 ?>
             </td>
 
+            <td style="text-align: right;"></td>
             <td style="text-align: right;"><?php echo number_format($record['CPayment_amount'], 2); ?></td>
             <td style="text-align: right;"><?php echo number_format($openingBalance, 2); ?></td>
             <td><?php echo $record['SaleMaster_Description'] ?></td>
@@ -92,8 +96,7 @@
         </tr>
         <?php } ?>
         <tr>
-            <td></td>
-            <td></td>
+            <td colspan="4"></td>
             <td><strong>Total</strong></td>
             <td style="text-align: right;"><strong><?php echo number_format($totalpurchase, 2); ?></strong></td>
             <td style="text-align: right;"><strong><?php echo number_format($Totalpaid, 2); ?></strong></td>

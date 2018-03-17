@@ -45,7 +45,7 @@
                             <div class="left">
                                 <div id="Search_Results_size">
                                     <select name="psize" id="psize" style="width:163px;" required>
-                                        <option value="">Select</option>
+                                        <option value="" disabled selected>Select</option>
                                         <?php $sql = mysql_query("SELECT * FROM tbl_produsize order by Productsize_Name asc");
                                         while($row = mysql_fetch_array($sql)){ ?>
                                             <option value="<?php echo $row['Productsize_SlNo'] ?>"><?php echo $row['Productsize_Name'] ?></option>
@@ -63,7 +63,13 @@
                         <div class="full clearfix">
                             <span>Name</span>
                             <div class="left">
-                                <input name="pro_Name" type="text" id="pro_Name" class="required" required/>
+                                <select name="pro_Name" id="pro_Name" style="width:163px;" tabindex="2" required>
+                                    <option value="" disabled selected>Select</option>
+                                    <?php $sql = mysql_query("SELECT * FROM tbl_product_name order by fld_pro_name asc");
+                                    while($row = mysql_fetch_array($sql)){ ?>
+                                        <option value="<?php echo $row['fld_pro_name'] ?>"><?php echo $row['fld_pro_name'] ?></option>
+                                    <?php } ?>
+                                </select>
                                 <span id="pro_Name_"></span>
                             </div>
                         </div>
